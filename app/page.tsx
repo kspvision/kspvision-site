@@ -8,11 +8,12 @@ export default function Home() {
 
   return (
     <main>
-      <header className="nav" aria-label="Navigation principale">
-        <a className="brand" href="#accueil" aria-label="KSP Vision — Accueil"><span>KSP</span> VISION</a>
+      <aside className="previewNotice homeNotice">Preview edition — selected projects are being updated</aside>
+      <header className="nav homeNav" aria-label="Main navigation">
+        <a className="brand" href="/" aria-label="KSP Vision — Home"><span>KSP</span> VISION</a>
         <nav className="mainNav">
-          <a href="/music-videos">{l("Music Videos","Clips musicaux")}</a><a href="/brand-documentary">{l("Brand / Doc","Marque / Doc")}</a><a href="/weddings">{l("Weddings","Mariages")}</a><a className="serviceNav" href="#services">Services</a>
-          <button className="langSwitch" onClick={() => setLang(lang === "en" ? "fr" : "en")}>{lang === "en" ? "FR" : "EN"}</button>
+          <a href="/music-videos">{l("Music Videos","Clips musicaux")}</a><a href="/weddings">{l("Weddings","Mariages")}</a><a href="/brand-documentary">{l("Brand / Doc","Marque / Doc")}</a><a className="serviceNav" href="#services">Services</a>
+          <button className="langSwitch" aria-label={lang === "en" ? "Afficher le site en français" : "View the site in English"} onClick={() => setLang(lang === "en" ? "fr" : "en")}>{lang === "en" ? "FR" : "EN"}</button>
           <a className="navCta" href="/booking">{l("Book","Réserver")}</a>
         </nav>
       </header>
@@ -30,16 +31,16 @@ export default function Home() {
       </section>
 
       <section className="pathways section" id="types">
-        <div className="pathIntro"><p className="kicker">01 / {l("Choose your project","Choisissez votre projet")}</p><h2>{l("What are we","Que créons-nous")}<br /><i>{l("creating?","ensemble?")}</i></h2></div>
+        <div className="pathIntro"><p className="kicker">{l("Choose your project","Choisissez votre projet")}</p><h2>{l("What are we","Que créons-nous")}<br /><i>{l("creating?","ensemble?")}</i></h2></div>
         <div className="pathGrid">
-          <a href="/music-videos"><span>01</span><h3>{l("Music videos","Clips musicaux")}</h3><p>{l("Concept, direction, cinematography, editing and visual effects.","Concept, réalisation, cinématographie, montage et effets visuels.")}</p><b>{l("Open page","Voir la page")} ↗</b></a>
-          <a href="/brand-documentary"><span>02</span><h3>{l("Brand & documentary","Marque et documentaire")}</h3><p>{l("Campaigns, branded stories, portraits and documentary content.","Campagnes, récits de marque, portraits et contenu documentaire.")}</p><b>{l("Open page","Voir la page")} ↗</b></a>
-          <a href="/weddings"><span>03</span><h3>{l("Wedding films","Films de mariage")}</h3><p>{l("Emotional, cinematic films built around your day and your story.","Des films émotionnels et cinématographiques, centrés sur votre histoire.")}</p><b>{l("Open page","Voir la page")} ↗</b></a>
+          <a href="/music-videos"><span>{l("For artists","Pour artistes")}</span><h3>{l("Music videos","Clips musicaux")}</h3><p>{l("Concept, direction, cinematography, editing and visual effects.","Concept, réalisation, cinématographie, montage et effets visuels.")}</p><b>{l("Open page","Voir la page")} ↗</b></a>
+          <a href="/weddings"><span>{l("For couples","Pour couples")}</span><h3>{l("Wedding films","Films de mariage")}</h3><p>{l("Emotional, cinematic films built around your day and your story.","Des films émotionnels et cinématographiques, centrés sur votre histoire.")}</p><b>{l("Open page","Voir la page")} ↗</b></a>
+          <a href="/brand-documentary"><span>{l("For organizations","Pour organisations")}</span><h3>{l("Brand & documentary","Marque et documentaire")}</h3><p>{l("Campaigns, branded stories, portraits and documentary content.","Campagnes, récits de marque, portraits et contenu documentaire.")}</p><b>{l("Open page","Voir la page")} ↗</b></a>
         </div>
       </section>
 
       <section className="section services" id="services">
-        <div className="sectionHead"><div><p className="kicker">02 / {l("What we do","Ce que nous faisons")}</p><h2>{l("From idea","De l’idée")}<br /><i>{l("to final frame.","à l’image finale.")}</i></h2></div><p>{l("Choose one specialty or entrust KSP Vision with the complete production.","Choisissez une spécialité ou confiez la production complète à KSP Vision.")}</p></div>
+        <div className="sectionHead"><div><p className="kicker">{l("What we do","Ce que nous faisons")}</p><h2>{l("From idea","De l’idée")}<br /><i>{l("to final frame.","à l’image finale.")}</i></h2></div><p>{l("Choose one specialty or entrust KSP Vision with the complete production.","Choisissez une spécialité ou confiez la production complète à KSP Vision.")}</p></div>
         <div className="serviceList">
           {[
             ["01", "Production", l("Concept development, planning, crew direction and production management.","Développement du concept, préparation, direction d’équipe et gestion de production.")],
