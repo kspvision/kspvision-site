@@ -20,7 +20,7 @@ export default function Home() {
 
       <section className="hero" id="accueil">
         <div className="heroImage" aria-hidden="true">
-          <video autoPlay muted loop playsInline preload="metadata" poster="/portfolio/hero.jpg">
+          <video autoPlay muted loop playsInline preload="auto" poster="/portfolio/hero.jpg" onCanPlay={(event) => event.currentTarget.play().catch(() => {})} onEnded={(event) => { event.currentTarget.currentTime = 0; event.currentTarget.play().catch(() => {}); }}>
               <source
                 src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/ksp-hero-reel.mp4"
                 type="video/mp4"
