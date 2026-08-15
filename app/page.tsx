@@ -19,7 +19,14 @@ export default function Home() {
       </header>
 
       <section className="hero" id="accueil">
-        <div className="heroImage" aria-hidden="true" />
+        <div className="heroImage" aria-hidden="true">
+          <video autoPlay muted loop playsInline preload="metadata" poster="/portfolio/hero.jpg">
+              <source
+                src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/ksp-hero-reel.mp4"
+                type="video/mp4"
+              />
+          </video>
+        </div>
         <div className="heroShade" />
         <div className="heroContent">
           <p className="eyebrow"><span /> {l("Production · Cinematography · Post-production","Production · Cinématographie · Post-production")}</p>
