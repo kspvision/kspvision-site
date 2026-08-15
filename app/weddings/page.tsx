@@ -8,16 +8,6 @@ const gallery = [
   ["/weddings/smith-party.jpg","Smith & Aureanne with their wedding party"], ["/weddings/ralph-bride.jpg","Bride portrait in the forest"],
   ["/weddings/suffrard-dress.jpg","Wedding dress detail"], ["/weddings/suffrard-ceremony.jpg","Wedding ceremony"],
 ];
-const miraApplication = [1,2,3,4].map((number) => [`/mira/final/application-${number}.jpg`, `Bridal makeup application by Mira, view ${number}`]);
-const miraFinal = [1,2,3,4].map((number) => [`/mira/final/final-${number}.jpg`, `Completed bridal makeup by Mira, portrait ${number}`]);
-const miraRates = [
-  ["Bridal makeup", "$175"],
-  ["Bridal trial", "$110"],
-  ["Bride + trial", "$265"],
-  ["Bridal party / guest", "$120 per person"],
-  ["Special-event makeup", "$125"],
-];
-
 export default function WeddingsPage() {
   return <main className="detailPage weddingPage">
     <aside className="previewNotice">Preview edition — portfolio updates in progress</aside>
@@ -27,12 +17,9 @@ export default function WeddingsPage() {
       <div className="weddingVideoGrid">{films.map((film)=><article className={film.featured ? "featuredWeddingVideo" : ""} key={film.title}><div className="videoEmbed"><iframe src={`https://www.youtube-nocookie.com/embed/${film.youtubeId}?rel=0`} title={`${film.title} wedding film`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /></div><div className="weddingMeta"><div><p>{film.role}</p><h3>{film.title}</h3></div><span>Watch film</span></div></article>)}</div>
     </section>
     <section className="weddingGallery"><div className="weddingSectionHead"><div><p className="kicker">In the details</p><h2>Moments, preserved</h2></div><p>Quiet preparations, shared glances and the people who made each celebration unforgettable.</p></div><div>{gallery.map(([src,alt],i)=><figure className={`galleryItem galleryItem${i+1}`} key={src}><img src={src} alt={alt}/></figure>)}</div></section>
-    <section className="miraSection" aria-labelledby="mira-heading">
-      <div className="miraLead"><img src="/mira/final/mira-working.jpg" alt="Mira applying bridal eye makeup" /><div className="miraLeadCopy"><p className="miraEyebrow">Bridal + event makeup</p><h2 id="mira-heading">MIRA</h2><p className="miraLocation">Montréal + surroundings</p><p className="miraNameNote"><strong>Mira is her professional name.</strong></p><p>Soft, polished and camera-ready beauty tailored to your features, your comfort and the feeling of your celebration.</p><div className="miraActions"><a className="button miraButton" href="/mira">Explore Mira ↗</a><a className="textLink" href="mailto:divya.vila91@gmail.com?subject=Makeup%20booking%20with%20Mira">Book by email</a></div></div></div>
-      <div className="miraProofGroup"><h3><span>01</span> The application</h3><div className="miraPortfolio">{miraApplication.map(([src,alt])=><img src={src} alt={alt} key={src}/>)}</div></div>
-      <div className="miraProofGroup"><h3><span>02</span> The finished look</h3><div className="miraPortfolio">{miraFinal.map(([src,alt])=><img src={src} alt={alt} key={src}/>)}</div></div>
-      <div className="miraRates"><div><p className="miraEyebrow">Services</p><h3>Launch rates</h3><p>Starting rates in Canadian dollars. Travel outside Montréal is quoted according to distance.</p></div><div className="miraRateList">{miraRates.map(([service,price])=><div key={service}><span>{service}</span><strong>{price}</strong></div>)}</div></div>
-      <p className="miraContact">Availability and quotes: <a href="mailto:divya.vila91@gmail.com">divya.vila91@gmail.com</a></p>
+    <section className="makeupArtists" aria-labelledby="makeup-heading">
+      <div className="weddingSectionHead"><div><p className="kicker">Wedding beauty</p><h2 id="makeup-heading">Makeup artists</h2></div><p>Discover trusted beauty artists for weddings, celebrations and on-camera work.</p></div>
+      <a className="makeupArtistCard" href="/mira"><img src="/mira/final/mira-working.jpg" alt="Mira applying bridal makeup"/><div><p>Bridal + event makeup · Montréal</p><h3>MIRA</h3><span>View artist, transformation and gallery ↗</span></div></a>
     </section>
     <section className="weddingExperience"><p className="kicker">The experience</p><div><article><span>01</span><h2>Before</h2><p>A thoughtful conversation about your people, your priorities and how you want the day to feel.</p></article><article><span>02</span><h2>During</h2><p>Calm, unobtrusive coverage that lets genuine moments unfold without turning the day into a production.</p></article><article><span>03</span><h2>Forever</h2><p>A carefully shaped film with emotional pacing, polished colour and sound, made to be revisited.</p></article></div></section>
     <section className="weddingCta"><p className="kicker">Now booking</p><h2>Your story deserves<br/>to feel like yours.</h2><a className="button gold" href="/booking">Check availability ↗</a></section>
