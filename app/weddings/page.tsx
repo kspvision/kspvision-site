@@ -1,4 +1,5 @@
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
+import { WeddingReel } from "../wedding-reel";
 
 const films = [
   { title: "Smith & Aureanne", youtubeId: "kCRAeRvvy4M" },
@@ -21,7 +22,7 @@ export default function WeddingsPage() {
     <SiteHeader active="weddings" />
     <section className="weddingIntro"><div><p className="kicker">WEDDING FILMS</p><h1><Localized en="More than a day." fr="Plus qu’une journée." /><br/><em><Localized en="A feeling, preserved." fr="Une émotion, préservée." /></em></h1><p><Localized en="Honest, elegant films for the moments you will want to return to." fr="Des films élégants et sincères, pour les moments auxquels vous voudrez revenir." /></p><a className="button gold" href="/booking"><Localized en="Tell us about your day" fr="Parlez-nous de votre journée" /> <b>↗</b></a></div><img src="/weddings/wedding-garden-wide.jpg" alt="Smith and Aureanne with their wedding party" /></section>
     <section className="weddingFilms"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected celebrations" fr="Célébrations sélectionnées" /></p><h2><Localized en="Wedding stories" fr="Histoires de mariage" /></h2></div><p><Localized en="A wedding reel, then three films to explore." fr="Un reel de mariage, puis trois films à découvrir." /></p></div>
-      <article className="weddingReel"><video autoPlay muted loop playsInline preload="metadata" poster="/weddings/wedding-garden-portrait.jpg"><source src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/Wedding.Reel.mp4" type="video/mp4" /></video><div><p>WEDDING REEL</p><span><Localized en="A selection of moments" fr="Une sélection de moments" /></span></div></article>
+      <article className="weddingReel"><WeddingReel /><div><p>WEDDING REEL</p><span><Localized en="A selection of moments" fr="Une sélection de moments" /></span></div></article>
       <div className="weddingVideoGrid">{films.map((film) => <a className="weddingFilmCard" href={`https://www.youtube.com/watch?v=${film.youtubeId}`} target="_blank" rel="noreferrer" key={film.title}><div className="publishedFilmStill"><img src={`https://img.youtube.com/vi/${film.youtubeId}/hqdefault.jpg`} alt="" /><span><Localized en="Watch film" fr="Voir le film" /> ↗</span></div><div className="weddingMeta"><h3>{film.title}</h3></div></a>)}</div>
     </section>
     <section className="weddingGallery"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="In the details" fr="Dans les détails" /></p><h2><Localized en="Moments, preserved" fr="Moments préservés" /></h2></div></div><div>{gallery.map(([src, alt], index) => <figure className={`galleryItem galleryItem${index + 1}`} key={src}><img src={src} alt={alt} /></figure>)}</div></section>
