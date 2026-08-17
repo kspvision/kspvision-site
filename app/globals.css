@@ -126,3 +126,46 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
 
 /* Controlled correction pass */
 .weddingIntro img{opacity:1;filter:saturate(.82) contrast(1.03) brightness(1.18);-webkit-mask-image:none;mask-image:none}.weddingGallery>div:last-child{grid-template-columns:repeat(12,1fr)}.galleryItem6{display:block}.galleryItem7,.galleryItem8{grid-column:span 6;grid-row:span 2}.toneBrand{max-width:1120px;min-height:480px;display:grid;place-items:center;text-align:center;background:#080808!important}.toneBrand>div{max-width:700px}.toneBrand h1{margin:1.5rem auto 1.35rem}.toneBrand>div>p:not(.kicker){margin:0 auto 2rem;line-height:1.65}.toneBrand .button{margin-top:0}.videoCollection .weddingSectionHead{gap:2rem}.videoCollection .weddingSectionHead>p{max-width:360px;justify-self:end}.documentaryPoster{position:relative;display:flex;min-height:0;aspect-ratio:16/9;flex-direction:column;justify-content:flex-end;padding:1rem;overflow:hidden;background:#181513;border:1px solid #292929}.documentaryPoster:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 28%,rgba(213,170,85,.28),transparent 23%),linear-gradient(135deg,transparent 35%,rgba(255,255,255,.08))}.documentaryPoster span,.documentaryPoster small{position:relative}.documentaryPoster span{font-size:clamp(1.2rem,2.5vw,2.15rem);font-weight:800;line-height:.92;letter-spacing:-.04em}.documentaryPoster small{margin-top:.7rem;color:#d5aa55;font-size:.5rem;letter-spacing:.13em}.button b,.publishedFilmStill span,.musicThumb b,.featuredMusicHero small{font-family:Arial,sans-serif;font-variant-emoji:text}@media(max-width:800px){.toneBrand{min-height:420px;text-align:left;place-items:start}.toneBrand h1{margin:1.3rem 0}.toneBrand>div>p:not(.kicker){margin:0 0 1.7rem}.videoCollection .weddingSectionHead>p{justify-self:start}.galleryItem1,.galleryItem2,.galleryItem3,.galleryItem4,.galleryItem5,.galleryItem6,.galleryItem7,.galleryItem8{grid-column:span 1;grid-row:span 2}}
+
+/* HOME — separator cleanup only */
+
+/* One clean, subtle divider beneath navigation */
+.homeNav{
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+}
+
+/* Remove the artificial box/grid lines drawn over the hero */
+.heroImage::after{
+  border-top:0 !important;
+  border-right:0 !important;
+  border-bottom:0 !important;
+  box-shadow:none !important;
+}
+
+/* Keep project cards structured, but much quieter */
+.pathway{
+  border-color:rgba(255,255,255,.10) !important;
+}
+
+/* Prevent doubled-looking separators where cards meet */
+.pathways{
+  border-color:rgba(255,255,255,.08) !important;
+}
+
+
+/* HOME — lift nav separator slightly */
+.homeNav{
+  border-bottom:0 !important;
+}
+
+.homeNav::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:14px;
+  height:1px;
+  background:rgba(255,255,255,.10);
+  pointer-events:none;
+}
+
