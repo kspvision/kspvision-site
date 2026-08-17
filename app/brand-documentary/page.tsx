@@ -12,8 +12,34 @@ const documentaries = [
 
 export default function Page() { return <main className="detailPage brandPage"><SiteHeader active="brand" />
   <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><a className="button gold" href="/booking"><Localized en="Start a project" fr="Lancer un projet" /> <b>↗</b></a></div></section>
-  <section className="brandCollection"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected work" fr="Travaux sélectionnés" /></p><h2><Localized en="Commercial stories" fr="Histoires de marque" /></h2></div></div><div className="brandGrid">{commercial.map((project) => <a className="brandFilm" href={`https://www.youtube.com/watch?v=${project.youtubeId}`} target="_blank" rel="noreferrer" key={project.title}><div className="publishedFilmStill"><img src={`https://img.youtube.com/vi/${project.youtubeId}/hqdefault.jpg`} alt="" /><span><Localized en="Watch film" fr="Voir le film" /> ↗</span></div><div><p>{project.type}</p><h3>{project.title}</h3></div></a>)}</div></section>
-  <section className="brandCollection documentaryCollection"><div className="weddingSectionHead"><div><p className="kicker">DOCUMENTARY</p><h2><Localized en="Real stories" fr="Histoires réelles" /></h2></div><p><Localized en="Portraits and conversations made with attention and care." fr="Des portraits et conversations réalisés avec attention et sensibilité." /></p></div><div className="brandGrid documentaryPyramid">{documentaries.map((project, index) => <article className={`brandFilm documentaryCard documentaryCard${index + 1}`} key={project.title}>{project.poster ? <video autoPlay muted loop playsInline preload="metadata"><source src={project.src} type="video/mp4" /></video> : <video autoPlay muted loop playsInline preload="metadata"><source src={project.src} type="video/mp4" /></video>}<div className="documentaryInfo"><p>{index === 0 ? (
+  <section className="brandCollection"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected work" fr="Travaux sélectionnés" /></p><h2><Localized en="Commercial stories" fr="Histoires de marque" /></h2></div></div><div className="brandGrid">{commercial.map((project, index) => <a className="brandFilm" href={`https://www.youtube.com/watch?v=${project.youtubeId}`} target="_blank" rel="noreferrer" key={project.title}><div className="publishedFilmStill"><video
+  className="commercialAutoVideo"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+>
+  <source
+    src={index === 0 ? "/barbancourt-ad.mp4" : "/fragrance-ad.mp4"}
+    type="video/mp4"
+  />
+</video><span><Localized en="Watch film" fr="Voir le film" /> ↗</span></div><div><p>{project.type}</p><h3>{project.title}</h3></div></a>)}</div></section>
+  <section className="brandCollaborations">
+  <div className="brandCollabHeading">
+    <span>SELECTED COLLABORATIONS</span>
+    <p>Selected organizations and creative partners featured across KSP Vision productions.</p>
+  </div>
+
+  <div className="brandCollabStrip">
+    <img
+      src="/collaborations-selected.png"
+      alt="Selected KSP Vision collaborations"
+    />
+  </div>
+</section>
+
+<section className="brandCollection documentaryCollection"><div className="weddingSectionHead"><div><p className="kicker">DOCUMENTARY</p><h2><Localized en="Real stories" fr="Histoires réelles" /></h2></div><p><Localized en="Portraits and conversations made with attention and care." fr="Des portraits et conversations réalisés avec attention et sensibilité." /></p></div><div className="brandGrid documentaryPyramid">{documentaries.map((project, index) => <article className={`brandFilm documentaryCard documentaryCard${index + 1}`} key={project.title}>{project.poster ? <video autoPlay muted loop playsInline preload="metadata"><source src={project.src} type="video/mp4" /></video> : <video autoPlay muted loop playsInline preload="metadata"><source src={project.src} type="video/mp4" /></video>}<div className="documentaryInfo"><p>{index === 0 ? (
   <>
     <strong className="docProjectTitle">ADVANCE MUSIC GROUP CANADA</strong>
     <span className="docProjectRole">TOURNAGE · MONTAGE</span>
@@ -104,19 +130,7 @@ export default function Page() { return <main className="detailPage brandPage"><
 `}</style>
 
 
-<section className="brandCollaborations">
-  <div className="brandCollabHeading">
-    <span>SELECTED COLLABORATIONS</span>
-    <p>Selected organizations and creative partners featured across KSP Vision productions.</p>
-  </div>
 
-  <div className="brandCollabStrip">
-    <img
-      src="/collaborations-selected.png"
-      alt="Selected KSP Vision collaborations"
-    />
-  </div>
-</section>
 
 <section className="brandClosing">
   <p className="kicker">
@@ -571,6 +585,898 @@ export default function Page() { return <main className="detailPage brandPage"><
   .docProjectTitle{
     font-size:clamp(1.6rem,8vw,2.7rem) !important;
   }
+}
+
+`}</style>
+
+
+<style>{`
+/* FINAL BRAND COMPACT RHYTHM */
+
+/* ========================================================
+   BRAND / DOC — tighter editorial rhythm
+   ======================================================== */
+
+.brandPage .detailHero{
+    padding-top:3.6rem !important;
+    padding-bottom:3.8rem !important;
+}
+
+.brandCollection{
+    padding-top:clamp(3.2rem,5vw,4.8rem) !important;
+    padding-bottom:clamp(3.2rem,5vw,4.8rem) !important;
+}
+
+.brandCollection + .brandCollection{
+    padding-top:3.5rem !important;
+}
+
+.brandPage .weddingSectionHead{
+    margin-bottom:2.2rem !important;
+}
+
+/* autoplay commercial frames */
+.brandFilm{
+    overflow:hidden;
+}
+
+.brandFilm > div:first-child{
+    position:relative;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    background:#050505;
+}
+
+.commercialAutoVideo{
+    display:block;
+    width:100%;
+    height:100%;
+    aspect-ratio:16/9;
+    border:0;
+    pointer-events:none;
+}
+
+/*
+ Collaborations now sits BETWEEN Commercial Stories
+ and Real Stories.
+*/
+.brandCollaborations{
+    width:min(100%,900px) !important;
+    margin:1.2rem auto 1.8rem !important;
+    padding:2.7rem 0 !important;
+}
+
+.brandCollabHeading{
+    margin-bottom:1.5rem !important;
+}
+
+.brandCollabHeading span{
+    font-size:.62rem !important;
+    letter-spacing:.18em !important;
+}
+
+.brandCollabHeading p{
+    max-width:380px !important;
+    font-size:.69rem !important;
+}
+
+.brandCollabStrip{
+    padding:.65rem !important;
+}
+
+.brandCollabStrip img{
+    width:min(100%,820px) !important;
+    margin:0 auto !important;
+}
+
+/* Documentary arrives much sooner */
+.documentaryCollection{
+    padding-top:3.4rem !important;
+}
+
+.documentaryPyramid{
+    row-gap:clamp(3rem,5vw,4.5rem) !important;
+}
+
+.documentaryCard{
+    margin:0 !important;
+}
+
+.documentaryInfo{
+    margin-bottom:1rem !important;
+}
+
+/* Closing should complete the page, not create a giant void */
+.brandClosing{
+    margin-top:1rem !important;
+    margin-bottom:2.5rem !important;
+    padding-top:3.6rem !important;
+    padding-bottom:3.8rem !important;
+}
+
+@media(max-width:800px){
+    .brandCollaborations{
+        width:100% !important;
+        margin-top:.5rem !important;
+        padding:2.2rem 0 !important;
+    }
+
+    .brandCollection{
+        padding-top:3rem !important;
+        padding-bottom:3rem !important;
+    }
+}
+
+`}</style>
+
+
+<style>{`
+/* FINAL COMPACT BRAND RHYTHM */
+
+/* ---------- overall rhythm ---------- */
+.brandCollection{
+    padding-top:clamp(2.7rem,4vw,3.8rem) !important;
+    padding-bottom:clamp(2.7rem,4vw,3.8rem) !important;
+}
+
+/* ---------- commercial stories ---------- */
+.brandCollection .weddingSectionHead h2{
+    white-space:nowrap !important;
+    font-size:clamp(2rem,4vw,4rem) !important;
+}
+
+.brandGrid{
+    gap:1rem !important;
+}
+
+.brandFilm{
+    min-width:0 !important;
+}
+
+.brandFilm img,
+.brandFilm video{
+    display:block !important;
+    width:100% !important;
+    aspect-ratio:16/9 !important;
+    object-fit:cover !important;
+    background:#050505 !important;
+}
+
+@media(min-width:900px){
+    .brandGrid{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    }
+
+    .brandFilm{
+        transform:scale(1.03);
+        transform-origin:center;
+    }
+}
+
+/* ---------- collaborations: PROOF STRIP, not a giant section ---------- */
+.brandCollaborations{
+    width:min(100%,860px) !important;
+    margin:2rem auto 2.5rem !important;
+    padding:1.2rem 0 1.5rem !important;
+    border-top:1px solid rgba(255,255,255,.10) !important;
+    border-bottom:1px solid rgba(255,255,255,.10) !important;
+}
+
+.brandCollabHeading{
+    margin-bottom:.3rem !important;
+}
+
+.brandCollabHeading p{
+    margin-top:.35rem !important;
+    font-size:.60rem !important;
+    line-height:1.35 !important;
+}
+
+.brandCollabStrip{
+    position:relative !important;
+    height:86px !important;
+    overflow:hidden !important;
+    padding:0 !important;
+    border:0 !important;
+    background:transparent !important;
+}
+
+.brandCollabStrip img{
+    position:absolute !important;
+    left:50% !important;
+    top:50% !important;
+    transform:translate(-50%,-50%) scale(1.10) !important;
+    width:100% !important;
+    height:145px !important;
+    object-fit:cover !important;
+    object-position:center 61% !important;
+    mix-blend-mode:screen !important;
+}
+
+/* ---------- documentary ---------- */
+.documentaryCollection{
+    padding-top:clamp(2.5rem,4vw,3.5rem) !important;
+}
+
+.documentaryPyramid{
+    row-gap:clamp(2.2rem,3.5vw,3.2rem) !important;
+}
+
+.documentaryCard{
+    margin:0 !important;
+}
+
+.documentaryInfo{
+    margin-bottom:.45rem !important;
+}
+
+.laVilleTitle{
+    margin-bottom:.25rem !important;
+}
+
+/* Dedicated Feature stays visually attached to LA VILLE */
+.comingSoonDoc{
+    margin-top:.35rem !important;
+    margin-bottom:.45rem !important;
+}
+
+/* Move the "UPCOMING DOCUMENTARY" pseudo label visually BELOW video */
+.documentaryCard3{
+    padding-top:0 !important;
+    padding-bottom:2rem !important;
+    display:flex !important;
+    flex-direction:column !important;
+}
+
+.documentaryCard3::before{
+    content:"UPCOMING DOCUMENTARY" !important;
+    order:20 !important;
+    margin:.9rem auto 0 !important;
+    color:#b89a55 !important;
+    font-size:.58rem !important;
+    font-weight:700 !important;
+    letter-spacing:.22em !important;
+}
+
+/* reveal */
+.laVilleTitle,
+.comingSoonDoc{
+    animation:villeReveal linear both;
+    animation-timeline:view();
+    animation-range:entry 5% cover 28%;
+}
+
+@keyframes villeReveal{
+    from{
+        opacity:0;
+        transform:translateY(16px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.brandClosing{
+    margin-top:0 !important;
+    padding-top:2.5rem !important;
+    padding-bottom:2.5rem !important;
+}
+
+@media(max-width:800px){
+    .brandCollection .weddingSectionHead h2{
+        white-space:normal !important;
+    }
+
+    .brandCollabStrip{
+        height:72px !important;
+    }
+
+    .brandCollabStrip img{
+        height:120px !important;
+    }
+}
+
+`}</style>
+
+
+<style>{`
+/* FINAL BRAND COMPACT LOCAL VIDEO PASS */
+
+.brandPage .detailHero{
+    padding-top:3.2rem !important;
+    padding-bottom:3.2rem !important;
+}
+
+.brandPage .detailHero h1{
+    white-space:nowrap !important;
+    font-size:clamp(2.5rem,4.6vw,4.6rem) !important;
+    letter-spacing:-.055em !important;
+    line-height:.95 !important;
+}
+
+.brandCollection{
+    padding-top:2.6rem !important;
+    padding-bottom:2.6rem !important;
+}
+
+.brandCommercialGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:1rem !important;
+}
+
+.brandFilm{
+    display:block !important;
+}
+
+.brandFilm video{
+    display:block !important;
+    width:100% !important;
+    aspect-ratio:16/9 !important;
+    object-fit:cover !important;
+    background:#050505 !important;
+}
+
+.brandCollaborations{
+    margin-top:2.5rem !important;
+    margin-bottom:2.5rem !important;
+    padding-top:1.25rem !important;
+    padding-bottom:1.25rem !important;
+}
+
+.brandCollabStrip{
+    height:86px !important;
+}
+
+.brandCollabStrip img{
+    height:132px !important;
+}
+
+.documentaryCollection{
+    padding-top:2.8rem !important;
+}
+
+@media(max-width:800px){
+    .brandPage .detailHero h1{
+        white-space:normal !important;
+    }
+
+    .brandCommercialGrid{
+        grid-template-columns:1fr !important;
+    }
+}
+
+`}</style>
+
+
+<style>{`
+
+/* FINAL BRAND DOC LOCK 2026 */
+
+/* HERO — compact and one line */
+.brandPage .detailHero{
+    min-height:0 !important;
+    padding-top:3rem !important;
+    padding-bottom:3rem !important;
+}
+
+.brandPage .detailHero h1{
+    white-space:nowrap !important;
+    max-width:none !important;
+    width:auto !important;
+    font-size:clamp(2.7rem,4.8vw,4.6rem) !important;
+    line-height:.95 !important;
+    letter-spacing:-.055em !important;
+    margin-bottom:.9rem !important;
+}
+
+.brandPage .detailHero p{
+    margin-bottom:1.1rem !important;
+}
+
+/* COMMERCIAL STORIES */
+.brandCollection{
+    padding-top:2.5rem !important;
+    padding-bottom:2.5rem !important;
+}
+
+.brandCommercialGrid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:1rem !important;
+}
+
+.brandFilm{
+    width:100% !important;
+}
+
+.commercialAutoVideo{
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+    aspect-ratio:16/9 !important;
+    object-fit:cover !important;
+    background:#050505 !important;
+}
+
+/* COLLABORATIONS — much smaller proof strip */
+.brandCollaborations{
+    width:min(100%,850px) !important;
+    margin:1.8rem auto !important;
+    padding:.8rem 0 1rem !important;
+}
+
+.brandCollabHeading{
+    margin-bottom:.25rem !important;
+}
+
+.brandCollabHeading p{
+    font-size:.56rem !important;
+    line-height:1.3 !important;
+}
+
+.brandCollabStrip{
+    position:relative !important;
+    height:72px !important;
+    padding:0 !important;
+    overflow:hidden !important;
+    border:0 !important;
+    background:transparent !important;
+}
+
+.brandCollabStrip img{
+    position:absolute !important;
+    left:50% !important;
+    top:50% !important;
+    transform:translate(-50%,-50%) scale(1.05) !important;
+    width:100% !important;
+    height:120px !important;
+    object-fit:cover !important;
+    object-position:center 61% !important;
+    mix-blend-mode:screen !important;
+}
+
+/* DOCUMENTARY — remove unnecessary black gaps */
+.documentaryCollection{
+    padding-top:2.4rem !important;
+    padding-bottom:2.5rem !important;
+}
+
+.documentaryPyramid{
+    gap:2rem 1.4rem !important;
+}
+
+.documentaryCard{
+    margin:0 !important;
+}
+
+.documentaryCard3{
+    margin-top:.2rem !important;
+}
+
+.documentaryInfo{
+    margin-top:.45rem !important;
+}
+
+.laVilleTitle{
+    margin-bottom:.2rem !important;
+}
+
+.comingSoonDoc{
+    margin:.35rem auto .65rem !important;
+}
+
+.brandClosing{
+    margin-top:0 !important;
+    padding-top:2.4rem !important;
+    padding-bottom:2.4rem !important;
+}
+
+@media(max-width:800px){
+    .brandPage .detailHero h1{
+        white-space:normal !important;
+        font-size:clamp(2.3rem,10vw,4rem) !important;
+    }
+
+    .brandCommercialGrid{
+        grid-template-columns:1fr !important;
+    }
+
+    .brandCollabStrip{
+        height:65px !important;
+    }
+}
+
+`}</style>
+
+
+<style>{`
+/* FINAL BRAND DOC TRUE LOCK */
+
+/* HERO */
+.brandPage .detailHero{
+    min-height:0 !important;
+    padding-top:2.8rem !important;
+    padding-bottom:2.7rem !important;
+}
+
+.brandPage .detailHero h1{
+    white-space:nowrap !important;
+    max-width:none !important;
+    width:auto !important;
+    font-size:clamp(2.45rem,4.35vw,4.25rem) !important;
+    line-height:.94 !important;
+    letter-spacing:-.055em !important;
+    margin-bottom:.85rem !important;
+}
+
+.brandPage .detailHero p{
+    margin-bottom:1rem !important;
+}
+
+/* COMMERCIAL STORIES */
+.brandCollection{
+    padding-top:2.25rem !important;
+    padding-bottom:2.25rem !important;
+}
+
+.brandCommercialGrid,
+.brandGrid{
+    gap:1rem !important;
+}
+
+.commercialAutoVideo{
+    display:block !important;
+    width:100% !important;
+    aspect-ratio:16/9 !important;
+    height:auto !important;
+    object-fit:cover !important;
+    background:#050505 !important;
+}
+
+/* COLLABORATIONS = small proof strip */
+.brandCollaborations{
+    width:min(100%,820px) !important;
+    margin:1.45rem auto !important;
+    padding:.55rem 0 .7rem !important;
+}
+
+.brandCollabHeading{
+    margin-bottom:.15rem !important;
+}
+
+.brandCollabHeading p{
+    margin:0 !important;
+    font-size:.54rem !important;
+    line-height:1.25 !important;
+}
+
+.brandCollabStrip{
+    position:relative !important;
+    height:62px !important;
+    padding:0 !important;
+    overflow:hidden !important;
+    border:0 !important;
+    background:transparent !important;
+}
+
+.brandCollabStrip img{
+    position:absolute !important;
+    left:50% !important;
+    top:50% !important;
+    transform:translate(-50%,-50%) scale(1.06) !important;
+    width:100% !important;
+    height:108px !important;
+    object-fit:cover !important;
+    object-position:center 61% !important;
+    mix-blend-mode:screen !important;
+}
+
+/* DOCUMENTARY */
+.documentaryCollection{
+    padding-top:2.15rem !important;
+    padding-bottom:2.25rem !important;
+}
+
+.documentaryPyramid{
+    gap:1.8rem 1.3rem !important;
+}
+
+.documentaryCard,
+.documentaryCard3{
+    margin:0 !important;
+}
+
+.documentaryInfo{
+    margin-top:.4rem !important;
+}
+
+.laVilleTitle{
+    margin-bottom:.15rem !important;
+}
+
+.comingSoonDoc{
+    margin:.3rem auto .55rem !important;
+}
+
+.brandClosing{
+    margin-top:0 !important;
+    padding-top:2rem !important;
+    padding-bottom:2rem !important;
+}
+
+@media(max-width:800px){
+    .brandPage .detailHero h1{
+        white-space:normal !important;
+        font-size:clamp(2.25rem,10vw,3.8rem) !important;
+    }
+
+    .brandCollabStrip{
+        height:58px !important;
+    }
+}
+
+`}</style>
+
+
+<style>{`
+/* ABSOLUTE FINAL BRAND RHYTHM LOCK */
+
+/* HERO no longer wastes vertical space */
+.brandPage .detailHero{
+    min-height:0 !important;
+    padding-top:3.6rem !important;
+    padding-bottom:3.25rem !important;
+    margin-bottom:0 !important;
+}
+
+/* Force STORIES WITH PURPOSE. onto ONE desktop line */
+.brandPage .detailHero h1{
+    max-width:none !important;
+    width:max-content !important;
+    white-space:nowrap !important;
+
+    font-size:clamp(2.7rem,5.25vw,5.3rem) !important;
+    line-height:.92 !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+}
+
+/*
+ Remove large dead gap above COMMERCIAL STORIES.
+*/
+.brandCollection{
+    margin-top:0 !important;
+    padding-top:2.2rem !important;
+    padding-bottom:2.8rem !important;
+}
+
+.brandCollection:first-of-type{
+    margin-top:0 !important;
+    padding-top:2rem !important;
+}
+
+.brandCommercialGrid{
+    margin-top:1.6rem !important;
+    gap:14px !important;
+}
+
+/* Local MP4s remain large and clean */
+.commercialAutoVideo{
+    display:block !important;
+    width:100% !important;
+    aspect-ratio:16/9 !important;
+    height:auto !important;
+
+    object-fit:cover !important;
+    background:#050505 !important;
+}
+
+/* Compact collaboration proof strip */
+.brandCollaborations{
+    width:min(100%,900px) !important;
+    margin:1.2rem auto 1.5rem !important;
+    padding:.9rem 0 1rem !important;
+}
+
+.brandCollabHeading{
+    margin-bottom:.45rem !important;
+}
+
+.brandCollabStrip{
+    position:relative !important;
+    height:94px !important;
+
+    padding:0 !important;
+    overflow:hidden !important;
+
+    border:0 !important;
+    background:transparent !important;
+}
+
+/*
+ Previous version clipped logo bottoms.
+ Give the actual artwork a little more vertical room and
+ shift upward less aggressively.
+*/
+.brandCollabStrip img{
+    position:absolute !important;
+    left:50% !important;
+    top:50% !important;
+
+    width:100% !important;
+    height:138px !important;
+
+    transform:translate(-50%,-47%) scale(1.01) !important;
+
+    object-fit:cover !important;
+    object-position:center 56% !important;
+
+    mix-blend-mode:screen !important;
+}
+
+/* Tight documentary rhythm after collaboration strip */
+.documentaryCollection{
+    margin-top:0 !important;
+    padding-top:2.2rem !important;
+    padding-bottom:2.3rem !important;
+}
+
+.documentaryPyramid{
+    gap:2.25rem 1.4rem !important;
+}
+
+@media(max-width:800px){
+    .brandPage .detailHero h1{
+        white-space:normal !important;
+        width:auto !important;
+        font-size:clamp(2.5rem,11vw,4rem) !important;
+    }
+
+    .brandCollabStrip{
+        height:82px !important;
+    }
+
+    .brandCollabStrip img{
+        height:120px !important;
+    }
+}
+
+`}</style>
+
+
+<style>{`
+/* TRUE FINAL BRAND RHYTHM 2026 */
+
+/* HERO: substantially less dead black before Selected Work */
+.brandPage .detailHero{
+    min-height:0 !important;
+    height:auto !important;
+
+    padding-top:clamp(4rem,7vw,6rem) !important;
+    padding-bottom:clamp(2.4rem,4vw,3.4rem) !important;
+
+    margin-bottom:0 !important;
+}
+
+.brandPage .detailHero h1{
+    white-space:nowrap !important;
+    width:auto !important;
+    max-width:none !important;
+
+    font-size:clamp(2.8rem,6.3vw,5.8rem) !important;
+    line-height:.88 !important;
+    letter-spacing:-.055em !important;
+}
+
+/* Selected Work comes up immediately */
+.brandCollection{
+    margin-top:0 !important;
+    padding-top:clamp(2.2rem,3.5vw,3rem) !important;
+    padding-bottom:clamp(3rem,4vw,4rem) !important;
+}
+
+.brandCollection .weddingSectionHead{
+    margin-bottom:clamp(1.5rem,2.5vw,2.2rem) !important;
+}
+
+.brandCommercialGrid{
+    width:100% !important;
+    max-width:none !important;
+
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+
+    margin:0 !important;
+}
+
+.brandCommercialGrid .brandFilm{
+    width:100% !important;
+    margin:0 !important;
+}
+
+.commercialAutoVideo{
+    display:block !important;
+    width:100% !important;
+    aspect-ratio:16/9 !important;
+    object-fit:cover !important;
+    background:#050505 !important;
+}
+
+/* Compact collaboration proof strip WITHOUT clipping artwork */
+.brandCollaborations{
+    width:100% !important;
+    max-width:none !important;
+
+    margin:clamp(3rem,4.5vw,4rem) 0 0 !important;
+    padding:1.35rem 0 1.5rem !important;
+
+    overflow:visible !important;
+}
+
+.brandCollabHeading{
+    margin-bottom:.8rem !important;
+}
+
+.brandCollabStrip{
+    position:relative !important;
+
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+
+    padding:0 !important;
+    margin:0 !important;
+
+    overflow:visible !important;
+    background:transparent !important;
+    border:0 !important;
+}
+
+.brandCollabStrip img{
+    position:static !important;
+
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+
+    max-width:100% !important;
+    max-height:none !important;
+
+    object-fit:contain !important;
+    object-position:center !important;
+
+    transform:none !important;
+    margin:0 auto !important;
+
+    mix-blend-mode:screen !important;
+}
+
+/* Documentary continues without another ocean of black */
+.documentaryCollection{
+    margin-top:0 !important;
+    padding-top:clamp(2.8rem,4vw,3.8rem) !important;
+    padding-bottom:clamp(2.8rem,4vw,3.8rem) !important;
+}
+
+.documentaryPyramid{
+    gap:clamp(2.2rem,3.5vw,3.2rem) !important;
+}
+
+@media(max-width:800px){
+    .brandPage .detailHero h1{
+        white-space:normal !important;
+        font-size:clamp(2.5rem,11vw,4rem) !important;
+    }
+
+    .brandCommercialGrid{
+        grid-template-columns:1fr !important;
+    }
+
+    .brandCollabStrip img{
+        width:100% !important;
+    }
 }
 
 `}</style>
