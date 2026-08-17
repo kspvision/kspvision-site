@@ -499,4 +499,80 @@ export default function Page() { return <main className="detailPage brandPage"><
 }
 `}</style>
 
+
+<style>{`
+/* FINAL BRAND EDITORIAL PASS 2026 */
+
+.brandPage .detailHero{
+  padding-top:clamp(4.5rem,7vw,6.5rem) !important;
+  padding-bottom:clamp(4rem,7vw,6rem) !important;
+}
+
+.brandPage .detailHero h1{
+  font-size:clamp(3rem,6vw,6rem) !important;
+  line-height:.88 !important;
+  letter-spacing:-.055em !important;
+}
+
+.brandCollection{
+  padding-top:clamp(4.5rem,8vw,7rem) !important;
+  padding-bottom:clamp(4.5rem,8vw,7rem) !important;
+}
+
+.documentaryInfo{
+  margin-bottom:1.15rem !important;
+  text-align:center !important;
+}
+
+.docProjectTitle{
+  font-size:clamp(1.7rem,3.2vw,3.2rem) !important;
+  line-height:.92 !important;
+  letter-spacing:-.045em !important;
+}
+
+/* only tiny accent usage */
+.documentaryCard3::before,
+.brandClosing::before{
+  color:#b49a61 !important;
+}
+
+.brandCollaborations{
+  margin-top:clamp(5rem,9vw,8rem) !important;
+  margin-bottom:clamp(3rem,6vw,5rem) !important;
+}
+
+.brandCollabHeading span{
+  color:#fff !important;
+}
+
+.brandCollabStrip{
+  background:#020202 !important;
+}
+
+/* Logo artwork gets breathing room, not a pasted-JPEG feeling */
+.brandCollabStrip img{
+  max-width:920px;
+  margin:0 auto;
+  display:block;
+}
+
+.brandClosing{
+  padding-top:clamp(4rem,8vw,7rem) !important;
+  padding-bottom:clamp(4.5rem,8vw,7rem) !important;
+}
+
+.brandClosing h2{
+  font-size:clamp(2.5rem,5vw,5rem) !important;
+  line-height:.92 !important;
+  letter-spacing:-.045em !important;
+}
+
+@media(max-width:800px){
+  .docProjectTitle{
+    font-size:clamp(1.6rem,8vw,2.7rem) !important;
+  }
+}
+
+`}</style>
+
 </main>; }

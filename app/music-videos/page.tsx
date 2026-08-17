@@ -251,4 +251,118 @@ export default function Page(){return <main className="detailPage musicPage">
 }
 `}</style>
 
+
+<style>{`
+/* FINAL MUSIC EDITORIAL PRESENTATION 2026 */
+
+.detailHero.toneMusic,
+.musicHero{
+  display:grid !important;
+  grid-template-columns:minmax(260px,.8fr) minmax(420px,1.35fr) !important;
+  align-items:center !important;
+  gap:clamp(2.5rem,6vw,6rem) !important;
+  padding-top:clamp(4.5rem,8vw,7rem) !important;
+  padding-bottom:clamp(5rem,9vw,8rem) !important;
+}
+
+.musicHero > div:first-child,
+.detailHero.toneMusic > div:first-child{
+  position:relative;
+  z-index:2;
+  padding-bottom:1rem;
+}
+
+.musicHero h1,
+.detailHero.toneMusic h1{
+  font-size:clamp(3rem,6.2vw,6.2rem) !important;
+  line-height:.86 !important;
+  letter-spacing:-.055em !important;
+  max-width:7.8ch;
+  margin-bottom:1.6rem !important;
+}
+
+.musicHero p,
+.detailHero.toneMusic p{
+  max-width:31rem !important;
+  line-height:1.65 !important;
+  margin-bottom:1.8rem !important;
+}
+
+.musicHero .button,
+.detailHero.toneMusic .button{
+  position:relative !important;
+  margin-top:.35rem !important;
+  z-index:4;
+}
+
+/* Main KreydayEveryday feature = actual cinematic frame */
+.featuredMusicHero{
+  position:relative !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-end !important;
+  width:100% !important;
+  min-height:0 !important;
+  aspect-ratio:16/9 !important;
+  padding:clamp(1.3rem,2.5vw,2.2rem) !important;
+  overflow:hidden !important;
+  background-size:cover !important;
+  background-position:center !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+.featuredMusicHero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.02) 35%,rgba(0,0,0,.82) 100%);
+  pointer-events:none;
+}
+
+.featuredMusicHero > *{
+  position:relative;
+  z-index:2;
+}
+
+.featuredMusicHero strong{
+  font-size:clamp(1.55rem,3vw,3rem) !important;
+  line-height:.92 !important;
+  letter-spacing:-.04em !important;
+  max-width:12ch;
+}
+
+.featuredMusicHero span,
+.featuredMusicHero small{
+  letter-spacing:.14em !important;
+}
+
+/* Selected work gets clearer editorial separation */
+.musicGrid{
+  margin-top:2.5rem !important;
+  gap:2.4rem 1rem !important;
+}
+
+@media(max-width:800px){
+  .detailHero.toneMusic,
+  .musicHero{
+    grid-template-columns:1fr !important;
+    gap:2.4rem !important;
+    padding-top:3.5rem !important;
+    padding-bottom:4.5rem !important;
+  }
+
+  .musicHero h1,
+  .detailHero.toneMusic h1{
+    font-size:clamp(2.7rem,13vw,4.5rem) !important;
+  }
+
+  .featuredMusicHero{
+    aspect-ratio:16/9 !important;
+  }
+}
+
+`}</style>
+
 </main>}

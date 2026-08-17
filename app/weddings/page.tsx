@@ -120,5 +120,212 @@ export default function WeddingsPage() {
 }
 `}</style>
 
+
+<style>{`
+/* FINAL WEDDING EDITORIAL PRESENTATION 2026 */
+
+.weddingPage .detailHero{
+  padding-top:clamp(5rem,9vw,8rem) !important;
+  padding-bottom:clamp(5.5rem,10vw,9rem) !important;
+  gap:clamp(2.5rem,6vw,6rem) !important;
+}
+
+.weddingPage .detailHero h1{
+  font-size:clamp(3.5rem,7vw,7rem) !important;
+  line-height:.82 !important;
+  letter-spacing:-.06em !important;
+}
+
+.weddingPage .detailHero .kicker,
+.weddingSectionHead .kicker{
+  letter-spacing:.24em !important;
+  font-size:.64rem !important;
+}
+
+/* Major wedding section headings */
+.weddingSectionHead{
+  align-items:flex-end !important;
+  margin-bottom:2.7rem !important;
+}
+
+.weddingSectionHead h2{
+  font-size:clamp(2.6rem,5.5vw,5.6rem) !important;
+  line-height:.86 !important;
+  letter-spacing:-.055em !important;
+  max-width:9ch;
+}
+
+.weddingSectionHead > p{
+  max-width:28rem;
+  line-height:1.6;
+  color:rgba(255,255,255,.5) !important;
+}
+
+/* Reel is the anchor visual */
+.weddingReel{
+  margin-bottom:clamp(3rem,6vw,5.5rem) !important;
+}
+
+.weddingReel video{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+}
+
+/*
+   3 FILMS:
+   Smith top-left
+   Suffrard top-right
+   Ralph centered underneath and wider
+*/
+.weddingVideoGrid{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:clamp(1.4rem,3vw,2.7rem) !important;
+  align-items:start !important;
+}
+
+.weddingVideoGrid > :nth-child(1){
+  grid-column:1 !important;
+  grid-row:1 !important;
+}
+
+.weddingVideoGrid > :nth-child(3){
+  grid-column:2 !important;
+  grid-row:1 !important;
+}
+
+.weddingVideoGrid > :nth-child(2){
+  grid-column:1 / -1 !important;
+  grid-row:2 !important;
+  width:min(74%,760px) !important;
+  margin:1rem auto 0 !important;
+}
+
+.weddingFilmCard img{
+  width:100% !important;
+  display:block;
+  object-fit:cover;
+}
+
+.weddingFilmCard h3{
+  margin-top:.9rem !important;
+  font-size:clamp(1rem,1.5vw,1.25rem) !important;
+  letter-spacing:-.02em !important;
+}
+
+/* MOMENTS, PRESERVED — editorial photo story */
+.weddingGallery{
+  display:grid !important;
+  grid-template-columns:repeat(12,minmax(0,1fr)) !important;
+  gap:clamp(.7rem,1.4vw,1.25rem) !important;
+  align-items:start;
+}
+
+.galleryItem{
+  grid-column:span 4;
+  overflow:hidden;
+}
+
+.galleryItem img{
+  width:100%;
+  height:100%;
+  min-height:260px;
+  object-fit:cover;
+  display:block;
+}
+
+/* deliberate rhythm across 13 real images */
+.galleryItem:nth-child(1),
+.galleryItem:nth-child(6),
+.galleryItem:nth-child(11){
+  grid-column:span 7;
+}
+
+.galleryItem:nth-child(2),
+.galleryItem:nth-child(7),
+.galleryItem:nth-child(12){
+  grid-column:span 5;
+}
+
+.galleryItem:nth-child(3),
+.galleryItem:nth-child(4),
+.galleryItem:nth-child(5),
+.galleryItem:nth-child(8),
+.galleryItem:nth-child(9),
+.galleryItem:nth-child(10){
+  grid-column:span 4;
+}
+
+.galleryItem:nth-child(13){
+  grid-column:3 / span 8;
+}
+
+.galleryItem:nth-child(1) img,
+.galleryItem:nth-child(6) img,
+.galleryItem:nth-child(11) img{
+  aspect-ratio:16/9;
+}
+
+.galleryItem:nth-child(2) img,
+.galleryItem:nth-child(7) img,
+.galleryItem:nth-child(12) img{
+  aspect-ratio:4/5;
+}
+
+.galleryItem:nth-child(13) img{
+  aspect-ratio:16/9;
+}
+
+@media(max-width:800px){
+  .weddingPage .detailHero{
+    padding-top:3.8rem !important;
+    padding-bottom:4.5rem !important;
+  }
+
+  .weddingSectionHead{
+    display:block !important;
+  }
+
+  .weddingSectionHead h2{
+    font-size:clamp(2.6rem,13vw,4.4rem) !important;
+  }
+
+  .weddingSectionHead > p{
+    margin-top:1.2rem;
+  }
+
+  .weddingVideoGrid{
+    grid-template-columns:1fr !important;
+  }
+
+  .weddingVideoGrid > :nth-child(1),
+  .weddingVideoGrid > :nth-child(2),
+  .weddingVideoGrid > :nth-child(3){
+    grid-column:1 !important;
+    grid-row:auto !important;
+    width:100% !important;
+    margin:0 !important;
+  }
+
+  .weddingGallery{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .galleryItem,
+  .galleryItem:nth-child(n){
+    grid-column:span 1 !important;
+  }
+
+  .galleryItem:nth-child(1),
+  .galleryItem:nth-child(6),
+  .galleryItem:nth-child(13){
+    grid-column:1 / -1 !important;
+  }
+}
+
+`}</style>
+
 </main>;
 }
