@@ -63,6 +63,42 @@ export default function Home() {
       <section className="homeBook"><p>10+ {l("years of experience","ans d’expérience")} · 300+ {l("projects delivered","projets réalisés")}</p><a href="/booking">{l("Book a project","Réserver un projet")} ↗</a></section>
 
       <footer><a className="brand" href="#accueil"><span>KSP</span> VISION</a><p>{l("Production · Cinematography · Post-production","Production · Cinématographie · Post-production")}</p><p>© 2026 KSP Vision Inc. {l("All rights reserved.","Tous droits réservés.")}</p></footer>
-    </main>
+    
+<style>{`
+/* Cinematic navigation integrated with homepage hero */
+.homeNav{
+  position:absolute !important;
+  top:0;
+  left:0;
+  right:0;
+  z-index:30;
+  background:linear-gradient(
+    180deg,
+    rgba(0,0,0,.78) 0%,
+    rgba(0,0,0,.38) 62%,
+    rgba(0,0,0,0) 100%
+  ) !important;
+  border-bottom:0 !important;
+}
+
+.hero{
+  padding-top:0 !important;
+}
+
+.hero .heroImage{
+  min-height:100vh;
+}
+
+.heroContent{
+  padding-top:8rem;
+}
+
+@media(max-width:800px){
+  .heroContent{
+    padding-top:7rem;
+  }
+}
+`}</style>
+</main>
   );
 }

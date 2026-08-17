@@ -90,4 +90,77 @@ export default function Page(){return <main className="detailPage musicPage">
   }
 }
 `}</style>
+
+<style>{`
+/* Premium Music Videos hero */
+.musicHero{
+  display:grid !important;
+  grid-template-columns:minmax(0,.78fr) minmax(0,1.35fr) !important;
+  gap:3.5rem !important;
+  align-items:center !important;
+  min-height:36rem;
+}
+
+.musicHero > div:first-child{
+  position:relative;
+  z-index:2;
+}
+
+.musicHero p{
+  max-width:31rem;
+  margin-bottom:1.8rem !important;
+}
+
+.musicHero .button{
+  position:relative !important;
+  display:inline-flex !important;
+  margin-top:.35rem !important;
+}
+
+.featuredMusicHero{
+  position:relative !important;
+  display:flex !important;
+  min-height:30rem !important;
+  width:100% !important;
+  padding:0 !important;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.13);
+  background-size:cover !important;
+  background-position:center !important;
+  isolation:isolate;
+}
+
+.featuredMusicHero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.18),rgba(0,0,0,.04)),
+    linear-gradient(0deg,rgba(0,0,0,.82),rgba(0,0,0,.02) 60%);
+  z-index:0;
+}
+
+.featuredMusicHero > *{
+  position:relative;
+  z-index:1;
+}
+
+.featuredMusicHero > div{
+  align-self:flex-end;
+  padding:2rem !important;
+}
+
+@media(max-width:900px){
+  .musicHero{
+    grid-template-columns:1fr !important;
+    gap:2rem !important;
+    min-height:0;
+  }
+
+  .featuredMusicHero{
+    min-height:22rem !important;
+    aspect-ratio:16/9;
+  }
+}
+`}</style>
 </main>}
