@@ -28,5 +28,70 @@ export default function WeddingsPage() {
     <section className="makeupArtists" aria-labelledby="makeup-heading"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Wedding beauty" fr="Beauté mariage" /></p><h2 id="makeup-heading">MAKEUP ARTISTS</h2></div><p><Localized en="Discover trusted beauty artists for weddings, celebrations and on-camera work." fr="Découvrez des artistes beauté de confiance pour les mariages, célébrations et projets caméra." /></p></div><a className="makeupArtistCard" href="/mira"><img src="/mira/final/mira-working.jpg" alt="Mira applying bridal makeup"/><div><p>BRIDAL + EVENT MAKEUP · MONTRÉAL</p><h3>MIRA</h3><span><Localized en="View artist, transformation and gallery" fr="Voir l’artiste, les transformations et la galerie" /> ↗</span></div></a></section>
     <section className="weddingCta"><p className="kicker"><Localized en="Now booking" fr="Réservations ouvertes" /></p><h2><Localized en="Your story deserves" fr="Votre histoire mérite" /><br/><em><Localized en="to feel like yours." fr="de vous ressembler." /></em></h2><a className="button gold" href="/booking"><Localized en="Check availability" fr="Vérifier les disponibilités" /> <b>↗</b></a></section>
     <SiteFooter />
-  </main>;
+  
+<style>{`
+/* KSP final wedding composition */
+.weddingVideoGrid{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:2.4rem 1.4rem !important;
+  align-items:start;
+}
+
+/* Smith top-left / Suffrard top-right / Ralph bottom-center */
+.weddingVideoGrid > :nth-child(1){
+  grid-column:1 !important;
+  grid-row:1 !important;
+}
+.weddingVideoGrid > :nth-child(3){
+  grid-column:2 !important;
+  grid-row:1 !important;
+}
+.weddingVideoGrid > :nth-child(2){
+  grid-column:1 / -1 !important;
+  grid-row:2 !important;
+  width:58% !important;
+  justify-self:center !important;
+}
+
+/* Integrate the large wedding hero visual into the black page */
+.detailHero img,
+.detailHero video{
+  border:0 !important;
+}
+
+.weddingIntro img,
+.weddingIntro video{
+  display:block;
+  width:100%;
+  -webkit-mask-image:linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 5%,
+    #000 91%,
+    transparent 100%
+  );
+  mask-image:linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 5%,
+    #000 91%,
+    transparent 100%
+  );
+}
+
+@media(max-width:800px){
+  .weddingVideoGrid{
+    grid-template-columns:1fr !important;
+  }
+  .weddingVideoGrid > :nth-child(1),
+  .weddingVideoGrid > :nth-child(2),
+  .weddingVideoGrid > :nth-child(3){
+    grid-column:1 !important;
+    grid-row:auto !important;
+    width:100% !important;
+  }
+}
+`}</style>
+</main>;
 }

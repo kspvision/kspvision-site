@@ -58,4 +58,28 @@ export default function Page() { return <main className="detailPage brandPage"><
   }
 }
 `}</style>
-<SiteFooter /></main>; }
+<SiteFooter />
+<style>{`
+/* Compact Brand / Documentary introduction */
+.brandPage .detailHero{
+  min-height:0 !important;
+  padding-top:4.5rem !important;
+  padding-bottom:4.5rem !important;
+}
+
+.brandPage .detailHero h1{
+  margin-bottom:.8rem !important;
+}
+
+.brandPage .detailHero p{
+  margin-bottom:1.35rem !important;
+}
+
+@media(max-width:800px){
+  .brandPage .detailHero{
+    padding-top:3rem !important;
+    padding-bottom:3rem !important;
+  }
+}
+`}</style>
+</main>; }

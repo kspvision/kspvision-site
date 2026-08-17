@@ -31,4 +31,63 @@ export default function Page(){return <main className="detailPage musicPage">
   <section className="detailHero toneMusic"><div><p className="kicker"><Localized en="Music videos" fr="Clips musicaux" /></p><h1>SOUND, TRANSLATED<br/>INTO IMAGES.</h1><p><Localized en="Creative direction and complete production for artists who want a visual identity with character." fr="Direction créative et production complète pour les artistes qui veulent une identité visuelle forte." /></p><a className="button gold" href="/booking"><Localized en="Create your visual" fr="Créer votre visuel" /> <b>↗</b></a></div><a className="featuredMusicHero" href="https://www.youtube.com/watch?v=foENa43ZOvc" target="_blank" rel="noreferrer" style={{backgroundImage:"url(https://img.youtube.com/vi/foENa43ZOvc/hqdefault.jpg)"}}><span>FEATURED PROJECT</span><strong>TIZZO X SHREEZ<br/>KREYDAYEVERYDAY</strong><small><Localized en="Watch film" fr="Voir le film" /> ↗</small></a></section>
   <section className="videoCollection"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected work" fr="Travaux sélectionnés" /></p><h2><Localized en="Watch the films" fr="Voir les films" /></h2></div><p><Localized en="Direction, cinematography, editing and visual production by Kevin Shayne / KSP Vision." fr="Direction, cinématographie, montage et production visuelle par Kevin Shayne / KSP Vision." /></p></div><div className="musicGrid">{videos.map((v,i)=><a className="musicCard" aria-label={`Watch ${v[1]} on YouTube`} href={`https://www.youtube.com/watch?v=${v[0]}`} target="_blank" rel="noreferrer" key={v[0]}><div className="musicThumb" style={{backgroundImage:`linear-gradient(0deg,rgba(0,0,0,.7),transparent 65%),url(https://img.youtube.com/vi/${v[0]}/hqdefault.jpg)`}}><span>{String(i+1).padStart(2,"0")}</span><b aria-hidden="true">↗</b></div><div><h3>{v[1]}</h3><p>{v[2]}</p></div></a>)}</div></section>
   <SiteFooter />
+
+<style>{`
+/* KSP integrated music-video hero */
+.detailHero.toneMusic{
+  align-items:center !important;
+  column-gap:3rem !important;
+}
+
+.toneMusic .detailHeroCopy{
+  align-self:center !important;
+  padding-bottom:0 !important;
+}
+
+.toneMusic .detailHeroCopy p{
+  position:relative !important;
+  z-index:2;
+  margin-bottom:1.6rem !important;
+  line-height:1.55 !important;
+}
+
+.featuredMusicHero{
+  overflow:hidden;
+  background:#050505 !important;
+  border:0 !important;
+  box-shadow:none !important;
+  -webkit-mask-image:radial-gradient(
+    ellipse 94% 92% at center,
+    #000 68%,
+    transparent 100%
+  );
+  mask-image:radial-gradient(
+    ellipse 94% 92% at center,
+    #000 68%,
+    transparent 100%
+  );
+}
+
+.featuredMusicHero img{
+  width:100% !important;
+  height:auto !important;
+  display:block;
+  object-fit:cover;
+}
+
+@media(min-width:801px){
+  .toneMusic{
+    grid-template-columns:minmax(270px,.8fr) minmax(480px,1.35fr) !important;
+  }
+}
+
+@media(max-width:800px){
+  .toneMusic{
+    grid-template-columns:1fr !important;
+  }
+  .featuredMusicHero{
+    width:100% !important;
+  }
+}
+`}</style>
 </main>}
