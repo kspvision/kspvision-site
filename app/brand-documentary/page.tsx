@@ -10,4 +10,52 @@ const documentaries = [
 export default function Page() { return <main className="detailPage brandPage"><SiteHeader active="brand" />
   <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><a className="button gold" href="/booking"><Localized en="Start a project" fr="Lancer un projet" /> <b>↗</b></a></div></section>
   <section className="brandCollection"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected work" fr="Travaux sélectionnés" /></p><h2><Localized en="Commercial stories" fr="Histoires de marque" /></h2></div></div><div className="brandGrid">{commercial.map((project) => <a className="brandFilm" href={`https://www.youtube.com/watch?v=${project.youtubeId}`} target="_blank" rel="noreferrer" key={project.title}><div className="publishedFilmStill"><img src={`https://img.youtube.com/vi/${project.youtubeId}/hqdefault.jpg`} alt="" /><span><Localized en="Watch film" fr="Voir le film" /> ↗</span></div><div><p>{project.type}</p><h3>{project.title}</h3></div></a>)}</div></section>
-  <section className="brandCollection documentaryCollection"><div className="weddingSectionHead"><div><p className="kicker">DOCUMENTARY</p><h2><Localized en="Real stories" fr="Histoires réelles" /></h2></div><p><Localized en="Portraits and conversations made with attention and care." fr="Des portraits et conversations réalisés avec attention et sensibilité." /></p></div><div className="brandGrid">{documentaries.map((project) => <article className="brandFilm" key={project.title}>{project.poster ? <div className="documentaryPoster financePoster" aria-label="Finance Montréal documentary preview"><span>FINANCE<br/>MONTRÉAL</span><small>DOCUMENTARY PREVIEW</small></div> : <video autoPlay muted loop playsInline preload="metadata"><source src={project.src} type="video/mp4" /></video>}<div><p>{project.preview ? "DOCUMENTARY PROJECT · PREVIEW" : "DOCUMENTARY"}</p><h3>{project.title}</h3></div></article>)}</div></section><SiteFooter /></main>; }
+  <section className="brandCollection documentaryCollection"><div className="weddingSectionHead"><div><p className="kicker">DOCUMENTARY</p><h2><Localized en="Real stories" fr="Histoires réelles" /></h2></div><p><Localized en="Portraits and conversations made with attention and care." fr="Des portraits et conversations réalisés avec attention et sensibilité." /></p></div><div className="brandGrid documentaryPyramid">{documentaries.map((project, index) => <article className={`brandFilm documentaryCard documentaryCard${index + 1}`} key={project.title}>{project.poster ? <video autoPlay muted loop playsInline preload="metadata"><source src={project.src} type="video/mp4" /></video> : <video autoPlay muted loop playsInline preload="metadata"><source src={project.src} type="video/mp4" /></video>}<div className="documentaryInfo"><p>{index === 0 ? "ADVANCE MUSIC GROUP CANADA · TOURNAGE · MONTAGE" : index === 1 ? "COMITÉ JEUNE DE FINANCE MONTRÉAL · TOURNAGE · MONTAGE" : "RÉALISATION · TOURNAGE · MONTAGE"}</p></div></article>)}</div></section>
+<style>{`
+.documentaryPyramid{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:2.4rem 1.4rem !important;
+  align-items:start;
+}
+.documentaryPyramid .documentaryCard{
+  width:100%;
+  margin:0;
+}
+.documentaryPyramid .documentaryCard video{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  background:#050505;
+}
+.documentaryPyramid .documentaryCard3{
+  grid-column:1 / -1;
+  width:min(72%,760px);
+  justify-self:center;
+  margin-top:1rem;
+}
+.documentaryInfo{
+  padding-top:.7rem;
+}
+.documentaryInfo p{
+  margin:0;
+  color:#aaa;
+  font-size:.68rem;
+  line-height:1.45;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+@media(max-width:800px){
+  .documentaryPyramid{
+    grid-template-columns:1fr !important;
+    gap:1.8rem !important;
+  }
+  .documentaryPyramid .documentaryCard3{
+    grid-column:auto;
+    width:100%;
+    margin-top:0;
+  }
+}
+`}</style>
+<SiteFooter /></main>; }
