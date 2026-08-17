@@ -21,7 +21,7 @@ export default function Home() {
 
       <section className="hero" id="accueil">
         <div className="heroImage" aria-hidden="true">
-          <video autoPlay muted loop playsInline preload="auto" poster="/portfolio/hero.jpg" onCanPlay={(event) => event.currentTarget.play().catch(() => {})} onEnded={(event) => { event.currentTarget.currentTime = 0; event.currentTarget.play().catch(() => {}); }}>
+          <video autoPlay muted loop playsInline preload="auto" onCanPlay={(event) => event.currentTarget.play().catch(() => {})} onEnded={(event) => { event.currentTarget.currentTime = 0; event.currentTarget.play().catch(() => {}); }}>
               <source
                 src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/KSPVision.ca.REEL.Sequuence.mp4"
                 type="video/mp4"

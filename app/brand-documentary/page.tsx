@@ -3,7 +3,10 @@ import { Localized, SiteFooter, SiteHeader } from "../site-language";
 const commercial = [{ title: "Barbancourt", type: "Commercial film", youtubeId: "hNRG8NT3sRs" }, { title: "Fragrance", type: "Product campaign", youtubeId: "FYL9RmYlZ6U" }];
 const documentaries = [
   { title: "Corneille présente ADVANCE Québec", src: "https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/Corneille.presente.ADVANCE.Quebec.mp4" },
-  { title: "Finance Montréal", poster: true },
+  {
+  title: "Finance Montréal",
+  src: "https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/Finance.Montreal.-.Victoria.Ali.Stephanie.Quintin.mp4"
+},
   { title: "Kevin Shayne Story", src: "https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/KEVIN.SHAYNE.STORY.PART.1_1.mp4", preview: true },
 ];
 
