@@ -163,4 +163,92 @@ export default function Page(){return <main className="detailPage musicPage">
   }
 }
 `}</style>
+
+<style>{`
+/* FINAL MUSIC HERO */
+.musicHero{
+  display:grid !important;
+  grid-template-columns:minmax(280px,.82fr) minmax(440px,1.45fr) !important;
+  align-items:center !important;
+  gap:54px !important;
+  max-width:1240px !important;
+  margin:0 auto !important;
+  padding:110px 48px 100px !important;
+}
+
+.musicHero > div:first-child{
+  position:relative !important;
+  z-index:3 !important;
+  padding:0 !important;
+}
+
+.musicHero p{
+  margin:18px 0 26px !important;
+  max-width:390px !important;
+  line-height:1.55 !important;
+}
+
+.musicHero .button{
+  position:relative !important;
+  display:inline-flex !important;
+  margin-top:4px !important;
+}
+
+.featuredMusicHero{
+  position:relative !important;
+  display:block !important;
+  width:100% !important;
+  min-height:390px !important;
+  aspect-ratio:16/9 !important;
+  overflow:hidden !important;
+  background:#090909 !important;
+  text-decoration:none !important;
+  border:1px solid rgba(255,255,255,.09) !important;
+}
+
+.featuredMusicHero::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  background-image:url("https://img.youtube.com/vi/foENa43ZOvc/maxresdefault.jpg") !important;
+  background-size:cover !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+  transform:scale(1.01);
+  z-index:0 !important;
+}
+
+.featuredMusicHero::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.58)) !important;
+  z-index:1 !important;
+}
+
+.featuredMusicHero > *{
+  position:relative !important;
+  z-index:2 !important;
+}
+
+.featuredMusicHero > div{
+  position:absolute !important;
+  left:30px !important;
+  right:30px !important;
+  bottom:27px !important;
+}
+
+@media(max-width:800px){
+  .musicHero{
+    grid-template-columns:1fr !important;
+    gap:42px !important;
+    padding:78px 24px 72px !important;
+  }
+
+  .featuredMusicHero{
+    min-height:0 !important;
+  }
+}
+`}</style>
+
 </main>}

@@ -14,6 +14,12 @@ const gallery = [
   ["/weddings/suffrard-dress.jpg", "Wedding dress detail"],
   ["/weddings/ralph-dance.jpg", "Ralph and Evelyne celebration"],
   ["/weddings/suffrard-couple.jpg", "Suffrard and Florence together"],
+  ["/weddings/ralph-veil.jpg", "Ralph & Evelyne wedding veil"],
+  ["/weddings/smith-group.jpg", "Smith & Aureanne wedding group"],
+  ["/weddings/smith-kiss.jpg", "Smith & Aureanne wedding kiss"],
+  ["/weddings/smith-party.jpg", "Smith & Aureanne wedding celebration"],
+  ["/weddings/wedding-garden-portrait.jpg", "Bride portrait in the garden"],
+  ["/weddings/suffrard-ceremony.jpg", "Suffrard & Florence ceremony"],
 ];
 
 export default function WeddingsPage() {
@@ -93,5 +99,26 @@ export default function WeddingsPage() {
   }
 }
 `}</style>
+
+<style>{`
+/* FINAL WEDDING GALLERY POLISH */
+.weddingVideoGrid{
+  margin-bottom:70px !important;
+}
+
+.weddingGallery,
+.galleryGrid{
+  gap:10px !important;
+}
+
+.weddingGallery img,
+.galleryGrid img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  display:block !important;
+}
+`}</style>
+
 </main>;
 }
