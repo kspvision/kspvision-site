@@ -2,16 +2,16 @@ import { Localized, SiteFooter, SiteHeader } from "../site-language";
 
 const commercial = [{ title: "Barbancourt", type: "Commercial film", youtubeId: "hNRG8NT3sRs" }, { title: "NOIR ÉCLAT ELIXIR", type: "Product campaign", youtubeId: "FYL9RmYlZ6U" }];
 const documentaries = [
-  { title: "Corneille présente ADVANCE Québec", src: "https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/Corneille.presente.ADVANCE.Quebec.mp4" },
+  { title: "Corneille présente ADVANCE Québec", src: "/corneille-web.mp4" },
   {
   title: "Finance Montréal",
   src: "https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/Finance.Montreal.-.Victoria.Ali.Stephanie.Quentin.mp4"
 },
-  { title: "Kevin Shayne Story", src: "https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/KEVIN.SHAYNE.STORY.PART.1_1.mp4", preview: true },
+  { title: "Kevin Shayne Story", src: "/kevin-shayne-web.mp4", preview: true },
 ];
 
 export default function Page() { return <main className="detailPage brandPage"><SiteHeader active="brand" />
-  <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><a className="button gold" href="/booking"><Localized en="Start a project" fr="Lancer un projet" /> <b>↗</b></a></div></section>
+  <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1 className="brandHeroTitle"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><a className="button gold" href="/booking"><Localized en="Start a project" fr="Lancer un projet" /> <b>↗</b></a></div></section>
   <section className="brandCollection"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected work" fr="Travaux sélectionnés" /></p><h2><Localized en="Commercial stories" fr="Histoires de marque" /></h2></div></div><div className="brandGrid">{commercial.map((project, index) => <a className="brandFilm" href={`https://www.youtube.com/watch?v=${project.youtubeId}`} target="_blank" rel="noreferrer" key={project.title}><div className="publishedFilmStill"><video
   className="commercialAutoVideo"
   autoPlay
@@ -21,7 +21,7 @@ export default function Page() { return <main className="detailPage brandPage"><
   preload="metadata"
 >
   <source
-    src={index === 0 ? "/barbancourt-ad.mp4" : "/fragrance-ad.mp4"}
+    src={index === 0 ? "/barbancourt-ad-web.mp4" : "/fragrance-ad-web.mp4"}
     type="video/mp4"
   />
 </video><span><Localized en="Watch film" fr="Voir le film" /> ↗</span></div><div><p>{project.type}</p><h3>{project.title}</h3></div></a>)}</div></section>
@@ -90,7 +90,7 @@ export default function Page() { return <main className="detailPage brandPage"><
       <div className="documentaryMedia">
         <video autoPlay muted loop playsInline preload="metadata">
           <source
-            src="/amplify-season-1-advance-toronto.mp4"
+            src="/amplify-season-1-advance-toronto-web.mp4"
             type="video/mp4"
           />
         </video>

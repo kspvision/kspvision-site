@@ -1,0 +1,1279 @@
+@import "tailwindcss";
+
+:root { --black:#050505; --paper:#f1f0eb; --muted:#999994; --gold:#d6a53f; --line:#252522; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; background:var(--black); }
+body { margin:0; overflow-x:hidden; background:var(--black); color:var(--paper); font-family:Arial, Helvetica, sans-serif; }
+a { color:inherit; text-decoration:none; }
+button { font:inherit; }
+.nav { position:absolute; z-index:10; top:0; left:0; width:100%; height:96px; display:flex; align-items:center; justify-content:space-between; padding:0 4.5vw; border-bottom:1px solid rgba(255,255,255,.15); }
+.brand { font-weight:800; letter-spacing:-.05em; font-size:1.25rem; }.brand span { color:var(--gold); }
+.nav nav { display:flex; align-items:center; gap:2.2rem; font-size:.78rem; text-transform:uppercase; letter-spacing:.14em; }.nav nav a { transition:color .25s; }.nav nav a:hover { color:var(--gold); }.navCta { border:1px solid rgba(255,255,255,.5); padding:.85rem 1.1rem; }.langSwitch { background:transparent;border:0;color:var(--gold);font-size:.7rem;letter-spacing:.15em;cursor:pointer;padding:.5rem; }
+.hero { min-height:88svh; position:relative; display:flex; align-items:center; overflow:hidden; padding:110px 5vw 5vh; }
+.heroImage { position:absolute; inset:0; overflow:hidden; background:#030303; transform:scale(1.02); animation:heroIn 1.6s ease both; }.heroImage video{width:100%;height:100%;display:block;object-fit:cover;object-position:center;filter:saturate(.88) contrast(1.05)}.heroImage:before{content:"";position:absolute;z-index:1;right:9vw;top:-28%;width:18vw;height:150%;background:linear-gradient(180deg,rgba(255,239,199,.18),rgba(214,165,63,.08) 42%,transparent 84%);filter:blur(28px);transform:rotate(13deg);transform-origin:top;box-shadow:0 0 110px rgba(214,165,63,.08)}.heroImage:after{content:"";position:absolute;z-index:1;right:6vw;top:14%;width:34vw;height:66%;border-top:1px solid rgba(255,255,255,.1);border-right:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.05);background:linear-gradient(135deg,rgba(255,255,255,.02),transparent 48%)}.heroShade { position:absolute; inset:0; background:linear-gradient(180deg,transparent 64%,rgba(3,3,3,.55) 82%,#030303 100%),linear-gradient(90deg,#030303 0%,rgba(3,3,3,.82) 43%,rgba(3,3,3,.16) 76%,rgba(3,3,3,.6) 100%),repeating-linear-gradient(90deg,transparent 0,transparent calc(25% - 1px),rgba(255,255,255,.02) 25%); }
+.heroContent { position:relative; z-index:1; max-width:1000px; }.eyebrow,.kicker { text-transform:uppercase; color:#b8b8b2; letter-spacing:.22em; font-size:.68rem; font-weight:700; }.eyebrow span { display:inline-block; width:32px; height:1px; background:var(--gold); vertical-align:middle; margin-right:12px; }
+h1,h2 { text-transform:uppercase; letter-spacing:-.055em; line-height:.9; margin:1.2rem 0; font-weight:800; }h1 { font-size:clamp(3.5rem,7.2vw,7.2rem); }h1 em,h2 i { color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.8); font-style:normal; }
+.heroCopy { max-width:580px; color:#cbc9c1; line-height:1.65; font-size:1rem; }.heroActions { display:flex; align-items:center; gap:2rem; margin-top:2.2rem; }.button { padding:1rem 1.25rem; text-transform:uppercase; letter-spacing:.12em; font-size:.72rem; font-weight:800; }.gold { background:var(--gold); color:#0a0a08; }.textLink { display:inline-flex; gap:1rem; padding-bottom:.45rem; border-bottom:1px solid #777; text-transform:uppercase; letter-spacing:.13em; font-size:.72rem; font-weight:700; }.textLink b { color:var(--gold); }
+.scrollHint { position:absolute; z-index:1; right:4.5vw; bottom:8vh; writing-mode:vertical-rl; text-transform:uppercase; letter-spacing:.2em; font-size:.6rem; color:#aaa; }.scrollHint span { color:var(--gold); margin-top:1rem; }
+.section { padding:7rem 6vw; }.sectionHead { display:grid; grid-template-columns:1.25fr .75fr; gap:8vw; align-items:end; margin-bottom:3.5rem; }.sectionHead h2,.about h2,.contact h2 { font-size:clamp(2.7rem,5.1vw,5.4rem); }.sectionHead>p { color:var(--muted); line-height:1.7; max-width:420px; }
+.projects { background:#090909; }.filters { display:flex; flex-wrap:wrap; gap:.7rem; margin-bottom:2.5rem; }.filters button { color:#999; background:transparent; border:1px solid #333; padding:.7rem 1rem; cursor:pointer; text-transform:uppercase; letter-spacing:.11em; font-size:.65rem; }.filters button.active,.filters button:hover { color:#111; background:var(--gold); border-color:var(--gold); }
+.projectGrid { display:grid; grid-template-columns:repeat(2,1fr); gap:4rem 1.4rem; }.projectVisual { aspect-ratio:16/10; overflow:hidden; position:relative; isolation:isolate;background:#111; }.projectVisual:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 45%,rgba(255,255,255,.08));z-index:-1}.visual-Clips{background:radial-gradient(circle at 70% 35%,#475db6 0 5%,#12162b 28%,#080808 72%)}.visual-Commercial{background:radial-gradient(circle at 35% 62%,#c28b31 0 3%,#37230d 24%,#090806 67%)}.visual-Mariages{background:radial-gradient(circle at 68% 48%,#e0c9b4 0 3%,#5d4850 18%,#171217 56%,#080808 75%)}.visual-Événements{background:radial-gradient(circle at 42% 45%,#a33d2a 0 4%,#32100d 24%,#080808 66%)}.visualWord{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(2.7rem,7vw,7rem);font-weight:900;letter-spacing:-.08em;color:rgba(255,255,255,.92);transition:letter-spacing .5s}.visualOrb{position:absolute;left:50%;top:50%;width:22%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.5);box-shadow:0 0 60px rgba(255,255,255,.14);mix-blend-mode:overlay}.projectCard:hover .visualWord{letter-spacing:-.04em}.projectNo { position:absolute; top:1rem; left:1rem; font-size:.68rem; letter-spacing:.15em; }.play { position:absolute; width:50px;height:50px; display:grid;place-items:center; border-radius:50%; right:1rem;bottom:1rem; background:var(--gold); color:#111; opacity:0;transform:translateY(8px);transition:.3s; }.projectCard:hover .play { opacity:1;transform:none; }.projectMeta { display:flex;justify-content:space-between;gap:1rem;padding-top:1rem;border-top:1px solid var(--line); }.projectMeta p,.projectMeta span { margin:.2rem 0;color:#858580;text-transform:uppercase;font-size:.6rem;letter-spacing:.13em; }.projectMeta h3 { margin:.35rem 0;font-size:1.35rem;text-transform:uppercase; }.projectMeta>div:last-child { text-align:right; }.editNote { margin-top:3rem;color:#666;font-size:.75rem; }
+.services { background:var(--paper); color:#0b0b0a; }.services .kicker,.services .sectionHead>p { color:#696963; }.services h2 i { -webkit-text-stroke-color:#777; }.serviceList { border-top:1px solid #bbb; }.serviceList article { display:grid;grid-template-columns:70px 1fr 1fr 30px;gap:2rem;align-items:center;padding:1.7rem 0;border-bottom:1px solid #bbb; }.serviceList article>span { color:#888;font-size:.7rem; }.serviceList h3 { margin:0;text-transform:uppercase;font-size:clamp(1.5rem,3vw,3.1rem);letter-spacing:-.04em; }.serviceList p { color:#666;max-width:390px;line-height:1.55;font-size:.9rem; }.serviceList b { color:#9b6d15; }.serviceCta{display:inline-flex;gap:1.5rem;margin-top:2.2rem;padding:1rem 1.25rem;background:#111;color:#fff;text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;font-weight:800}.serviceCta span{color:var(--gold)}
+.about { display:grid;grid-template-columns:1fr 1fr;min-height:900px; }.aboutPortrait { min-height:700px;position:relative;overflow:hidden; }.studioVisual{background:linear-gradient(145deg,#d6a53f 0 34%,#16130e 34% 70%,#ece9df 70%);display:flex;align-items:center;justify-content:center;isolation:isolate}.studioVisual:before{content:"";position:absolute;width:46%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.55);box-shadow:0 0 0 4vw rgba(0,0,0,.06),0 0 0 8vw rgba(255,255,255,.04)}.studioK{font-size:clamp(12rem,32vw,33rem);line-height:.7;font-weight:900;letter-spacing:-.14em;color:#090909;mix-blend-mode:overlay}.studioLine{position:absolute;width:1px;height:65%;background:rgba(255,255,255,.55);transform:rotate(28deg)}.studioVisual>p{position:absolute;right:2rem;top:2rem;max-width:210px;color:#111;font-size:.72rem;line-height:1.5;text-transform:uppercase;letter-spacing:.12em}.frameLabel { position:absolute;left:1.5rem;bottom:1.5rem;background:#090909;padding:.8rem;text-transform:uppercase;font-size:.65rem;letter-spacing:.14em; }.aboutCopy { padding:8rem 6vw;align-self:center; }.aboutCopy p:not(.kicker) { color:#9c9c96;line-height:1.75;max-width:630px; }.aboutCopy .textLink { margin-top:2rem; }
+.proof { padding-top:2rem; }.stats { display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line); }.stats>div { display:flex;align-items:end;gap:2rem;padding:4rem 2rem; }.stats>div+div { border-left:1px solid var(--line); }.stats strong { font-size:clamp(4rem,9vw,9rem);letter-spacing:-.08em;line-height:.7; }.stats strong span { color:var(--gold); }.stats p { color:#888;text-transform:uppercase;letter-spacing:.15em;font-size:.7rem;line-height:1.5; }.collabs { margin-top:5rem; }.collabs>div { display:grid;grid-template-columns:repeat(5,1fr);align-items:center;gap:1.3rem;margin-top:2rem; }.collabs span { color:#aaa;font-weight:800;font-size:clamp(.8rem,1.5vw,1.2rem);text-align:center; }
+.contact { background:var(--gold);color:#0a0a08; }.contact .kicker { color:#584112; }.contact h2 i { -webkit-text-stroke-color:#5a4316; }.contactRow { display:grid;grid-template-columns:1fr 1fr;gap:5vw;border-top:1px solid rgba(0,0,0,.35);padding-top:2rem;margin-top:4rem; }.contactRow>p { max-width:440px;line-height:1.6; }.contactRow>div { display:flex;flex-direction:column;align-items:flex-start;gap:1rem; }.contactRow a { font-size:clamp(1.1rem,2.2vw,2rem);font-weight:700;border-bottom:1px solid rgba(0,0,0,.5); }
+footer { padding:2.5rem 5vw;display:grid;grid-template-columns:1fr 2fr 1fr;gap:2rem;align-items:center;color:#777;font-size:.65rem;text-transform:uppercase;letter-spacing:.12em; }footer p:last-child { text-align:right; }
+.heroContent,.pathways>*,.services>*,.projects>*,.contact>*,footer{max-width:1120px;margin-left:auto;margin-right:auto}.heroContent{width:100%}
+.pathways{background:#080808}.pathIntro{margin-bottom:2.5rem}.pathIntro h2{font-size:clamp(2.6rem,4.8vw,5rem)}.pathGrid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #262626}.pathGrid button{min-height:260px;padding:2rem;text-align:left;color:#eee;background:#0b0b0b;border:0;border-right:1px solid #262626;cursor:pointer;transition:.25s}.pathGrid button:last-child{border-right:0}.pathGrid button:hover{background:#d6a53f;color:#090909}.pathGrid span,.pathGrid b{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase}.pathGrid h3{font-size:1.55rem;line-height:1.05;text-transform:uppercase;margin:3rem 0 1rem}.pathGrid p{min-height:64px;color:#8d8d88;line-height:1.55;font-size:.82rem}.pathGrid button:hover p{color:#3c2d12}.bookingSteps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,.25);margin:3rem 0}.bookingSteps span{padding:1.1rem;background:rgba(255,255,255,.08);text-transform:uppercase;font-size:.66rem;letter-spacing:.12em}.trustLine{margin-bottom:4rem;text-transform:uppercase;font-size:.65rem;letter-spacing:.13em}.trustLine span{margin:0 1rem}.bookButton{background:#080808;color:#fff!important;padding:1rem 1.2rem;border:0!important;font-size:.78rem!important;text-transform:uppercase;letter-spacing:.1em}.visualWord{font-size:clamp(2.3rem,5vw,5rem)}
+.pathGrid>a{min-height:210px;padding:1.6rem;text-align:left;color:#eee;background:#0b0b0b;border-right:1px solid #262626;transition:.25s}.pathGrid>a:last-child{border-right:0}.pathGrid>a:hover{background:#d6a53f;color:#090909}.pathGrid>a:hover p{color:#3c2d12}.pathGrid h3{font-size:1.25rem;margin:2.2rem 0 .8rem}.section{padding-top:4.5rem;padding-bottom:4.5rem}.sectionHead h2,.about h2,.contact h2{font-size:clamp(2rem,3.5vw,3.6rem)}h1{font-size:clamp(2.7rem,5vw,5rem)}.serviceList h3{font-size:clamp(1.15rem,1.8vw,1.8rem)}.serviceList article{padding:1.25rem 0}.homeBook{max-width:1120px;margin:0 auto;padding:2.5rem 6vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #292929}.homeBook p{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.1em}.homeBook a{background:var(--gold);color:#090909;padding:.9rem 1.1rem;text-transform:uppercase;font-size:.68rem;font-weight:800;letter-spacing:.1em}.detailNav{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 max(6vw,24px);border-bottom:1px solid #252525}.detailNav nav{display:flex;gap:1.5rem;align-items:center;text-transform:uppercase;font-size:.68rem;letter-spacing:.1em}.detailHero{max-width:1120px;margin:0 auto;padding:9rem 6vw 6rem}.detailHero h1{max-width:820px;margin:1.5rem 0;font-size:clamp(3rem,6vw,6rem)}.detailHero>p:not(.kicker){max-width:560px;color:#aaa;line-height:1.7;margin-bottom:2rem}.detailServices,.detailPlaceholder{max-width:1120px;margin:0 auto;padding:4rem 6vw;border-top:1px solid #252525}.detailServices article{display:flex;gap:2rem;align-items:center;padding:1rem 0;border-bottom:1px solid #252525}.detailServices article span{font-size:.62rem;color:#777}.detailServices h2,.detailPlaceholder h2{font-size:clamp(1.5rem,2.8vw,2.8rem);margin:.4rem 0}.detailPlaceholder>p:last-child{color:#777}.toneMusic{background:radial-gradient(circle at 80% 30%,#222d62,transparent 30%)}.toneBrand{background:radial-gradient(circle at 80% 30%,#4c3012,transparent 30%)}.toneWedding{background:radial-gradient(circle at 80% 30%,#493a42,transparent 30%)}.bookingPage>section{max-width:860px;margin:0 auto;padding:9rem 6vw}.bookingPage h1{margin:1.5rem 0}.bookingPage section>p:not(.kicker){max-width:600px;color:#aaa;line-height:1.7}.phoneLink{display:block;margin-top:2rem;color:#aaa}
+.stats strong{font-size:clamp(3.8rem,7vw,7rem)}
+@keyframes heroIn { from { opacity:0;transform:scale(1.08); } to { opacity:1;transform:scale(1.02); } }
+@media (max-width:800px) { .nav { height:76px; }.nav nav a:not(.navCta){display:none}.nav nav {gap:0}.hero {min-height:82svh;padding:100px 5vw 4rem}.heroImage{background-position:62% 50%}.heroImage:after{width:64vw;height:64vw;right:-18vw;top:14%}.heroCopy{max-width:88%}.scrollHint{display:none}.section{padding:6rem 6vw}.sectionHead,.about,.contactRow{grid-template-columns:1fr}.sectionHead{gap:1rem}.projectGrid{grid-template-columns:1fr}.serviceList article{grid-template-columns:35px 1fr 25px;gap:1rem}.serviceList article p{grid-column:2/4}.about{min-height:0}.aboutPortrait{min-height:600px}.aboutCopy{padding:6rem 6vw}.collabs>div{grid-template-columns:repeat(2,1fr);gap:2rem}.stats>div{padding:3rem 1rem;display:block}.stats p{margin-top:1.5rem}footer{grid-template-columns:1fr;text-align:left}footer p:last-child{text-align:left}.contactRow{gap:2rem} }
+@media (max-width:500px) { h1{font-size:2.8rem}.heroActions{align-items:flex-start;flex-direction:column;gap:1.4rem}.projectMeta{display:block}.projectMeta>div:last-child{text-align:left;margin-top:.8rem}.stats{grid-template-columns:1fr}.stats>div+div{border-left:0;border-top:1px solid var(--line)}.aboutPortrait{min-height:430px}.navCta{padding:.7rem}.sectionHead h2,.about h2,.contact h2{font-size:2.45rem} }
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media (max-width:800px){.heroImage{background:linear-gradient(112deg,#030303 0 58%,#0f0c07 58% 82%,#030303 82%)}.heroImage:before{right:0;top:-18%;width:46vw;height:125%;filter:blur(22px);transform:rotate(11deg);background:linear-gradient(180deg,rgba(255,239,199,.38),rgba(214,165,63,.2) 48%,transparent 88%)}.heroImage:after{right:-12vw;top:9%;width:70vw;height:69%;background:linear-gradient(135deg,rgba(255,255,255,.055),transparent 52%)}.heroShade{background:linear-gradient(90deg,#030303 0%,rgba(3,3,3,.86) 48%,rgba(3,3,3,.08) 100%),repeating-linear-gradient(90deg,transparent 0,transparent calc(50% - 1px),rgba(255,255,255,.03) 50%)}}
+@media (max-width:800px){.pathGrid{grid-template-columns:1fr}.pathGrid button{min-height:0;border-right:0;border-bottom:1px solid #262626}.pathGrid button:last-child{border-bottom:0}.pathGrid h3{margin:1.8rem 0 .8rem}.pathGrid p{min-height:0}.bookingSteps{grid-template-columns:1fr}.trustLine{line-height:2}.trustLine span{margin:0 .35rem}}
+@media (max-width:800px){.pathGrid>a{min-height:0;border-right:0;border-bottom:1px solid #262626}.pathGrid>a:last-child{border-bottom:0}.homeBook{margin:0 6vw;padding:2rem 0;gap:1.5rem;align-items:flex-start;flex-direction:column}.detailHero,.bookingPage>section{padding-top:6rem}.detailNav .navCta{display:block}.detailServices,.detailPlaceholder{padding-top:3rem;padding-bottom:3rem}}
+@media (max-width:800px){.nav,.detailNav{height:112px;align-items:flex-start;padding-top:17px}.nav .mainNav,.detailNav .mainNav{position:absolute;left:5vw;right:5vw;bottom:12px;display:flex;justify-content:space-between;gap:.5rem}.nav .mainNav a:not(.navCta){display:block}.nav .mainNav a.serviceNav,.nav .langSwitch{display:none}.mainNav a{font-size:.55rem;letter-spacing:.08em}.navCta{padding:.48rem .6rem}.hero{padding-top:138px}.detailNav{position:relative}.detailHero,.bookingPage>section{padding-top:5rem}}
+
+/* Compact professional scale */
+body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.detailHero,.detailServices,.detailPlaceholder{max-width:960px}.hero{min-height:76svh}.hero h1{font-size:clamp(2.5rem,4.5vw,4.25rem);max-width:720px}.heroCopy{font-size:.9rem;max-width:520px}.section{padding-top:3.75rem;padding-bottom:3.75rem}.sectionHead{margin-bottom:2.5rem}.sectionHead h2,.pathIntro h2,.contact h2{font-size:clamp(1.9rem,3vw,2.85rem)}.pathGrid>a{min-height:175px;padding:1.35rem}.pathGrid h3{font-size:1.05rem;margin:1.5rem 0 .65rem}.pathGrid p{font-size:.76rem;min-height:54px}.serviceList article{padding:.95rem 0}.serviceList h3{font-size:clamp(1rem,1.45vw,1.4rem)}.serviceList p{font-size:.78rem}.detailHero{padding-top:5rem;padding-bottom:3.5rem}.detailHero h1{font-size:clamp(2.3rem,4vw,3.8rem);max-width:660px}.detailHero>p:not(.kicker){font-size:.88rem;max-width:520px}.detailServices,.detailPlaceholder{padding-top:2.75rem;padding-bottom:2.75rem}.detailServices article{padding:.7rem 0}.detailServices h2,.detailPlaceholder h2{font-size:clamp(1.25rem,2vw,1.9rem)}.bookingPage>section{max-width:720px;padding-top:5rem}.bookingPage h1{font-size:clamp(2.3rem,4vw,3.8rem)}
+@media (max-width:800px){body{font-size:14px}.hero{min-height:72svh;padding-top:126px}.hero h1{font-size:2.25rem}.section{padding-top:3rem;padding-bottom:3rem}.sectionHead h2,.pathIntro h2,.contact h2{font-size:1.85rem}.pathGrid>a{padding:1.2rem}.pathGrid h3{font-size:1rem;margin:1.15rem 0 .55rem}.detailHero,.bookingPage>section{padding-top:3.75rem;padding-bottom:2.75rem}.detailHero h1,.bookingPage h1{font-size:2.2rem}.detailServices,.detailPlaceholder{padding-top:2.25rem;padding-bottom:2.25rem}}
+
+/* Wedding collection */
+.previewNotice{padding:.55rem 5vw;text-align:center;background:#c9a26a;color:#17120c;text-transform:uppercase;letter-spacing:.16em;font-size:.56rem;font-weight:800}.weddingPage{background:#080706}.weddingHero{position:relative;overflow:hidden;background:radial-gradient(circle at 82% 32%,rgba(164,116,91,.28),transparent 31%),linear-gradient(120deg,#090807 55%,#17110f)}.weddingHero:after{content:"";position:absolute;right:10%;top:10%;width:21%;aspect-ratio:1;border:1px solid rgba(225,203,174,.18);border-radius:50%;box-shadow:0 0 0 4rem rgba(225,203,174,.02),0 0 70px rgba(191,143,105,.1)}.weddingHero>*{position:relative;z-index:1}.weddingHero h1 em{-webkit-text-stroke-color:#d7c1ab}.weddingFilms,.weddingExperience,.weddingCta{max-width:960px;margin:0 auto;padding:4.5rem 6vw}.weddingSectionHead{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:2.5rem}.weddingSectionHead h2,.weddingCta h2{font-size:clamp(1.9rem,3vw,2.9rem)}.weddingSectionHead>p{color:#99928b;line-height:1.65;font-size:.82rem}.weddingGrid{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem}.weddingFilm.featured{grid-column:1/-1}.weddingVisual{position:relative;aspect-ratio:16/10;overflow:hidden;background:radial-gradient(circle at 68% 38%,rgba(220,189,162,.42) 0 2%,rgba(92,62,54,.42) 17%,transparent 43%),linear-gradient(135deg,#211a17,#0a0908 64%);border:1px solid rgba(229,207,181,.12)}.featured .weddingVisual{aspect-ratio:2.35/1;background:radial-gradient(circle at 72% 39%,rgba(235,209,180,.5) 0 2%,rgba(117,76,61,.45) 16%,transparent 41%),linear-gradient(125deg,#2a1e19,#090807 67%)}.weddingMonogram{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:Georgia,serif;font-style:italic;font-size:clamp(2.5rem,7vw,5.5rem);color:#d8c1a8;letter-spacing:-.09em}.filmNumber,.filmStatus{position:absolute;top:1rem;left:1rem;text-transform:uppercase;font-size:.55rem;letter-spacing:.14em;color:#b9a996}.filmStatus{top:auto;bottom:1rem;left:auto;right:1rem}.weddingMeta{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0 1.6rem}.weddingMeta p,.weddingMeta>span{margin:0;color:#8e857d;text-transform:uppercase;font-size:.55rem;letter-spacing:.13em}.weddingMeta h3{margin:.35rem 0 0;text-transform:uppercase;font-size:1rem}.weddingExperience{border-top:1px solid #2b2521}.weddingExperience>div{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2b2521;margin-top:2rem}.weddingExperience article{background:#0d0b0a;padding:1.5rem}.weddingExperience article span{color:#b89569;font-size:.58rem}.weddingExperience h2{font-family:Georgia,serif;font-style:italic;text-transform:none;letter-spacing:-.03em;font-size:1.45rem;margin:2rem 0 .7rem}.weddingExperience article p{color:#918982;line-height:1.6;font-size:.76rem}.weddingCta{text-align:center;border-top:1px solid #2b2521;padding-top:5rem;padding-bottom:5rem}.weddingCta .button{display:inline-block;margin-top:1rem}
+@media(max-width:800px){.weddingSectionHead{grid-template-columns:1fr;gap:.5rem}.weddingGrid,.weddingExperience>div{grid-template-columns:1fr}.weddingFilm.featured{grid-column:auto}.featured .weddingVisual,.weddingVisual{aspect-ratio:16/10}.weddingFilms,.weddingExperience,.weddingCta{padding-top:3rem;padding-bottom:3rem}.previewNotice{font-size:.49rem;padding:.48rem 3vw}}
+
+.weddingVisual video{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.82) contrast(1.03);transition:transform .8s ease}.weddingFilm:hover video{transform:scale(1.025)}
+.weddingStill{isolation:isolate}.weddingStill:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(125deg,rgba(5,5,5,.15),rgba(5,5,5,.78)),radial-gradient(circle at 72% 34%,rgba(231,205,177,.52),transparent 22%),linear-gradient(145deg,#55413b,#171211 68%)}.weddingStill.ralph:before{background:linear-gradient(125deg,rgba(5,5,5,.12),rgba(5,5,5,.8)),radial-gradient(circle at 35% 45%,rgba(218,190,164,.48),transparent 24%),linear-gradient(145deg,#66534c,#181311 70%)}.weddingStill.suffrard:before{background:linear-gradient(125deg,rgba(5,5,5,.1),rgba(5,5,5,.8)),radial-gradient(circle at 65% 58%,rgba(202,167,128,.46),transparent 23%),linear-gradient(145deg,#493d38,#171311 70%)}.weddingStill strong{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:90%;text-align:center;font-family:Georgia,serif;font-size:clamp(.9rem,1.5vw,1.25rem);font-style:italic;font-weight:400;color:#eadbca}.weddingFilm:hover .weddingStill:before{filter:brightness(1.08)}
+.detailPlaceholder .textLink{margin-top:1.25rem}
+.homeNotice{position:relative;z-index:20}.homeNav{top:28px}.hero{padding-top:138px}.bookingContact{display:flex;flex-direction:column;align-items:flex-start;gap:1rem;margin-top:2rem}.bookingContact p,.bookingContact span{margin:0;color:#888;font-size:.72rem;letter-spacing:.05em}.bookingContact p a{color:var(--paper);border-bottom:1px solid #555}.bookingContact span{text-transform:uppercase;letter-spacing:.11em;font-size:.58rem}.bookingPage footer{max-width:960px;margin:0 auto;border-top:1px solid #252525}
+@media(max-width:800px){.homeNav{top:25px}.hero{padding-top:158px}.bookingContact{margin-top:1.5rem}}
+.videoCollection{max-width:960px;margin:0 auto;padding:4.5rem 6vw}.musicGrid{display:grid;grid-template-columns:1fr 1fr;gap:2rem 1.2rem}.musicCard.featuredMusic{grid-column:1/-1}.musicThumb{position:relative;aspect-ratio:16/9;background-size:cover;background-position:center;overflow:hidden}.musicThumb span{position:absolute;top:1rem;left:1rem;font-size:.58rem;letter-spacing:.15em}.musicThumb b{position:absolute;right:1rem;bottom:1rem;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--gold);color:#080808;font-size:.7rem;transition:.25s}.musicCard:hover .musicThumb b{transform:scale(1.1)}.musicCard h3{margin:.8rem 0 .3rem;text-transform:uppercase;font-size:.92rem}.musicCard p{margin:0;color:#858580;text-transform:uppercase;letter-spacing:.12em;font-size:.55rem}.videoCollection .weddingSectionHead>p{color:#858580}.videoCollection .weddingSectionHead h2{font-size:clamp(1.9rem,3vw,2.9rem)}
+@media(max-width:800px){.videoCollection{padding-top:3rem;padding-bottom:3rem}.musicGrid{grid-template-columns:1fr}.musicCard.featuredMusic{grid-column:auto}}
+
+/* Extra-compact portfolio scale */
+.musicPage .detailHero,.weddingPage .detailHero{max-width:820px;padding-top:3.4rem;padding-bottom:2.5rem}.musicPage .detailHero h1,.weddingPage .detailHero h1{font-size:clamp(1.9rem,3.4vw,3rem);margin:1rem 0}.videoCollection{max-width:900px;padding-top:3rem}.videoCollection .weddingSectionHead{margin-bottom:1.5rem}.musicGrid{grid-template-columns:repeat(4,1fr);gap:1.35rem .75rem}.musicCard.featuredMusic{grid-column:auto}.musicThumb b{width:30px;height:30px;font-size:.55rem}.musicThumb span{top:.6rem;left:.6rem;font-size:.48rem}.musicCard h3{font-size:.7rem;line-height:1.25;margin:.55rem 0 .22rem}.musicCard p{font-size:.46rem}.weddingFilms,.weddingExperience,.weddingCta{max-width:820px;padding-top:2.6rem;padding-bottom:2.6rem}.weddingFilms .weddingSectionHead{margin-bottom:1.4rem}.weddingGrid{grid-template-columns:repeat(3,1fr);gap:.75rem}.weddingFilm.featured{grid-column:auto}.featured .weddingVisual,.weddingVisual{aspect-ratio:16/10}.weddingMeta{padding:.55rem 0 1rem}.weddingMeta h3{font-size:.72rem}.weddingMeta p,.weddingMeta>span,.filmNumber,.filmStatus{font-size:.44rem}.filmNumber{top:.6rem;left:.6rem}.filmStatus{right:.6rem;bottom:.6rem}.weddingExperience article{padding:1rem}.weddingExperience h2{font-size:1.05rem;margin:1rem 0 .45rem}.weddingExperience article p{font-size:.67rem}.weddingCta{padding-top:3rem;padding-bottom:3rem}.weddingCta h2{font-size:1.8rem}
+@media(max-width:800px){.musicGrid{grid-template-columns:repeat(2,1fr);gap:1.2rem .65rem}.musicPage .detailHero,.weddingPage .detailHero{padding-top:2.8rem;padding-bottom:2.2rem}.musicPage .detailHero h1,.weddingPage .detailHero h1{font-size:1.85rem}.weddingGrid{grid-template-columns:1fr 1fr}.weddingExperience>div{grid-template-columns:1fr 1fr}.weddingFilms,.weddingExperience,.weddingCta{padding-top:2.25rem;padding-bottom:2.25rem}}
+
+/* Final monochrome brand balance */
+:root{--gold:#d5aa55}
+.brand{display:block;width:98px;height:62px;flex:0 0 98px;font-size:0!important;line-height:0;background:url('/ksp-vision-logo.png') center/contain no-repeat;filter:invert(1);transition:opacity .25s}.brand:hover{opacity:.72}.brand span{color:inherit}.gold,.homeBook a{background:var(--paper);color:#090909}.gold:hover,.homeBook a:hover{background:var(--gold)}.previewNotice{background:var(--gold);color:#111}.pathGrid>a:hover{background:var(--paper);color:#090909}.pathGrid>a:hover p{color:#555}.filters button.active,.filters button:hover{background:var(--paper);border-color:var(--paper)}.musicThumb b{background:var(--paper)}.heroImage:before{background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,.07) 44%,transparent 84%);box-shadow:0 0 110px rgba(255,255,255,.08)}.heroImage:after{border-color:rgba(255,255,255,.1)}.contact{background:var(--paper)}.serviceCta span,.serviceList b,.textLink b,.eyebrow span,.activeNav{color:var(--gold)!important}
+
+/* Balanced, centred home composition */
+.hero{min-height:76svh;justify-content:flex-start;text-align:left;padding-bottom:5vh}.heroContent{max-width:960px}.heroContent .eyebrow{display:block}.heroCopy{margin-left:0;margin-right:0}.heroActions{justify-content:flex-start}.pathIntro{text-align:center}.pathways,.services{padding-left:max(6vw,calc((100vw - 1080px)/2));padding-right:max(6vw,calc((100vw - 1080px)/2))}.sectionHead{text-align:center;display:block;max-width:720px!important}.sectionHead>p{margin:0 auto}.services .sectionHead{margin-bottom:2.5rem}.homeBook{justify-content:center;gap:4rem;text-align:center}
+
+/* Wedding imagery and films */
+.weddingIntro{max-width:960px;margin:0 auto;padding:3.6rem 6vw;display:grid;grid-template-columns:.82fr 1.18fr;align-items:center;gap:2.4rem}.weddingIntro h1{font-size:clamp(2rem,3.5vw,3.2rem);margin:1rem 0}.weddingIntro h1 em{-webkit-text-stroke-color:#d7c1ab}.weddingIntro>div>p:not(.kicker){color:#aaa;line-height:1.65;font-size:.82rem;margin-bottom:1.8rem}.weddingIntro img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 44%;filter:saturate(.82) contrast(1.04);border:1px solid #302a25}.weddingVideoGrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.weddingVideoGrid article{min-width:0}.weddingVideoGrid .featuredWeddingVideo{grid-column:1/-1}.weddingVideoGrid video,.brandFilm video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#111;border:1px solid #2c2825}.featuredWeddingVideo video{aspect-ratio:2.15/1}.weddingGallery{max-width:820px;margin:0 auto;padding:2.6rem 6vw;border-top:1px solid #2b2521}.weddingGallery>div:last-child{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:105px;gap:.6rem}.weddingGallery figure{margin:0;overflow:hidden;background:#111}.weddingGallery img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.84) contrast(1.04);transition:transform .7s ease}.weddingGallery figure:hover img{transform:scale(1.025)}.galleryItem1{grid-column:span 7;grid-row:span 2}.galleryItem2{grid-column:span 5;grid-row:span 2}.galleryItem3{grid-column:span 4;grid-row:span 2}.galleryItem4{grid-column:span 4;grid-row:span 2}.galleryItem5{grid-column:span 4;grid-row:span 2}.galleryItem6{grid-column:span 12;grid-row:span 2}.weddingGallery .weddingSectionHead{margin-bottom:1.4rem}
+
+/* Brand and documentary collection */
+.brandCollection,.brandCapabilities{max-width:900px;margin:0 auto;padding:3rem 6vw}.brandCollection{border-top:1px solid #252525}.brandGrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.brandFilm>div{padding:.75rem 0}.brandFilm p{margin:0;color:#888;text-transform:uppercase;letter-spacing:.13em;font-size:.5rem}.brandFilm h3{margin:.35rem 0;text-transform:uppercase;font-size:.82rem}.brandCapabilities{border-top:1px solid #252525}.brandCapabilities>div{display:grid;grid-template-columns:1fr 1fr;margin-top:1.4rem;border-top:1px solid #252525}.brandCapabilities article{display:flex;align-items:center;gap:1rem;padding:1rem;border-bottom:1px solid #252525}.brandCapabilities article:nth-child(odd){border-right:1px solid #252525}.brandCapabilities span{font-size:.5rem;color:#777}.brandCapabilities h2{font-size:.92rem;margin:0;letter-spacing:-.02em}
+
+@media(max-width:800px){.brand{width:80px;height:48px;flex-basis:80px}.heroImage:before{background:linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,.08) 48%,transparent 88%)}.hero{text-align:left;justify-content:flex-start}.heroContent .eyebrow{justify-content:flex-start}.heroCopy{margin-left:0}.heroActions{justify-content:flex-start}.homeBook{gap:1.5rem;text-align:left}.weddingIntro{grid-template-columns:1fr;padding-top:2.5rem}.weddingIntro img{order:-1}.weddingVideoGrid,.brandGrid{grid-template-columns:1fr}.weddingVideoGrid .featuredWeddingVideo{grid-column:auto}.featuredWeddingVideo video{aspect-ratio:16/9}.weddingGallery>div:last-child{grid-auto-rows:90px}.galleryItem1,.galleryItem2,.galleryItem3,.galleryItem4,.galleryItem5,.galleryItem6{grid-column:span 6;grid-row:span 2}.brandCapabilities>div{grid-template-columns:1fr}.brandCapabilities article:nth-child(odd){border-right:0}}
+
+/* Compact wedding films and softly integrated lead image */
+.weddingVideoGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+.weddingVideoGrid .featuredWeddingVideo{grid-column:auto}
+.featuredWeddingVideo video{aspect-ratio:16/9}
+.weddingIntro img{border:0;opacity:.78;filter:saturate(.7) contrast(1.06) brightness(.84);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 18%,#000 92%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 18%,#000 92%,transparent 100%)}
+@media(max-width:800px){.weddingVideoGrid{grid-template-columns:1fr}.weddingIntro img{-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 86%,transparent 100%)}}
+
+/* Symmetry, centred navigation and clear hierarchy */
+.eyebrow:after{content:"";display:inline-block;width:32px;height:1px;background:var(--gold);vertical-align:middle;margin-left:12px}
+.detailNav{position:relative}
+.weddingVideoGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.weddingVideoGrid .featuredWeddingVideo{grid-column:1/-1;width:60%;justify-self:center}
+.brandFilm video{filter:saturate(.86) contrast(1.03)}
+@media(max-width:800px){.weddingVideoGrid{grid-template-columns:1fr}.weddingVideoGrid .featuredWeddingVideo{grid-column:auto;width:100%}}
+
+/* Restore the original left-anchored homepage hero */
+.homeNav{padding-left:4.5vw;padding-right:4.5vw}
+.heroContent{width:100%;max-width:none!important;margin-left:0!important;margin-right:0!important}
+.heroContent h1,.heroContent .heroCopy{max-width:720px}
+.hero{align-items:flex-start;min-height:auto;padding-top:clamp(112px,14vh,138px);padding-bottom:3.5rem}
+.heroActions{gap:2rem}
+
+/* Keep the logo and navigation on one row in narrow preview windows */
+@media(max-width:800px){
+  .nav,.detailNav{height:76px;align-items:center;padding:0 4vw}
+  .nav .mainNav,.detailNav .mainNav{position:static;left:auto;right:auto;bottom:auto;display:flex;flex:1;align-items:center;justify-content:center;gap:clamp(.3rem,1.6vw,.75rem);min-width:0;padding-left:4vw}
+  .brand{width:68px;height:44px;flex-basis:68px}
+  .mainNav a{font-size:clamp(.42rem,1.45vw,.55rem);letter-spacing:.04em;white-space:nowrap}
+  .navCta{padding:.42rem .5rem}
+  .hero{padding-top:92px}
+  .homeNav{top:25px}
+}
+
+.videoEmbed{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#111;border:1px solid #2c2825}.videoEmbed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* Lightweight production media cards */
+.publishedFilmStill{position:relative;aspect-ratio:16/9;overflow:hidden;background:#111;border:1px solid #2c2825}.publishedFilmStill img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.78) contrast(1.05)}.publishedFilmStill:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.72),transparent 58%)}.publishedFilmStill span{position:absolute;z-index:1;left:.75rem;bottom:.65rem;text-transform:uppercase;letter-spacing:.12em;font-size:.48rem}.brandPublishedStill{position:relative;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:16/9;padding:1rem;overflow:hidden;border:1px solid #292929}.brandPublishedStill:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.08))}.barbancourtVisual{background:radial-gradient(circle at 68% 32%,#6f2518 0 4%,#29100b 22%,#090706 70%)}.fragranceVisual{background:radial-gradient(circle at 38% 45%,#d1b17a 0 3%,#4e3825 18%,#0b0907 68%)}.brandPublishedStill span,.brandPublishedStill small{position:relative}.brandPublishedStill span{font-size:1rem;text-transform:uppercase;font-weight:800}.brandPublishedStill small{margin-top:.35rem;color:#aaa;text-transform:uppercase;letter-spacing:.12em;font-size:.48rem}
+
+/* Mira bridal makeup mini-section */
+.miraSection{max-width:960px;margin:0 auto;padding:4.5rem 6vw;border-top:1px solid #2b2521}.miraLead{display:grid;grid-template-columns:1fr 1.15fr;gap:3rem;align-items:center}.miraLead h2{font-size:clamp(2.2rem,4vw,4.2rem);margin:1rem 0}.miraLead h2 em{font-family:Georgia,serif;font-weight:400;text-transform:none;color:#d8b98f}.miraLead>div>p:not(.kicker){color:#aaa;line-height:1.7;font-size:.84rem;max-width:520px}.miraLead .miraNameNote{margin:.2rem 0 .8rem;color:#d8b98f!important;font-size:.72rem!important;text-transform:uppercase;letter-spacing:.1em}.miraLead>img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center;filter:none;border:1px solid #3b312a}.miraButton{display:inline-block;margin-top:1rem;background:#d8b98f;color:#100d0b}.miraProofGroup{margin-top:2.2rem}.miraProofGroup h3{margin:0 0 .8rem;color:#d8b98f;text-transform:uppercase;letter-spacing:.12em;font-size:.68rem}.miraPortfolio{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem}.miraPortfolio img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;filter:none}.miraRates{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem;margin-top:3rem;padding:2.5rem;background:#eee9df;color:#17120f}.miraRates h3{font-family:Georgia,serif;font-size:clamp(1.7rem,2.7vw,2.6rem);font-weight:400;margin:.8rem 0}.miraRates>div>p:last-child{color:#6f665d;font-size:.76rem;line-height:1.6}.miraRateList{border-top:1px solid #b9ad9f}.miraRateList>div{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 0;border-bottom:1px solid #c5baae;font-size:.78rem}.miraRateList span{text-transform:uppercase;letter-spacing:.07em}.miraRateList strong{white-space:nowrap;color:#6f4d23}.miraContact{text-align:center;margin:1.6rem 0 0;color:#9d948b;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}.miraContact a{color:#d8b98f;border-bottom:1px solid #695a49}
+@media(max-width:800px){.miraSection{padding-top:3rem;padding-bottom:3rem}.miraLead,.miraRates{grid-template-columns:1fr;gap:1.5rem}.miraLead>img{order:-1}.miraPortfolio{grid-template-columns:repeat(2,1fr);gap:.45rem}.miraRates{padding:1.5rem}.miraRateList>div{font-size:.7rem}.miraContact{line-height:1.7}}
+
+/* Mira premium mini-site treatment */
+.miraSection{max-width:1200px;background:#050505;padding:0 4vw 5rem;border-top:0;color:#f6f0ea}.miraLead{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:0;min-height:680px;align-items:stretch}.miraLead>img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center;border:0}.miraLeadCopy{display:flex;flex-direction:column;justify-content:center;padding:4rem 0 4rem 4rem}.miraLead h2{font-family:"Arial Narrow",Impact,sans-serif;font-size:clamp(7rem,15vw,13rem);font-weight:900;line-height:.72;letter-spacing:-.075em;margin:1rem 0 1.7rem;color:#f6f0ea}.miraEyebrow,.miraLocation{color:#e6b8b7!important;font-size:.76rem!important;text-transform:uppercase;letter-spacing:.2em}.miraLeadCopy>p:not(.miraEyebrow):not(.miraLocation):not(.miraNameNote){color:#b4a9a5;line-height:1.8;font-size:.9rem;max-width:430px}.miraLead .miraNameNote{margin:1.2rem 0;color:#e6b8b7!important;font-size:.68rem!important;text-transform:uppercase;letter-spacing:.13em}.miraButton{align-self:flex-start;margin-top:1.2rem;background:#e6b8b7;color:#100a0b}.miraProofGroup{margin-top:5rem}.miraProofGroup h3{margin:0 0 1.25rem;color:#f6f0ea;text-transform:uppercase;letter-spacing:.12em;font-size:1rem}.miraProofGroup h3 span{color:#e6b8b7;margin-right:1rem}.miraPortfolio{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}.miraPortfolio img{width:100%;aspect-ratio:4/5;object-fit:cover}.miraRates{display:grid;grid-template-columns:.75fr 1.25fr;gap:4rem;margin-top:5rem;padding:3.5rem;background:#100c0d;color:#f6f0ea;border:1px solid #302526}.miraRates h3{font-family:"Arial Narrow",Impact,sans-serif;font-size:clamp(3rem,7vw,6rem);font-weight:900;line-height:.85;letter-spacing:-.04em;text-transform:uppercase;margin:.8rem 0 1.5rem}.miraRates>div>p:last-child{color:#b4a9a5;font-size:.78rem;line-height:1.7}.miraRateList{border-top:1px solid #423234}.miraRateList>div{padding:1rem 0;border-bottom:1px solid #423234;font-size:.82rem}.miraRateList strong{font-family:"Arial Narrow",Impact,sans-serif;font-size:1.35rem;color:#e6b8b7}.miraContact{color:#b4a9a5}.miraContact a{color:#e6b8b7;border-bottom-color:#7b5558}
+@media(max-width:800px){.miraSection{padding:0 1rem 3rem}.miraLead{grid-template-columns:1fr;min-height:0}.miraLead>img{height:auto;aspect-ratio:16/10}.miraLeadCopy{padding:2.5rem .5rem}.miraLead h2{font-size:clamp(7rem,40vw,11rem)}.miraPortfolio{grid-template-columns:repeat(2,1fr);gap:.55rem}.miraRates{grid-template-columns:1fr;padding:2rem;gap:1.5rem}.miraRateList>div{font-size:.78rem;padding:1.15rem 0}.miraRateList strong{font-size:1.7rem}}
+
+.miraActions{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}.miraActions .textLink{margin-top:1.2rem}.miraPage .miraSection{padding-top:2rem}.miraTitle{font-family:"Arial Narrow",Impact,sans-serif;font-size:clamp(7rem,15vw,13rem);font-weight:900;line-height:.72;letter-spacing:-.075em;margin:1rem 0 1.7rem;color:#f6f0ea}.miraPage .miraProofGroup h2{margin:0 0 1.25rem;color:#f6f0ea;text-transform:uppercase;letter-spacing:.12em;font-size:1rem;line-height:1}.miraPage .miraProofGroup h2 span{color:#e6b8b7;margin-right:1rem}.miraPage .miraPortfolio a{display:block;position:relative;overflow:hidden;cursor:zoom-in}.miraPage .miraPortfolio a:after{content:"Open ↗";position:absolute;right:.6rem;bottom:.6rem;padding:.4rem .5rem;background:rgba(5,5,5,.78);color:#fff;text-transform:uppercase;letter-spacing:.12em;font-size:.48rem;opacity:0;transition:.25s}.miraPage .miraPortfolio a:hover:after,.miraPage .miraPortfolio a:focus-visible:after{opacity:1}.miraPage .miraPortfolio a:hover img{transform:scale(1.025)}.miraPage .miraPortfolio img{transition:transform .45s ease}.miraPage footer{max-width:1200px;margin:0 auto}
+.miraGalleryHeading{display:flex;justify-content:space-between;gap:2rem;align-items:end}.miraGalleryHeading p{max-width:430px;color:#9f9692;font-size:.78rem;line-height:1.7}.miraGallery{grid-template-columns:repeat(4,1fr)}.miraGallery a:nth-child(3n+1){grid-row:span 2}.miraGallery a:nth-child(3n+1) img{height:100%;aspect-ratio:auto}.makeupArtists{padding:7rem 6vw;max-width:1400px;margin:auto}.makeupArtistCard{display:grid;grid-template-columns:1.2fr .8fr;min-height:460px;margin-top:2.5rem;background:#080808;border:1px solid #292929}.makeupArtistCard img{width:100%;height:100%;object-fit:cover}.makeupArtistCard>div{padding:3.5rem;display:flex;flex-direction:column;justify-content:center}.makeupArtistCard p,.makeupArtistCard span{text-transform:uppercase;letter-spacing:.12em;color:#aaa;font-size:.66rem}.makeupArtistCard h3{font-family:"Arial Narrow",Impact,sans-serif;font-size:clamp(5rem,10vw,9rem);line-height:.8;margin:1.5rem 0 2rem}.makeupArtistCard:hover{border-color:#e6b8b7}.makeupArtistCard:hover span{color:#e6b8b7}
+@media(max-width:800px){.miraTitle{font-size:clamp(7rem,40vw,11rem)}.miraPage .miraSection{padding-top:0}.miraGalleryHeading{display:block}.miraGallery{grid-template-columns:repeat(2,1fr)}.makeupArtists{padding:4rem 1rem}.makeupArtistCard{grid-template-columns:1fr;min-height:0}.makeupArtistCard img{aspect-ratio:16/10}.makeupArtistCard>div{padding:2rem}.makeupArtistCard h3{font-size:6rem}}
+
+/* Final update: dedicated cinema-led media */
+.previewNotice{display:none}.detailNav .langSwitch{background:transparent;border:0;color:var(--gold);padding:.35rem;font-size:.62rem;letter-spacing:.1em;cursor:pointer}.weddingReel{position:relative;overflow:hidden;margin-bottom:2rem;border:1px solid #302a25;background:#111}.weddingReel video{display:block;width:100%;aspect-ratio:2.1/1;object-fit:cover}.weddingReel>div{position:absolute;inset:auto 0 0;padding:3rem 1rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,.8));display:flex;justify-content:space-between;align-items:end}.weddingReel p,.weddingReel span{text-transform:uppercase;letter-spacing:.12em;font-size:.58rem;margin:0}.weddingReel span{color:#ccc}.weddingFilmCard{display:block}.weddingVideoGrid .weddingFilmCard{width:auto}.weddingFilmCard .weddingMeta{display:block}.weddingFilmCard .weddingMeta h3{margin:0}.toneMusic{max-width:1120px;display:grid;grid-template-columns:.85fr 1.15fr;gap:3rem;align-items:center;background:none!important}.featuredMusicHero{display:flex;min-height:330px;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding:1.25rem;background-position:center;background-size:cover;position:relative;overflow:hidden}.featuredMusicHero:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,.05) 70%)}.featuredMusicHero>*{position:relative}.featuredMusicHero span,.featuredMusicHero small{font-size:.54rem;letter-spacing:.13em;text-transform:uppercase}.featuredMusicHero strong{font-size:clamp(1rem,2vw,1.7rem);line-height:1.05;margin:.7rem 0;text-transform:uppercase}.musicGrid{grid-template-columns:repeat(3,1fr)!important;gap:2rem 1rem}.brandFilm video{width:100%;display:block;aspect-ratio:16/9;background:#111;border:1px solid #292929}.documentaryCollection{padding-top:0}.galleryItem6{display:none}@media(max-width:800px){.detailNav .langSwitch{display:block!important}.weddingReel video{aspect-ratio:16/10}.toneMusic{display:block}.featuredMusicHero{min-height:260px;margin-top:2rem}.musicGrid{grid-template-columns:1fr!important}.weddingVideoGrid{grid-template-columns:1fr!important}.weddingGallery>div:last-child{grid-template-columns:1fr 1fr}.galleryItem1,.galleryItem2,.galleryItem3,.galleryItem4,.galleryItem5{grid-column:span 1}}
+
+/* Controlled correction pass */
+.weddingIntro img{opacity:1;filter:saturate(.82) contrast(1.03) brightness(1.18);-webkit-mask-image:none;mask-image:none}.weddingGallery>div:last-child{grid-template-columns:repeat(12,1fr)}.galleryItem6{display:block}.galleryItem7,.galleryItem8{grid-column:span 6;grid-row:span 2}.toneBrand{max-width:1120px;min-height:480px;display:grid;place-items:center;text-align:center;background:#080808!important}.toneBrand>div{max-width:700px}.toneBrand h1{margin:1.5rem auto 1.35rem}.toneBrand>div>p:not(.kicker){margin:0 auto 2rem;line-height:1.65}.toneBrand .button{margin-top:0}.videoCollection .weddingSectionHead{gap:2rem}.videoCollection .weddingSectionHead>p{max-width:360px;justify-self:end}.documentaryPoster{position:relative;display:flex;min-height:0;aspect-ratio:16/9;flex-direction:column;justify-content:flex-end;padding:1rem;overflow:hidden;background:#181513;border:1px solid #292929}.documentaryPoster:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 28%,rgba(213,170,85,.28),transparent 23%),linear-gradient(135deg,transparent 35%,rgba(255,255,255,.08))}.documentaryPoster span,.documentaryPoster small{position:relative}.documentaryPoster span{font-size:clamp(1.2rem,2.5vw,2.15rem);font-weight:800;line-height:.92;letter-spacing:-.04em}.documentaryPoster small{margin-top:.7rem;color:#d5aa55;font-size:.5rem;letter-spacing:.13em}.button b,.publishedFilmStill span,.musicThumb b,.featuredMusicHero small{font-family:Arial,sans-serif;font-variant-emoji:text}@media(max-width:800px){.toneBrand{min-height:420px;text-align:left;place-items:start}.toneBrand h1{margin:1.3rem 0}.toneBrand>div>p:not(.kicker){margin:0 0 1.7rem}.videoCollection .weddingSectionHead>p{justify-self:start}.galleryItem1,.galleryItem2,.galleryItem3,.galleryItem4,.galleryItem5,.galleryItem6,.galleryItem7,.galleryItem8{grid-column:span 1;grid-row:span 2}}
+
+/* HOME — separator cleanup only */
+
+/* One clean, subtle divider beneath navigation */
+.homeNav{
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+}
+
+/* Remove the artificial box/grid lines drawn over the hero */
+.heroImage::after{
+  border-top:0 !important;
+  border-right:0 !important;
+  border-bottom:0 !important;
+  box-shadow:none !important;
+}
+
+/* Keep project cards structured, but much quieter */
+.pathway{
+  border-color:rgba(255,255,255,.10) !important;
+}
+
+/* Prevent doubled-looking separators where cards meet */
+.pathways{
+  border-color:rgba(255,255,255,.08) !important;
+}
+
+
+/* HOME — lift nav separator slightly */
+.homeNav{
+  border-bottom:0 !important;
+}
+
+.homeNav::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:14px;
+  height:1px;
+  background:rgba(255,255,255,.10);
+  pointer-events:none;
+}
+
+
+/* WEDDINGS — tighten centered Wedding Stories header only */
+#weddingStoriesTitle {
+  margin-bottom: 0 !important;
+}
+
+#weddingStoriesTitle + p,
+#weddingStoriesTitle ~ p:first-of-type {
+  margin-top: 0.45rem !important;
+}
+
+
+/* WEDDINGS — FINAL HEADER SPACING FIX */
+#storiesIntro,
+.weddingStoriesIntro,
+.weddingStoriesHeader {
+  gap: 0 !important;
+  row-gap: 0 !important;
+}
+
+#weddingStoriesTitle {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#weddingStoriesTitle + p,
+#weddingStoriesTitle ~ p:first-of-type {
+  margin: 0.35rem 0 0 !important;
+  padding: 0 !important;
+}
+
+/* Keep entire intro compact and centered */
+#storiesIntro,
+.weddingStoriesIntro,
+.weddingStoriesHeader {
+  text-align: center !important;
+}
+
+
+/* WEDDINGS — REMOVE GAP INSIDE WEDDING STORIES HEADER ONLY */
+#weddingStoriesFinal > .weddingSectionHead{
+  display:block !important;
+  min-height:0 !important;
+  height:auto !important;
+  gap:0 !important;
+  row-gap:0 !important;
+  padding:0 !important;
+  margin:0 auto 1.4rem !important;
+  text-align:center !important;
+}
+
+#weddingStoriesFinal > .weddingSectionHead > div{
+  display:block !important;
+  position:relative !important;
+  width:100% !important;
+  max-width:720px !important;
+  min-height:0 !important;
+  height:auto !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  transform:none !important;
+  text-align:center !important;
+}
+
+#weddingStoriesFinal > .weddingSectionHead > div + div{
+  margin-top:.35rem !important;
+}
+
+#weddingStoriesFinal .kicker{
+  margin:0 0 .45rem !important;
+}
+
+#weddingStoriesFinal .weddingSectionHead h2{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+#weddingStoriesFinal .weddingSectionHead > div + div p{
+  margin:.35rem auto 0 !important;
+  padding:0 !important;
+}
+
+
+/* WEDDINGS — premium gallery ending + section separation */
+#weddingGalleryFinal{
+  position:relative !important;
+  overflow:hidden !important;
+  padding-bottom:5rem !important;
+  margin-bottom:2.8rem !important;
+}
+
+/* Soft cinematic fade at bottom of gallery */
+#weddingGalleryFinal::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:150px;
+  pointer-events:none;
+  z-index:5;
+  background:linear-gradient(
+    to bottom,
+    rgba(5,5,5,0) 0%,
+    rgba(5,5,5,.38) 48%,
+    #050505 100%
+  );
+}
+
+/* Clear but subtle divider before Wedding Beauty */
+.makeupArtists{
+  position:relative !important;
+  margin-top:0 !important;
+  padding-top:3.2rem !important;
+  border-top:1px solid rgba(255,255,255,.12) !important;
+}
+
+
+/* =========================================================
+   BRAND / DOC — FINAL COMPACT PASS
+   Brand page only
+   ========================================================= */
+
+/* ---------- COMMERCIAL STORIES ---------- */
+
+/* Remove any inherited/reserved height creating black space */
+.brandPage .brandFilm,
+.brandPage .brandFilm > div,
+.brandPage .brandGrid > *,
+.brandPage .videoCollection,
+.brandPage .videoCollection > *{
+  min-height:0 !important;
+  height:auto !important;
+}
+
+/* Video/image itself defines the card height */
+.brandPage .brandFilm video,
+.brandPage .brandFilm img{
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:16/9 !important;
+  object-fit:cover !important;
+  margin:0 !important;
+}
+
+/* Kill phantom space directly underneath media */
+.brandPage .brandFilm video + *,
+.brandPage .brandFilm img + *{
+  margin-top:0 !important;
+}
+
+/* Keep the two project cards tight */
+.brandPage .brandGrid{
+  align-items:start !important;
+  row-gap:1rem !important;
+}
+
+.brandPage .brandFilm{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+
+/* ---------- COLLABORATIONS ---------- */
+
+/* This should behave like a compact credibility strip */
+.brandPage .brandCollabStrip{
+  min-height:0 !important;
+  height:auto !important;
+  padding:2.2rem 0 2.5rem !important;
+  margin:2.2rem 0 2.5rem !important;
+  overflow:hidden !important;
+}
+
+/* Compress internal vertical spacing */
+.brandPage .brandCollabStrip > *{
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+/* Heading much closer to logos */
+.brandPage .brandCollabStrip h2,
+.brandPage .brandCollabStrip h3{
+  margin:0 0 1.35rem !important;
+  line-height:1 !important;
+}
+
+/* Logos remain fully visible — smaller, NOT cropped */
+.brandPage .brandCollabStrip img{
+  max-height:68px !important;
+  width:auto !important;
+  max-width:100% !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  display:block !important;
+}
+
+/* Keep logo row compact */
+.brandPage .brandCollabStrip > div{
+  min-height:0 !important;
+  height:auto !important;
+}
+
+/* Documentary section begins sooner */
+.brandPage .documentaryCollection{
+  margin-top:0 !important;
+  padding-top:2.8rem !important;
+}
+
+
+/* ========================================================
+   BRAND/DOC — COLLABORATION STRIP FINAL PROPORTIONS
+   LARGE LOGOS, SMALL SECTION
+   ======================================================== */
+
+.brandPage .brandCollabStrip{
+  min-height:0 !important;
+  height:auto !important;
+
+  /* almost no wasted black space */
+  padding:1rem 0 1.1rem !important;
+  margin:1.35rem 0 !important;
+
+  border-top:1px solid rgba(255,255,255,.10) !important;
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+
+  overflow:hidden !important;
+}
+
+/* Kill old forced heights */
+.brandPage .brandCollabStrip,
+.brandPage .brandCollabStrip > div{
+  min-height:0 !important;
+  height:auto !important;
+}
+
+/* Your collaboration artwork should be LARGE again */
+.brandPage .brandCollabStrip img{
+  display:block !important;
+
+  width:min(760px,82vw) !important;
+  max-width:82vw !important;
+
+  height:auto !important;
+  max-height:none !important;
+
+  object-fit:contain !important;
+  object-position:center !important;
+
+  margin:.55rem auto !important;
+}
+
+/* Keep heading close to artwork */
+.brandPage .brandCollabStrip h2,
+.brandPage .brandCollabStrip h3{
+  margin:0 0 .45rem !important;
+  padding:0 !important;
+}
+
+/* Documentary starts quickly after collaborations */
+.brandPage .documentaryCollection{
+  margin-top:0 !important;
+  padding-top:2.2rem !important;
+}
+
+
+/* BRAND/DOC — tighten collaborations aggressively */
+.brandPage .brandCollabStrip{
+  min-height:0 !important;
+  height:auto !important;
+  padding:.45rem 0 .6rem !important;
+  margin:.65rem 0 .8rem !important;
+}
+
+/* remove extra internal spacing */
+.brandPage .brandCollabStrip > div{
+  min-height:0 !important;
+  height:auto !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+
+.brandPage .brandCollabStrip h2,
+.brandPage .brandCollabStrip h3{
+  margin:0 0 .25rem !important;
+  padding:0 !important;
+}
+
+/* keep logos visible but make the whole artwork block shorter */
+.brandPage .brandCollabStrip img{
+  width:min(640px,72vw) !important;
+  max-width:72vw !important;
+  height:auto !important;
+  margin:.2rem auto !important;
+  max-height:115px !important;
+  object-fit:contain !important;
+}
+
+/* pull Real Stories up closer */
+.brandPage .documentaryCollection{
+  padding-top:1.15rem !important;
+  margin-top:0 !important;
+}
+
+
+/* BRAND/DOC — keep compact strip, restore large collaboration artwork */
+.brandPage .brandCollabStrip{
+  position:relative !important;
+  overflow:hidden !important;
+
+  /* KEEP the current compact vertical footprint */
+  min-height:0 !important;
+  height:128px !important;
+  padding:0 !important;
+  margin:.65rem 0 .8rem !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  border-top:1px solid rgba(255,255,255,.10) !important;
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+}
+
+/* Let the artwork become large INSIDE the short strip */
+.brandPage .brandCollabStrip img{
+  width:min(760px,82vw) !important;
+  max-width:82vw !important;
+  height:auto !important;
+  max-height:none !important;
+
+  margin:0 auto !important;
+  display:block !important;
+
+  object-fit:contain !important;
+  object-position:center !important;
+
+  /* scale artwork without increasing section height */
+  transform:scale(1.42) !important;
+  transform-origin:center center !important;
+}
+
+/* neutralize wrappers so they do not recreate the huge gap */
+.brandPage .brandCollabStrip > div{
+  width:100% !important;
+  min-height:0 !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/* keep the little external label/header from adding height */
+.brandPage .brandCollabStrip h2,
+.brandPage .brandCollabStrip h3{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+
+/* BRAND/DOC — final collaboration logo sizing */
+.brandPage .brandCollabStrip img{
+  width:min(690px,74vw) !important;
+  max-width:74vw !important;
+  transform:scale(1.12) !important;
+  transform-origin:center center !important;
+}
+
+
+/* BRAND/DOC — logo size final micro-adjustment */
+.brandPage .brandCollabStrip img{
+  width:min(660px,71vw) !important;
+  max-width:71vw !important;
+  transform:scale(1.08) !important;
+  transform-origin:center center !important;
+}
+
+
+/* BRAND/DOC — final visual sizing */
+
+/* Collaboration artwork: tiny step smaller */
+.brandPage .brandCollabStrip img{
+  width:min(640px,69vw) !important;
+  max-width:69vw !important;
+  transform:scale(1.04) !important;
+  transform-origin:center center !important;
+}
+
+/* Commercial Stories: use more of the available page width */
+.brandPage .commercialCollection,
+.brandPage .brandCollection{
+  max-width:1280px !important;
+  width:calc(100% - 5rem) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+/* Keep the two commercial players large and balanced */
+.brandPage .commercialGrid,
+.brandPage .brandGrid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:.55rem !important;
+}
+
+/* Larger cinematic player area */
+.brandPage .brandFilm video,
+.brandPage .brandFilm img{
+  width:100% !important;
+  aspect-ratio:16/9 !important;
+  object-fit:cover !important;
+}
+
+@media(max-width:900px){
+  .brandPage .commercialCollection,
+  .brandPage .brandCollection{
+    width:calc(100% - 2rem) !important;
+  }
+}
+
+
+/* =========================================================
+   BRAND/DOC — FINAL COLLABORATION STRIP TIGHTENING
+   ========================================================= */
+
+.brandPage .brandCollabStrip{
+  padding-top:.15rem !important;
+  padding-bottom:.15rem !important;
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+.brandPage .brandCollabStrip > div{
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+  min-height:0 !important;
+}
+
+/* keep current logo SIZE — only remove surrounding air */
+.brandPage .brandCollabStrip img{
+  margin-top:-.35rem !important;
+  margin-bottom:-.35rem !important;
+}
+
+/* pull Real Stories closer */
+.brandPage .documentaryCollection{
+  margin-top:0 !important;
+  padding-top:1.35rem !important;
+}
+
+
+/* =========================================================
+   BRAND/DOC — FINAL CONDENSED PASS
+   ========================================================= */
+
+/* Commercial Stories -> Selected Collaborations:
+   remove the big dead black gap */
+.brandPage .brandCollaborations{
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+
+/* Pull collaboration section immediately after commercials */
+.brandPage .brandCollaborations{
+  transform:translateY(-1.6rem) !important;
+  margin-bottom:-1.6rem !important;
+}
+
+/* Keep logo ARTWORK size exactly where it is now,
+   but tighten the actual strip around it */
+.brandPage .brandCollabStrip{
+  height:108px !important;
+  min-height:108px !important;
+  padding:0 !important;
+  margin:0 !important;
+  overflow:hidden !important;
+}
+
+/* Current logo size stays */
+.brandPage .brandCollabStrip img{
+  margin:0 auto !important;
+}
+
+/* Real Stories = THREE across */
+.brandPage .documentaryPyramid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:1rem !important;
+}
+
+/* AMPLIFY is card 3, normal size */
+.brandPage .documentaryPyramid .documentaryCard:nth-child(3){
+  grid-column:auto !important;
+  width:100% !important;
+  margin:0 !important;
+  justify-self:stretch !important;
+}
+
+/* Upcoming documentary = card 4 underneath */
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+  grid-column:1 / -1 !important;
+  width:min(100%,760px) !important;
+  justify-self:center !important;
+  margin-top:1.5rem !important;
+}
+
+@media(max-width:800px){
+  .brandPage .documentaryPyramid{
+    grid-template-columns:1fr !important;
+  }
+
+  .brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+    grid-column:auto !important;
+    width:100% !important;
+  }
+}
+
+
+/* =========================================================
+   BRAND / DOC — 3 REAL STORIES + LA VILLE STANDALONE
+   ========================================================= */
+
+/* First three documentary projects = equal row */
+.brandPage .documentaryPyramid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:1rem !important;
+  align-items:start !important;
+}
+
+/* Undo old rule that made card 3 the feature */
+.brandPage .documentaryPyramid .documentaryCard:nth-child(3){
+  grid-column:auto !important;
+  width:100% !important;
+  max-width:none !important;
+  justify-self:stretch !important;
+  margin:0 !important;
+}
+
+/* LA VILLE is card 4 and returns underneath BY ITSELF */
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+  grid-column:1 / -1 !important;
+  width:min(760px,100%) !important;
+  justify-self:center !important;
+  margin:1.6rem auto 0 !important;
+}
+
+/* Keep all three talking-head/video frames equal */
+.brandPage .documentaryPyramid .documentaryCard:nth-child(-n+3) video,
+.brandPage .documentaryPyramid .documentaryCard:nth-child(-n+3) img{
+  width:100% !important;
+  aspect-ratio:16/9 !important;
+  object-fit:cover !important;
+}
+
+@media(max-width:800px){
+  .brandPage .documentaryPyramid{
+    grid-template-columns:1fr !important;
+  }
+
+  .brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+    grid-column:auto !important;
+    width:100% !important;
+  }
+}
+
+
+
+/* ===== BRAND DOC ABSOLUTE FINAL LOCK ===== */
+
+/* Commercial section stays untouched visually */
+.brandPage .commercialCollection{
+  margin-bottom:0 !important;
+  padding-bottom:.65rem !important;
+}
+
+
+/* ----------------------------------------------------------
+   COLLABORATIONS
+   Keep the section very tight.
+   Keep the full logo artwork visible.
+   ---------------------------------------------------------- */
+
+.brandPage .brandCollaborations{
+  margin:0 !important;
+  padding:0 !important;
+  min-height:0 !important;
+  height:auto !important;
+  overflow:visible !important;
+}
+
+.brandPage .brandCollabHeading{
+  margin:0 !important;
+  padding:.25rem 2rem !important;
+}
+
+.brandPage .brandCollabStrip{
+  position:relative !important;
+
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+
+  margin:0 !important;
+  padding:.15rem 0 !important;
+
+  transform:none !important;
+
+  overflow:visible !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  border-top:1px solid rgba(255,255,255,.10) !important;
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+}
+
+.brandPage .brandCollabStrip > div{
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  transform:none !important;
+  overflow:visible !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.brandPage .brandCollabStrip img{
+  display:block !important;
+
+  width:min(590px,62vw) !important;
+  max-width:62vw !important;
+
+  height:auto !important;
+  max-height:none !important;
+
+  margin:0 auto !important;
+  padding:0 !important;
+
+  transform:none !important;
+
+  object-fit:contain !important;
+  object-position:center center !important;
+}
+
+
+/* ----------------------------------------------------------
+   REAL STORIES
+   3 projects on top.
+   ---------------------------------------------------------- */
+
+.brandPage .documentaryCollection{
+  margin-top:0 !important;
+  padding-top:1.25rem !important;
+}
+
+.brandPage .documentaryPyramid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:1rem !important;
+  align-items:start !important;
+}
+
+.brandPage .documentaryPyramid .documentaryCard{
+  grid-column:auto !important;
+
+  width:100% !important;
+  max-width:none !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  justify-self:stretch !important;
+  align-self:start !important;
+}
+
+.brandPage .documentaryPyramid .documentaryCard:nth-child(-n+3) video,
+.brandPage .documentaryPyramid .documentaryCard:nth-child(-n+3) img{
+  display:block !important;
+
+  width:100% !important;
+  height:auto !important;
+
+  aspect-ratio:16/9 !important;
+  object-fit:cover !important;
+}
+
+
+/* ----------------------------------------------------------
+   LA VILLE
+   Standalone feature UNDER the three Real Stories.
+   ---------------------------------------------------------- */
+
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+  grid-column:1 / -1 !important;
+
+  width:min(700px,76%) !important;
+  max-width:700px !important;
+
+  margin:2.25rem auto 0 !important;
+
+  justify-self:center !important;
+}
+
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4) video,
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4) img{
+  display:block !important;
+
+  width:100% !important;
+  height:auto !important;
+
+  aspect-ratio:16/9 !important;
+  object-fit:cover !important;
+}
+
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4) .documentaryInfo{
+  text-align:center !important;
+}
+
+
+/* Mobile */
+@media(max-width:800px){
+
+  .brandPage .documentaryPyramid{
+    grid-template-columns:1fr !important;
+  }
+
+  .brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+    grid-column:auto !important;
+    width:100% !important;
+    max-width:none !important;
+  }
+
+  .brandPage .brandCollabStrip img{
+    width:min(540px,88vw) !important;
+    max-width:88vw !important;
+  }
+
+}
+
+
+/* =========================================================
+   BRAND/DOC — REAL STORIES TYPOGRAPHY + LA VILLE FEATURE
+   ========================================================= */
+
+/* TOP THREE — titles must support the videos, not dominate them */
+#realStoriesFinal .realStoriesTop .documentaryInfo{
+  padding-top:.7rem !important;
+  text-align:left !important;
+}
+
+#realStoriesFinal .realStoriesTop .docProjectTitle{
+  display:block !important;
+  font-size:clamp(.82rem,1.05vw,1rem) !important;
+  line-height:1.08 !important;
+  letter-spacing:-.015em !important;
+  font-weight:700 !important;
+  max-width:100% !important;
+  min-height:2.2em !important;
+}
+
+#realStoriesFinal .realStoriesTop .docProjectRole{
+  display:block !important;
+  margin-top:.45rem !important;
+  font-size:.52rem !important;
+  line-height:1 !important;
+  letter-spacing:.18em !important;
+  opacity:.62 !important;
+  white-space:nowrap !important;
+}
+
+
+/* =========================================================
+   LA VILLE — FEATURED / UPCOMING PROJECT
+   ========================================================= */
+
+#realStoriesFinal .laVilleStandalone{
+  position:relative !important;
+  width:min(760px,82%) !important;
+  max-width:760px !important;
+  margin:4.25rem auto 1rem !important;
+  padding:1.35rem !important;
+
+  border:1px solid rgba(181,138,48,.55) !important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(181,138,48,.055),
+      rgba(0,0,0,0) 34%
+    ) !important;
+}
+
+/* little gold corner details */
+#realStoriesFinal .laVilleStandalone::before,
+#realStoriesFinal .laVilleStandalone::after{
+  content:"" !important;
+  position:absolute !important;
+  width:34px !important;
+  height:34px !important;
+  pointer-events:none !important;
+}
+
+#realStoriesFinal .laVilleStandalone::before{
+  top:-1px !important;
+  left:-1px !important;
+  border-top:2px solid #b58a30 !important;
+  border-left:2px solid #b58a30 !important;
+}
+
+#realStoriesFinal .laVilleStandalone::after{
+  right:-1px !important;
+  bottom:-1px !important;
+  border-right:2px solid #b58a30 !important;
+  border-bottom:2px solid #b58a30 !important;
+}
+
+/* Upcoming label */
+#realStoriesFinal .laVilleStandalone > .docEyebrow{
+  display:block !important;
+  margin:0 0 .85rem !important;
+  text-align:center !important;
+  color:#b58a30 !important;
+  font-size:.58rem !important;
+  font-weight:700 !important;
+  letter-spacing:.25em !important;
+}
+
+/* Feature image */
+#realStoriesFinal .laVilleStandalone .documentaryMedia{
+  border:1px solid rgba(181,138,48,.24) !important;
+  overflow:hidden !important;
+}
+
+/* LA VILLE information */
+#realStoriesFinal .laVilleStandalone .documentaryInfo{
+  padding:1.25rem .5rem .35rem !important;
+  text-align:center !important;
+}
+
+#realStoriesFinal .laVilleStandalone .documentaryInfo .docEyebrow{
+  display:block !important;
+  color:#b58a30 !important;
+  font-size:.52rem !important;
+  letter-spacing:.24em !important;
+  margin-bottom:.45rem !important;
+}
+
+#realStoriesFinal .laVilleStandalone .docProjectTitle{
+  display:block !important;
+  font-size:clamp(1.65rem,3vw,2.45rem) !important;
+  line-height:.95 !important;
+  letter-spacing:-.035em !important;
+}
+
+#realStoriesFinal .laVilleStandalone .docProjectRole{
+  display:block !important;
+  margin-top:.65rem !important;
+  font-size:.55rem !important;
+  letter-spacing:.2em !important;
+  opacity:.7 !important;
+}
+
+#realStoriesFinal .laVilleStandalone .comingSoon{
+  display:inline-block !important;
+  margin-top:1.15rem !important;
+  padding:.65rem 1rem !important;
+  border:1px solid rgba(181,138,48,.65) !important;
+  color:#b58a30 !important;
+  font-size:.52rem !important;
+  line-height:1 !important;
+  letter-spacing:.18em !important;
+}
+
+
+/* MOBILE */
+@media(max-width:800px){
+  #realStoriesFinal .realStoriesTop .docProjectTitle{
+    min-height:0 !important;
+    font-size:.9rem !important;
+  }
+
+  #realStoriesFinal .laVilleStandalone{
+    width:100% !important;
+    margin-top:3rem !important;
+    padding:.9rem !important;
+  }
+}
+
+
+/* BRAND/DOC — LA VILLE featured treatment refinement */
+
+#realStoriesFinal .laVilleStandalone{
+  border:0 !important;
+  background:none !important;
+  padding:2.2rem 0 1.8rem !important;
+  margin:4rem auto 1rem !important;
+}
+
+/* remove large corner frame */
+#realStoriesFinal .laVilleStandalone::before,
+#realStoriesFinal .laVilleStandalone::after{
+  display:none !important;
+}
+
+/* subtle premium separators instead of a giant box */
+#realStoriesFinal .laVilleStandalone{
+  border-top:1px solid rgba(181,138,48,.45) !important;
+  border-bottom:1px solid rgba(181,138,48,.28) !important;
+}
+
+/* make the upcoming label feel a little more deliberate */
+#realStoriesFinal .laVilleStandalone > .docEyebrow{
+  margin-bottom:1rem !important;
+  font-size:.6rem !important;
+  letter-spacing:.28em !important;
+}
+
+/* preserve a subtle frame only around the actual film */
+#realStoriesFinal .laVilleStandalone .documentaryMedia{
+  border:1px solid rgba(181,138,48,.3) !important;
+}
+
+/* give LA VILLE a bit more presence */
+#realStoriesFinal .laVilleStandalone .docProjectTitle{
+  font-size:clamp(1.9rem,3.3vw,2.7rem) !important;
+}
+
+/* CTA stays as the gold 'special project' cue */
+#realStoriesFinal .laVilleStandalone .comingSoon{
+  border-color:rgba(181,138,48,.75) !important;
+  background:rgba(181,138,48,.035) !important;
+}
+
+
+/* BRAND/DOC — remove remaining dead hero space */
+.brandPage .detailHero.toneBrand{
+  min-height:auto !important;
+  height:auto !important;
+  padding-top:4rem !important;
+  padding-bottom:2rem !important;
+  margin-bottom:0 !important;
+}
+
+.brandPage .detailHero.toneBrand + .brandCollection{
+  margin-top:0 !important;
+  padding-top:2rem !important;
+}
+
+
+/* ==========================================================
+   BRAND/DOC FINAL FLOW CLEANUP
+   ========================================================== */
+
+/* Commercial Stories should hug its actual content */
+.brandPage .brandCollection:not(.documentaryCollection){
+  min-height:0 !important;
+  height:auto !important;
+  margin-bottom:0 !important;
+  padding-bottom:1.2rem !important;
+}
+
+/* Individual commercial cards should create no mystery height */
+.brandPage .brandGrid{
+  align-items:start !important;
+  margin-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+
+.brandPage .brandFilm{
+  min-height:0 !important;
+  height:auto !important;
+  margin-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+
+/* Commercial media itself */
+.brandPage .brandFilm > div:first-child,
+.brandPage .brandFilm .publishedFilmStill{
+  min-height:0 !important;
+  margin-bottom:0 !important;
+}
+
+/* Now that collaborations moved away, Real Stories comes up immediately */
+.brandPage #realStoriesFinal{
+  margin-top:0 !important;
+  padding-top:2rem !important;
+}
+
+/* Collaborations becomes a compact credibility strip at page bottom */
+.brandPage .brandCollaborations{
+  margin:3rem 0 0 !important;
+  padding:0 !important;
+}
+
+.brandPage .brandCollabHeading{
+  margin:0 !important;
+  padding:.7rem 2rem !important;
+}
+
+.brandPage .brandCollabStrip{
+  margin:0 !important;
+  padding:.5rem 0 !important;
+}
+
+
+/* LA VILLE — upcoming documentary editorial statement */
+#realStoriesFinal .laVilleEditorial{
+  width:min(620px,82%);
+  margin:1.35rem auto 1.5rem !important;
+  text-align:center;
+}
+
+#realStoriesFinal .laVilleEditorial strong{
+  display:block;
+  margin-bottom:.55rem;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  font-weight:600;
+  color:rgba(255,255,255,.92);
+}
+
+#realStoriesFinal .laVilleEditorial p{
+  margin:0 auto;
+  max-width:580px;
+  font-size:.88rem;
+  line-height:1.65;
+  color:rgba(255,255,255,.58);
+}
+
+@media(max-width:800px){
+  #realStoriesFinal .laVilleEditorial{
+    width:90%;
+    margin:1.1rem auto 1.3rem !important;
+  }
+
+  #realStoriesFinal .laVilleEditorial p{
+    font-size:.82rem;
+    line-height:1.6;
+  }
+}
+
+
+/* =========================================================
+   BRAND/DOC — FINAL LA VILLE EDITORIAL PASS
+   ========================================================= */
+
+#realStoriesFinal .laVilleEditorial{
+  width:min(590px,82%);
+  margin:1.15rem auto 1.35rem !important;
+  text-align:center;
+}
+
+#realStoriesFinal .laVilleEditorial strong{
+  display:block;
+  margin:0 0 .5rem !important;
+  font-size:.69rem;
+  letter-spacing:.18em;
+  font-weight:600;
+  color:rgba(255,255,255,.92);
+}
+
+#realStoriesFinal .laVilleEditorial p{
+  max-width:560px;
+  margin:0 auto !important;
+  font-size:.84rem;
+  line-height:1.62;
+  color:rgba(255,255,255,.60);
+}
+
+
+/* =========================================================
+   COMMERCIAL STORIES — CROP DEAD BLACK INSIDE VIDEO FRAMES
+   Player dimensions stay untouched.
+   ========================================================= */
+
+.brandPage .brandFilm .publishedFilmStill{
+  overflow:hidden !important;
+}
+
+.brandPage .brandFilm .publishedFilmStill video,
+.brandPage .brandFilm .commercialAutoVideo{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+
+  /* small internal crop; does NOT enlarge the card */
+  transform:scale(1.075) translateY(-1.2%) !important;
+  transform-origin:center center !important;
+}
+
+
+/* mobile: don't crop aggressively */
+@media(max-width:800px){
+  .brandPage .brandFilm .publishedFilmStill video,
+  .brandPage .brandFilm .commercialAutoVideo{
+    transform:scale(1.035) !important;
+  }
+}
+

@@ -1277,3 +1277,1300 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   }
 }
 
+
+/* =========================================================
+   KSP VISION — FINAL WIDE DESKTOP PASS
+   Targets large/full-screen desktop only.
+   Existing tablet/mobile layouts stay untouched.
+   ========================================================= */
+
+@media (min-width: 1280px){
+
+  /* =======================================================
+     1. BRAND / DOCUMENTARY
+     STORIES WITH PURPOSE stays dominant but not gigantic
+     ======================================================= */
+
+  .brandPage .detailHero{
+    text-align:center !important;
+    padding-left:clamp(2rem,6vw,7rem) !important;
+    padding-right:clamp(2rem,6vw,7rem) !important;
+  }
+
+  .brandPage .detailHero h1{
+    font-size:clamp(3.1rem,5.1vw,6rem) !important;
+    line-height:.92 !important;
+    max-width:1180px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+  }
+
+  .brandPage .detailHero > div,
+  .brandPage .detailHero p{
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+  }
+
+
+  /* =======================================================
+     2. BRAND / DOC — REDUCE LARGE DOCUMENTARY TITLES
+     ======================================================= */
+
+  .brandPage .brandCollection .weddingSectionHead h2,
+  .brandPage .documentaryCollection .weddingSectionHead h2,
+  #realStoriesFinal .weddingSectionHead h2{
+    font-size:clamp(2.35rem,3.6vw,4rem) !important;
+    line-height:.95 !important;
+  }
+
+  #realStoriesFinal .docProjectTitle{
+    font-size:clamp(1rem,1.35vw,1.45rem) !important;
+    line-height:1.02 !important;
+    letter-spacing:-.025em !important;
+  }
+
+  #realStoriesFinal .docProjectRole{
+    font-size:clamp(.52rem,.58vw,.68rem) !important;
+    letter-spacing:.16em !important;
+  }
+
+  #realStoriesFinal .documentaryInfo p{
+    font-size:clamp(.72rem,.78vw,.88rem) !important;
+    line-height:1.55 !important;
+  }
+
+
+  /* =======================================================
+     3. WEDDINGS — HERO IMAGE BIGGER / MORE CINEMATIC
+     + LESS DEAD SPACE BEFORE WEDDING STORIES
+     ======================================================= */
+
+  .weddingPage .detailHero,
+  .weddingsPage .detailHero{
+    padding-bottom:2.1rem !important;
+  }
+
+  .weddingPage .detailHero img,
+  .weddingsPage .detailHero img,
+  .featuredWeddingHero img,
+  .featuredWeddingHero video{
+    width:112% !important;
+    max-width:none !important;
+    transform:translateX(-4%) scale(1.06) !important;
+    transform-origin:center center !important;
+  }
+
+  .weddingPage .weddingCollection,
+  .weddingsPage .weddingCollection,
+  #weddingStoriesFinal{
+    margin-top:0 !important;
+    padding-top:2.4rem !important;
+  }
+
+  #weddingStoriesFinal .weddingSectionHead{
+    margin-bottom:2.4rem !important;
+  }
+
+
+  /* =======================================================
+     4. THREE WEDDING STORIES — SMALLER, MORE EDITORIAL
+     ======================================================= */
+
+  #weddingStoriesFinal h3,
+  #weddingStoriesFinal .storyTitle,
+  #weddingStoriesFinal .weddingStoryTitle{
+    font-size:clamp(2rem,3.2vw,3.65rem) !important;
+    line-height:.92 !important;
+    letter-spacing:-.035em !important;
+  }
+
+  #weddingStoriesFinal p{
+    font-size:clamp(.82rem,.9vw,1rem) !important;
+    line-height:1.62 !important;
+  }
+
+  #weddingStoriesFinal .weddingStory,
+  #weddingStoriesFinal article{
+    min-height:0 !important;
+  }
+
+  #weddingStoriesFinal .weddingStory + .weddingStory,
+  #weddingStoriesFinal article + article{
+    margin-top:clamp(3rem,5vw,5.8rem) !important;
+  }
+
+
+  /* =======================================================
+     5. MUSIC VIDEOS — USE LARGE SCREEN WIDTH
+     Grid grows horizontally instead of floating tiny
+     ======================================================= */
+
+  .musicPage,
+  .musicVideosPage{
+    --wide-content:min(1480px, calc(100vw - 8rem));
+  }
+
+  .musicPage .musicCollection,
+  .musicPage .musicGrid,
+  .musicVideosPage .musicCollection,
+  .musicVideosPage .musicGrid{
+    width:var(--wide-content) !important;
+    max-width:1480px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .musicPage .musicGrid,
+  .musicVideosPage .musicGrid{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:clamp(1rem,1.4vw,1.6rem) !important;
+  }
+
+  .musicPage .galleryItem,
+  .musicVideosPage .galleryItem{
+    width:100% !important;
+    max-width:none !important;
+  }
+
+  .musicPage .featuredMusicHero,
+  .musicVideosPage .featuredMusicHero{
+    width:min(1180px,calc(100vw - 8rem)) !important;
+    max-width:none !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+}
+
+
+/* Extra-wide monitors */
+@media (min-width: 1700px){
+
+  .musicPage .musicGrid,
+  .musicVideosPage .musicGrid{
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  }
+
+  .musicPage .musicCollection,
+  .musicPage .musicGrid,
+  .musicVideosPage .musicCollection,
+  .musicVideosPage .musicGrid{
+    width:min(1600px,calc(100vw - 10rem)) !important;
+    max-width:1600px !important;
+  }
+
+  #weddingStoriesFinal h3,
+  #weddingStoriesFinal .storyTitle,
+  #weddingStoriesFinal .weddingStoryTitle{
+    font-size:clamp(2.1rem,2.75vw,3.6rem) !important;
+  }
+
+}
+
+
+/* ==========================================================
+   KSP VISION — FINAL WIDE DESKTOP CORRECTIONS
+   ========================================================== */
+
+@media (min-width: 1280px) {
+
+  /* BRAND / DOCUMENTARY
+     Keep bold, but stop these headings dominating the screen */
+  .brandDocumentaryPage h1,
+  .brandDocumentaryPage .heroTitle {
+    font-size: clamp(3.2rem, 4.8vw, 5.6rem) !important;
+    line-height: .92 !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .brandDocumentaryPage h2,
+  .brandDocumentaryPage .sectionTitle {
+    font-size: clamp(2.3rem, 3.2vw, 3.8rem) !important;
+    line-height: .95 !important;
+    font-weight: 800 !important;
+  }
+
+
+  /* WEDDINGS
+     Enlarge hero visual while keeping its existing placement */
+  .weddingsPage .featuredWeddingHero img,
+  .weddingsPage .weddingHero img,
+  .weddingsPage .heroMedia img {
+    transform: scale(1.16) !important;
+    transform-origin: center center !important;
+  }
+
+  /* Condense hero -> Selected Celebrations */
+  .weddingsPage .weddingHero,
+  .weddingsPage .featuredWeddingHero,
+  .weddingsPage .heroSection {
+    margin-bottom: clamp(2rem, 3vw, 3.5rem) !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Pull SELECTED CELEBRATIONS / WEDDING STORIES upward */
+  .weddingsPage .weddingStories,
+  .weddingsPage #weddingStoriesFinal,
+  #weddingStoriesFinal {
+    margin-top: 0 !important;
+    padding-top: clamp(1.5rem, 2.5vw, 3rem) !important;
+  }
+
+
+  /* THREE WEDDING STORIES
+     Editorial scale instead of giant typography */
+  #weddingStoriesFinal h3,
+  #weddingStoriesFinal .storyTitle,
+  #weddingStoriesFinal .weddingStoryTitle {
+    font-size: clamp(2rem, 2.6vw, 3.15rem) !important;
+    line-height: .94 !important;
+    font-weight: 500 !important;
+  }
+
+  #weddingStoriesFinal p,
+  #weddingStoriesFinal .storyDescription,
+  #weddingStoriesFinal .weddingStoryDescription {
+    font-size: clamp(.88rem, .92vw, 1.05rem) !important;
+    line-height: 1.55 !important;
+    max-width: 28rem !important;
+  }
+
+
+  /* MUSIC VIDEOS
+     Undo the forced 4/5-column behavior that broke the layout.
+     Use responsive columns based on ACTUAL available width. */
+  .musicPage .musicGrid,
+  .musicVideosPage .musicGrid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: clamp(1rem, 1.4vw, 1.6rem) !important;
+    width: 100% !important;
+    max-width: 1600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .musicPage .galleryItem,
+  .musicVideosPage .galleryItem {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+
+}
+
+
+/* Extra-wide screens: allow the portfolio to breathe,
+   but DO NOT force 5 columns */
+@media (min-width: 1700px) {
+
+  .musicPage .musicCollection,
+  .musicPage .musicGrid,
+  .musicVideosPage .musicCollection,
+  .musicVideosPage .musicGrid {
+    width: min(92vw, 1700px) !important;
+    max-width: 1700px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+}
+
+
+/* ==========================================================
+   KSP VISION — FINAL GRID POLISH
+   ========================================================== */
+
+@media (min-width: 1280px) {
+
+  /* MUSIC VIDEOS — 3 proper columns on normal desktop */
+  .musicPage .musicGrid,
+  .musicVideosPage .musicGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    max-width: 1500px !important;
+  }
+
+}
+
+/* Only genuinely wide monitors get four columns */
+@media (min-width: 1800px) {
+
+  .musicPage .musicGrid,
+  .musicVideosPage .musicGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    max-width: 1700px !important;
+  }
+
+}
+
+
+/* ==========================================================
+   KSP VISION — FINAL BRAND/DOC TYPOGRAPHY
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  /* STORIES WITH PURPOSE — bold, dominant, but controlled */
+  .brandPage .detailHero h1{
+    font-size:clamp(2.8rem,4vw,4.6rem) !important;
+    line-height:.94 !important;
+    font-weight:800 !important;
+    max-width:1000px !important;
+    width:100% !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+  }
+
+  /* REAL STORIES — clearly secondary to hero */
+  #realStoriesFinal .weddingSectionHead h2{
+    font-size:clamp(2rem,2.8vw,3rem) !important;
+    line-height:.96 !important;
+    font-weight:800 !important;
+  }
+
+}
+
+
+/* ==========================================================
+   KSP VISION — WEDDING HERO IMAGE SCALE
+   Grow image visually without moving hero layout
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  .weddingPage .heroMedia,
+  .weddingPage .featuredWeddingHero{
+    overflow:visible !important;
+  }
+
+  .weddingPage .heroMedia img,
+  .weddingPage .featuredWeddingHero img{
+    transform:scale(1.16) !important;
+    transform-origin:center center !important;
+    position:relative !important;
+    z-index:0 !important;
+  }
+
+  /* Keep the copy above the enlarged image */
+  .weddingPage .heroCopy{
+    position:relative !important;
+    z-index:2 !important;
+  }
+
+}
+
+
+/* WEDDING HERO — final larger cinematic scale
+   Center stays fixed; image expands equally outward */
+@media (min-width:1280px){
+
+  .weddingPage .heroMedia img,
+  .weddingPage .featuredWeddingHero img{
+    transform:scale(1.54) !important;
+    transform-origin:center center !important;
+  }
+
+}
+
+
+/* ==========================================================
+   KSP VISION — HERO CORRECTION
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  /* WEDDING:
+     Much larger visual.
+     SAME CENTER POINT. No translation. */
+  .weddingPage .heroMedia,
+  .weddingPage .featuredWeddingHero{
+    overflow:visible !important;
+  }
+
+  .weddingPage .heroMedia img,
+  .weddingPage .featuredWeddingHero img{
+    transform:scale(2.05) !important;
+    transform-origin:center center !important;
+  }
+
+  .weddingPage .heroCopy{
+    position:relative !important;
+    z-index:5 !important;
+  }
+
+
+  /* BRAND / DOCUMENTARY:
+     Hit the selector that actually exists in the stylesheet. */
+  .brandPage .detailHero h1{
+    font-size:3.35rem !important;
+    line-height:.92 !important;
+    font-weight:800 !important;
+    letter-spacing:-.045em !important;
+
+    width:auto !important;
+    max-width:none !important;
+
+    text-align:center !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+
+  /* REAL STORIES */
+  .brandPage #realStoriesFinal h2,
+  #realStoriesFinal h2{
+    font-size:2.55rem !important;
+    line-height:.95 !important;
+    font-weight:800 !important;
+  }
+
+}
+
+
+/* ==========================================================
+   KSP VISION — BRAND/DOC FINAL DESKTOP TYPE OVERRIDE
+   ========================================================== */
+
+@media (min-width: 1280px) {
+
+  /* ----------------------------------------------------------
+     STORIES WITH PURPOSE
+     Force smaller + centered
+     ---------------------------------------------------------- */
+
+  body:has(.brandPage) .detailHero h1,
+  body:has(.brandDocumentaryPage) .detailHero h1,
+  .brandPage .detailHero h1,
+  .brandDocumentaryPage .detailHero h1 {
+    font-size: 3rem !important;
+    line-height: .95 !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.035em !important;
+
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    text-align: center !important;
+  }
+
+
+  /* ----------------------------------------------------------
+     COMMERCIAL STORIES
+     Smaller than current
+     ---------------------------------------------------------- */
+
+  body:has(.brandPage) .brandCollection h2,
+  body:has(.brandDocumentaryPage) .brandCollection h2,
+  .brandPage .brandCollection h2,
+  .brandDocumentaryPage .brandCollection h2 {
+    font-size: 2.35rem !important;
+    line-height: .96 !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+
+  /* ----------------------------------------------------------
+     REAL STORIES
+     Smaller again
+     ---------------------------------------------------------- */
+
+  body:has(.brandPage) .weddingSectionHead h2,
+  body:has(.brandDocumentaryPage) .weddingSectionHead h2,
+  .brandPage .weddingSectionHead h2,
+  .brandDocumentaryPage .weddingSectionHead h2,
+  #realStoriesFinal h2 {
+    font-size: 2.05rem !important;
+    line-height: .96 !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+  }
+
+}
+
+/* ==========================================================
+   KSP VISION — BRAND/DOC SECTION TITLE FINAL SIZING
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  /* COMMERCIAL STORIES */
+  .brandPage .brandCollection .weddingSectionHead h2,
+  .brandPage .brandCollection h2,
+  .brandDocumentaryPage .brandCollection .weddingSectionHead h2,
+  .brandDocumentaryPage .brandCollection h2{
+    font-size:2rem !important;
+    line-height:.95 !important;
+    font-weight:800 !important;
+    letter-spacing:-.03em !important;
+  }
+
+  /* REAL STORIES */
+  .brandPage #realStoriesFinal .weddingSectionHead h2,
+  .brandPage #realStoriesFinal h2,
+  .brandDocumentaryPage #realStoriesFinal .weddingSectionHead h2,
+  .brandDocumentaryPage #realStoriesFinal h2,
+  #realStoriesFinal .weddingSectionHead h2,
+  #realStoriesFinal h2{
+    font-size:1.75rem !important;
+    line-height:.95 !important;
+    font-weight:800 !important;
+    letter-spacing:-.025em !important;
+  }
+
+}
+
+
+/* ==========================================================
+   BRAND/DOC — TIGHTEN COMMERCIAL SECTION VERTICAL SPACING
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  /* Selected Work + Commercial Stories heading block */
+  .brandPage .brandCollection .weddingSectionHead,
+  .brandDocumentaryPage .brandCollection .weddingSectionHead{
+    margin-bottom:1.6rem !important;
+  }
+
+  .brandPage .brandCollection .weddingSectionHead p,
+  .brandDocumentaryPage .brandCollection .weddingSectionHead p{
+    margin-bottom:.55rem !important;
+  }
+
+  .brandPage .brandCollection .weddingSectionHead h2,
+  .brandDocumentaryPage .brandCollection .weddingSectionHead h2{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  /* Pull the two commercial players upward */
+  .brandPage .brandCollection .brandGrid,
+  .brandDocumentaryPage .brandCollection .brandGrid{
+    margin-top:1.6rem !important;
+  }
+
+}
+
+
+/* ==========================================================
+   BRAND/DOC — DOCUMENTARY CARD SPACING
+   Tighten title -> role -> thumbnail on all 3 cards
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  #realStoriesFinal .storyTitle,
+  #realStoriesFinal .weddingStoryTitle{
+    margin-bottom:.45rem !important;
+  }
+
+  #realStoriesFinal .storyMeta,
+  #realStoriesFinal .weddingMeta{
+    margin-top:0 !important;
+    margin-bottom:.65rem !important;
+  }
+
+  #realStoriesFinal .storyMedia,
+  #realStoriesFinal .weddingStoryMedia,
+  #realStoriesFinal figure{
+    margin-top:0 !important;
+  }
+
+}
+
+
+/* ==========================================================
+   BRAND/DOC — REAL STORIES ACTUAL CARD SPACING
+   Uses the REAL JSX classes:
+   docProjectTitle / docProjectRole / documentaryMedia
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  /* Project name -> role */
+  #realStoriesFinal .docProjectTitle{
+    display:block !important;
+    margin:0 0 .35rem 0 !important;
+    padding:0 !important;
+  }
+
+  /* TOURNAGE · MONTAGE -> video */
+  #realStoriesFinal .docProjectRole{
+    display:block !important;
+    margin:0 0 .55rem 0 !important;
+    padding:0 !important;
+  }
+
+  /* Remove any extra space sitting above each video */
+  #realStoriesFinal .documentaryMedia{
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+
+  #realStoriesFinal .documentaryCard{
+    gap:0 !important;
+  }
+
+}
+
+
+/* ==========================================================
+   BRAND/DOC — REAL STORIES REMOVE FORCED TITLE HEIGHT
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  #realStoriesFinal .realStoriesTop .docProjectTitle{
+    min-height:0 !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  #realStoriesFinal .realStoriesTop .docProjectRole{
+    margin-top:.18rem !important;
+    margin-bottom:.45rem !important;
+    padding:0 !important;
+  }
+
+}
+
+
+/* ==========================================================
+   KSP VISION — WEDDING HERO + SECTION GAP FINAL
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  /* Main wedding hero image:
+     enlarge around its EXISTING center point */
+  .weddingPage .weddingIntro{
+    overflow:visible !important;
+    padding-bottom:1.5rem !important;
+  }
+
+  .weddingPage .weddingIntro img{
+    transform:scale(1.72) !important;
+    transform-origin:center center !important;
+    position:relative !important;
+    z-index:1 !important;
+  }
+
+  /* Keep text/button above the enlarged image */
+  .weddingPage .weddingIntro > div:first-child{
+    position:relative !important;
+    z-index:3 !important;
+  }
+
+  /* Kill the large dead area before Selected Celebrations */
+  .weddingPage #weddingStoriesFinal{
+    margin-top:0 !important;
+    padding-top:1.25rem !important;
+  }
+
+  .weddingPage #weddingStoriesFinal .weddingSectionHead{
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+
+}
+
+
+/* WEDDING HERO — optical centering */
+@media (min-width:1280px){
+  .weddingPage .weddingIntro img{
+    transform:translateX(-42px) scale(1.72) !important;
+    transform-origin:center center !important;
+  }
+}
+
+/* WEDDING HERO — balanced geometric scale */
+@media (min-width:1280px){
+  .weddingPage .weddingIntro img{
+    transform:scale(1.55) !important;
+    transform-origin:center center !important;
+  }
+}
+
+/* WEDDING HERO — final slight scale reduction */
+@media (min-width:1280px){
+  .weddingPage .weddingIntro img{
+    transform:scale(1.48) !important;
+    transform-origin:center center !important;
+  }
+}
+
+
+/* WEDDING HERO — final symmetry adjustment */
+@media (min-width:1280px){
+  .weddingPage .weddingIntro img{
+    transform:scale(1.43) !important;
+    transform-origin:center center !important;
+  }
+}
+
+
+/* WEDDING HERO — symmetry correction */
+@media (min-width:1280px){
+  .weddingPage .weddingIntro img{
+    transform:scale(1.20) !important;
+    transform-origin:center center !important;
+  }
+}
+
+
+/* WEDDING HERO — symmetry scale 1.31 */
+@media (min-width:1280px){
+  .weddingPage .weddingIntro img{
+    transform:scale(1.31) !important;
+    transform-origin:center center !important;
+  }
+}
+
+
+/* WEDDING HERO — scale 1.27 + slight left shift */
+@media (min-width:1280px){
+  .weddingPage .weddingIntro img{
+    transform:translateX(-25px) scale(1.27) !important;
+    transform-origin:center center !important;
+  }
+}
+
+
+/* ==========================================================
+   WEDDINGS — CONDENSE PROJECT FLOW
+   Keep layout + sizes, remove excessive vertical dead space
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  /* Wedding Reel -> THREE STORIES */
+  #weddingStoriesList{
+    padding-top:1.5rem !important;
+    padding-bottom:2rem !important;
+  }
+
+  /* THREE STORIES heading */
+  #weddingStoriesList .weddingSectionHead{
+    margin-top:0 !important;
+    margin-bottom:1.6rem !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+  }
+
+  /* Each wedding project row */
+  #weddingStoriesList .weddingStoryRow{
+    min-height:0 !important;
+    height:auto !important;
+    padding-top:1.5rem !important;
+    padding-bottom:1.5rem !important;
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+    row-gap:1.5rem !important;
+  }
+
+  /* Kill the extra spacing between consecutive projects */
+  #weddingStoriesList .weddingStoryRow + .weddingStoryRow{
+    margin-top:1.5rem !important;
+  }
+
+  /* Tighten internal text/media spacing without resizing anything */
+  #weddingStoriesList .weddingStoryCopy,
+  #weddingStoriesList .weddingStoryMedia{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  /* Project 03 -> IN THE DETAILS */
+  #weddingStoriesList + section{
+    margin-top:2rem !important;
+    padding-top:2rem !important;
+  }
+}
+
+
+/* ==========================================================
+   WEDDINGS — HARD CONDENSE STORIES SECTION
+   Hero untouched
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  /* THREE STORIES -> FIRST PROJECT: remove the huge opening gap */
+  #weddingStoriesList{
+    padding-top:.25rem !important;
+    padding-bottom:0 !important;
+  }
+
+  #weddingStoriesList .weddingSectionHead{
+    margin-top:0 !important;
+    margin-bottom:.25rem !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+  }
+
+  /* ALL THREE PROJECT ROWS: substantially shorter */
+  #weddingStoriesList .weddingStoryRow{
+    min-height:0 !important;
+    height:auto !important;
+    padding-top:.35rem !important;
+    padding-bottom:.35rem !important;
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+    row-gap:.5rem !important;
+  }
+
+  /* PROJECT -> PROJECT */
+  #weddingStoriesList .weddingStoryRow + .weddingStoryRow{
+    margin-top:.5rem !important;
+  }
+
+  /* Remove hidden margins inside each row */
+  #weddingStoriesList .weddingStoryCopy,
+  #weddingStoriesList .weddingStoryMedia{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+  }
+
+  /* SUFFRARD & FLORENCE -> MOMENTS, PRESERVED:
+     take out a BIG chunk */
+  #weddingStoriesList + section{
+    margin-top:0 !important;
+    padding-top:.75rem !important;
+  }
+
+}
+
+
+/* ==========================================================
+   WEDDINGS — MAXIMUM STORY FLOW COMPRESSION
+   HERO UNTOUCHED
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  /* THREE STORIES -> SMITH & AUREANNE
+     Pull first project dramatically upward */
+  #weddingStoriesList .weddingSectionHead{
+    margin-bottom:-3rem !important;
+    padding-bottom:0 !important;
+  }
+
+  #weddingStoriesList .weddingStoryRow{
+    min-height:0 !important;
+    height:auto !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  /* PROJECT 01 -> 02 -> 03
+     Pull every following project upward */
+  #weddingStoriesList .weddingStoryRow + .weddingStoryRow{
+    margin-top:-4rem !important;
+  }
+
+  /* Remove internal vertical inflation */
+  #weddingStoriesList .weddingStoryCopy,
+  #weddingStoriesList .weddingStoryMedia{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+  }
+
+  /* Remove bottom breathing room from entire stories collection */
+  #weddingStoriesList{
+    padding-bottom:0 !important;
+    margin-bottom:-6rem !important;
+  }
+
+  /* SUFFRARD & FLORENCE -> MOMENTS, PRESERVED
+     Pull next section WAY upward */
+  #weddingStoriesList + section{
+    margin-top:0 !important;
+    padding-top:0 !important;
+    transform:translateY(-5rem) !important;
+  }
+
+}
+
+
+/* ==========================================================
+   WEDDINGS — WIDER EDITORIAL STORY COMPOSITION
+   Spread alternating projects outward
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  /* 01 + 03: media left / copy right */
+  #weddingStoriesList .weddingStoryRow:nth-of-type(odd) .weddingStoryMedia{
+    transform:translateX(-90px) !important;
+  }
+
+  #weddingStoriesList .weddingStoryRow:nth-of-type(odd) .weddingStoryCopy{
+    transform:translateX(90px) !important;
+  }
+
+  /* 02: copy left / media right */
+  #weddingStoriesList .weddingStoryRow:nth-of-type(even) .weddingStoryCopy{
+    transform:translateX(-90px) !important;
+  }
+
+  #weddingStoriesList .weddingStoryRow:nth-of-type(even) .weddingStoryMedia{
+    transform:translateX(90px) !important;
+  }
+
+}
+
+
+/* WEDDING STORIES — wider copy, same typography */
+@media (min-width:1280px){
+
+  #weddingStoriesList .weddingStoryCopy{
+    width:360px !important;
+    max-width:360px !important;
+  }
+
+  #weddingStoriesList .weddingStoryCopy p{
+    max-width:360px !important;
+  }
+
+}
+
+
+/* WEDDING STORIES — larger project films */
+@media (min-width:1280px){
+
+  #weddingStoriesList .weddingStoryMedia{
+    width:380px !important;
+    max-width:380px !important;
+  }
+
+  #weddingStoriesList .weddingStoryMedia img,
+  #weddingStoriesList .weddingStoryMedia video{
+    width:100% !important;
+    height:auto !important;
+  }
+
+}
+
+/* WEDDING STORIES — final wider editorial composition */
+@media (min-width:1280px){
+
+  /* Bigger project films */
+  #weddingStoriesList .weddingStoryMedia{
+    width:430px !important;
+    max-width:none !important;
+  }
+
+  #weddingStoriesList .weddingStoryMedia img,
+  #weddingStoriesList .weddingStoryMedia video{
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    height:auto !important;
+  }
+
+  /* Let descriptions stretch horizontally, NOT larger type */
+  #weddingStoriesList .weddingStoryCopy{
+    width:400px !important;
+    max-width:400px !important;
+  }
+
+  #weddingStoriesList .weddingStoryCopy p{
+    width:100% !important;
+    max-width:none !important;
+  }
+
+}
+
+
+/* WEDDING STORIES — enlarge actual film cards */
+@media (min-width:1280px){
+
+  #weddingStoriesList .weddingStoryFilm{
+    width:430px !important;
+    max-width:430px !important;
+  }
+
+  #weddingStoriesList .publishedFilmStill{
+    width:100% !important;
+    max-width:none !important;
+  }
+
+  #weddingStoriesList .publishedFilmStill img{
+    width:100% !important;
+    height:auto !important;
+    max-width:none !important;
+    display:block !important;
+  }
+
+}
+
+
+/* WEDDING STORIES — tighten copy beside larger films */
+@media (min-width:1280px){
+
+  #weddingStoriesList .weddingStoryCopy{
+    width:330px !important;
+    max-width:330px !important;
+  }
+
+  #weddingStoriesList .weddingStoryCopy p{
+    width:100% !important;
+    max-width:none !important;
+    font-size:.92rem !important;
+    line-height:1.55 !important;
+  }
+
+}
+
+
+/* ==========================================================
+   BRAND / DOC — FINAL SECTION TITLE SCALE
+   Hero "STORIES WITH PURPOSE" remains untouched
+   ========================================================== */
+
+@media (min-width:1280px){
+
+  /* COMMERCIAL STORIES */
+  .brandPage .brandCollection .weddingSectionHead h2,
+  .brandDocumentaryPage .brandCollection .weddingSectionHead h2{
+    font-size:1.85rem !important;
+    line-height:.95 !important;
+    font-weight:800 !important;
+    letter-spacing:-.025em !important;
+  }
+
+  /* REAL STORIES — slightly smaller again */
+  .brandPage #realStoriesFinal .weddingSectionHead h2,
+  .brandDocumentaryPage #realStoriesFinal .weddingSectionHead h2,
+  #realStoriesFinal .weddingSectionHead h2{
+    font-size:1.65rem !important;
+    line-height:.95 !important;
+    font-weight:800 !important;
+    letter-spacing:-.025em !important;
+  }
+
+}
+
+
+/* BRAND / DOC — direct final heading sizes */
+@media (min-width:1280px){
+
+  /* COMMERCIAL STORIES */
+  .brandCollection > .weddingSectionHead > div > h2{
+    font-size:1.55rem !important;
+    line-height:.95 !important;
+    font-weight:800 !important;
+    letter-spacing:-.02em !important;
+  }
+
+  /* REAL STORIES */
+  #realStoriesFinal > .weddingSectionHead > div > h2{
+    font-size:1.35rem !important;
+    line-height:.95 !important;
+    font-weight:800 !important;
+    letter-spacing:-.02em !important;
+  }
+
+}
+
+
+/* BRAND / DOC — another 15% down */
+@media (min-width:1280px){
+
+  .brandCollection > .weddingSectionHead > div > h2{
+    font-size:1.3175rem !important;
+  }
+
+  #realStoriesFinal > .weddingSectionHead > div > h2{
+    font-size:1.1475rem !important;
+  }
+
+}
+
+
+/* BRAND / DOC — section headings final scale, all desktop/window widths */
+
+/* COMMERCIAL STORIES */
+.brandPage .brandCollection > .weddingSectionHead h2{
+  font-size:1.3175rem !important;
+  line-height:.95 !important;
+  font-weight:800 !important;
+  letter-spacing:-.02em !important;
+}
+
+/* REAL STORIES */
+.brandPage #realStoriesFinal > .weddingSectionHead h2{
+  font-size:1.1475rem !important;
+  line-height:.95 !important;
+  font-weight:800 !important;
+  letter-spacing:-.02em !important;
+}
+
+
+/* BRAND / DOC — hero title 15% smaller */
+.brandPage .detailHero h1{
+  font-size:85% !important;
+}
+
+
+/* BRAND / DOC — hero title 30% smaller */
+.brandPage .detailHero h1{
+  font-size:70% !important;
+}
+
+
+/* BRAND / DOC — exact hero title control */
+.brandPage .detailHero.toneBrand .brandHeroTitle{
+  font-size:2.65rem !important;
+  line-height:.94 !important;
+  font-weight:800 !important;
+  letter-spacing:-.035em !important;
+}
+
+
+/* =========================================================
+   BRAND / DOC — FINAL VERTICAL COMPRESSION
+   Remove dead space while keeping intentional breathing room
+   ========================================================= */
+
+/* HERO: pull Brand & Documentary composition toward navbar */
+.brandPage .detailHero{
+  padding-top:2.1rem !important;
+  padding-bottom:1.8rem !important;
+  min-height:0 !important;
+}
+
+/* Keep eyebrow close to hero title */
+.brandPage .detailHero .kicker{
+  margin-top:0 !important;
+  margin-bottom:.85rem !important;
+}
+
+/* Tight title → description → CTA */
+.brandPage .detailHero h1{
+  margin-top:0 !important;
+  margin-bottom:.65rem !important;
+}
+
+.brandPage .detailHero p{
+  margin-top:0 !important;
+  margin-bottom:.8rem !important;
+}
+
+
+/* =========================
+   COMMERCIAL STORIES
+   ========================= */
+
+.brandPage .brandCollection{
+  padding-top:1.65rem !important;
+  padding-bottom:1.8rem !important;
+}
+
+/* Selected Work + Commercial Stories grouped tightly */
+.brandPage .brandCollection > .weddingSectionHead{
+  margin-top:0 !important;
+  margin-bottom:1.35rem !important;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+
+.brandPage .brandCollection > .weddingSectionHead .kicker{
+  margin-top:0 !important;
+  margin-bottom:.55rem !important;
+}
+
+.brandPage .brandCollection > .weddingSectionHead h2{
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+/* Player starts shortly after Commercial Stories */
+.brandPage .brandCommercialGrid{
+  margin-top:0 !important;
+}
+
+
+/* =========================
+   DOCUMENTARY / REAL STORIES
+   ========================= */
+
+.brandPage #realStoriesFinal{
+  margin-top:0 !important;
+  padding-top:1.65rem !important;
+  padding-bottom:1.8rem !important;
+}
+
+/* Documentary + Real Stories become one heading block */
+.brandPage #realStoriesFinal > .weddingSectionHead{
+  margin-top:0 !important;
+  margin-bottom:1.35rem !important;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+
+.brandPage #realStoriesFinal > .weddingSectionHead .kicker{
+  margin-top:0 !important;
+  margin-bottom:.55rem !important;
+}
+
+.brandPage #realStoriesFinal > .weddingSectionHead h2{
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+/* Docus begin immediately after heading composition */
+.brandPage #realStoriesFinal .realStoriesTop{
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+
+
+/* Don't let generic section rules reintroduce giant gaps */
+.brandPage .brandCollection + .brandCollection{
+  margin-top:0 !important;
+}
+
+
+/* BRAND / DOC — tighter navbar → hero spacing */
+.brandPage .detailHero{
+  padding-top:.65rem !important;
+}
+
+
+/* BRAND / DOC — physically close navbar → hero gap */
+.brandPage .detailHero.toneBrand{
+  margin-top:-2.25rem !important;
+}
+
+
+/* BRAND / DOC — final tiny upward nudge */
+.brandPage .detailHero.toneBrand{
+  margin-top:-2.6rem !important;
+}
+
+
+/* BRAND / DOC — final tighter navbar gap */
+.brandPage .detailHero.toneBrand{
+  margin-top:-3.1rem !important;
+}
+
