@@ -169,3 +169,120 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   pointer-events:none;
 }
 
+
+/* WEDDINGS — tighten centered Wedding Stories header only */
+#weddingStoriesTitle {
+  margin-bottom: 0 !important;
+}
+
+#weddingStoriesTitle + p,
+#weddingStoriesTitle ~ p:first-of-type {
+  margin-top: 0.45rem !important;
+}
+
+
+/* WEDDINGS — FINAL HEADER SPACING FIX */
+#storiesIntro,
+.weddingStoriesIntro,
+.weddingStoriesHeader {
+  gap: 0 !important;
+  row-gap: 0 !important;
+}
+
+#weddingStoriesTitle {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#weddingStoriesTitle + p,
+#weddingStoriesTitle ~ p:first-of-type {
+  margin: 0.35rem 0 0 !important;
+  padding: 0 !important;
+}
+
+/* Keep entire intro compact and centered */
+#storiesIntro,
+.weddingStoriesIntro,
+.weddingStoriesHeader {
+  text-align: center !important;
+}
+
+
+/* WEDDINGS — REMOVE GAP INSIDE WEDDING STORIES HEADER ONLY */
+#weddingStoriesFinal > .weddingSectionHead{
+  display:block !important;
+  min-height:0 !important;
+  height:auto !important;
+  gap:0 !important;
+  row-gap:0 !important;
+  padding:0 !important;
+  margin:0 auto 1.4rem !important;
+  text-align:center !important;
+}
+
+#weddingStoriesFinal > .weddingSectionHead > div{
+  display:block !important;
+  position:relative !important;
+  width:100% !important;
+  max-width:720px !important;
+  min-height:0 !important;
+  height:auto !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  transform:none !important;
+  text-align:center !important;
+}
+
+#weddingStoriesFinal > .weddingSectionHead > div + div{
+  margin-top:.35rem !important;
+}
+
+#weddingStoriesFinal .kicker{
+  margin:0 0 .45rem !important;
+}
+
+#weddingStoriesFinal .weddingSectionHead h2{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+#weddingStoriesFinal .weddingSectionHead > div + div p{
+  margin:.35rem auto 0 !important;
+  padding:0 !important;
+}
+
+
+/* WEDDINGS — premium gallery ending + section separation */
+#weddingGalleryFinal{
+  position:relative !important;
+  overflow:hidden !important;
+  padding-bottom:5rem !important;
+  margin-bottom:2.8rem !important;
+}
+
+/* Soft cinematic fade at bottom of gallery */
+#weddingGalleryFinal::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:150px;
+  pointer-events:none;
+  z-index:5;
+  background:linear-gradient(
+    to bottom,
+    rgba(5,5,5,0) 0%,
+    rgba(5,5,5,.38) 48%,
+    #050505 100%
+  );
+}
+
+/* Clear but subtle divider before Wedding Beauty */
+.makeupArtists{
+  position:relative !important;
+  margin-top:0 !important;
+  padding-top:3.2rem !important;
+  border-top:1px solid rgba(255,255,255,.12) !important;
+}
+

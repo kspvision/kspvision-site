@@ -25,10 +25,10 @@ export default function WeddingsPage() {
   return <main className="detailPage weddingPage">
     <SiteHeader active="weddings" />
     <section className="weddingIntro"><div><p className="kicker">WEDDING FILMS</p><h1><Localized en="More than a day." fr="Plus qu’une journée." /><br/><em><Localized en="A feeling, preserved." fr="Une émotion, préservée." /></em></h1><p><Localized en="Honest, elegant films for the moments you will want to return to." fr="Des films élégants et sincères, pour les moments auxquels vous voudrez revenir." /></p><a className="button gold" href="/booking"><Localized en="Tell us about your day" fr="Parlez-nous de votre journée" /> <b>↗</b></a></div><img src="/weddings/wedding-garden-wide.jpg" alt="Smith and Aureanne with their wedding party" /></section>
-    <section className="weddingFilms"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected celebrations" fr="Célébrations sélectionnées" /></p><h2><Localized en="Wedding stories" fr="Histoires de mariage" /></h2></div><p><Localized en="Honest moments. Lasting images. Films made to bring you back." fr="Des moments vrais. Des images qui restent. Des films qui vous y ramènent." /></p></div>
+    <section className="weddingFilms" id="weddingStoriesFinal"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected celebrations" fr="Célébrations sélectionnées" /></p><h2 id="weddingStoriesTitle"><Localized en="Wedding stories" fr="Histoires de mariage" /></h2></div><p><Localized en="Honest moments. Lasting images. Films made to bring you back." fr="Des moments vrais. Des images qui restent. Des films qui vous y ramènent." /></p></div>
       <article className="weddingReel"><WeddingReel /><div><p>WEDDING REEL</p><span><Localized en="A selection of moments" fr="Une sélection de moments" /></span></div></article>
 
-<div className="weddingStoryList">
+<div id="weddingStoriesList" className="weddingStoryList">
   {films.map((film, index) => (
     <article
       className={`weddingStoryRow ${index === 1 ? "weddingStoryReverse" : ""}`}
@@ -80,10 +80,720 @@ export default function WeddingsPage() {
 </div>
 
 </section>
-    <section className="weddingGallery"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="In the details" fr="Dans les détails" /></p><h2><Localized en="Moments, preserved" fr="Moments préservés" /></h2></div></div><div>{gallery.map(([src, alt], index) => <figure className={`galleryItem galleryItem${index + 1}`} key={src}><img src={src} alt={alt} /></figure>)}</div></section>
-    <section className="makeupArtists" aria-labelledby="makeup-heading"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Wedding beauty" fr="Beauté mariage" /></p><h2 id="makeup-heading">MAKEUP ARTISTS</h2></div><p><Localized en="Discover trusted beauty artists for weddings, celebrations and on-camera work." fr="Découvrez des artistes beauté de confiance pour les mariages, célébrations et projets caméra." /></p></div><a className="makeupArtistCard" href="/mira"><img src="/mira/final/mira-working.jpg" alt="Mira applying bridal makeup"/><div><p>BRIDAL + EVENT MAKEUP · MONTRÉAL</p><h3>MIRA</h3><span><Localized en="View artist, transformation and gallery" fr="Voir l’artiste, les transformations et la galerie" /> ↗</span></div></a></section>
+    
+
+<section id="weddingGalleryFinal" className="weddingGallery">
+  <div className="weddingSectionHead">
+    <div>
+      <p className="kicker">
+        <Localized en="In the details" fr="Dans les détails" />
+      </p>
+      <h2>
+        <Localized en="Moments, preserved" fr="Moments préservés" />
+      </h2>
+    </div>
+  </div>
+
+  <div className="weddingGalleryGrid">
+    {gallery.map(([src, alt], index) => (
+      <a
+        className={`weddingGalleryLink weddingGalleryItem item${index + 1}`}
+        key={src}
+        href={src}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Open ${alt}`}
+      >
+        <img src={src} alt={alt} />
+      </a>
+    ))}
+  </div>
+</section>
+
+<section className="makeupArtists" aria-labelledby="makeup-heading"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Wedding beauty" fr="Beauté mariage" /></p><h2 id="makeup-heading">MAKEUP ARTISTS</h2></div><p><Localized en="Discover trusted beauty artists for weddings, celebrations and on-camera work." fr="Découvrez des artistes beauté de confiance pour les mariages, célébrations et projets caméra." /></p></div><a className="makeupArtistCard" href="/mira"><img src="/mira/final/mira-working.jpg" alt="Mira applying bridal makeup"/><div><p>BRIDAL + EVENT MAKEUP · MONTRÉAL</p><h3>MIRA</h3><span><Localized en="View artist, transformation and gallery" fr="Voir l’artiste, les transformations et la galerie" /> ↗</span></div></a></section>
     <section className="weddingCta"><p className="kicker"><Localized en="Now booking" fr="Réservations ouvertes" /></p><h2><Localized en="Your story deserves" fr="Votre histoire mérite" /><br/><em><Localized en="to feel like yours." fr="de vous ressembler." /></em></h2><a className="button gold" href="/booking"><Localized en="Check availability" fr="Vérifier les disponibilités" /> <b>↗</b></a></section>
-    <SiteFooter />
+    
+<style>{`
+/* ========================================================
+   WEDDING — FINAL VISUAL POLISH
+   ======================================================== */
+
+/* Smaller, centered Wedding Stories presentation */
+#weddingStoriesTitle{
+  font-size:clamp(2.15rem,4vw,3rem) !important;
+  line-height:.92 !important;
+  letter-spacing:-.045em !important;
+  max-width:520px !important;
+  margin:.25rem auto .8rem !important;
+  text-align:center !important;
+}
+
+#weddingStoriesTitle + p{
+  max-width:430px !important;
+  margin:0 auto !important;
+  text-align:center !important;
+  line-height:1.5 !important;
+}
+
+/* Slightly tighter project rhythm — preserve alternating layout */
+#weddingStoriesList{
+  gap:0 !important;
+  row-gap:0 !important;
+}
+
+#weddingStoriesList .weddingStoryRow{
+  min-height:0 !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:2.35rem 0 !important;
+}
+
+#weddingStoriesList .weddingStoryRow + .weddingStoryRow{
+  margin-top:.75rem !important;
+}
+
+/* ========================================================
+   LARGE EDITORIAL WEDDING GALLERY
+   Mira-inspired scale — NOT tiny thumbnails
+   ======================================================== */
+
+#weddingGalleryFinal{
+  padding-top:3.4rem !important;
+  padding-bottom:4rem !important;
+}
+
+#weddingGalleryFinal .weddingSectionHead{
+  margin-bottom:1.8rem !important;
+}
+
+#weddingGalleryFinal .galleryGrid{
+  display:block !important;
+
+  columns:4 !important;
+  column-gap:12px !important;
+
+  width:100% !important;
+  max-width:none !important;
+
+  margin:0 !important;
+  padding:0 !important;
+}
+
+#weddingGalleryFinal .galleryItem{
+  display:block !important;
+
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+
+  aspect-ratio:auto !important;
+
+  margin:0 0 12px !important;
+  padding:0 !important;
+
+  break-inside:avoid !important;
+  page-break-inside:avoid !important;
+
+  overflow:hidden !important;
+
+  grid-column:auto !important;
+  grid-row:auto !important;
+}
+
+#weddingGalleryFinal .galleryItem img{
+  display:block !important;
+
+  width:100% !important;
+  height:auto !important;
+
+  min-width:100% !important;
+  max-width:100% !important;
+
+  min-height:0 !important;
+  max-height:none !important;
+
+  aspect-ratio:auto !important;
+  object-fit:cover !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  transform:none !important;
+}
+
+/* Give a few frames stronger editorial presence */
+#weddingGalleryFinal .galleryItem:nth-child(1) img,
+#weddingGalleryFinal .galleryItem:nth-child(5) img,
+#weddingGalleryFinal .galleryItem:nth-child(9) img{
+  min-height:310px !important;
+  object-fit:cover !important;
+}
+
+@media(max-width:900px){
+  #weddingGalleryFinal .galleryGrid{
+    columns:3 !important;
+  }
+}
+
+@media(max-width:650px){
+  #weddingStoriesTitle{
+    font-size:2.15rem !important;
+  }
+
+  #weddingStoriesList .weddingStoryRow{
+    padding:1.8rem 0 !important;
+  }
+
+  #weddingGalleryFinal .galleryGrid{
+    columns:2 !important;
+    column-gap:8px !important;
+  }
+
+  #weddingGalleryFinal .galleryItem{
+    margin-bottom:8px !important;
+  }
+}
+`}</style>
+
+
+<style>{`
+/* =========================================================
+   WEDDINGS — FINAL VISUAL CLEANUP
+   ONLY Wedding page
+   ========================================================= */
+
+/* ---------- Wedding Stories centered + balanced ---------- */
+
+#weddingStoriesTitle{
+  font-size:clamp(2rem,3.4vw,2.8rem) !important;
+  line-height:.92 !important;
+  letter-spacing:-.045em !important;
+  text-align:center !important;
+  margin:.2rem auto .7rem !important;
+  max-width:460px !important;
+}
+
+#weddingStoriesTitle + p{
+  display:block !important;
+  width:100% !important;
+  max-width:430px !important;
+  margin:0 auto 1.6rem !important;
+  text-align:center !important;
+  line-height:1.5 !important;
+}
+
+/* ---------- Slightly tighter story spacing ---------- */
+
+#weddingStoriesList{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:0 !important;
+}
+
+#weddingStoriesList .weddingStoryRow{
+  min-height:0 !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:1.9rem 0 !important;
+}
+
+#weddingStoriesList .weddingStoryRow + .weddingStoryRow{
+  margin-top:.35rem !important;
+}
+
+/* =========================================================
+   FIX THE BUGGED TINY GALLERY
+   Completely neutralize the old skinny-thumbnail rules
+   ========================================================= */
+
+#weddingGalleryFinal{
+  display:block !important;
+  width:100% !important;
+  max-width:1120px !important;
+  margin:0 auto !important;
+  padding:3.6rem 0 4rem !important;
+}
+
+#weddingGalleryFinal .weddingSectionHead{
+  width:100% !important;
+  max-width:none !important;
+  margin:0 0 1.7rem !important;
+}
+
+/* Critical reset */
+#weddingGalleryFinal .galleryGrid{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:12px !important;
+
+  width:100% !important;
+  max-width:none !important;
+
+  height:auto !important;
+  min-height:0 !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  overflow:visible !important;
+}
+
+/* Kill all inherited tiny/skinny sizing */
+#weddingGalleryFinal .galleryItem{
+  position:relative !important;
+
+  display:block !important;
+
+  width:100% !important;
+  max-width:none !important;
+
+  height:auto !important;
+  min-height:260px !important;
+  max-height:none !important;
+
+  aspect-ratio:auto !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  grid-column:auto !important;
+  grid-row:auto !important;
+
+  overflow:hidden !important;
+}
+
+/* Large editorial rhythm, Mira-style */
+#weddingGalleryFinal .galleryItem:nth-child(1),
+#weddingGalleryFinal .galleryItem:nth-child(4),
+#weddingGalleryFinal .galleryItem:nth-child(7),
+#weddingGalleryFinal .galleryItem:nth-child(10){
+  min-height:420px !important;
+}
+
+#weddingGalleryFinal .galleryItem:nth-child(2),
+#weddingGalleryFinal .galleryItem:nth-child(5),
+#weddingGalleryFinal .galleryItem:nth-child(8),
+#weddingGalleryFinal .galleryItem:nth-child(11){
+  min-height:320px !important;
+}
+
+#weddingGalleryFinal .galleryItem:nth-child(3),
+#weddingGalleryFinal .galleryItem:nth-child(6),
+#weddingGalleryFinal .galleryItem:nth-child(9),
+#weddingGalleryFinal .galleryItem:nth-child(12){
+  min-height:370px !important;
+}
+
+#weddingGalleryFinal .galleryItem img{
+  position:absolute !important;
+  inset:0 !important;
+
+  display:block !important;
+
+  width:100% !important;
+  height:100% !important;
+
+  min-width:100% !important;
+  min-height:100% !important;
+  max-width:none !important;
+  max-height:none !important;
+
+  object-fit:cover !important;
+  object-position:center !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  transform:none !important;
+}
+
+/* =========================================================
+   HERO IMAGE — keep top/bottom fade + add left/right fade
+   slightly stronger on viewer's left
+   ========================================================= */
+
+.weddingIntro .weddingFilmStill,
+.weddingIntro .weddingFilmStill img{
+  -webkit-mask-image:
+    linear-gradient(to right,
+      transparent 0%,
+      rgba(0,0,0,.52) 8%,
+      #000 18%,
+      #000 88%,
+      rgba(0,0,0,.72) 95%,
+      transparent 100%
+    ),
+    linear-gradient(to bottom,
+      transparent 0%,
+      #000 12%,
+      #000 86%,
+      transparent 100%
+    ) !important;
+
+  mask-image:
+    linear-gradient(to right,
+      transparent 0%,
+      rgba(0,0,0,.52) 8%,
+      #000 18%,
+      #000 88%,
+      rgba(0,0,0,.72) 95%,
+      transparent 100%
+    ),
+    linear-gradient(to bottom,
+      transparent 0%,
+      #000 12%,
+      #000 86%,
+      transparent 100%
+    ) !important;
+
+  -webkit-mask-composite:source-in !important;
+  mask-composite:intersect !important;
+}
+
+@media(max-width:900px){
+  #weddingGalleryFinal .galleryGrid{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+}
+
+@media(max-width:650px){
+  #weddingGalleryFinal .galleryGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+
+  #weddingGalleryFinal .galleryItem,
+  #weddingGalleryFinal .galleryItem:nth-child(n){
+    min-height:230px !important;
+  }
+}
+`}</style>
+
+<style>{`
+/* KSP WEDDING FINAL FIX START */
+
+/* ---------------------------------------------------------
+   SELECTED CELEBRATIONS / WEDDING STORIES
+   one centered symmetrical block
+   --------------------------------------------------------- */
+
+#weddingStoriesFinal{
+  padding-top:3.2rem !important;
+}
+
+#weddingStoriesFinal > .weddingSectionHead{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-items:center !important;
+
+  width:100% !important;
+  max-width:720px !important;
+
+  margin:0 auto 1.7rem !important;
+  padding:0 !important;
+
+  text-align:center !important;
+}
+
+#weddingStoriesFinal > .weddingSectionHead > div{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+
+  width:100% !important;
+  max-width:720px !important;
+
+  margin:0 auto !important;
+  padding:0 !important;
+
+  text-align:center !important;
+}
+
+#weddingStoriesFinal .kicker{
+  width:100% !important;
+  margin:0 0 .65rem !important;
+  text-align:center !important;
+}
+
+#weddingStoriesFinal .weddingSectionHead h2{
+  width:100% !important;
+  max-width:520px !important;
+
+  margin:0 auto .75rem !important;
+
+  font-size:clamp(2rem,3.3vw,3rem) !important;
+  line-height:.92 !important;
+  letter-spacing:-.045em !important;
+
+  text-align:center !important;
+}
+
+#weddingStoriesFinal .weddingSectionHead p:not(.kicker){
+  width:100% !important;
+  max-width:500px !important;
+
+  margin:0 auto !important;
+
+  text-align:center !important;
+  line-height:1.55 !important;
+}
+
+/* Keep reel directly beneath centered heading */
+#weddingStoriesFinal .weddingReel{
+  margin-top:0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   WEDDING GALLERY
+   big editorial layout — NO OVERLAP
+   --------------------------------------------------------- */
+
+#weddingGalleryFinal{
+  position:relative !important;
+
+  display:block !important;
+
+  width:min(1120px,88vw) !important;
+  max-width:1120px !important;
+
+  height:auto !important;
+  min-height:0 !important;
+
+  margin:0 auto !important;
+  padding:3.7rem 0 4.5rem !important;
+
+  overflow:visible !important;
+  clear:both !important;
+}
+
+#weddingGalleryFinal .weddingSectionHead{
+  position:relative !important;
+
+  display:block !important;
+
+  width:100% !important;
+
+  height:auto !important;
+
+  margin:0 0 1.8rem !important;
+  padding:0 !important;
+
+  transform:none !important;
+}
+
+#weddingGalleryFinal .weddingGalleryGrid{
+  position:relative !important;
+
+  display:grid !important;
+
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  grid-auto-flow:row !important;
+  grid-auto-rows:auto !important;
+
+  column-count:initial !important;
+  columns:initial !important;
+
+  gap:12px !important;
+
+  width:100% !important;
+  max-width:none !important;
+
+  height:auto !important;
+  min-height:0 !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  overflow:visible !important;
+}
+
+/* CRITICAL:
+   neutralize old positioning that caused overlapping */
+#weddingGalleryFinal .weddingGalleryLink,
+#weddingGalleryFinal .weddingGalleryItem{
+  position:relative !important;
+
+  top:auto !important;
+  right:auto !important;
+  bottom:auto !important;
+  left:auto !important;
+
+  display:block !important;
+
+  float:none !important;
+  clear:none !important;
+
+  grid-column:auto !important;
+  grid-row:auto !important;
+
+  width:100% !important;
+  max-width:none !important;
+
+  height:auto !important;
+  max-height:none !important;
+
+  min-height:300px !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  transform:none !important;
+
+  overflow:hidden !important;
+
+  text-decoration:none !important;
+  cursor:pointer !important;
+}
+
+/* Editorial variation */
+#weddingGalleryFinal .item1,
+#weddingGalleryFinal .item4,
+#weddingGalleryFinal .item7,
+#weddingGalleryFinal .item10{
+  min-height:430px !important;
+}
+
+#weddingGalleryFinal .item2,
+#weddingGalleryFinal .item5,
+#weddingGalleryFinal .item8,
+#weddingGalleryFinal .item11{
+  min-height:340px !important;
+}
+
+#weddingGalleryFinal .item3,
+#weddingGalleryFinal .item6,
+#weddingGalleryFinal .item9,
+#weddingGalleryFinal .item12{
+  min-height:385px !important;
+}
+
+#weddingGalleryFinal .weddingGalleryLink img{
+  position:absolute !important;
+
+  inset:0 !important;
+
+  display:block !important;
+
+  width:100% !important;
+  height:100% !important;
+
+  min-width:0 !important;
+  min-height:0 !important;
+  max-width:none !important;
+  max-height:none !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  object-fit:cover !important;
+  object-position:center !important;
+
+  transform:none !important;
+
+  transition:transform .35s ease, opacity .35s ease !important;
+}
+
+#weddingGalleryFinal .weddingGalleryLink:hover img{
+  transform:scale(1.025) !important;
+}
+
+
+/* ---------------------------------------------------------
+   HERO PHOTO — keep vertical fade and feather sides
+   stronger on viewer's left
+   --------------------------------------------------------- */
+
+.weddingIntro img{
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0,0,0,.35) 5%,
+      rgba(0,0,0,.78) 12%,
+      #000 21%,
+      #000 90%,
+      rgba(0,0,0,.72) 96%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 10%,
+      #000 88%,
+      transparent 100%
+    ) !important;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0,0,0,.35) 5%,
+      rgba(0,0,0,.78) 12%,
+      #000 21%,
+      #000 90%,
+      rgba(0,0,0,.72) 96%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 10%,
+      #000 88%,
+      transparent 100%
+    ) !important;
+
+  -webkit-mask-composite:source-in !important;
+  mask-composite:intersect !important;
+}
+
+
+/* ---------------------------------------------------------
+   responsive gallery
+   --------------------------------------------------------- */
+
+@media(max-width:900px){
+  #weddingGalleryFinal .weddingGalleryGrid{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+}
+
+@media(max-width:650px){
+  #weddingGalleryFinal{
+    width:90vw !important;
+  }
+
+  #weddingGalleryFinal .weddingGalleryGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+
+  #weddingGalleryFinal .weddingGalleryLink{
+    min-height:240px !important;
+  }
+
+  #weddingGalleryFinal .item1,
+  #weddingGalleryFinal .item2,
+  #weddingGalleryFinal .item3,
+  #weddingGalleryFinal .item4,
+  #weddingGalleryFinal .item5,
+  #weddingGalleryFinal .item6,
+  #weddingGalleryFinal .item7,
+  #weddingGalleryFinal .item8,
+  #weddingGalleryFinal .item9,
+  #weddingGalleryFinal .item10,
+  #weddingGalleryFinal .item11,
+  #weddingGalleryFinal .item12{
+    min-height:240px !important;
+  }
+}
+
+/* KSP WEDDING FINAL FIX END */
+`}</style>
+
+<SiteFooter />
 
 <style>{`
 /* KSP final wedding composition */

@@ -28,16 +28,205 @@ const videos=[
 ];
 export default function Page(){return <main className="detailPage musicPage">
   <SiteHeader active="music" />
-  <section className="detailHero toneMusic"><div><p className="kicker"><Localized en="Music videos" fr="Clips musicaux" /></p><h1>SOUND, TRANSLATED<br/>INTO IMAGES.</h1><p><Localized en="Creative direction and complete production for artists who want a visual identity with character." fr="Direction créative et production complète pour les artistes qui veulent une identité visuelle forte." /></p><a className="button gold" href="/booking"><Localized en="Create your visual" fr="Créer votre visuel" /> <b>↗</b></a></div><div className="musicPhotoStack" aria-label="KSP Vision behind the scenes">
-  <img className="musicStackPhoto musicStackBack1" src="/music-1539.jpg" alt="" />
-  <img className="musicStackPhoto musicStackBack2" src="/music-1540.jpg" alt="" />
-  <img className="musicStackPhoto musicStackBack3" src="/music-1602.jpg" alt="" />
-  <img className="musicStackPhoto musicStackBack4" src="/music-1605.jpg" alt="" />
-  <img className="musicStackPhoto musicStackHero" src="/music-1603.jpg" alt="KSP Vision behind the scenes" />
-  <span className="musicStackCaption">BEHIND THE FRAME / KSP VISION</span>
-</div></section>
+  <section id="musicHeroFinal" className="detailHero toneMusic">
+  <div id="musicHeroText">
+    <p className="kicker">
+      <Localized en="Music videos" fr="Clips musicaux" />
+    </p>
+
+    <h1>
+      SOUND, TRANSLATED<br />
+      INTO IMAGES.
+    </h1>
+
+    <p className="musicHeroDescription">
+      <Localized
+        en="Creative direction and complete production for artists who want a visual identity with character."
+        fr="Direction créative et production complète pour les artistes qui veulent une identité visuelle forte."
+      />
+    </p>
+
+    <a className="button gold" href="/booking">
+      <Localized en="Create your visual" fr="Créer votre visuel" /> ↗
+    </a>
+  </div>
+
+  <div id="musicHeroImage">
+    <img
+      className="musicMainBts"
+      src="/music-1539-exact.jpg"
+      alt="KSP Vision behind the scenes"
+    />
+
+    <div className="musicMiniBts">
+      <img src="/music-1540.jpg" alt="" />
+      <img src="/music-1602.jpg" alt="" />
+      <img src="/music-1603.jpg" alt="" />
+      <img src="/music-1605.jpg" alt="" />
+    </div>
+  </div>
+</section>
   <section className="videoCollection"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected work" fr="Travaux sélectionnés" /></p><h2><Localized en="Watch the films" fr="Voir les films" /></h2></div><p><Localized en="Direction, cinematography, editing and visual production by Kevin Shayne / KSP Vision." fr="Direction, cinématographie, montage et production visuelle par Kevin Shayne / KSP Vision." /></p></div><div className="musicGrid">{videos.map((v,i)=><a className="musicCard" aria-label={`Watch ${v[1]} on YouTube`} href={`https://www.youtube.com/watch?v=${v[0]}`} target="_blank" rel="noreferrer" key={v[0]}><div className="musicThumb" style={{backgroundImage:`linear-gradient(0deg,rgba(0,0,0,.7),transparent 65%),url(https://img.youtube.com/vi/${v[0]}/hqdefault.jpg)`}}><span>{String(i+1).padStart(2,"0")}</span><b aria-hidden="true">↗</b></div><div><h3>{v[1]}</h3><p>{v[2]}</p></div></a>)}</div></section>
-  <SiteFooter />
+  
+<style>{`
+@media (min-width:801px){
+
+  #musicHeroFinal{
+    display:grid !important;
+    grid-template-columns:270px 155px !important;
+    grid-template-rows:auto !important;
+    gap:42px !important;
+    justify-content:start !important;
+    align-items:center !important;
+
+    min-height:0 !important;
+    height:auto !important;
+
+    padding-top:3rem !important;
+    padding-bottom:3rem !important;
+  }
+
+  #musicHeroText{
+    grid-column:1 !important;
+    grid-row:1 !important;
+    width:270px !important;
+    max-width:270px !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  #musicHeroText h1{
+    font-size:2.15rem !important;
+    line-height:.92 !important;
+    letter-spacing:-.035em !important;
+    width:270px !important;
+    max-width:270px !important;
+    margin:.6rem 0 1rem !important;
+  }
+
+  #musicHeroText .musicHeroDescription{
+    width:270px !important;
+    max-width:270px !important;
+    font-size:.76rem !important;
+    line-height:1.45 !important;
+    margin:0 0 1rem !important;
+  }
+
+  #musicHeroText .button{
+    font-size:.63rem !important;
+    padding:.78rem 1rem !important;
+  }
+
+  #musicHeroImage{
+    grid-column:2 !important;
+    grid-row:1 !important;
+    width:155px !important;
+    max-width:155px !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:0 !important;
+    transform:rotate(3.5deg) !important;
+    align-self:center !important;
+    justify-self:start !important;
+  }
+
+  #musicHeroImage img{
+    display:block !important;
+    width:155px !important;
+    max-width:155px !important;
+    height:auto !important;
+    margin:0 !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+
+  .videoCollection{
+    margin-top:0 !important;
+    padding-top:2rem !important;
+  }
+}
+`}</style>
+
+
+<style>{`
+/* MUSIC — SMALL BTS SUPPORTING CLUSTER */
+
+@media(min-width:801px){
+
+  #musicHeroFinal{
+    grid-template-columns:270px 310px !important;
+    column-gap:40px !important;
+  }
+
+  #musicHeroImage{
+    display:flex !important;
+    width:310px !important;
+    max-width:310px !important;
+    align-items:center !important;
+    gap:13px !important;
+
+    transform:none !important;
+  }
+
+  #musicHeroImage .musicMainBts{
+    display:block !important;
+    flex:0 0 155px !important;
+    width:155px !important;
+    max-width:155px !important;
+    height:auto !important;
+
+    transform:rotate(3.5deg) !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+
+  #musicHeroImage .musicMiniBts{
+    display:grid !important;
+    grid-template-columns:68px 68px !important;
+    grid-template-rows:82px 82px !important;
+    gap:8px !important;
+
+    width:144px !important;
+    margin:0 !important;
+  }
+
+  #musicHeroImage .musicMiniBts img{
+    display:block !important;
+    width:68px !important;
+    height:82px !important;
+    object-fit:cover !important;
+
+    border:0 !important;
+    outline:0 !important;
+    box-shadow:none !important;
+    opacity:.86 !important;
+  }
+
+  #musicHeroImage .musicMiniBts img:nth-child(1){
+    transform:rotate(-4deg) translateY(-4px) !important;
+  }
+
+  #musicHeroImage .musicMiniBts img:nth-child(2){
+    transform:rotate(3deg) translateY(5px) !important;
+  }
+
+  #musicHeroImage .musicMiniBts img:nth-child(3){
+    transform:rotate(2deg) translateX(-3px) !important;
+  }
+
+  #musicHeroImage .musicMiniBts img:nth-child(4){
+    transform:rotate(-3deg) translate(2px,4px) !important;
+  }
+}
+
+@media(max-width:800px){
+  #musicHeroImage .musicMiniBts{
+    display:none !important;
+  }
+}
+`}</style>
+
+<SiteFooter />
 
 <style>{`
 /* KSP integrated music-video hero */
