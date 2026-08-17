@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteFooter, SiteHeader } from "../site-language";
 
 export const metadata: Metadata = {
   title: "Mira Bridal Makeup Montréal",
@@ -30,7 +31,6 @@ const gallery = [
   ["/mira/gallery/gallery-03.jpg", "Bride wearing makeup by Mira during her ceremony"],
   ["/mira/gallery/gallery-04.jpg", "Bridal makeup by Mira in natural light"],
   ["/mira/gallery/gallery-05.jpg", "Formal evening makeup by Mira"],
-  ["/mira/gallery/gallery-06.jpg", "Mira behind the scenes with her team"],
   ["/mira/gallery/gallery-07.jpg", "Mira applying the finishing touches to a bride"],
   ["/mira/gallery/gallery-08.jpg", "Mira preparing a bride on her wedding morning"],
   ["/mira/gallery/gallery-09.jpeg", "Bride and groom portrait featuring makeup by Mira"],
@@ -48,7 +48,7 @@ const rates = [
 
 export default function MiraPage() {
   return <main className="detailPage weddingPage miraPage">
-    <header className="detailNav"><a className="brand" href="/" aria-label="KSP Vision home"><span>KSP</span> VISION</a><nav className="mainNav" aria-label="Main navigation"><a href="/music-videos">Music Videos</a><a href="/weddings">Weddings</a><a href="/brand-documentary">Brand / Doc</a><a href="/booking" className="navCta">Book</a></nav></header>
+    <SiteHeader />
     <section className="miraSection" aria-labelledby="mira-page-heading">
       <div className="miraLead"><img src="/mira/final/mira-working.jpg" alt="Mira applying bridal eye makeup" /><div className="miraLeadCopy"><p className="miraEyebrow">Bridal + event makeup</p><h1 id="mira-page-heading" className="miraTitle">MIRA</h1><p className="miraLocation">Montréal + surroundings</p><p className="miraNameNote"><strong>Mira is her professional name.</strong></p><p>Soft, polished and camera-ready beauty tailored to your features, your comfort and the feeling of your celebration.</p><a className="button miraButton" href="mailto:divya.vila91@gmail.com?subject=Makeup%20booking%20with%20Mira">Book Mira by email ↗</a></div></div>
       <div className="miraProofGroup"><h2><span>01</span> Before + application</h2><div className="miraPortfolio">{application.map(([src, alt]) => <a href={src} target="_blank" rel="noreferrer" aria-label={`Open full-size photo: ${alt}`} key={src}><img src={src} alt={alt} /></a>)}</div></div>
@@ -57,6 +57,6 @@ export default function MiraPage() {
       <div className="miraRates"><div><p className="miraEyebrow">Services</p><h2>Launch rates</h2><p>Starting rates in Canadian dollars. Travel outside Montréal is quoted according to distance.</p></div><div className="miraRateList">{rates.map(([service, price]) => <div key={service}><span>{service}</span><strong>{price}</strong></div>)}</div></div>
       <p className="miraContact">Availability and quotes: <a href="mailto:divya.vila91@gmail.com">divya.vila91@gmail.com</a></p>
     </section>
-    <footer><a className="brand" href="/"><span>KSP</span> VISION</a><p>Bridal + event makeup · Montréal</p><p><a href="/weddings">Wedding films by KSP Vision ↗</a></p></footer>
+    <SiteFooter />
   </main>;
 }

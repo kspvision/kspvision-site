@@ -1,19 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [lang, setLang] = useState<"en" | "fr">("en");
   const l = (en: string, fr: string) => lang === "en" ? en : fr;
+  useEffect(() => { if (window.localStorage.getItem("ksp-language") === "fr") setLang("fr"); }, []);
+  const changeLanguage = () => { const next = lang === "en" ? "fr" : "en"; window.localStorage.setItem("ksp-language", next); window.dispatchEvent(new Event("ksp-language")); setLang(next); };
 
   return (
     <main>
-      <aside className="previewNotice homeNotice">Preview edition — selected projects are being updated</aside>
       <header className="nav homeNav" aria-label="Main navigation">
         <a className="brand" href="/" aria-label="KSP Vision — Home"><span>KSP</span> VISION</a>
         <nav className="mainNav">
           <a href="/music-videos">{l("Music Videos","Clips musicaux")}</a><a href="/weddings">{l("Weddings","Mariages")}</a><a href="/brand-documentary">{l("Brand / Doc","Marque / Doc")}</a><a className="serviceNav" href="#services">Services</a>
-          <button className="langSwitch" aria-label={lang === "en" ? "Afficher le site en français" : "View the site in English"} onClick={() => setLang(lang === "en" ? "fr" : "en")}>{lang === "en" ? "FR" : "EN"}</button>
+          <button className="langSwitch" aria-label={lang === "en" ? "Afficher le site en français" : "View the site in English"} onClick={changeLanguage}>{lang === "en" ? "FR" : "EN"}</button>
           <a className="navCta" href="/booking">{l("Book","Réserver")}</a>
         </nav>
       </header>
@@ -22,7 +23,7 @@ export default function Home() {
         <div className="heroImage" aria-hidden="true">
           <video autoPlay muted loop playsInline preload="auto" poster="/portfolio/hero.jpg" onCanPlay={(event) => event.currentTarget.play().catch(() => {})} onEnded={(event) => { event.currentTarget.currentTime = 0; event.currentTarget.play().catch(() => {}); }}>
               <source
-                src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/ksp-hero-reel.mp4"
+                src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/KSPVision.ca.REEL.Sequuence.mp4"
                 type="video/mp4"
               />
           </video>
@@ -31,7 +32,7 @@ export default function Home() {
         <div className="heroContent">
           <p className="eyebrow"><span /> {l("Production · Cinematography · Post-production","Production · Cinématographie · Post-production")}</p>
           <h1>{l("Your vision.","Votre vision.")}<br /><em>{l("Ready for the screen.","Prête pour l’écran.")}</em></h1>
-          <p className="heroCopy">{l("KSP Vision turns ideas into finished films through production, cinematography and post-production — one creative partner from concept to delivery.","KSP Vision transforme vos idées en films aboutis grâce à la production, la cinématographie et la post-production — un seul partenaire créatif, du concept à la livraison.")}</p>
+          <p className="heroCopy">{l("Made with a clear eye and a feeling for the frame.","Des films portés par un regard clair et le sens du cadre.")}</p>
           <div className="heroActions"><a className="button gold" href="#types">{l("Choose a project type","Choisir un type de projet")}</a><a className="textLink" href="/booking">{l("Book a project","Réserver un projet")} <b>↗</b></a></div>
         </div>
         <div className="scrollHint">{l("Scroll","Défiler")} <span>↓</span></div>
@@ -61,7 +62,7 @@ export default function Home() {
 
       <section className="homeBook"><p>10+ {l("years of experience","ans d’expérience")} · 300+ {l("projects delivered","projets réalisés")}</p><a href="/booking">{l("Book a project","Réserver un projet")} ↗</a></section>
 
-      <footer><a className="brand" href="#accueil"><span>KSP</span> VISION</a><p>{l("Production · Cinematography · Post-production","Production · Cinématographie · Post-production")}</p><p>Montréal, Québec · © 2026</p></footer>
+      <footer><a className="brand" href="#accueil"><span>KSP</span> VISION</a><p>{l("Production · Cinematography · Post-production","Production · Cinématographie · Post-production")}</p><p>© 2026 KSP Vision Inc. {l("All rights reserved.","Tous droits réservés.")}</p></footer>
     </main>
   );
 }
