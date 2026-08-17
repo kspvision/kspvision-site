@@ -161,11 +161,7 @@ export default function Page() {
       />
 
 
-      <Row
-        eyebrow="RECENT"
-        title="RECENT + LATEST WORK"
-        items={latest}
-      />
+      
 
       <section className="mv-million">
         <div className="mv-million-head">
