@@ -1,6 +1,6 @@
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 
-const commercial = [{ title: "Barbancourt", type: "Commercial film", youtubeId: "hNRG8NT3sRs" }, { title: "Fragrance", type: "Product campaign", youtubeId: "FYL9RmYlZ6U" }];
+const commercial = [{ title: "Barbancourt", type: "Commercial film", youtubeId: "hNRG8NT3sRs" }, { title: "NOIR ÉCLAT ELIXIR", type: "Product campaign", youtubeId: "FYL9RmYlZ6U" }];
 const documentaries = [
   { title: "Corneille présente ADVANCE Québec", src: "https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/Corneille.presente.ADVANCE.Quebec.mp4" },
   {
@@ -25,38 +25,128 @@ export default function Page() { return <main className="detailPage brandPage"><
     type="video/mp4"
   />
 </video><span><Localized en="Watch film" fr="Voir le film" /> ↗</span></div><div><p>{project.type}</p><h3>{project.title}</h3></div></a>)}</div></section>
-  <section className="brandCollaborations">
-  <div className="brandCollabHeading">
-    <span>SELECTED COLLABORATIONS</span>
-    <p>Selected organizations and creative partners featured across KSP Vision productions.</p>
+
+<section className="brandCollection documentaryCollection" id="realStoriesFinal">
+  <div className="weddingSectionHead">
+    <div>
+      <p className="kicker">
+        <Localized en="DOCUMENTARY" fr="DOCUMENTAIRE" />
+      </p>
+      <h2>
+        <Localized en="Real stories" fr="Histoires réelles" />
+      </h2>
+    </div>
+
+    <p>
+      <Localized
+        en="Portraits and conversations made with attention and care."
+        fr="Des portraits et conversations réalisés avec attention et sensibilité."
+      />
+    </p>
   </div>
 
-  <div className="brandCollabStrip">
-    <img
-      src="/collaborations-selected.png"
-      alt="Selected KSP Vision collaborations"
-    />
+  <div className="realStoriesTop">
+
+    {/* 01 — ADVANCE MUSIC GROUP CANADA */}
+    <article className="documentaryCard">
+      <div className="documentaryMedia">
+        <video autoPlay muted loop playsInline preload="metadata">
+          <source src={documentaries[0].src} type="video/mp4" />
+        </video>
+      </div>
+
+      <div className="documentaryInfo">
+        <strong className="docProjectTitle">
+          ADVANCE MUSIC GROUP CANADA
+        </strong>
+        <span className="docProjectRole">
+          TOURNAGE · MONTAGE
+        </span>
+      </div>
+    </article>
+
+
+    {/* 02 — COMITÉ JEUNE DE FINANCE MONTRÉAL */}
+    <article className="documentaryCard">
+      <div className="documentaryMedia">
+        <video autoPlay muted loop playsInline preload="metadata">
+          <source src={documentaries[1].src} type="video/mp4" />
+        </video>
+      </div>
+
+      <div className="documentaryInfo">
+        <strong className="docProjectTitle">
+          COMITÉ JEUNE DE FINANCE MONTRÉAL
+        </strong>
+        <span className="docProjectRole">
+          TOURNAGE · MONTAGE
+        </span>
+      </div>
+    </article>
+
+
+    {/* 03 — AMPLIFY SEASON 1 · ADVANCE TORONTO */}
+    <article className="documentaryCard">
+      <div className="documentaryMedia">
+        <video autoPlay muted loop playsInline preload="metadata">
+          <source
+            src="/amplify-season-1-advance-toronto.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+
+      <div className="documentaryInfo">
+        <strong className="docProjectTitle">
+          AMPLIFY SEASON 1 · ADVANCE TORONTO
+        </strong>
+        <span className="docProjectRole">
+          TOURNAGE · MONTAGE
+        </span>
+      </div>
+    </article>
+
   </div>
+
+
+  {/* 04 — LA VILLE — ALONE UNDER ALL THREE */}
+  <article className="documentaryCard laVilleStandalone">
+
+    <span className="docEyebrow">
+      UPCOMING DOCUMENTARY
+    </span>
+
+    <div className="documentaryMedia">
+      <video autoPlay muted loop playsInline preload="metadata">
+        <source src={documentaries[2].src} type="video/mp4" />
+      </video>
+    </div>
+
+    <div className="documentaryInfo">
+      <span className="docEyebrow">
+        DOCUMENTAIRE
+      </span>
+
+      <strong className="docProjectTitle">
+        LA VILLE
+      </strong>
+<div className="laVilleEditorial">
+  <strong>A STORY STILL UNFOLDING.</strong>
+  <p>LA VILLE is an upcoming KSP Vision documentary built around the voices, experiences and realities that shape the city. A dedicated feature is currently in development.</p>
+</div>
+
+      <span className="docProjectRole">
+        RÉALISATION · TOURNAGE · MONTAGE
+      </span>
+
+      <span className="comingSoon">
+        DEDICATED FEATURE — COMING SOON
+      </span>
+    </div>
+
+  </article>
+
 </section>
-
-<section className="brandCollection documentaryCollection"><div className="weddingSectionHead"><div><p className="kicker">DOCUMENTARY</p><h2><Localized en="Real stories" fr="Histoires réelles" /></h2></div><p><Localized en="Portraits and conversations made with attention and care." fr="Des portraits et conversations réalisés avec attention et sensibilité." /></p></div><div className="brandGrid documentaryPyramid">{documentaries.map((project, index) => <article className={`brandFilm documentaryCard documentaryCard${index + 1}`} key={project.title}>{project.poster ? <video autoPlay muted loop playsInline preload="metadata"><source src={project.src} type="video/mp4" /></video> : <video autoPlay muted loop playsInline preload="metadata"><source src={project.src} type="video/mp4" /></video>}<div className="documentaryInfo"><p>{index === 0 ? (
-  <>
-    <strong className="docProjectTitle">ADVANCE MUSIC GROUP CANADA</strong>
-    <span className="docProjectRole">TOURNAGE · MONTAGE</span>
-  </>
-) : index === 1 ? (
-  <>
-    <strong className="docProjectTitle">COMITÉ JEUNE DE FINANCE MONTRÉAL</strong>
-    <span className="docProjectRole">TOURNAGE · MONTAGE</span>
-  </>
-) : (
-  <>
-    <span className="docEyebrow">DOCUMENTAIRE</span>
-    <strong className="docProjectTitle laVilleTitle">LA VILLE</strong>
-    <span className="docProjectRole">RÉALISATION · TOURNAGE · MONTAGE</span>
-    <span className="comingSoonDoc">DEDICATED FEATURE — COMING SOON</span>
-  </>
-)}</p></div></article>)}</div></section>
 <style>{`
 .documentaryPyramid{
   display:grid !important;
@@ -104,6 +194,79 @@ export default function Page() { return <main className="detailPage brandPage"><
   }
 }
 `}</style>
+
+<style>{`
+  /* REAL STORIES — FINAL STRUCTURE ONLY */
+
+  #realStoriesFinal .realStoriesTop{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:1rem !important;
+    align-items:start !important;
+  }
+
+  #realStoriesFinal .realStoriesTop .documentaryCard{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    grid-column:auto !important;
+  }
+
+  #realStoriesFinal .realStoriesTop .documentaryMedia video,
+  #realStoriesFinal .realStoriesTop .documentaryMedia img{
+    display:block !important;
+    width:100% !important;
+    aspect-ratio:16/9 !important;
+    object-fit:cover !important;
+  }
+
+  #realStoriesFinal .laVilleStandalone{
+    display:block !important;
+    width:min(720px,78%) !important;
+    max-width:720px !important;
+    margin:2.5rem auto 0 !important;
+    grid-column:auto !important;
+  }
+
+  #realStoriesFinal .laVilleStandalone .documentaryMedia video,
+  #realStoriesFinal .laVilleStandalone .documentaryMedia img{
+    display:block !important;
+    width:100% !important;
+    aspect-ratio:16/9 !important;
+    object-fit:cover !important;
+  }
+
+  #realStoriesFinal .laVilleStandalone .documentaryInfo{
+    text-align:center !important;
+  }
+
+  @media(max-width:800px){
+    #realStoriesFinal .realStoriesTop{
+      grid-template-columns:1fr !important;
+    }
+
+    #realStoriesFinal .laVilleStandalone{
+      width:100% !important;
+      max-width:none !important;
+    }
+  }
+`}</style>
+
+
+  <section className="brandCollaborations">
+  <div className="brandCollabHeading">
+    <span>SELECTED COLLABORATIONS</span>
+    <p>Selected organizations and creative partners featured across KSP Vision productions.</p>
+  </div>
+
+  <div className="brandCollabStrip">
+    <img
+      src="/collaborations-selected.png"
+      alt="Selected KSP Vision collaborations"
+    />
+  </div>
+</section>
+
 <SiteFooter />
 <style>{`
 /* Compact Brand / Documentary introduction */

@@ -20,9 +20,9 @@ export default function Home() {
 
       <section className="hero" id="accueil">
         <div className="heroImage" aria-hidden="true">
-          <video autoPlay muted loop playsInline preload="auto" poster="/portfolio/hero.jpg" onCanPlay={(event) => event.currentTarget.play().catch(() => {})} onEnded={(event) => { event.currentTarget.currentTime = 0; event.currentTarget.play().catch(() => {}); }}>
+          <video autoPlay muted loop playsInline preload="auto" onCanPlay={(event) => event.currentTarget.play().catch(() => {})} onEnded={(event) => { event.currentTarget.currentTime = 0; event.currentTarget.play().catch(() => {}); }}>
               <source
-                src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/ksp-hero-reel.mp4"
+                src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/KSPVision.ca.REEL.Sequuence.mp4"
                 type="video/mp4"
               />
           </video>
@@ -31,7 +31,7 @@ export default function Home() {
         <div className="heroContent">
           <p className="eyebrow"><span /> {l("Production · Cinematography · Post-production","Production · Cinématographie · Post-production")}</p>
           <h1>{l("Your vision.","Votre vision.")}<br /><em>{l("Ready for the screen.","Prête pour l’écran.")}</em></h1>
-          <p className="heroCopy">{l("KSP Vision turns ideas into finished films through production, cinematography and post-production — one creative partner from concept to delivery.","KSP Vision transforme vos idées en films aboutis grâce à la production, la cinématographie et la post-production — un seul partenaire créatif, du concept à la livraison.")}</p>
+          <p className="heroCopy">{l("Made with a clear eye and a feeling for the frame.","Des films portés par un regard clair et le sens du cadre.")}</p>
           <div className="heroActions"><a className="button gold" href="#types">{l("Choose a project type","Choisir un type de projet")}</a><a className="textLink" href="/booking">{l("Book a project","Réserver un projet")} <b>↗</b></a></div>
         </div>
         <div className="scrollHint">{l("Scroll","Défiler")} <span>↓</span></div>

@@ -286,3 +286,994 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   border-top:1px solid rgba(255,255,255,.12) !important;
 }
 
+
+/* =========================================================
+   BRAND / DOC — FINAL COMPACT PASS
+   Brand page only
+   ========================================================= */
+
+/* ---------- COMMERCIAL STORIES ---------- */
+
+/* Remove any inherited/reserved height creating black space */
+.brandPage .brandFilm,
+.brandPage .brandFilm > div,
+.brandPage .brandGrid > *,
+.brandPage .videoCollection,
+.brandPage .videoCollection > *{
+  min-height:0 !important;
+  height:auto !important;
+}
+
+/* Video/image itself defines the card height */
+.brandPage .brandFilm video,
+.brandPage .brandFilm img{
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:16/9 !important;
+  object-fit:cover !important;
+  margin:0 !important;
+}
+
+/* Kill phantom space directly underneath media */
+.brandPage .brandFilm video + *,
+.brandPage .brandFilm img + *{
+  margin-top:0 !important;
+}
+
+/* Keep the two project cards tight */
+.brandPage .brandGrid{
+  align-items:start !important;
+  row-gap:1rem !important;
+}
+
+.brandPage .brandFilm{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+
+/* ---------- COLLABORATIONS ---------- */
+
+/* This should behave like a compact credibility strip */
+.brandPage .brandCollabStrip{
+  min-height:0 !important;
+  height:auto !important;
+  padding:2.2rem 0 2.5rem !important;
+  margin:2.2rem 0 2.5rem !important;
+  overflow:hidden !important;
+}
+
+/* Compress internal vertical spacing */
+.brandPage .brandCollabStrip > *{
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+/* Heading much closer to logos */
+.brandPage .brandCollabStrip h2,
+.brandPage .brandCollabStrip h3{
+  margin:0 0 1.35rem !important;
+  line-height:1 !important;
+}
+
+/* Logos remain fully visible — smaller, NOT cropped */
+.brandPage .brandCollabStrip img{
+  max-height:68px !important;
+  width:auto !important;
+  max-width:100% !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  display:block !important;
+}
+
+/* Keep logo row compact */
+.brandPage .brandCollabStrip > div{
+  min-height:0 !important;
+  height:auto !important;
+}
+
+/* Documentary section begins sooner */
+.brandPage .documentaryCollection{
+  margin-top:0 !important;
+  padding-top:2.8rem !important;
+}
+
+
+/* ========================================================
+   BRAND/DOC — COLLABORATION STRIP FINAL PROPORTIONS
+   LARGE LOGOS, SMALL SECTION
+   ======================================================== */
+
+.brandPage .brandCollabStrip{
+  min-height:0 !important;
+  height:auto !important;
+
+  /* almost no wasted black space */
+  padding:1rem 0 1.1rem !important;
+  margin:1.35rem 0 !important;
+
+  border-top:1px solid rgba(255,255,255,.10) !important;
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+
+  overflow:hidden !important;
+}
+
+/* Kill old forced heights */
+.brandPage .brandCollabStrip,
+.brandPage .brandCollabStrip > div{
+  min-height:0 !important;
+  height:auto !important;
+}
+
+/* Your collaboration artwork should be LARGE again */
+.brandPage .brandCollabStrip img{
+  display:block !important;
+
+  width:min(760px,82vw) !important;
+  max-width:82vw !important;
+
+  height:auto !important;
+  max-height:none !important;
+
+  object-fit:contain !important;
+  object-position:center !important;
+
+  margin:.55rem auto !important;
+}
+
+/* Keep heading close to artwork */
+.brandPage .brandCollabStrip h2,
+.brandPage .brandCollabStrip h3{
+  margin:0 0 .45rem !important;
+  padding:0 !important;
+}
+
+/* Documentary starts quickly after collaborations */
+.brandPage .documentaryCollection{
+  margin-top:0 !important;
+  padding-top:2.2rem !important;
+}
+
+
+/* BRAND/DOC — tighten collaborations aggressively */
+.brandPage .brandCollabStrip{
+  min-height:0 !important;
+  height:auto !important;
+  padding:.45rem 0 .6rem !important;
+  margin:.65rem 0 .8rem !important;
+}
+
+/* remove extra internal spacing */
+.brandPage .brandCollabStrip > div{
+  min-height:0 !important;
+  height:auto !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+
+.brandPage .brandCollabStrip h2,
+.brandPage .brandCollabStrip h3{
+  margin:0 0 .25rem !important;
+  padding:0 !important;
+}
+
+/* keep logos visible but make the whole artwork block shorter */
+.brandPage .brandCollabStrip img{
+  width:min(640px,72vw) !important;
+  max-width:72vw !important;
+  height:auto !important;
+  margin:.2rem auto !important;
+  max-height:115px !important;
+  object-fit:contain !important;
+}
+
+/* pull Real Stories up closer */
+.brandPage .documentaryCollection{
+  padding-top:1.15rem !important;
+  margin-top:0 !important;
+}
+
+
+/* BRAND/DOC — keep compact strip, restore large collaboration artwork */
+.brandPage .brandCollabStrip{
+  position:relative !important;
+  overflow:hidden !important;
+
+  /* KEEP the current compact vertical footprint */
+  min-height:0 !important;
+  height:128px !important;
+  padding:0 !important;
+  margin:.65rem 0 .8rem !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  border-top:1px solid rgba(255,255,255,.10) !important;
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+}
+
+/* Let the artwork become large INSIDE the short strip */
+.brandPage .brandCollabStrip img{
+  width:min(760px,82vw) !important;
+  max-width:82vw !important;
+  height:auto !important;
+  max-height:none !important;
+
+  margin:0 auto !important;
+  display:block !important;
+
+  object-fit:contain !important;
+  object-position:center !important;
+
+  /* scale artwork without increasing section height */
+  transform:scale(1.42) !important;
+  transform-origin:center center !important;
+}
+
+/* neutralize wrappers so they do not recreate the huge gap */
+.brandPage .brandCollabStrip > div{
+  width:100% !important;
+  min-height:0 !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/* keep the little external label/header from adding height */
+.brandPage .brandCollabStrip h2,
+.brandPage .brandCollabStrip h3{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+
+/* BRAND/DOC — final collaboration logo sizing */
+.brandPage .brandCollabStrip img{
+  width:min(690px,74vw) !important;
+  max-width:74vw !important;
+  transform:scale(1.12) !important;
+  transform-origin:center center !important;
+}
+
+
+/* BRAND/DOC — logo size final micro-adjustment */
+.brandPage .brandCollabStrip img{
+  width:min(660px,71vw) !important;
+  max-width:71vw !important;
+  transform:scale(1.08) !important;
+  transform-origin:center center !important;
+}
+
+
+/* BRAND/DOC — final visual sizing */
+
+/* Collaboration artwork: tiny step smaller */
+.brandPage .brandCollabStrip img{
+  width:min(640px,69vw) !important;
+  max-width:69vw !important;
+  transform:scale(1.04) !important;
+  transform-origin:center center !important;
+}
+
+/* Commercial Stories: use more of the available page width */
+.brandPage .commercialCollection,
+.brandPage .brandCollection{
+  max-width:1280px !important;
+  width:calc(100% - 5rem) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+/* Keep the two commercial players large and balanced */
+.brandPage .commercialGrid,
+.brandPage .brandGrid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:.55rem !important;
+}
+
+/* Larger cinematic player area */
+.brandPage .brandFilm video,
+.brandPage .brandFilm img{
+  width:100% !important;
+  aspect-ratio:16/9 !important;
+  object-fit:cover !important;
+}
+
+@media(max-width:900px){
+  .brandPage .commercialCollection,
+  .brandPage .brandCollection{
+    width:calc(100% - 2rem) !important;
+  }
+}
+
+
+/* =========================================================
+   BRAND/DOC — FINAL COLLABORATION STRIP TIGHTENING
+   ========================================================= */
+
+.brandPage .brandCollabStrip{
+  padding-top:.15rem !important;
+  padding-bottom:.15rem !important;
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+.brandPage .brandCollabStrip > div{
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+  min-height:0 !important;
+}
+
+/* keep current logo SIZE — only remove surrounding air */
+.brandPage .brandCollabStrip img{
+  margin-top:-.35rem !important;
+  margin-bottom:-.35rem !important;
+}
+
+/* pull Real Stories closer */
+.brandPage .documentaryCollection{
+  margin-top:0 !important;
+  padding-top:1.35rem !important;
+}
+
+
+/* =========================================================
+   BRAND/DOC — FINAL CONDENSED PASS
+   ========================================================= */
+
+/* Commercial Stories -> Selected Collaborations:
+   remove the big dead black gap */
+.brandPage .brandCollaborations{
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+
+/* Pull collaboration section immediately after commercials */
+.brandPage .brandCollaborations{
+  transform:translateY(-1.6rem) !important;
+  margin-bottom:-1.6rem !important;
+}
+
+/* Keep logo ARTWORK size exactly where it is now,
+   but tighten the actual strip around it */
+.brandPage .brandCollabStrip{
+  height:108px !important;
+  min-height:108px !important;
+  padding:0 !important;
+  margin:0 !important;
+  overflow:hidden !important;
+}
+
+/* Current logo size stays */
+.brandPage .brandCollabStrip img{
+  margin:0 auto !important;
+}
+
+/* Real Stories = THREE across */
+.brandPage .documentaryPyramid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:1rem !important;
+}
+
+/* AMPLIFY is card 3, normal size */
+.brandPage .documentaryPyramid .documentaryCard:nth-child(3){
+  grid-column:auto !important;
+  width:100% !important;
+  margin:0 !important;
+  justify-self:stretch !important;
+}
+
+/* Upcoming documentary = card 4 underneath */
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+  grid-column:1 / -1 !important;
+  width:min(100%,760px) !important;
+  justify-self:center !important;
+  margin-top:1.5rem !important;
+}
+
+@media(max-width:800px){
+  .brandPage .documentaryPyramid{
+    grid-template-columns:1fr !important;
+  }
+
+  .brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+    grid-column:auto !important;
+    width:100% !important;
+  }
+}
+
+
+/* =========================================================
+   BRAND / DOC — 3 REAL STORIES + LA VILLE STANDALONE
+   ========================================================= */
+
+/* First three documentary projects = equal row */
+.brandPage .documentaryPyramid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:1rem !important;
+  align-items:start !important;
+}
+
+/* Undo old rule that made card 3 the feature */
+.brandPage .documentaryPyramid .documentaryCard:nth-child(3){
+  grid-column:auto !important;
+  width:100% !important;
+  max-width:none !important;
+  justify-self:stretch !important;
+  margin:0 !important;
+}
+
+/* LA VILLE is card 4 and returns underneath BY ITSELF */
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+  grid-column:1 / -1 !important;
+  width:min(760px,100%) !important;
+  justify-self:center !important;
+  margin:1.6rem auto 0 !important;
+}
+
+/* Keep all three talking-head/video frames equal */
+.brandPage .documentaryPyramid .documentaryCard:nth-child(-n+3) video,
+.brandPage .documentaryPyramid .documentaryCard:nth-child(-n+3) img{
+  width:100% !important;
+  aspect-ratio:16/9 !important;
+  object-fit:cover !important;
+}
+
+@media(max-width:800px){
+  .brandPage .documentaryPyramid{
+    grid-template-columns:1fr !important;
+  }
+
+  .brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+    grid-column:auto !important;
+    width:100% !important;
+  }
+}
+
+
+
+/* ===== BRAND DOC ABSOLUTE FINAL LOCK ===== */
+
+/* Commercial section stays untouched visually */
+.brandPage .commercialCollection{
+  margin-bottom:0 !important;
+  padding-bottom:.65rem !important;
+}
+
+
+/* ----------------------------------------------------------
+   COLLABORATIONS
+   Keep the section very tight.
+   Keep the full logo artwork visible.
+   ---------------------------------------------------------- */
+
+.brandPage .brandCollaborations{
+  margin:0 !important;
+  padding:0 !important;
+  min-height:0 !important;
+  height:auto !important;
+  overflow:visible !important;
+}
+
+.brandPage .brandCollabHeading{
+  margin:0 !important;
+  padding:.25rem 2rem !important;
+}
+
+.brandPage .brandCollabStrip{
+  position:relative !important;
+
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+
+  margin:0 !important;
+  padding:.15rem 0 !important;
+
+  transform:none !important;
+
+  overflow:visible !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+
+  border-top:1px solid rgba(255,255,255,.10) !important;
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+}
+
+.brandPage .brandCollabStrip > div{
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  transform:none !important;
+  overflow:visible !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.brandPage .brandCollabStrip img{
+  display:block !important;
+
+  width:min(590px,62vw) !important;
+  max-width:62vw !important;
+
+  height:auto !important;
+  max-height:none !important;
+
+  margin:0 auto !important;
+  padding:0 !important;
+
+  transform:none !important;
+
+  object-fit:contain !important;
+  object-position:center center !important;
+}
+
+
+/* ----------------------------------------------------------
+   REAL STORIES
+   3 projects on top.
+   ---------------------------------------------------------- */
+
+.brandPage .documentaryCollection{
+  margin-top:0 !important;
+  padding-top:1.25rem !important;
+}
+
+.brandPage .documentaryPyramid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:1rem !important;
+  align-items:start !important;
+}
+
+.brandPage .documentaryPyramid .documentaryCard{
+  grid-column:auto !important;
+
+  width:100% !important;
+  max-width:none !important;
+
+  margin:0 !important;
+  padding:0 !important;
+
+  justify-self:stretch !important;
+  align-self:start !important;
+}
+
+.brandPage .documentaryPyramid .documentaryCard:nth-child(-n+3) video,
+.brandPage .documentaryPyramid .documentaryCard:nth-child(-n+3) img{
+  display:block !important;
+
+  width:100% !important;
+  height:auto !important;
+
+  aspect-ratio:16/9 !important;
+  object-fit:cover !important;
+}
+
+
+/* ----------------------------------------------------------
+   LA VILLE
+   Standalone feature UNDER the three Real Stories.
+   ---------------------------------------------------------- */
+
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+  grid-column:1 / -1 !important;
+
+  width:min(700px,76%) !important;
+  max-width:700px !important;
+
+  margin:2.25rem auto 0 !important;
+
+  justify-self:center !important;
+}
+
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4) video,
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4) img{
+  display:block !important;
+
+  width:100% !important;
+  height:auto !important;
+
+  aspect-ratio:16/9 !important;
+  object-fit:cover !important;
+}
+
+.brandPage .documentaryPyramid .documentaryCard:nth-child(4) .documentaryInfo{
+  text-align:center !important;
+}
+
+
+/* Mobile */
+@media(max-width:800px){
+
+  .brandPage .documentaryPyramid{
+    grid-template-columns:1fr !important;
+  }
+
+  .brandPage .documentaryPyramid .documentaryCard:nth-child(4){
+    grid-column:auto !important;
+    width:100% !important;
+    max-width:none !important;
+  }
+
+  .brandPage .brandCollabStrip img{
+    width:min(540px,88vw) !important;
+    max-width:88vw !important;
+  }
+
+}
+
+
+/* =========================================================
+   BRAND/DOC — REAL STORIES TYPOGRAPHY + LA VILLE FEATURE
+   ========================================================= */
+
+/* TOP THREE — titles must support the videos, not dominate them */
+#realStoriesFinal .realStoriesTop .documentaryInfo{
+  padding-top:.7rem !important;
+  text-align:left !important;
+}
+
+#realStoriesFinal .realStoriesTop .docProjectTitle{
+  display:block !important;
+  font-size:clamp(.82rem,1.05vw,1rem) !important;
+  line-height:1.08 !important;
+  letter-spacing:-.015em !important;
+  font-weight:700 !important;
+  max-width:100% !important;
+  min-height:2.2em !important;
+}
+
+#realStoriesFinal .realStoriesTop .docProjectRole{
+  display:block !important;
+  margin-top:.45rem !important;
+  font-size:.52rem !important;
+  line-height:1 !important;
+  letter-spacing:.18em !important;
+  opacity:.62 !important;
+  white-space:nowrap !important;
+}
+
+
+/* =========================================================
+   LA VILLE — FEATURED / UPCOMING PROJECT
+   ========================================================= */
+
+#realStoriesFinal .laVilleStandalone{
+  position:relative !important;
+  width:min(760px,82%) !important;
+  max-width:760px !important;
+  margin:4.25rem auto 1rem !important;
+  padding:1.35rem !important;
+
+  border:1px solid rgba(181,138,48,.55) !important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(181,138,48,.055),
+      rgba(0,0,0,0) 34%
+    ) !important;
+}
+
+/* little gold corner details */
+#realStoriesFinal .laVilleStandalone::before,
+#realStoriesFinal .laVilleStandalone::after{
+  content:"" !important;
+  position:absolute !important;
+  width:34px !important;
+  height:34px !important;
+  pointer-events:none !important;
+}
+
+#realStoriesFinal .laVilleStandalone::before{
+  top:-1px !important;
+  left:-1px !important;
+  border-top:2px solid #b58a30 !important;
+  border-left:2px solid #b58a30 !important;
+}
+
+#realStoriesFinal .laVilleStandalone::after{
+  right:-1px !important;
+  bottom:-1px !important;
+  border-right:2px solid #b58a30 !important;
+  border-bottom:2px solid #b58a30 !important;
+}
+
+/* Upcoming label */
+#realStoriesFinal .laVilleStandalone > .docEyebrow{
+  display:block !important;
+  margin:0 0 .85rem !important;
+  text-align:center !important;
+  color:#b58a30 !important;
+  font-size:.58rem !important;
+  font-weight:700 !important;
+  letter-spacing:.25em !important;
+}
+
+/* Feature image */
+#realStoriesFinal .laVilleStandalone .documentaryMedia{
+  border:1px solid rgba(181,138,48,.24) !important;
+  overflow:hidden !important;
+}
+
+/* LA VILLE information */
+#realStoriesFinal .laVilleStandalone .documentaryInfo{
+  padding:1.25rem .5rem .35rem !important;
+  text-align:center !important;
+}
+
+#realStoriesFinal .laVilleStandalone .documentaryInfo .docEyebrow{
+  display:block !important;
+  color:#b58a30 !important;
+  font-size:.52rem !important;
+  letter-spacing:.24em !important;
+  margin-bottom:.45rem !important;
+}
+
+#realStoriesFinal .laVilleStandalone .docProjectTitle{
+  display:block !important;
+  font-size:clamp(1.65rem,3vw,2.45rem) !important;
+  line-height:.95 !important;
+  letter-spacing:-.035em !important;
+}
+
+#realStoriesFinal .laVilleStandalone .docProjectRole{
+  display:block !important;
+  margin-top:.65rem !important;
+  font-size:.55rem !important;
+  letter-spacing:.2em !important;
+  opacity:.7 !important;
+}
+
+#realStoriesFinal .laVilleStandalone .comingSoon{
+  display:inline-block !important;
+  margin-top:1.15rem !important;
+  padding:.65rem 1rem !important;
+  border:1px solid rgba(181,138,48,.65) !important;
+  color:#b58a30 !important;
+  font-size:.52rem !important;
+  line-height:1 !important;
+  letter-spacing:.18em !important;
+}
+
+
+/* MOBILE */
+@media(max-width:800px){
+  #realStoriesFinal .realStoriesTop .docProjectTitle{
+    min-height:0 !important;
+    font-size:.9rem !important;
+  }
+
+  #realStoriesFinal .laVilleStandalone{
+    width:100% !important;
+    margin-top:3rem !important;
+    padding:.9rem !important;
+  }
+}
+
+
+/* BRAND/DOC — LA VILLE featured treatment refinement */
+
+#realStoriesFinal .laVilleStandalone{
+  border:0 !important;
+  background:none !important;
+  padding:2.2rem 0 1.8rem !important;
+  margin:4rem auto 1rem !important;
+}
+
+/* remove large corner frame */
+#realStoriesFinal .laVilleStandalone::before,
+#realStoriesFinal .laVilleStandalone::after{
+  display:none !important;
+}
+
+/* subtle premium separators instead of a giant box */
+#realStoriesFinal .laVilleStandalone{
+  border-top:1px solid rgba(181,138,48,.45) !important;
+  border-bottom:1px solid rgba(181,138,48,.28) !important;
+}
+
+/* make the upcoming label feel a little more deliberate */
+#realStoriesFinal .laVilleStandalone > .docEyebrow{
+  margin-bottom:1rem !important;
+  font-size:.6rem !important;
+  letter-spacing:.28em !important;
+}
+
+/* preserve a subtle frame only around the actual film */
+#realStoriesFinal .laVilleStandalone .documentaryMedia{
+  border:1px solid rgba(181,138,48,.3) !important;
+}
+
+/* give LA VILLE a bit more presence */
+#realStoriesFinal .laVilleStandalone .docProjectTitle{
+  font-size:clamp(1.9rem,3.3vw,2.7rem) !important;
+}
+
+/* CTA stays as the gold 'special project' cue */
+#realStoriesFinal .laVilleStandalone .comingSoon{
+  border-color:rgba(181,138,48,.75) !important;
+  background:rgba(181,138,48,.035) !important;
+}
+
+
+/* BRAND/DOC — remove remaining dead hero space */
+.brandPage .detailHero.toneBrand{
+  min-height:auto !important;
+  height:auto !important;
+  padding-top:4rem !important;
+  padding-bottom:2rem !important;
+  margin-bottom:0 !important;
+}
+
+.brandPage .detailHero.toneBrand + .brandCollection{
+  margin-top:0 !important;
+  padding-top:2rem !important;
+}
+
+
+/* ==========================================================
+   BRAND/DOC FINAL FLOW CLEANUP
+   ========================================================== */
+
+/* Commercial Stories should hug its actual content */
+.brandPage .brandCollection:not(.documentaryCollection){
+  min-height:0 !important;
+  height:auto !important;
+  margin-bottom:0 !important;
+  padding-bottom:1.2rem !important;
+}
+
+/* Individual commercial cards should create no mystery height */
+.brandPage .brandGrid{
+  align-items:start !important;
+  margin-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+
+.brandPage .brandFilm{
+  min-height:0 !important;
+  height:auto !important;
+  margin-bottom:0 !important;
+  padding-bottom:0 !important;
+}
+
+/* Commercial media itself */
+.brandPage .brandFilm > div:first-child,
+.brandPage .brandFilm .publishedFilmStill{
+  min-height:0 !important;
+  margin-bottom:0 !important;
+}
+
+/* Now that collaborations moved away, Real Stories comes up immediately */
+.brandPage #realStoriesFinal{
+  margin-top:0 !important;
+  padding-top:2rem !important;
+}
+
+/* Collaborations becomes a compact credibility strip at page bottom */
+.brandPage .brandCollaborations{
+  margin:3rem 0 0 !important;
+  padding:0 !important;
+}
+
+.brandPage .brandCollabHeading{
+  margin:0 !important;
+  padding:.7rem 2rem !important;
+}
+
+.brandPage .brandCollabStrip{
+  margin:0 !important;
+  padding:.5rem 0 !important;
+}
+
+
+/* LA VILLE — upcoming documentary editorial statement */
+#realStoriesFinal .laVilleEditorial{
+  width:min(620px,82%);
+  margin:1.35rem auto 1.5rem !important;
+  text-align:center;
+}
+
+#realStoriesFinal .laVilleEditorial strong{
+  display:block;
+  margin-bottom:.55rem;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  font-weight:600;
+  color:rgba(255,255,255,.92);
+}
+
+#realStoriesFinal .laVilleEditorial p{
+  margin:0 auto;
+  max-width:580px;
+  font-size:.88rem;
+  line-height:1.65;
+  color:rgba(255,255,255,.58);
+}
+
+@media(max-width:800px){
+  #realStoriesFinal .laVilleEditorial{
+    width:90%;
+    margin:1.1rem auto 1.3rem !important;
+  }
+
+  #realStoriesFinal .laVilleEditorial p{
+    font-size:.82rem;
+    line-height:1.6;
+  }
+}
+
+
+/* =========================================================
+   BRAND/DOC — FINAL LA VILLE EDITORIAL PASS
+   ========================================================= */
+
+#realStoriesFinal .laVilleEditorial{
+  width:min(590px,82%);
+  margin:1.15rem auto 1.35rem !important;
+  text-align:center;
+}
+
+#realStoriesFinal .laVilleEditorial strong{
+  display:block;
+  margin:0 0 .5rem !important;
+  font-size:.69rem;
+  letter-spacing:.18em;
+  font-weight:600;
+  color:rgba(255,255,255,.92);
+}
+
+#realStoriesFinal .laVilleEditorial p{
+  max-width:560px;
+  margin:0 auto !important;
+  font-size:.84rem;
+  line-height:1.62;
+  color:rgba(255,255,255,.60);
+}
+
+
+/* =========================================================
+   COMMERCIAL STORIES — CROP DEAD BLACK INSIDE VIDEO FRAMES
+   Player dimensions stay untouched.
+   ========================================================= */
+
+.brandPage .brandFilm .publishedFilmStill{
+  overflow:hidden !important;
+}
+
+.brandPage .brandFilm .publishedFilmStill video,
+.brandPage .brandFilm .commercialAutoVideo{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+
+  /* small internal crop; does NOT enlarge the card */
+  transform:scale(1.075) translateY(-1.2%) !important;
+  transform-origin:center center !important;
+}
+
+
+/* mobile: don't crop aggressively */
+@media(max-width:800px){
+  .brandPage .brandFilm .publishedFilmStill video,
+  .brandPage .brandFilm .commercialAutoVideo{
+    transform:scale(1.035) !important;
+  }
+}
+
