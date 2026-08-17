@@ -30,7 +30,12 @@ export function WeddingReel() {
       scheduleJump();
     };
 
-    video.addEventListener("loadedmetadata", begin, { once: true });
+    if (video.readyState >= 1 && video.duration) {
+      begin();
+    } else {
+      video.addEventListener("loadedmetadata", begin, { once: true });
+    }
+
     return () => {
       video.removeEventListener("loadedmetadata", begin);
       if (timer) window.clearTimeout(timer);

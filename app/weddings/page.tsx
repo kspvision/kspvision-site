@@ -12,7 +12,6 @@ const gallery = [
   ["/weddings/ralph-prep.jpg", "Wedding-day preparation"],
   ["/weddings/ralph-bride.jpg", "Bride portrait in the forest"],
   ["/weddings/suffrard-dress.jpg", "Wedding dress detail"],
-  ["/weddings/suffrard-ceremony.jpg", "Suffrard and Florence ceremony"],
   ["/weddings/ralph-dance.jpg", "Ralph and Evelyne celebration"],
   ["/weddings/suffrard-couple.jpg", "Suffrard and Florence together"],
 ];

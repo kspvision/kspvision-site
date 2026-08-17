@@ -4,7 +4,7 @@ const commercial = [{ title: "Barbancourt", type: "Commercial film", youtubeId: 
 const documentaries = [
   { title: "Corneille présente ADVANCE Québec", src: "https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/Corneille.presente.ADVANCE.Quebec.mp4" },
   { title: "Finance Montréal", poster: true },
-  { title: "Kevin Shayne Story", src: "https://raw.githubusercontent.com/kspvision/kspvision-site/main/public/documentary/kevin-shayne-story-preview.mp4", preview: true },
+  { title: "Kevin Shayne Story", src: "https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/KEVIN.SHAYNE.STORY.PART.1_1.mp4", preview: true },
 ];
 
 export default function Page() { return <main className="detailPage brandPage"><SiteHeader active="brand" />
