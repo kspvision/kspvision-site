@@ -7,11 +7,13 @@ const films = [
 ];
 const gallery = [
   ["/weddings/wedding-garden-wide.jpg", "Smith and Aureanne with their wedding party"],
-  ["/weddings/wedding-garden-portrait.jpg", "Smith and Aureanne in the garden"],
   ["/weddings/smith-rings.jpg", "Smith and Aureanne exchanging rings"],
   ["/weddings/ralph-prep.jpg", "Wedding-day preparation"],
   ["/weddings/ralph-bride.jpg", "Bride portrait in the forest"],
   ["/weddings/suffrard-dress.jpg", "Wedding dress detail"],
+  ["/weddings/suffrard-ceremony.jpg", "Suffrard and Florence ceremony"],
+  ["/weddings/ralph-dance.jpg", "Ralph and Evelyne celebration"],
+  ["/weddings/suffrard-couple.jpg", "Suffrard and Florence together"],
 ];
 
 export default function WeddingsPage() {
