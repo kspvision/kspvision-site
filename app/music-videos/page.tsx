@@ -157,8 +157,6 @@ export default function Page() {
         eyebrow=""
         title="RECENT AND LATEST WORK"
         items={latest}
-        big
-        big
       />
 
 
