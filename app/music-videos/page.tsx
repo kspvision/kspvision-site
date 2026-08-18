@@ -112,6 +112,18 @@ export default function Page() {
   return (
     <main className="mv-page">
       <SiteHeader active="music" />
+      <video
+        className="mv-mobile-background-reel"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+      >
+        <source src="/music-hero-mobile.mp4" type="video/mp4" />
+      </video>
+
 
       <section className="mv-hero">
         <video
@@ -123,12 +135,7 @@ export default function Page() {
           preload="metadata"
           aria-hidden="true"
         >
-          <source
-          media="(max-width: 650px)"
-          src="/music-hero-mobile.mp4"
-          type="video/mp4"
-        />
-        <source src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/KSPVision.ca.REEL.Sequuence.mp4" />
+          <source src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/KSPVision.ca.REEL.Sequuence.mp4" />
         </video>
 
         <div className="mv-hero-overlay" />
@@ -1995,6 +2002,62 @@ export default function Page() {
         }
 
       `}</style>
-    </main>
+    
+      <style>{`
+        .mv-mobile-background-reel {
+          display: none;
+        }
+
+        @media (max-width: 650px) {
+          /* Dedicated mobile reel — independent of desktop hero video */
+          .mv-mobile-background-reel {
+            display: block !important;
+            position: fixed !important;
+
+            top: -6vh !important;
+            left: -8vw !important;
+
+            width: 116vw !important;
+            height: 112vh !important;
+
+            max-width: none !important;
+
+            object-fit: cover !important;
+            object-position: center center !important;
+
+            z-index: 0 !important;
+            pointer-events: none !important;
+
+            opacity: .88 !important;
+
+            filter:
+              blur(5px)
+              brightness(.68)
+              saturate(.78)
+              contrast(1.04) !important;
+
+            transform: scale(1.08) !important;
+          }
+
+          /* We don't need the desktop reel on phones anymore */
+          .mv-hero-video {
+            display: none !important;
+          }
+
+          /* Content stays above the mobile reel */
+          .mv-page > *:not(.mv-mobile-background-reel) {
+            position: relative;
+            z-index: 2;
+          }
+
+          /* Dark cinematic veil between reel and content */
+          .mv-page::before {
+            z-index: 1 !important;
+            background: rgba(0,0,0,.40) !important;
+          }
+        }
+      `}</style>
+
+</main>
   );
 }
