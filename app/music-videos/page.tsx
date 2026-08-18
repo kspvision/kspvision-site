@@ -1924,6 +1924,71 @@ export default function Page() {
           }
         }
 
+
+
+        /* ==================================================
+           DENSER STANDARD VIDEO ROWS
+           MOST WATCHED REMAINS LARGE
+           ================================================== */
+
+        /* Normal Netflix rows: smaller cards */
+        .mv-track .mv-card {
+          flex:0 0 clamp(185px,18vw,275px) !important;
+        }
+
+        /* Slightly tighter gaps */
+        .mv-track {
+          gap:7px !important;
+        }
+
+        /* Smaller normal-card labels */
+        .mv-card h3 {
+          font-size:8px !important;
+          margin-top:5px !important;
+        }
+
+        .mv-card > p {
+          font-size:6.5px !important;
+          margin-top:2px !important;
+        }
+
+        /* MOST WATCHED stays intentionally large */
+        .mv-million-grid {
+          grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+          gap:8px !important;
+        }
+
+        .mv-million-card h3 {
+          font-size:9px !important;
+        }
+
+        /* Main archive becomes denser too */
+        .mv-grid {
+          grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+          gap:15px 7px !important;
+        }
+
+        @media(max-width:1000px) {
+          .mv-grid {
+            grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+          }
+        }
+
+        @media(max-width:650px) {
+          .mv-track .mv-card {
+            flex-basis:61vw !important;
+          }
+
+          .mv-grid {
+            grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+          }
+
+          /* Most Watched remains larger on mobile too */
+          .mv-million-card {
+            flex:0 0 76vw !important;
+          }
+        }
+
       `}</style>
     </main>
   );
