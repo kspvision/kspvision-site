@@ -57,7 +57,7 @@ const latest = [
 function Card({ video, big = false }: { video: string[]; big?: boolean }) {
   return (
     <a
-      className={`mv-card ${big ? "mv-card-big" : ""}`}
+      className={`mv-card ${big ? "mv-card" : ""}`}
       href={`https://www.youtube.com/watch?v=${video[0]}`}
       target="_blank"
       rel="noreferrer"
@@ -562,7 +562,7 @@ export default function Page() {
           scroll-snap-align:start;
         }
 
-        .mv-card-big {
+        .mv-card {
           flex-basis:clamp(300px,31vw,470px);
         }
 
@@ -1051,7 +1051,7 @@ export default function Page() {
             flex-basis:72vw;
           }
 
-          .mv-card-big {
+          .mv-card {
             flex-basis:80vw;
           }
 
