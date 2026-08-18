@@ -155,8 +155,9 @@ export default function Page() {
 
       <Row
         eyebrow=""
-        title="RECENT + LATEST WORK"
+        title="RECENT AND LATEST WORK"
         items={latest}
+        big
         big
       />
 
