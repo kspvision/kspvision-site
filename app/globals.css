@@ -2861,3 +2861,47 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
 
 }
 
+
+
+/* =========================================================
+   HOME MOBILE — SOFT BLACK CURTAIN
+   NO VISIBLE GRADIENT
+   FRAMING / ZOOM UNCHANGED
+   ========================================================= */
+@media (max-width: 650px) {
+
+  /*
+    Replace previous gradient overlay.
+    Solid black panel sits on the actual bottom edge.
+    Huge upward shadow creates the soft transition.
+  */
+  #accueil::after {
+    content: "" !important;
+
+    position: absolute !important;
+    left: -10% !important;
+    right: -10% !important;
+    bottom: -1px !important;
+
+    width: 120% !important;
+    height: 10% !important;
+
+    background: #000 !important;
+
+    box-shadow:
+      0 -18px 22px 10px rgba(0,0,0,.55),
+      0 -36px 42px 18px rgba(0,0,0,.38),
+      0 -58px 60px 24px rgba(0,0,0,.18) !important;
+
+    pointer-events: none !important;
+    z-index: 3 !important;
+  }
+
+  #accueil .heroContent,
+  #accueil .scrollHint {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+}
+
