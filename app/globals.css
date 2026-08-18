@@ -2861,3 +2861,91 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
 
 }
 
+
+
+/* =========================================================
+   KSP MOBILE — CLEAN TEXT ARROWS / REMOVE WATCH FILM
+   MOBILE ONLY
+   DESKTOP COMPLETELY UNCHANGED
+   ========================================================= */
+@media (max-width: 650px) {
+
+  /* -------------------------------------------------------
+     BRAND / DOCUMENTARY FILMS
+     Remove WATCH FILM overlay.
+     Parent link/card remains fully clickable.
+     ------------------------------------------------------- */
+
+  .brandPage .publishedFilmStill > span,
+  .brandPage .publishedFilmStill span {
+    display: none !important;
+  }
+
+
+  /* -------------------------------------------------------
+     CLEAN CSS-DRAWN ARROWS
+
+     Existing trailing <b> arrow character becomes invisible.
+     The <b> itself becomes our arrow container instead.
+
+     Works for:
+     BOOK A PROJECT
+     START A PROJECT
+     OPEN PAGE
+     and other link/button arrow markers using trailing <b>.
+     ------------------------------------------------------- */
+
+  a > b:last-child,
+  button > b:last-child {
+    display: inline-block !important;
+    position: relative !important;
+
+    width: 11px !important;
+    height: 11px !important;
+
+    margin-left: 7px !important;
+
+    font-size: 0 !important;
+    line-height: 0 !important;
+
+    vertical-align: middle !important;
+
+    color: currentColor !important;
+  }
+
+  /* arrow head */
+  a > b:last-child::before,
+  button > b:last-child::before {
+    content: "" !important;
+
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+
+    width: 6px !important;
+    height: 6px !important;
+
+    border-top: 1.4px solid currentColor !important;
+    border-right: 1.4px solid currentColor !important;
+  }
+
+  /* diagonal shaft */
+  a > b:last-child::after,
+  button > b:last-child::after {
+    content: "" !important;
+
+    position: absolute !important;
+    left: 1px !important;
+    bottom: 2px !important;
+
+    width: 12px !important;
+    height: 1.4px !important;
+
+    background: currentColor !important;
+
+    transform: rotate(-45deg) !important;
+    transform-origin: left center !important;
+  }
+
+}
+
