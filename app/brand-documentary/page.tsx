@@ -11,7 +11,7 @@ const documentaries = [
 ];
 
 export default function Page() { return <main className="detailPage brandPage"><SiteHeader active="brand" />
-  <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1 className="brandHeroTitle brand-mobile-title"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><a className="button gold" href="/booking"><Localized en="Start a project" fr="Lancer un projet" /> <b>↗</b></a></div></section>
+  <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1 className="brandHeroTitle brand-mobile-title brand-mobile-title-force"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><a className="button gold" href="/booking"><Localized en="Start a project" fr="Lancer un projet" /> <b>↗</b></a></div></section>
   <section className="brandCollection"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected work" fr="Travaux sélectionnés" /></p><h2><Localized en="Commercial stories" fr="Histoires de marque" /></h2></div></div><div className="brandGrid">{commercial.map((project, index) => <a className="brandFilm" href={`https://www.youtube.com/watch?v=${project.youtubeId}`} target="_blank" rel="noreferrer" key={project.title}><div className="publishedFilmStill"><video
   className="commercialAutoVideo"
   autoPlay
@@ -1659,6 +1659,36 @@ export default function Page() { return <main className="detailPage brandPage"><
 
             margin-top: 0 !important;
             margin-bottom: .55rem !important;
+          }
+        }
+      `}</style>
+
+
+      <style>{`
+        /* KSP MOBILE BRAND FINAL CLEANUP */
+        @media (max-width: 650px) {
+
+          /* One-line compact hero title */
+          main h1.brand-mobile-title-force {
+            font-size: 18px !important;
+            line-height: 1 !important;
+            letter-spacing: -.025em !important;
+
+            white-space: nowrap !important;
+            width: max-content !important;
+            max-width: calc(100vw - 36px) !important;
+
+            margin-top: 0 !important;
+            margin-bottom: 10px !important;
+          }
+
+          /*
+             Remove WATCH FILM overlay.
+             Parent film/card link stays completely clickable.
+          */
+          .publishedFilmStill > span,
+          .publishedFilmStill span {
+            display: none !important;
           }
         }
       `}</style>
