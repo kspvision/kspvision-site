@@ -1,30 +1,48 @@
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 
 const videos = [
+  ["_pGbFSSgh_o", "AK Green — Focus sur mes plans", "Recent · KSP Films"],
+  ["npDVn0MSbQk", "NICKEALDAGREAT - CAN YOU FEEL IT", "441 VIEWS"],
+  ["DXV6uLPcWUQ", "FUCCO - TIP H-MIX", "970 VIEWS"],
   ["foENa43ZOvc", "Tizzo x Shreez — KreydayEveryday", "Recent · 75K views"],
   ["lpm-NBRsNGM", "Ti Juice — Appel / Get Busy", "Selected work"],
-  ["_pGbFSSgh_o", "AK Green — Focus sur mes plans", "Recent · KSP Films"],
   ["9iQLjcR6stY", "Ti Juice — Écriture Sale 2", "26K views"],
-  ["oxMC068NZTs", "Enima ft. Russkov — Cette Nuit", "Archive"],
-  ["zn6t267flQs", "Enima — Intro", "Archive"],
-  ["6PgAanYdKg8", "Enima — MMS / Power Remix", "5.4M views"],
-  ["Tm5jIdEmbp4", "Enima — For the Low", "6.8M views"],
-  ["1QHbt4cGNkc", "Tizzo x Shreez x Soft — On Fouette", "1.6M views"],
+  ["N1GdG2wxqKE", "LE ICE FT. MIKEZUP - 6 PIASSES", "118K VIEWS"],
+  ["RRw4QrZY5X4", "LE ICE - LE SCOUT", "80K VIEWS"],
+  ["gFhVhJHWgKA", "LK THA GOON FT. THA JUICE X LIL DREW X TREEZY - RISQUES", "33K VIEWS"],
+  ["_hr9inD0dqA", "LE ICE - MR RICHARD", "54K VIEWS"],
+  ["CqslhWMO-nM", "ZACHA FT. SHREEZ - MONEY MAN", "128K VIEWS"],
+  ["qfe5gSj4NjE", "LE ICE - 5 DANS LA WHIP", "592K VIEWS"],
+  ["vnDASE5p4eQ", "SHREEZ - PLANKTON", "838K VIEWS"],
+  ["KAig8vIrgOg", "LK THA GOON X MIGHTY P X PRECISE - CHANGES", "116K VIEWS"],
+  ["VEWpAYwugVU", "SHREEZ X TIZZO X SOFT - HERCULES", "212K VIEWS"],
+  ["u_AkO15Nz1w", "TAMMY TUESDAYZ - FETE", "11K VIEWS"],
+  ["Bk9yk7d7eVE", "TAMMY TUESDAYZ - NO MORE", "15K VIEWS"],
+  ["7rvXITEmYnM", "MIKEZUP FT. SHREEZ - FAST LIFE", "388K VIEWS"],
+  ["QBRh_yyr1kE", "TAMMY TUESDAYZ - PEACE", "5K VIEWS"],
+  ["Q0ejc1FRaro", "Freeman — If I Die", "KSP Films"],
+  ["XY-_FdHYspA", "Zoe Kot X — By Myself", "KSP Films"],
   ["4PiqS4zQTLI", "Tizzo x Shreez x Soft — Dragon", "KSP Films"],
+  ["kHWK9pK2Qc0", "Bilo Da Kid — Never", "KSP Films"],
+  ["tpGCNT5tKG4", "Sabz — Intoxicated", "KSP Films"],
+  ["GUbCpGGs8Qw", "Faxxts — Affiliated", "KSP Films"],
   ["F1VzsoBr03Y", "YLS — Lifestyle", "94K views"],
+  ["Mhb4RP1sTmQ", "SARAHMÉE - T’AS PAS CRU", "23K VIEWS"],
+  ["1QHbt4cGNkc", "Tizzo x Shreez x Soft — On Fouette", "1.6M views"],
+  ["paEIFYsnBIk", "Young A Stunnin' & A1 — Murk", "52K views"],
   ["Xigfun9PNh4", "Soft — Dopeman Go", "85K views"],
   ["hgA5A3PgPUE", "Mighty P ft. LK — Believe It", "59K views"],
-  ["paEIFYsnBIk", "Young A Stunnin' & A1 — Murk", "52K views"],
   ["lAu2Q4mBddM", "Busy Bros — Life A Movie", "14K views"],
+  ["lhT8luz5X3Y", "Kay Bandz — Winning", "KSP Films"],
   ["sNPWXgvifMU", "Õr Pür — Get Right Witcha", "KSP Films"],
   ["Zc6beDmPFHM", "Lordt — 9 Nights", "10K views"],
-  ["kHWK9pK2Qc0", "Bilo Da Kid — Never", "KSP Films"],
-  ["GUbCpGGs8Qw", "Faxxts — Affiliated", "KSP Films"],
-  ["lhT8luz5X3Y", "Kay Bandz — Winning", "KSP Films"],
+  ["Tm5jIdEmbp4", "Enima — For the Low", "6.8M views"],
+  ["9rEhnIFJSJo", "RUSSKOV - ARGENT ET DIAMANDS", "188K VIEWS"],
   ["bLHcxEtVMao", "Vulture ft. Hooks — Tout Ma Vie", "KSP Films"],
-  ["XY-_FdHYspA", "Zoe Kot X — By Myself", "KSP Films"],
-  ["Q0ejc1FRaro", "Freeman — If I Die", "KSP Films"],
-  ["tpGCNT5tKG4", "Sabz — Intoxicated", "KSP Films"],
+  ["eQFct9W8OBc", "RUSSKOV - MOI ET MES LOUPS", "343K VIEWS"],
+  ["zn6t267flQs", "Enima — Intro", "Archive"],
+  ["oxMC068NZTs", "Enima ft. Russkov — Cette Nuit", "Archive"],
+  ["6PgAanYdKg8", "Enima — MMS / Power Remix", "5.4M views"],
 ];
 
 const featured = [
@@ -230,27 +248,30 @@ export default function Page() {
 
         <div className="mv-collabs-window">
           <div className="mv-collabs-track">
-            TIZZO <b>×</b>
-            SHREEZ <b>×</b>
-            ENIMA <b>×</b>
-            SOFT <b>×</b>
-            TI JUICE <b>×</b>
-            KAY BANDZ <b>×</b>
-            YLS <b>×</b>
-            BUSY BROS <b>×</b>
-            AK GREEN <b>×</b>
-            MIGHTY P <b>×</b>
-            TIZZO <b>×</b>
-            SHREEZ <b>×</b>
-            ENIMA <b>×</b>
-            SOFT <b>×</b>
-            TI JUICE <b>×</b>
-            KAY BANDZ <b>×</b>
-            YLS <b>×</b>
-            BUSY BROS <b>×</b>
-            AK GREEN <b>×</b>
-            MIGHTY P <b>×</b>
-          </div>
+          TIZZO <b>×</b>
+          SHREEZ <b>×</b>
+          ENIMA <b>×</b>
+          SOFT <b>×</b>
+          TI JUICE <b>×</b>
+          KAY BANDZ <b>×</b>
+          YLS <b>×</b>
+          BUSY BROS <b>×</b>
+          AK GREEN <b>×</b>
+          MIGHTY P <b>×</b>
+          LE ICE <b>×</b>
+          MIKEZUP <b>×</b>
+          SARAHMÉE <b>×</b>
+          TAMMY TUESDAYZ <b>×</b>
+          LK THA GOON <b>×</b>
+          THA JUICE <b>×</b>
+          LIL DREW <b>×</b>
+          TREEZY <b>×</b>
+          RUSSKOV <b>×</b>
+          PRECISE <b>×</b>
+          ZACHA <b>×</b>
+          FUCCO <b>×</b>
+          NICKEALDAGREAT
+        </div>
         </div>
       </section>
 
