@@ -2997,3 +2997,39 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   border-top-color: rgba(255,255,255,.22) !important;
 }
 
+
+
+/* =========================================================
+   KSP MUSIC VIDEOS — TRANSLUCENT SECTION PANELS
+   DESKTOP + MOBILE
+
+   Same visual idea as the dark translucent hero panel:
+   moving reel remains visible underneath.
+   ========================================================= */
+
+.mv-page .mv-row,
+.mv-page .mv-million,
+.mv-page .mv-library,
+.mv-page .mv-collabs {
+  background: rgba(5,5,5,.72) !important;
+
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+
+  box-shadow: none !important;
+}
+
+
+/* Slightly softer on small screens so the moving reel
+   still has presence behind the catalogue. */
+@media (max-width: 650px) {
+
+  .mv-page .mv-row,
+  .mv-page .mv-million,
+  .mv-page .mv-library,
+  .mv-page .mv-collabs {
+    background: rgba(5,5,5,.68) !important;
+  }
+
+}
+
