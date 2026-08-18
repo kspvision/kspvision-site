@@ -2979,3 +2979,21 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
 
 }
 
+
+
+/* =========================================================
+   KSP MUSIC VIDEOS — SECTION DIVIDERS
+   DESKTOP + MOBILE
+   ========================================================= */
+
+.mv-page .mv-row,
+.mv-page .mv-million,
+.mv-page .mv-library,
+.mv-page .mv-collabs {
+  border-top: 1px solid rgba(255,255,255,.18) !important;
+}
+
+.mv-page .mv-row:first-of-type {
+  border-top-color: rgba(255,255,255,.22) !important;
+}
+

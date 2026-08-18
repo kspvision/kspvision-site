@@ -6,22 +6,76 @@ export default function MobileArrowFix() {
   useEffect(() => {
     if (!window.matchMedia("(max-width: 650px)").matches) return;
 
-    const normalize = (value: string) =>
-      value
-        .replace(/\u2197\uFE0F/g, "\u2197")
-        .replace(/\u2196\uFE0F/g, "\u2196")
-        .replace(/\u2198\uFE0F/g, "\u2198")
-        .replace(/\u2199\uFE0F/g, "\u2199")
-        .replace(/\u27A1\uFE0F/g, "\u2192")
-        .replace(/\u2B05\uFE0F/g, "\u2190")
-        .replace(/\u2B06\uFE0F/g, "\u2191")
-        .replace(/\u2B07\uFE0F/g, "\u2193")
-        .replace(/\u2192\uFE0F/g, "\u2192")
-        .replace(/\u2190\uFE0F/g, "\u2190")
-        .replace(/\u2191\uFE0F/g, "\u2191")
-        .replace(/\u2193\uFE0F/g, "\u2193");
+    const path = window.location.pathname;
+
+    const targetPage =
+      path === "/" ||
+      path === "/music-videos" ||
+      path.startsWith("/music-videos/");
+
+    if (!targetPage) return;
+
+    const ARROWS =
+      /[\u2190-\u21FF\u27A1\u2B05\u2B06\u2B07]\uFE0F?/g;
+
+    const ARROW_ONLY =
+      /^[\s\uFE0F\u2190-\u21FF\u27A1\u2B05\u2B06\u2B07]+$/;
+
+    const isArrowOnly = (el: Element | null) => {
+      if (!el) return false;
+
+      const text = (el.textContent || "").trim();
+
+      return text.length > 0 && ARROW_ONLY.test(text);
+    };
 
     const clean = (root: Node) => {
+      /*
+       * First remove complete arrow-only icon wrappers.
+       * This catches the white Music Videos circles instead
+       * of leaving an empty white button behind.
+       */
+      const scope =
+        root instanceof Element || root instanceof Document
+          ? root
+          : root.parentElement;
+
+      if (scope && "querySelectorAll" in scope) {
+        const candidates = Array.from(
+          scope.querySelectorAll(
+            "span, div, i, b, em, strong, small"
+          )
+        ).filter((el) => isArrowOnly(el));
+
+        candidates.forEach((el) => {
+          /*
+           * Hide the OUTERMOST arrow-only wrapper.
+           * Example:
+           *
+           * <span class=circle>
+           *   <span>↗️</span>
+           * </span>
+           *
+           * We hide the circle itself.
+           */
+          if (!isArrowOnly(el.parentElement)) {
+            (el as HTMLElement).style.setProperty(
+              "display",
+              "none",
+              "important"
+            );
+          }
+        });
+      }
+
+      /*
+       * Then remove arrow characters that are directly
+       * attached to text such as:
+       *
+       * BOOK A PROJECT ↗
+       * EXPLORE THE WORK ↓
+       * SCROLL →
+       */
       const walker = document.createTreeWalker(
         root,
         NodeFilter.SHOW_TEXT
@@ -32,10 +86,12 @@ export default function MobileArrowFix() {
       while ((node = walker.nextNode())) {
         if (!node.nodeValue) continue;
 
-        const cleaned = normalize(node.nodeValue);
+        const next = node.nodeValue
+          .replace(ARROWS, "")
+          .replace(/\uFE0F/g, "");
 
-        if (cleaned !== node.nodeValue) {
-          node.nodeValue = cleaned;
+        if (next !== node.nodeValue) {
+          node.nodeValue = next;
         }
       }
     };
@@ -43,23 +99,23 @@ export default function MobileArrowFix() {
     clean(document.body);
 
     const observer = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          clean(node);
+        });
+
         if (
           mutation.type === "characterData" &&
-          mutation.target.nodeValue
+          mutation.target.parentNode
         ) {
-          mutation.target.nodeValue = normalize(
-            mutation.target.nodeValue
-          );
+          clean(mutation.target.parentNode);
         }
-
-        mutation.addedNodes.forEach((node) => clean(node));
-      }
+      });
     });
 
     observer.observe(document.body, {
-      childList: true,
       subtree: true,
+      childList: true,
       characterData: true,
     });
 
