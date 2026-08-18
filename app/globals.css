@@ -2574,3 +2574,27 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   margin-top:-3.1rem !important;
 }
 
+
+/* =========================================================
+   KSP MOBILE BACKGROUND REEL CROP
+   MOBILE ONLY — DESKTOP UNTOUCHED
+   ========================================================= */
+@media (max-width: 650px) {
+
+  /* HOME — subtle zoom, keep composition comfortable */
+  #accueil .heroImage video {
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: scale(1.10) !important;
+    transform-origin: center center !important;
+  }
+
+  /* MUSIC VIDEOS — stronger crop because reel is blurred texture */
+  .mv-page .mv-mobile-background-reel {
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: scale(1.16) !important;
+    transform-origin: center center !important;
+  }
+}
+
