@@ -6,22 +6,46 @@ export default function MobileArrowFix() {
   useEffect(() => {
     if (!window.matchMedia("(max-width: 650px)").matches) return;
 
-    const normalize = (value: string) =>
-      value
-        .replace(/\u2197\uFE0F/g, "\u2197")
-        .replace(/\u2196\uFE0F/g, "\u2196")
-        .replace(/\u2198\uFE0F/g, "\u2198")
-        .replace(/\u2199\uFE0F/g, "\u2199")
-        .replace(/\u27A1\uFE0F/g, "\u2192")
-        .replace(/\u2B05\uFE0F/g, "\u2190")
-        .replace(/\u2B06\uFE0F/g, "\u2191")
-        .replace(/\u2B07\uFE0F/g, "\u2193")
-        .replace(/\u2192\uFE0F/g, "\u2192")
-        .replace(/\u2190\uFE0F/g, "\u2190")
-        .replace(/\u2191\uFE0F/g, "\u2191")
-        .replace(/\u2193\uFE0F/g, "\u2193");
+    const path = window.location.pathname;
 
-    const clean = (root: Node) => {
+    if (
+      path !== "/" &&
+      path !== "/music-videos" &&
+      !path.startsWith("/music-videos/")
+    ) {
+      return;
+    }
+
+    const arrowPattern =
+      /[\u2190-\u21FF\u27A1\u2B05\u2B06\u2B07]\uFE0F?/g;
+
+    const arrowOnlyPattern =
+      /^[\s\uFE0F\u2190-\u21FF\u27A1\u2B05\u2B06\u2B07]+$/;
+
+    const arrowOnly = (value: string) => {
+      const text = value.trim();
+      return text.length > 0 && arrowOnlyPattern.test(text);
+    };
+
+    const style = document.createElement("style");
+
+    style.textContent = `
+      @media (max-width:650px) {
+        .ksp-mobile-remove-arrow-pseudo::before,
+        .ksp-mobile-remove-arrow-pseudo::after {
+          content: none !important;
+          display: none !important;
+        }
+
+        .ksp-mobile-remove-arrow-badge {
+          display: none !important;
+        }
+      }
+    `;
+
+    document.head.appendChild(style);
+
+    const cleanText = (root: Node) => {
       const walker = document.createTreeWalker(
         root,
         NodeFilter.SHOW_TEXT
@@ -30,40 +54,88 @@ export default function MobileArrowFix() {
       let node: Node | null;
 
       while ((node = walker.nextNode())) {
-        if (!node.nodeValue) continue;
+        const value = node.nodeValue;
 
-        const cleaned = normalize(node.nodeValue);
+        if (!value) continue;
 
-        if (cleaned !== node.nodeValue) {
+        const cleaned = value
+          .replace(arrowPattern, "")
+          .replace(/\uFE0F/g, "");
+
+        if (cleaned !== value) {
           node.nodeValue = cleaned;
         }
       }
     };
 
-    clean(document.body);
+    const cleanBadges = () => {
+      const elements = Array.from(
+        document.querySelectorAll(
+          "a span, a b, a i, a em, a strong, a small, a div, button span, button b, button i, button div"
+        )
+      );
 
-    const observer = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        if (
-          mutation.type === "characterData" &&
-          mutation.target.nodeValue
+      elements.forEach((element) => {
+        if (!arrowOnly(element.textContent || "")) return;
+
+        const action = element.closest("a,button");
+
+        if (!action || element === action) return;
+
+        let badge: Element = element;
+
+        while (
+          badge.parentElement &&
+          badge.parentElement !== action &&
+          arrowOnly(badge.parentElement.textContent || "")
         ) {
-          mutation.target.nodeValue = normalize(
-            mutation.target.nodeValue
-          );
+          badge = badge.parentElement;
         }
 
-        mutation.addedNodes.forEach((node) => clean(node));
-      }
+        badge.classList.add("ksp-mobile-remove-arrow-badge");
+      });
+    };
+
+    const cleanPseudoArrows = () => {
+      const elements = Array.from(
+        document.querySelectorAll("a, button, a span, button span")
+      );
+
+      elements.forEach((element) => {
+        const before = getComputedStyle(element, "::before").content || "";
+        const after = getComputedStyle(element, "::after").content || "";
+
+        if (
+          arrowOnly(before.replace(/^["']|["']$/g, "")) ||
+          arrowOnly(after.replace(/^["']|["']$/g, ""))
+        ) {
+          element.classList.add("ksp-mobile-remove-arrow-pseudo");
+        }
+      });
+    };
+
+    const cleanEverything = () => {
+      cleanText(document.body);
+      cleanBadges();
+      cleanPseudoArrows();
+    };
+
+    cleanEverything();
+
+    const observer = new MutationObserver(() => {
+      cleanEverything();
     });
 
     observer.observe(document.body, {
       childList: true,
       subtree: true,
-      characterData: true,
+      characterData: true
     });
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      style.remove();
+    };
   }, []);
 
   return null;
