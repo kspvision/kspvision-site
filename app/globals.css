@@ -3028,3 +3028,51 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   }
 }
 
+
+
+/* =========================================================
+   KSP WEDDINGS — FINAL WEDDING STORIES COMPRESSION
+   Directly targets the real section.
+   ========================================================= */
+
+#weddingStoriesFinal.weddingFilms {
+  margin-top: 0 !important;
+  padding-top: 1.25rem !important;
+}
+
+#weddingStoriesFinal > .weddingSectionHead {
+  margin-top: 0 !important;
+  margin-bottom: .85rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#weddingStoriesFinal > .weddingSectionHead .kicker {
+  margin-top: 0 !important;
+  margin-bottom: .15rem !important;
+}
+
+#weddingStoriesFinal > .weddingSectionHead h2 {
+  margin-top: 0 !important;
+  margin-bottom: .3rem !important;
+}
+
+#weddingStoriesFinal > .weddingSectionHead p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#weddingStoriesFinal > .weddingReel {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 650px) {
+  #weddingStoriesFinal.weddingFilms {
+    padding-top: .85rem !important;
+  }
+
+  #weddingStoriesFinal > .weddingSectionHead {
+    margin-bottom: .65rem !important;
+  }
+}
+
