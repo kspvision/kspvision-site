@@ -2979,3 +2979,52 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
 
 }
 
+
+
+/* KSP WEDDINGS — tighter Wedding Stories entrance */
+
+.weddingPage section:has(.weddingSectionHead) {
+  padding-top: 2rem !important;
+}
+
+.weddingPage .weddingSectionHead {
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.weddingPage .weddingSectionHead .kicker {
+  margin-top: 0 !important;
+  margin-bottom: .15rem !important;
+}
+
+.weddingPage .weddingSectionHead h2 {
+  margin-top: 0 !important;
+  margin-bottom: .35rem !important;
+  line-height: 1.05 !important;
+}
+
+.weddingPage .weddingSectionHead p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.weddingPage .weddingSectionHead + * {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 650px) {
+  .weddingPage section:has(.weddingSectionHead) {
+    padding-top: 1.35rem !important;
+  }
+
+  .weddingPage .weddingSectionHead {
+    margin-bottom: .75rem !important;
+  }
+
+  .weddingPage .weddingSectionHead h2 {
+    margin-bottom: .25rem !important;
+  }
+}
+
