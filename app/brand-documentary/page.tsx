@@ -11,7 +11,7 @@ const documentaries = [
 ];
 
 export default function Page() { return <main className="detailPage brandPage"><SiteHeader active="brand" />
-  <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1 className="brandHeroTitle"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><a className="button gold" href="/booking"><Localized en="Start a project" fr="Lancer un projet" /> <b>↗</b></a></div></section>
+  <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1 className="brandHeroTitle brand-mobile-title"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><a className="button gold" href="/booking"><Localized en="Start a project" fr="Lancer un projet" /> <b>↗</b></a></div></section>
   <section className="brandCollection"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected work" fr="Travaux sélectionnés" /></p><h2><Localized en="Commercial stories" fr="Histoires de marque" /></h2></div></div><div className="brandGrid">{commercial.map((project, index) => <a className="brandFilm" href={`https://www.youtube.com/watch?v=${project.youtubeId}`} target="_blank" rel="noreferrer" key={project.title}><div className="publishedFilmStill"><video
   className="commercialAutoVideo"
   autoPlay
@@ -1643,5 +1643,24 @@ export default function Page() { return <main className="detailPage brandPage"><
 }
 
 `}</style>
+
+
+      <style>{`
+        /* KSP BRAND MOBILE TITLE COMPACT */
+        @media (max-width: 650px) {
+          .brand-mobile-title {
+            font-size: clamp(1.28rem, 6vw, 1.55rem) !important;
+            line-height: .95 !important;
+            letter-spacing: -.035em !important;
+
+            white-space: nowrap !important;
+            width: auto !important;
+            max-width: none !important;
+
+            margin-top: 0 !important;
+            margin-bottom: .55rem !important;
+          }
+        }
+      `}</style>
 
 </main>; }
