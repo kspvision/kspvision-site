@@ -2770,3 +2770,60 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   }
 }
 
+
+
+/* =========================================================
+   KSP HOME MOBILE — PRESERVE CINEMATIC FRAME TEST
+   Keep more image instead of brute-force zoom.
+   MOBILE ONLY.
+   ========================================================= */
+@media (max-width: 650px) {
+
+  /*
+     Previous final rule used 1.35x.
+
+     New approach:
+     - much less zoom
+     - lift frame upward
+     - hero crops lower excess
+     - existing bottom gradient hides transition
+  */
+
+  #accueil {
+    overflow: hidden !important;
+  }
+
+  #accueil .heroImage {
+    overflow: hidden !important;
+  }
+
+  #accueil .heroImage video {
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    /* Preserve considerably more of the original composition */
+    transform: translateY(-8.5%) scale(1.08) !important;
+    transform-origin: center center !important;
+  }
+
+  /*
+     Keep the successful edge-locked gradient.
+     Slightly extend it upward so any lower letterbox edge
+     disappears naturally before the next section.
+  */
+  #accueil::after {
+    height: 27% !important;
+
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0.03) 20%,
+      rgba(0,0,0,0.12) 38%,
+      rgba(0,0,0,0.31) 56%,
+      rgba(0,0,0,0.60) 74%,
+      rgba(0,0,0,0.86) 89%,
+      #000 100%
+    ) !important;
+  }
+}
+
