@@ -123,7 +123,12 @@ export default function Page() {
           preload="metadata"
           aria-hidden="true"
         >
-          <source src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/KSPVision.ca.REEL.Sequuence.mp4" />
+          <source
+          media="(max-width: 650px)"
+          src="/music-hero-mobile.mp4"
+          type="video/mp4"
+        />
+        <source src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/KSPVision.ca.REEL.Sequuence.mp4" />
         </video>
 
         <div className="mv-hero-overlay" />
