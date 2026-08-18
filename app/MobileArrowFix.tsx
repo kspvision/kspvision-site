@@ -4,138 +4,126 @@ import { useEffect } from "react";
 
 export default function MobileArrowFix() {
   useEffect(() => {
-    if (!window.matchMedia("(max-width: 650px)").matches) return;
-
     const path = window.location.pathname;
 
-    if (
-      path !== "/" &&
-      path !== "/music-videos" &&
-      !path.startsWith("/music-videos/")
-    ) {
-      return;
-    }
+    const isHome = path === "/";
+    const isMusic =
+      path === "/music-videos" ||
+      path.startsWith("/music-videos/");
 
-    const arrowPattern =
+    if (!isHome && !isMusic) return;
+
+    const isMobile =
+      window.matchMedia("(max-width: 650px)").matches;
+
+    const arrowChars =
       /[\u2190-\u21FF\u27A1\u2B05\u2B06\u2B07]\uFE0F?/g;
 
-    const arrowOnlyPattern =
+    const arrowOnlyChars =
       /^[\s\uFE0F\u2190-\u21FF\u27A1\u2B05\u2B06\u2B07]+$/;
 
-    const arrowOnly = (value: string) => {
-      const text = value.trim();
-      return text.length > 0 && arrowOnlyPattern.test(text);
-    };
+    const isArrowOnly = (element: Element | null) => {
+      if (!element) return false;
 
-    const style = document.createElement("style");
+      const value = (element.textContent || "").trim();
 
-    style.textContent = `
-      @media (max-width:650px) {
-        .ksp-mobile-remove-arrow-pseudo::before,
-        .ksp-mobile-remove-arrow-pseudo::after {
-          content: none !important;
-          display: none !important;
-        }
-
-        .ksp-mobile-remove-arrow-badge {
-          display: none !important;
-        }
-      }
-    `;
-
-    document.head.appendChild(style);
-
-    const cleanText = (root: Node) => {
-      const walker = document.createTreeWalker(
-        root,
-        NodeFilter.SHOW_TEXT
+      return (
+        value.length > 0 &&
+        arrowOnlyChars.test(value)
       );
-
-      let node: Node | null;
-
-      while ((node = walker.nextNode())) {
-        const value = node.nodeValue;
-
-        if (!value) continue;
-
-        const cleaned = value
-          .replace(arrowPattern, "")
-          .replace(/\uFE0F/g, "");
-
-        if (cleaned !== value) {
-          node.nodeValue = cleaned;
-        }
-      }
     };
 
-    const cleanBadges = () => {
-      const elements = Array.from(
+    const hideMusicBadges = () => {
+      if (!isMusic) return;
+
+      const candidates = Array.from(
         document.querySelectorAll(
-          "a span, a b, a i, a em, a strong, a small, a div, button span, button b, button i, button div"
+          "a span, a div, a b, a i, a em, a strong, button span, button div, button b, button i"
         )
       );
 
-      elements.forEach((element) => {
-        if (!arrowOnly(element.textContent || "")) return;
+      candidates.forEach((element) => {
+        if (!isArrowOnly(element)) return;
 
-        const action = element.closest("a,button");
+        const action = element.closest("a, button");
 
-        if (!action || element === action) return;
+        if (!action) return;
+        if (action === element) return;
 
         let badge: Element = element;
 
         while (
           badge.parentElement &&
           badge.parentElement !== action &&
-          arrowOnly(badge.parentElement.textContent || "")
+          isArrowOnly(badge.parentElement)
         ) {
           badge = badge.parentElement;
         }
 
-        badge.classList.add("ksp-mobile-remove-arrow-badge");
+        const el = badge as HTMLElement;
+
+        el.style.setProperty(
+          "display",
+          "none",
+          "important"
+        );
+
+        el.style.setProperty(
+          "visibility",
+          "hidden",
+          "important"
+        );
       });
     };
 
-    const cleanPseudoArrows = () => {
-      const elements = Array.from(
-        document.querySelectorAll("a, button, a span, button span")
+    const removeMobileArrowText = () => {
+      if (!isMobile) return;
+
+      const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT
       );
 
-      elements.forEach((element) => {
-        const before = getComputedStyle(element, "::before").content || "";
-        const after = getComputedStyle(element, "::after").content || "";
+      let node: Node | null;
 
-        if (
-          arrowOnly(before.replace(/^["']|["']$/g, "")) ||
-          arrowOnly(after.replace(/^["']|["']$/g, ""))
-        ) {
-          element.classList.add("ksp-mobile-remove-arrow-pseudo");
+      while ((node = walker.nextNode())) {
+        if (!node.nodeValue) continue;
+
+        const cleaned = node.nodeValue
+          .replace(arrowChars, "")
+          .replace(/\uFE0F/g, "");
+
+        if (cleaned !== node.nodeValue) {
+          node.nodeValue = cleaned;
         }
-      });
+      }
     };
 
-    const cleanEverything = () => {
-      cleanText(document.body);
-      cleanBadges();
-      cleanPseudoArrows();
+    const clean = () => {
+      /*
+       * IMPORTANT:
+       * Hide the Music Videos badge FIRST.
+       * Then remove mobile arrow characters.
+       *
+       * This prevents empty white circles.
+       */
+      hideMusicBadges();
+      removeMobileArrowText();
     };
 
-    cleanEverything();
+    clean();
 
     const observer = new MutationObserver(() => {
-      cleanEverything();
+      clean();
     });
 
     observer.observe(document.body, {
-      childList: true,
       subtree: true,
+      childList: true,
       characterData: true
     });
 
-    return () => {
-      observer.disconnect();
-      style.remove();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return null;
