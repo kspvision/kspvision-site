@@ -2827,3 +2827,37 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   }
 }
 
+
+
+/* =========================================================
+   KSP HOME MOBILE — FINAL STRONGER / HIGHER BOTTOM FADE
+   FRAMING + ZOOM UNCHANGED
+   MOBILE ONLY
+   ========================================================= */
+@media (max-width: 650px) {
+
+  #accueil::after {
+    /*
+       Taller = fade begins higher.
+       Bottom remains locked exactly to hero/next-section edge.
+    */
+    height: 40% !important;
+
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0)    0%,
+      rgba(0,0,0,0)   12%,
+      rgba(0,0,0,.08) 25%,
+      rgba(0,0,0,.20) 38%,
+      rgba(0,0,0,.40) 52%,
+      rgba(0,0,0,.64) 66%,
+      rgba(0,0,0,.82) 78%,
+      rgba(0,0,0,.94) 89%,
+      #000             100%
+    ) !important;
+
+    bottom: -1px !important;
+  }
+
+}
+
