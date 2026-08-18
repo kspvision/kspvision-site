@@ -2708,3 +2708,65 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   }
 }
 
+
+
+/* =========================================================
+   KSP MOBILE HOME — EDGE-LOCKED BOTTOM FADE
+   Ends EXACTLY where hero meets next black section.
+   MOBILE ONLY.
+   ========================================================= */
+@media (max-width: 650px) {
+
+  /*
+    Disable previous fade that was attached to heroImage.
+    KEEP the approved 1.35x video zoom exactly as-is.
+  */
+  #accueil .heroImage::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  /*
+    The HERO SECTION itself becomes the fade anchor.
+    Therefore bottom:0 = exact lower edge seen on phone.
+  */
+  #accueil {
+    position: relative !important;
+    overflow: hidden !important;
+    background: #000 !important;
+  }
+
+  #accueil::after {
+    content: "" !important;
+
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: -1px !important;
+
+    width: 100% !important;
+    height: 23% !important;
+
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0.04) 22%,
+      rgba(0,0,0,0.14) 40%,
+      rgba(0,0,0,0.34) 58%,
+      rgba(0,0,0,0.62) 75%,
+      rgba(0,0,0,0.86) 90%,
+      #000 100%
+    ) !important;
+
+    pointer-events: none !important;
+    z-index: 3 !important;
+  }
+
+  /* Hero text/buttons remain crisp above the fade */
+  #accueil .heroContent,
+  #accueil .scrollHint {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+}
+
