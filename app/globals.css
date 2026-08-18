@@ -2949,3 +2949,33 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
 
 }
 
+
+
+/* =========================================================
+   KSP MUSIC MOBILE — RESTORED SECTION SEPARATORS
+   MOBILE ONLY
+   Everything else remains untouched.
+   ========================================================= */
+@media (max-width: 650px) {
+
+  /*
+    Restore subtle visual separation between catalogue groups
+    while keeping the continuous moving reel visible behind them.
+  */
+  .mv-page .mv-row,
+  .mv-page .mv-million,
+  .mv-page .mv-library,
+  .mv-page .mv-collabs {
+    border-top: 1px solid rgba(255,255,255,.11) !important;
+  }
+
+  /*
+    Keep the line restrained and editorial rather than
+    turning each section back into a boxed panel.
+  */
+  .mv-page .mv-row:first-of-type {
+    border-top-color: rgba(255,255,255,.14) !important;
+  }
+
+}
+

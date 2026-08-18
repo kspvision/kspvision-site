@@ -8,19 +8,14 @@ export default function MobileArrowFix() {
 
     const normalize = (value: string) =>
       value
-        /* diagonal arrows */
         .replace(/\u2197\uFE0F/g, "\u2197")
         .replace(/\u2196\uFE0F/g, "\u2196")
         .replace(/\u2198\uFE0F/g, "\u2198")
         .replace(/\u2199\uFE0F/g, "\u2199")
-
-        /* emoji-style heavy arrows -> clean typographic arrows */
         .replace(/\u27A1\uFE0F/g, "\u2192")
         .replace(/\u2B05\uFE0F/g, "\u2190")
         .replace(/\u2B06\uFE0F/g, "\u2191")
         .replace(/\u2B07\uFE0F/g, "\u2193")
-
-        /* normal arrows carrying an emoji variation selector */
         .replace(/\u2192\uFE0F/g, "\u2192")
         .replace(/\u2190\uFE0F/g, "\u2190")
         .replace(/\u2191\uFE0F/g, "\u2191")
@@ -37,18 +32,16 @@ export default function MobileArrowFix() {
       while ((node = walker.nextNode())) {
         if (!node.nodeValue) continue;
 
-        const next = normalize(node.nodeValue);
+        const cleaned = normalize(node.nodeValue);
 
-        if (next !== node.nodeValue) {
-          node.nodeValue = next;
+        if (cleaned !== node.nodeValue) {
+          node.nodeValue = cleaned;
         }
       }
     };
 
-    /* Fix everything already rendered */
     clean(document.body);
 
-    /* Also catch anything rendered later */
     const observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
         if (
