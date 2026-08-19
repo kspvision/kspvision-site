@@ -2616,3 +2616,19 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
     margin-top: 45px;
   }
 }
+
+/* Final Music Videos polish */
+.mv-row + .mv-row {
+  margin-top: 35px;
+}
+
+/* Keep archive rows smaller */
+.mv-row:last-of-type .mv-card {
+  transform: none;
+}
+
+/* Remove most watched white circles */
+.mv-arrow {
+  display: none !important;
+}
+
