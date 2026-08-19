@@ -2574,3 +2574,30 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   margin-top:-3.1rem !important;
 }
 
+
+/* WEDDINGS — tighten Selected Celebrations → Wedding Stories */
+.weddingSectionHead .kicker {
+  margin-bottom: .25rem !important;
+}
+
+.weddingSectionHead h2 {
+  margin-top: 0 !important;
+}
+
+
+/* WEDDINGS — final heading lockup */
+.weddingSectionHead .kicker {
+  margin-top: 0 !important;
+  margin-bottom: .08rem !important;
+  padding-bottom: 0 !important;
+  line-height: 1 !important;
+}
+
+.weddingSectionHead h2 {
+  margin-top: .12rem !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  line-height: 1.05 !important;
+}
+
+
