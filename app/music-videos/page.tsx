@@ -1,39 +1,57 @@
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 
 const videos = [
+  ["_pGbFSSgh_o", "AK Green — Focus sur mes plans", "Recent · KSP Films"],
+  ["npDVn0MSbQk", "NICKEALDAGREAT - CAN YOU FEEL IT", "441 VIEWS"],
+  ["DXV6uLPcWUQ", "FUCCO - TIP H-MIX", "970 VIEWS"],
   ["foENa43ZOvc", "Tizzo x Shreez — KreydayEveryday", "Recent · 75K views"],
   ["lpm-NBRsNGM", "Ti Juice — Appel / Get Busy", "Selected work"],
-  ["_pGbFSSgh_o", "AK Green — Focus sur mes plans", "Recent · KSP Films"],
   ["9iQLjcR6stY", "Ti Juice — Écriture Sale 2", "26K views"],
-  ["oxMC068NZTs", "Enima ft. Russkov — Cette Nuit", "Archive"],
-  ["zn6t267flQs", "Enima — Intro", "Archive"],
-  ["6PgAanYdKg8", "Enima — MMS / Power Remix", "5.4M views"],
-  ["Tm5jIdEmbp4", "Enima — For the Low", "6.8M views"],
-  ["1QHbt4cGNkc", "Tizzo x Shreez x Soft — On Fouette", "1.6M views"],
+  ["N1GdG2wxqKE", "LE ICE FT. MIKEZUP - 6 PIASSES", "118K VIEWS"],
+  ["RRw4QrZY5X4", "LE ICE - LE SCOUT", "80K VIEWS"],
+  ["gFhVhJHWgKA", "LK THA GOON FT. THA JUICE X LIL DREW X TREEZY - RISQUES", "33K VIEWS"],
+  ["_hr9inD0dqA", "LE ICE - MR RICHARD", "54K VIEWS"],
+  ["CqslhWMO-nM", "ZACHA FT. SHREEZ - MONEY MAN", "128K VIEWS"],
+  ["qfe5gSj4NjE", "LE ICE - 5 DANS LA WHIP", "592K VIEWS"],
+  ["vnDASE5p4eQ", "SHREEZ - PLANKTON", "838K VIEWS"],
+  ["KAig8vIrgOg", "LK THA GOON X MIGHTY P X PRECISE - CHANGES", "116K VIEWS"],
+  ["VEWpAYwugVU", "SHREEZ X TIZZO X SOFT - HERCULES", "212K VIEWS"],
+  ["u_AkO15Nz1w", "TAMMY TUESDAYZ - FETE", "11K VIEWS"],
+  ["Bk9yk7d7eVE", "TAMMY TUESDAYZ - NO MORE", "15K VIEWS"],
+  ["7rvXITEmYnM", "MIKEZUP FT. SHREEZ - FAST LIFE", "388K VIEWS"],
+  ["QBRh_yyr1kE", "TAMMY TUESDAYZ - PEACE", "5K VIEWS"],
+  ["Q0ejc1FRaro", "Freeman — If I Die", "KSP Films"],
+  ["XY-_FdHYspA", "Zoe Kot X — By Myself", "KSP Films"],
   ["4PiqS4zQTLI", "Tizzo x Shreez x Soft — Dragon", "KSP Films"],
+  ["kHWK9pK2Qc0", "Bilo Da Kid — Never", "KSP Films"],
+  ["tpGCNT5tKG4", "Sabz — Intoxicated", "KSP Films"],
+  ["GUbCpGGs8Qw", "Faxxts — Affiliated", "KSP Films"],
   ["F1VzsoBr03Y", "YLS — Lifestyle", "94K views"],
+  ["Mhb4RP1sTmQ", "SARAHMÉE - T’AS PAS CRU", "23K VIEWS"],
+  ["1QHbt4cGNkc", "Tizzo x Shreez x Soft — On Fouette", "1.6M views"],
+  ["paEIFYsnBIk", "Young A Stunnin' & A1 — Murk", "52K views"],
   ["Xigfun9PNh4", "Soft — Dopeman Go", "85K views"],
   ["hgA5A3PgPUE", "Mighty P ft. LK — Believe It", "59K views"],
-  ["paEIFYsnBIk", "Young A Stunnin' & A1 — Murk", "52K views"],
   ["lAu2Q4mBddM", "Busy Bros — Life A Movie", "14K views"],
+  ["lhT8luz5X3Y", "Kay Bandz — Winning", "KSP Films"],
   ["sNPWXgvifMU", "Õr Pür — Get Right Witcha", "KSP Films"],
   ["Zc6beDmPFHM", "Lordt — 9 Nights", "10K views"],
-  ["kHWK9pK2Qc0", "Bilo Da Kid — Never", "KSP Films"],
-  ["GUbCpGGs8Qw", "Faxxts — Affiliated", "KSP Films"],
-  ["lhT8luz5X3Y", "Kay Bandz — Winning", "KSP Films"],
+  ["Tm5jIdEmbp4", "Enima — For the Low", "6.8M views"],
+  ["9rEhnIFJSJo", "RUSSKOV - ARGENT ET DIAMANDS", "188K VIEWS"],
   ["bLHcxEtVMao", "Vulture ft. Hooks — Tout Ma Vie", "KSP Films"],
-  ["XY-_FdHYspA", "Zoe Kot X — By Myself", "KSP Films"],
-  ["Q0ejc1FRaro", "Freeman — If I Die", "KSP Films"],
-  ["tpGCNT5tKG4", "Sabz — Intoxicated", "KSP Films"],
+  ["eQFct9W8OBc", "RUSSKOV - MOI ET MES LOUPS", "343K VIEWS"],
+  ["zn6t267flQs", "Enima — Intro", "Archive"],
+  ["oxMC068NZTs", "Enima ft. Russkov — Cette Nuit", "Archive"],
+  ["6PgAanYdKg8", "Enima — MMS / Power Remix", "5.4M views"],
 ];
 
 const featured = [
-  videos[7],
-  videos[0],
-  videos[3],
-  videos[4],
-  videos[9],
-  videos[10],
+  ["Tm5jIdEmbp4", "Enima — For the Low", "6.8M views"],
+  ["foENa43ZOvc", "Tizzo x Shreez — KreydayEveryday", "Recent · 75K views"],
+  ["9iQLjcR6stY", "Ti Juice — Écriture Sale 2", "26K views"],
+  ["oxMC068NZTs", "Enima ft. Russkov — Cette Nuit", "Archive"],
+  ["4PiqS4zQTLI", "Tizzo x Shreez x Soft — Dragon", "KSP Films"],
+  ["F1VzsoBr03Y", "YLS — Lifestyle", "94K views"],
 ];
 
 const byId = (id: string) => videos.find((video) => video[0] === id)!;
@@ -45,13 +63,54 @@ const standout = [
 ];
 
 const latest = [
-  byId("foENa43ZOvc"),
-  byId("lpm-NBRsNGM"),
-  byId("_pGbFSSgh_o"),
-  byId("9iQLjcR6stY"),
-  byId("oxMC068NZTs"),
-  byId("zn6t267flQs"),
+  ["_pGbFSSgh_o", "AK Green — Focus sur mes plans", "Recent · KSP Films"],
+  ["npDVn0MSbQk", "NICKEALDAGREAT - CAN YOU FEEL IT", "RECENT · 441 VIEWS"],
+  ["DXV6uLPcWUQ", "FUCCO - TIP H-MIX", "RECENT · 970 VIEWS"],
+  ["foENa43ZOvc", "Tizzo x Shreez — KreydayEveryday", "Recent · 75K views"],
+  ["lpm-NBRsNGM", "Ti Juice — Appel / Get Busy", "Selected work"],
+  ["9iQLjcR6stY", "Ti Juice — Écriture Sale 2", "26K views"],
+  ["zn6t267flQs", "Enima — Intro", "Archive"],
+  ["oxMC068NZTs", "Enima ft. Russkov — Cette Nuit", "Archive"],
 ];
+
+const kspFilmsEraVideos = [
+  ["N1GdG2wxqKE", "LE ICE FT. MIKEZUP - 6 PIASSES", "KSP FILMS · 118K VIEWS"],
+  ["RRw4QrZY5X4", "LE ICE - LE SCOUT", "KSP FILMS · 80K VIEWS"],
+  ["gFhVhJHWgKA", "LK THA GOON FT. THA JUICE X LIL DREW X TREEZY - RISQUES", "KSP FILMS · 33K VIEWS"],
+  ["_hr9inD0dqA", "LE ICE - MR RICHARD", "KSP FILMS · 54K VIEWS"],
+  ["CqslhWMO-nM", "ZACHA FT. SHREEZ - MONEY MAN", "KSP FILMS · 128K VIEWS"],
+  ["qfe5gSj4NjE", "LE ICE - 5 DANS LA WHIP", "KSP FILMS · 592K VIEWS"],
+  ["vnDASE5p4eQ", "SHREEZ - PLANKTON", "KSP FILMS · 838K VIEWS"],
+  ["KAig8vIrgOg", "LK THA GOON X MIGHTY P X PRECISE - CHANGES", "KSP FILMS · 116K VIEWS"],
+  ["VEWpAYwugVU", "SHREEZ X TIZZO X SOFT - HERCULES", "KSP FILMS · 212K VIEWS"],
+  ["u_AkO15Nz1w", "TAMMY TUESDAYZ - FETE", "KSP FILMS · 11K VIEWS"],
+  ["Bk9yk7d7eVE", "TAMMY TUESDAYZ - NO MORE", "KSP FILMS · 15K VIEWS"],
+  ["7rvXITEmYnM", "MIKEZUP FT. SHREEZ - FAST LIFE", "KSP FILMS · 388K VIEWS"],
+  ["QBRh_yyr1kE", "TAMMY TUESDAYZ - PEACE", "KSP FILMS · 5K VIEWS"],
+  ["4PiqS4zQTLI", "Tizzo x Shreez x Soft — Dragon", "KSP Films"],
+  ["F1VzsoBr03Y", "YLS — Lifestyle", "94K views"],
+  ["Mhb4RP1sTmQ", "SARAHMÉE - T’AS PAS CRU", "KSP FILMS · 23K VIEWS"],
+  ["1QHbt4cGNkc", "Tizzo x Shreez x Soft — On Fouette", "1.6M views"],
+  ["paEIFYsnBIk", "Young A Stunnin' & A1 — Murk", "52K views"],
+  ["Xigfun9PNh4", "Soft — Dopeman Go", "85K views"],
+  ["hgA5A3PgPUE", "Mighty P ft. LK — Believe It", "59K views"],
+  ["lAu2Q4mBddM", "Busy Bros — Life A Movie", "14K views"],
+  ["sNPWXgvifMU", "Õr Pür — Get Right Witcha", "KSP Films"],
+  ["9rEhnIFJSJo", "RUSSKOV - ARGENT ET DIAMANDS", "KSP FILMS · 188K VIEWS"],
+  ["eQFct9W8OBc", "RUSSKOV - MOI ET MES LOUPS", "KSP FILMS · 343K VIEWS"],
+];
+
+const earlierWorkVideos = [
+  ["Q0ejc1FRaro", "Freeman — If I Die", "KSP Films"],
+  ["XY-_FdHYspA", "Zoe Kot X — By Myself", "KSP Films"],
+  ["kHWK9pK2Qc0", "Bilo Da Kid — Never", "KSP Films"],
+  ["tpGCNT5tKG4", "Sabz — Intoxicated", "KSP Films"],
+  ["GUbCpGGs8Qw", "Faxxts — Affiliated", "KSP Films"],
+  ["lhT8luz5X3Y", "Kay Bandz — Winning", "KSP Films"],
+  ["Zc6beDmPFHM", "Lordt — 9 Nights", "10K views"],
+  ["bLHcxEtVMao", "Vulture ft. Hooks — Tout Ma Vie", "KSP Films"],
+];
+
 
 
 function Card({ video, big = false }: { video: string[]; big?: boolean }) {
@@ -112,6 +171,18 @@ export default function Page() {
   return (
     <main className="mv-page">
       <SiteHeader active="music" />
+      <video
+        className="mv-mobile-background-reel"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+      >
+        <source src="/music-hero-mobile.mp4" type="video/mp4" />
+      </video>
+
 
       <section className="mv-hero">
         <video
@@ -157,6 +228,7 @@ export default function Page() {
         eyebrow=""
         title="RECENT + LATEST WORK"
         items={latest}
+        big
       />
 
 
@@ -202,13 +274,13 @@ export default function Page() {
       <Row
         eyebrow="FROM THE VAULT"
         title="KSP FILMS ERA"
-        items={videos.slice(8, 16)}
+        items={kspFilmsEraVideos}
       />
 
       <Row
         eyebrow="DEEP CUTS"
         title="EARLIER WORK"
-        items={videos.slice(16, 24)}
+        items={earlierWorkVideos}
       />
 
 
@@ -217,27 +289,30 @@ export default function Page() {
 
         <div className="mv-collabs-window">
           <div className="mv-collabs-track">
-            TIZZO <b>×</b>
-            SHREEZ <b>×</b>
-            ENIMA <b>×</b>
-            SOFT <b>×</b>
-            TI JUICE <b>×</b>
-            KAY BANDZ <b>×</b>
-            YLS <b>×</b>
-            BUSY BROS <b>×</b>
-            AK GREEN <b>×</b>
-            MIGHTY P <b>×</b>
-            TIZZO <b>×</b>
-            SHREEZ <b>×</b>
-            ENIMA <b>×</b>
-            SOFT <b>×</b>
-            TI JUICE <b>×</b>
-            KAY BANDZ <b>×</b>
-            YLS <b>×</b>
-            BUSY BROS <b>×</b>
-            AK GREEN <b>×</b>
-            MIGHTY P <b>×</b>
-          </div>
+        TIZZO <b>×</b>
+        SHREEZ <b>×</b>
+        ENIMA <b>×</b>
+        SOFT <b>×</b>
+        TI JUICE <b>×</b>
+        KAY BANDZ <b>×</b>
+        YLS <b>×</b>
+        BUSY BROS <b>×</b>
+        AK GREEN <b>×</b>
+        MIGHTY P <b>×</b>
+        LE ICE <b>×</b>
+        MIKEZUP <b>×</b>
+        SARAHMÉE <b>×</b>
+        TAMMY TUESDAYZ <b>×</b>
+        LK THA GOON <b>×</b>
+        THA JUICE <b>×</b>
+        LIL DREW <b>×</b>
+        TREEZY <b>×</b>
+        RUSSKOV <b>×</b>
+        PRECISE <b>×</b>
+        ZACHA <b>×</b>
+        FUCCO <b>×</b>
+        NICKEALDAGREAT
+        </div>
         </div>
       </section>
 
@@ -1989,6 +2064,62 @@ export default function Page() {
         }
 
       `}</style>
-    </main>
+    
+      <style>{`
+        .mv-mobile-background-reel {
+          display: none;
+        }
+
+        @media (max-width: 650px) {
+          /* Dedicated mobile reel — independent of desktop hero video */
+          .mv-mobile-background-reel {
+            display: block !important;
+            position: fixed !important;
+
+            top: -6vh !important;
+            left: -8vw !important;
+
+            width: 116vw !important;
+            height: 112vh !important;
+
+            max-width: none !important;
+
+            object-fit: cover !important;
+            object-position: center center !important;
+
+            z-index: 0 !important;
+            pointer-events: none !important;
+
+            opacity: .88 !important;
+
+            filter:
+              blur(5px)
+              brightness(.68)
+              saturate(.78)
+              contrast(1.04) !important;
+
+            transform: scale(1.08) !important;
+          }
+
+          /* We don't need the desktop reel on phones anymore */
+          .mv-hero-video {
+            display: none !important;
+          }
+
+          /* Content stays above the mobile reel */
+          .mv-page > *:not(.mv-mobile-background-reel) {
+            position: relative;
+            z-index: 2;
+          }
+
+          /* Dark cinematic veil between reel and content */
+          .mv-page::before {
+            z-index: 1 !important;
+            background: rgba(0,0,0,.40) !important;
+          }
+        }
+      `}</style>
+
+</main>
   );
 }
