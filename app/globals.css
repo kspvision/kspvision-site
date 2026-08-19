@@ -2601,3 +2601,18 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
 }
 
 
+
+/* Music Videos final spacing polish */
+.mv-row + .mv-row {
+  margin-top: 70px;
+}
+
+.mv-row-head {
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .mv-row + .mv-row {
+    margin-top: 45px;
+  }
+}
