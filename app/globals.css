@@ -2632,3 +2632,35 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   display: none !important;
 }
 
+
+
+/* FINAL MUSIC VIDEOS POLISH */
+
+/* Remove visible play circles/buttons */
+.mv-play,
+.mv-arrow {
+  display: none !important;
+}
+
+/* Reduce gap between Recent and Most Watched */
+.mv-row {
+  margin-bottom: 25px !important;
+}
+
+.mv-row + .mv-row {
+  margin-top: 25px !important;
+}
+
+/* Keep archive cards uniform */
+.mv-grid .mv-card,
+#archive .mv-card,
+.mv-row:last-of-type .mv-card {
+  transform: none !important;
+}
+
+/* Remove accidental oversized RISQUES/archive card */
+.mv-row:last-of-type .mv-card-big,
+.mv-card-big {
+  transform: none !important;
+}
+

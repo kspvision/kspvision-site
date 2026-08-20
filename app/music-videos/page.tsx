@@ -9,7 +9,6 @@ const videos = [
   ["9iQLjcR6stY", "Ti Juice — Écriture Sale 2", "26K views"],
   ["N1GdG2wxqKE", "LE ICE FT. MIKEZUP - 6 PIASSES", "118K VIEWS"],
   ["RRw4QrZY5X4", "LE ICE - LE SCOUT", "80K VIEWS"],
-  ["gFhVhJHWgKA", "LK THA GOON FT. THA JUICE X LIL DREW X TREEZY - RISQUES", "33K VIEWS"],
   ["_hr9inD0dqA", "LE ICE - MR RICHARD", "54K VIEWS"],
   ["CqslhWMO-nM", "ZACHA FT. SHREEZ - MONEY MAN", "128K VIEWS"],
   ["qfe5gSj4NjE", "LE ICE - 5 DANS LA WHIP", "592K VIEWS"],
@@ -76,7 +75,6 @@ const latest = [
 const kspFilmsEraVideos = [
   ["N1GdG2wxqKE", "LE ICE FT. MIKEZUP - 6 PIASSES", "KSP FILMS · 118K VIEWS"],
   ["RRw4QrZY5X4", "LE ICE - LE SCOUT", "KSP FILMS · 80K VIEWS"],
-  ["gFhVhJHWgKA", "LK THA GOON FT. THA JUICE X LIL DREW X TREEZY - RISQUES", "KSP FILMS · 33K VIEWS"],
   ["_hr9inD0dqA", "LE ICE - MR RICHARD", "KSP FILMS · 54K VIEWS"],
   ["CqslhWMO-nM", "ZACHA FT. SHREEZ - MONEY MAN", "KSP FILMS · 128K VIEWS"],
   ["qfe5gSj4NjE", "LE ICE - 5 DANS LA WHIP", "KSP FILMS · 592K VIEWS"],
@@ -228,7 +226,6 @@ export default function Page() {
         eyebrow=""
         title="RECENT AND LATEST WORK"
         items={latest}
-        big
       />
 
 
@@ -262,7 +259,6 @@ export default function Page() {
                   {video[2]}
                 </strong>
 
-                <span className="mv-million-play">↗</span>
               </div>
 
               <h3>{video[1]}</h3>
@@ -629,7 +625,7 @@ export default function Page() {
         }
 
         .mv-card {
-          flex:0 0 clamp(245px,23vw,350px);
+          flex:0 0 clamp(280px,26vw,420px);
           color:#fff;
           text-decoration:none;
           scroll-snap-align:start;
@@ -1241,7 +1237,7 @@ export default function Page() {
         /* Three million-view films */
         .mv-million {
           width:min(1450px,calc(100% - 74px));
-          margin:28px auto 5px;
+          margin:10px auto 5px;
           padding:0;
         }
 
@@ -2101,10 +2097,12 @@ export default function Page() {
             transform: scale(1.08) !important;
           }
 
-          /* We don't need the desktop reel on phones anymore */
-          .mv-hero-video {
-            display: none !important;
-          }
+/* Mobile hero reel stays visible above blurred background */
+.mv-hero-video {
+  display: block !important;
+  object-fit: cover;
+  object-position: center top;
+}
 
           /* Content stays above the mobile reel */
           .mv-page > *:not(.mv-mobile-background-reel) {
