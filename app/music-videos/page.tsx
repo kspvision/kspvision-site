@@ -111,6 +111,16 @@ const earlierWorkVideos = [
 
 
 
+function HoverInfo({ video }: { video: string[] }) {
+  const views = video[2].match(/[\d,.]+\s*[KMB]?\s+views\b/i)?.[0];
+  return (
+    <div className="mv-hover-info" aria-hidden="true">
+      <strong>{video[1]}</strong>
+      {views && <span>{views}</span>}
+    </div>
+  );
+}
+
 function Card({ video, big = false }: { video: string[]; big?: boolean }) {
   return (
     <a
@@ -126,7 +136,7 @@ function Card({ video, big = false }: { video: string[]; big?: boolean }) {
           loading="lazy"
         />
         <div className="mv-shade" />
-        <span className="mv-play">↗</span>
+        <HoverInfo video={video} />
       </div>
 
       <h3>{video[1]}</h3>
@@ -199,7 +209,7 @@ export default function Page() {
 
         <div className="mv-hero-content">
           <p className="mv-gold">
-            <Localized en="MUSIC VIDEOS · KSP ARCHIVE" fr="CLIPS · ARCHIVES KSP" />
+            KSP FILMS
           </p>
 
           <h1>
@@ -224,8 +234,8 @@ export default function Page() {
 
       <Row
         eyebrow=""
-        title="RECENT AND LATEST WORK"
-        items={latest}
+        title="LATEST WORK"
+        items={latest.slice(0, 5)}
       />
 
 
@@ -258,6 +268,7 @@ export default function Page() {
                 <strong className="mv-million-count">
                   {video[2]}
                 </strong>
+                <HoverInfo video={video} />
 
               </div>
 
@@ -2115,6 +2126,67 @@ export default function Page() {
             z-index: 1 !important;
             background: rgba(0,0,0,.40) !important;
           }
+        }
+
+        /* Music-video card polish; preserve section sizes and hero behavior. */
+        .mv-page .mv-thumb,
+        .mv-page .mv-million-thumb {
+          border-radius:12px;
+          overflow:hidden;
+        }
+        .mv-page .mv-card h3,
+        .mv-page .mv-million-card h3 {
+          margin:10px 0 0 !important;
+          font-size:16px !important;
+          line-height:1.35 !important;
+          font-weight:700;
+          white-space:normal !important;
+          overflow-wrap:anywhere;
+          display:-webkit-box;
+          -webkit-box-orient:vertical;
+          -webkit-line-clamp:2;
+          overflow:hidden;
+        }
+        .mv-page .mv-million-card h3 { font-size:20px !important; }
+        .mv-page .mv-grid .mv-card h3 { font-size:14px !important; }
+        .mv-page .mv-card .mv-thumb img,
+        .mv-page .mv-million-card .mv-million-thumb img {
+          transform:none;
+          transition:none;
+        }
+        .mv-hover-info {
+          display:none;
+          position:absolute;
+          inset:0;
+          justify-content:flex-end;
+          flex-direction:column;
+          gap:5px;
+          padding:12px;
+          background:linear-gradient(0deg,rgba(0,0,0,.88),rgba(0,0,0,.28) 65%,transparent);
+          pointer-events:none;
+          opacity:0;
+          transition:opacity 200ms ease;
+          text-transform:uppercase;
+        }
+        .mv-hover-info strong {
+          color:#fff;
+          font-size:14px;
+          line-height:1.3;
+          overflow-wrap:anywhere;
+          display:-webkit-box;
+          -webkit-box-orient:vertical;
+          -webkit-line-clamp:2;
+          overflow:hidden;
+        }
+        .mv-hover-info span { color:#e0b839; font-size:12px; }
+        @media (hover:hover) and (pointer:fine) {
+          .mv-hover-info { display:flex; }
+          .mv-card:hover .mv-hover-info,
+          .mv-card:focus-visible .mv-hover-info,
+          .mv-million-card:hover .mv-hover-info,
+          .mv-million-card:focus-visible .mv-hover-info { opacity:1; }
+          .mv-million-card:hover .mv-million-count,
+          .mv-million-card:focus-visible .mv-million-count { opacity:0; }
         }
       `}</style>
 

@@ -24,7 +24,7 @@ test("renders the finished KSP Vision homepage with production metadata", async 
 });
 
 test("renders all portfolio routes and excludes local wedding masters", async () => {
-  const routes = [["/music-videos", "Kreyday Everyday"], ["/brand-documentary", "Stories with purpose"], ["/weddings", "Smith &amp; Aureanne"], ["/booking", "Request availability"]];
+  const routes = [["/music-videos", "KreydayEveryday"], ["/brand-documentary", "Stories with purpose"], ["/weddings", "Smith &amp; Aureanne"], ["/booking", "Request availability"]];
   for (const [path, expected] of routes) {
     const response = await render(path);
     assert.equal(response.status, 200, path);
