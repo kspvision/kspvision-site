@@ -111,12 +111,69 @@ const earlierWorkVideos = [
 
 
 
+
+function getVideoIdentity(video: string[]) {
+  const raw = video[1] || "";
+  const match = raw.match(/^(.*?)\s+[—–-]\s+(.+)$/);
+
+  const artist = match ? match[1].trim() : "";
+  const title = match ? match[2].trim() : raw.trim();
+
+  const views =
+    video[2]
+      ?.match(/[\d,.]+\s*[KMB]?\s*views\b/i)?.[0]
+      ?.replace(/\s*views$/i, "")
+      .trim() || "";
+
+  return { artist, title, views };
+}
+
+function VideoMeta({ video }: { video: string[] }) {
+  const { artist, title, views } = getVideoIdentity(video);
+
+  return (
+    <div className="mv-video-meta">
+      <div className="mv-video-meta-row">
+        <h3>{title}</h3>
+        {views && (
+          <span className="mv-card-views">
+            <svg
+              className="mv-view-eye"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="2.8"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+              />
+            </svg>
+            <span>{views} views</span>
+          </span>
+        )}
+      </div>
+      {artist && <div className="mv-card-artist">{artist}</div>}
+    </div>
+  );
+}
+
 function HoverInfo({ video }: { video: string[] }) {
-  const views = video[2].match(/[\d,.]+\s*[KMB]?\s+views\b/i)?.[0];
+  const { artist, title, views } = getVideoIdentity(video);
+
   return (
     <div className="mv-hover-info" aria-hidden="true">
-      <strong>{video[1]}</strong>
-      {views && <span>{views}</span>}
+      <strong>{title}</strong>
+      {artist && <em>{artist}</em>}
+      {views && <span>{views} VIEWS</span>}
     </div>
   );
 }
@@ -139,8 +196,7 @@ function Card({ video, big = false }: { video: string[]; big?: boolean }) {
         <HoverInfo video={video} />
       </div>
 
-      <h3>{video[1]}</h3>
-      <p>{video[2]}</p>
+      <VideoMeta video={video} />
     </a>
   );
 }
@@ -239,7 +295,7 @@ export default function Page() {
       />
 
 
-      
+
 
       <section className="mv-million">
         <div className="mv-million-head">
@@ -272,7 +328,7 @@ export default function Page() {
 
               </div>
 
-              <h3>{video[1]}</h3>
+              <VideoMeta video={video} />
             </a>
           ))}
         </div>
@@ -2070,8 +2126,111 @@ export default function Page() {
           }
         }
 
-      `}</style>
-    
+
+
+        /* KSP Films compact project-card identity */
+        .mv-page .mv-video-meta {
+          margin-top: 3px;
+          min-width: 0;
+        }
+
+        .mv-page .mv-video-meta-row {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+          gap: 9px;
+          min-width: 0;
+        }
+
+        .mv-page .mv-video-meta h3 {
+          margin: 0 !important;
+          min-width: 0;
+          color: #fff;
+          font-size: 11px !important;
+          line-height: 1.15 !important;
+          font-weight: 500 !important;
+          letter-spacing: -0.01em;
+          white-space: nowrap !important;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .mv-page .mv-card-views {
+          flex: 0 0 auto;
+          color: rgba(255,255,255,.55);
+          font-size: 9px;
+          line-height: 1;
+          font-weight: 500;
+          letter-spacing: .04em;
+          text-transform: uppercase;
+        }
+
+        .mv-page .mv-card-artist {
+          margin-top: 2px;
+          color: rgba(255,255,255,.62);
+          font-size: 9px;
+          line-height: 1.1;
+          font-weight: 400;
+          letter-spacing: .045em;
+          text-transform: uppercase;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .mv-page .mv-grid .mv-video-meta {
+          margin-top: 3px;
+        }
+
+        .mv-page .mv-grid .mv-video-meta h3 {
+          font-size: 11px !important;
+        }
+
+        .mv-page .mv-grid .mv-card-artist,
+        .mv-page .mv-grid .mv-card-views {
+          font-size: 8px;
+        }
+
+        .mv-page .mv-million-card .mv-video-meta h3 {
+          font-size: 12px !important;
+        }
+
+        .mv-page .mv-million-card .mv-card-views {
+          display: none;
+        }
+
+        .mv-page .mv-hover-info em {
+          display: block;
+          margin-top: 3px;
+          color: rgba(255,255,255,.68);
+          font-size: 11px;
+          line-height: 1.2;
+          font-style: normal;
+          font-weight: 500;
+          letter-spacing: .035em;
+          text-transform: uppercase;
+        }
+
+        @media (max-width: 700px) {
+          .mv-page .mv-video-meta h3,
+          .mv-page .mv-grid .mv-video-meta h3 {
+            font-size: 12px !important;
+          }
+
+          .mv-page .mv-card-artist,
+          .mv-page .mv-card-views {
+            font-size: 8px;
+          }
+
+          .mv-page .mv-video-meta-row {
+            gap: 6px;
+          }
+        }
+
+        `}
+
+        </style>
+
       <style>{`
         .mv-mobile-background-reel {
           display: none;
@@ -2188,7 +2347,178 @@ export default function Page() {
           .mv-million-card:hover .mv-million-count,
           .mv-million-card:focus-visible .mv-million-count { opacity:0; }
         }
-      `}</style>
+
+
+
+        /* Higgsfield-density final refinement */
+        .mv-page .mv-thumb {
+          margin-bottom: 0 !important;
+        }
+
+        .mv-page .mv-thumb img {
+          display: block;
+        }
+
+        .mv-page .mv-video-meta,
+        .mv-page .mv-grid .mv-video-meta {
+          margin-top: 2px !important;
+        }
+
+        .mv-page .mv-video-meta-row {
+          gap: 7px !important;
+        }
+
+        .mv-page .mv-video-meta h3,
+        .mv-page .mv-grid .mv-video-meta h3 {
+          margin: 0 !important;
+          font-size: 11px !important;
+          line-height: 1.08 !important;
+          font-weight: 500 !important;
+          letter-spacing: 0 !important;
+          text-transform: none;
+        }
+
+        .mv-page .mv-card-artist {
+          margin-top: 2px !important;
+          font-size: 9px !important;
+          line-height: 1.05 !important;
+          font-weight: 400 !important;
+          color: rgba(255,255,255,.48) !important;
+          letter-spacing: 0 !important;
+        }
+
+        .mv-page .mv-card-views {
+          display: inline-flex;
+          align-items: center;
+          gap: 3px;
+          flex: 0 0 auto;
+          font-size: 9px !important;
+          line-height: 1 !important;
+          font-weight: 400 !important;
+          color: rgba(255,255,255,.55) !important;
+          letter-spacing: 0 !important;
+          text-transform: none !important;
+          white-space: nowrap;
+        }
+
+        .mv-page .mv-view-eye {
+          width: 11px;
+          height: 11px;
+          flex: 0 0 11px;
+        }
+
+        .mv-page .mv-million-card .mv-video-meta h3 {
+          font-size: 11px !important;
+          font-weight: 500 !important;
+        }
+
+        .mv-page .mv-million-card .mv-card-views {
+          display: none !important;
+        }
+
+        @media (max-width: 700px) {
+          .mv-page .mv-video-meta,
+          .mv-page .mv-grid .mv-video-meta {
+            margin-top: 2px !important;
+          }
+
+          .mv-page .mv-video-meta h3,
+          .mv-page .mv-grid .mv-video-meta h3 {
+            font-size: 10px !important;
+          }
+
+          .mv-page .mv-card-artist,
+          .mv-page .mv-card-views {
+            font-size: 8px !important;
+          }
+
+          .mv-page .mv-view-eye {
+            width: 10px;
+            height: 10px;
+            flex-basis: 10px;
+          }
+        }
+
+
+
+
+        /* KSP Films final section rhythm */
+
+        .mv-page .mv-video-meta h3,
+        .mv-page .mv-grid .mv-video-meta h3,
+        .mv-page .mv-million-card .mv-video-meta h3 {
+          font-weight: 600 !important;
+        }
+
+        .mv-page .mv-row {
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+          padding-top: 18px !important;
+          padding-bottom: 18px !important;
+        }
+
+        .mv-page .mv-row-head {
+          margin-bottom: 12px !important;
+        }
+
+        .mv-page .mv-collabs {
+          margin-top: 8px !important;
+          margin-bottom: 12px !important;
+          padding-top: 14px !important;
+          padding-bottom: 14px !important;
+        }
+
+        .mv-page .mv-collabs > p {
+          margin: 0 0 10px !important;
+          font-size: 10px !important;
+          font-weight: 600 !important;
+          letter-spacing: .14em !important;
+        }
+
+        .mv-page .mv-collabs-window {
+          margin-top: 0 !important;
+        }
+
+        .mv-page .mv-collabs-track {
+          font-size: 13px !important;
+          line-height: 1.25 !important;
+          font-weight: 600 !important;
+          letter-spacing: 0 !important;
+        }
+
+        .mv-page .mv-collabs-track b {
+          margin: 0 8px !important;
+          font-size: 9px !important;
+          font-weight: 500 !important;
+          opacity: .65;
+        }
+
+        @media (max-width: 700px) {
+          .mv-page .mv-row {
+            padding-top: 14px !important;
+            padding-bottom: 14px !important;
+          }
+
+          .mv-page .mv-row-head {
+            margin-bottom: 10px !important;
+          }
+
+          .mv-page .mv-collabs {
+            padding-top: 12px !important;
+            padding-bottom: 12px !important;
+          }
+
+          .mv-page .mv-collabs-track {
+            font-size: 11px !important;
+          }
+
+          .mv-page .mv-collabs-track b {
+            margin: 0 6px !important;
+            font-size: 8px !important;
+          }
+        }
+
+`}</style>
 
 </main>
   );
