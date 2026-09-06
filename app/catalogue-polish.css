@@ -286,3 +286,58 @@ html body .mv-page .mv-reel-toggle:hover {
     letter-spacing: .11em;
   }
 }
+
+
+/* =========================================================
+   KSP FILMS MOST WATCHED
+   Horizontal catalogue, 500K+ views.
+   Existing card appearance remains untouched.
+   ========================================================= */
+
+html body .mv-page .mv-most-watched-track {
+  display: flex !important;
+  grid-template-columns: none !important;
+  grid-auto-flow: unset !important;
+
+  width: 100%;
+  max-width: 100%;
+
+  gap: 18px;
+
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+
+  padding-bottom: 10px;
+
+  scroll-snap-type: x proximity;
+  overscroll-behavior-inline: contain;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html body .mv-page .mv-most-watched-track::-webkit-scrollbar {
+  display: none;
+}
+
+html body .mv-page .mv-most-watched-track > *,
+html body .mv-page .mv-most-watched-track .mv-million-card {
+  flex: 0 0 clamp(280px, 30vw, 440px) !important;
+  width: clamp(280px, 30vw, 440px) !important;
+  max-width: none !important;
+
+  scroll-snap-align: start;
+}
+
+@media (max-width: 800px) {
+  html body .mv-page .mv-most-watched-track {
+    gap: 14px;
+  }
+
+  html body .mv-page .mv-most-watched-track > *,
+  html body .mv-page .mv-most-watched-track .mv-million-card {
+    flex-basis: 82vw !important;
+    width: 82vw !important;
+    max-width: 360px !important;
+  }
+}

@@ -14,9 +14,12 @@ const asCard = (video: typeof catalogue.videos[number]) => [
 const videos = groups.archive.map(asCard);
 const latest = groups.latest.map(asCard);
 const standout = [...catalogue.videos]
-  .filter((video) => typeof video.viewCount === "number")
+  .filter(
+    (video) =>
+      typeof video.viewCount === "number" &&
+      video.viewCount >= 500000
+  )
   .sort((a, b) => (b.viewCount ?? 0) - (a.viewCount ?? 0))
-  .slice(0, 10)
   .map(asCard);
 const kspFilmsEraVideos = groups.era.map(asCard);
 const earlierWorkVideos = groups.earlier.map(asCard);
@@ -226,7 +229,7 @@ export default function Page() {
           <h2 className="mv-catalogue-section-title">MOST WATCHED</h2>
         </div>
 
-        <div className="mv-million-grid">
+        <div className="mv-million-grid mv-most-watched-track">
           {standout.map((video) => (
             <KSPPlayerLink
               key={`million-${video[0]}`}
