@@ -15,7 +15,7 @@ test("renders the finished KSP Vision homepage with production metadata", async 
   const html = await response.text();
   assert.match(html, /<title>KSP Vision — Film Production in Montréal<\/title>/i);
   assert.match(html, /Your vision\./);
-  assert.match(html, /Music Videos/);
+  assert.match(html, /KSP FILMS/);
   assert.match(html, /Brand \/ Doc/);
   assert.match(html, /Wedding films/);
   assert.match(html, /Book a project/);
@@ -24,7 +24,7 @@ test("renders the finished KSP Vision homepage with production metadata", async 
 });
 
 test("renders all portfolio routes and excludes local wedding masters", async () => {
-  const routes = [["/music-videos", "KreydayEveryday"], ["/brand-documentary", "Stories with purpose"], ["/weddings", "Smith &amp; Aureanne"], ["/booking", "Request availability"]];
+  const routes = [["/kspfilms", "KreydayEveryday"], ["/brand-documentary", "Stories with purpose"], ["/weddings", "Smith &amp; Aureanne"], ["/booking", "Request availability"]];
   for (const [path, expected] of routes) {
     const response = await render(path);
     assert.equal(response.status, 200, path);
@@ -33,7 +33,7 @@ test("renders all portfolio routes and excludes local wedding masters", async ()
   for (const name of ["smith-aureanne.mp4", "ralph-evelyne.mp4", "suffrard-florence.mp4"]) {
     await assert.rejects(lstat(new URL(`../public/weddings/${name}`, import.meta.url)));
   }
-  const music = await readFile(new URL("../app/music-videos/page.tsx", import.meta.url), "utf8");
+  const music = await readFile(new URL("../app/kspfilms/page.tsx", import.meta.url), "utf8");
   assert.doesNotMatch(music, /Discontinué|TazManiax/);
   assert.match(music, /hqdefault\.jpg/);
 });

@@ -26,7 +26,7 @@ export default function WeddingsPage() {
     <SiteHeader active="weddings" />
     <section className="weddingIntro"><div><p className="kicker">WEDDING FILMS</p><h1><Localized en="More than a day." fr="Plus qu’une journée." /><br/><em><Localized en="A feeling, preserved." fr="Une émotion, préservée." /></em></h1><p><Localized en="Honest, elegant films for the moments you will want to return to." fr="Des films élégants et sincères, pour les moments auxquels vous voudrez revenir." /></p><a className="button gold" href="/booking"><Localized en="Tell us about your day" fr="Parlez-nous de votre journée" /> <b>↗</b></a></div><img src="/weddings/wedding-garden-wide.jpg" alt="Smith and Aureanne with their wedding party" /></section>
     <section className="weddingFilms" id="weddingStoriesFinal"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected celebrations" fr="Célébrations sélectionnées" /></p><h2 id="weddingStoriesTitle"><Localized en="Wedding stories" fr="Histoires de mariage" /></h2></div><p><Localized en="Honest moments. Lasting images. Films made to bring you back." fr="Des moments vrais. Des images qui restent. Des films qui vous y ramènent." /></p></div>
-      <article className="weddingReel"><WeddingReel /><div><p>WEDDING REEL</p><span><Localized en="A selection of moments" fr="Une sélection de moments" /></span></div></article>
+      <article className="weddingReel"><WeddingReel /><div><p>WEDDING REEL</p><span><Localized en="KSP WEDDING FILMS" fr="Une sélection de moments" /></span></div></article>
 
 <div id="weddingStoriesList" className="weddingStoryList">
   {films.map((film, index) => (
@@ -80,7 +80,7 @@ export default function WeddingsPage() {
 </div>
 
 </section>
-    
+
 
 <section id="weddingGalleryFinal" className="weddingGallery">
   <div className="weddingSectionHead">
@@ -112,7 +112,7 @@ export default function WeddingsPage() {
 
 <section className="makeupArtists" aria-labelledby="makeup-heading"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Wedding beauty" fr="Beauté mariage" /></p><h2 id="makeup-heading">MAKEUP ARTISTS</h2></div><p><Localized en="Discover trusted beauty artists for weddings, celebrations and on-camera work." fr="Découvrez des artistes beauté de confiance pour les mariages, célébrations et projets caméra." /></p></div><a className="makeupArtistCard" href="/mira"><img src="/mira/final/mira-working.jpg" alt="Mira applying bridal makeup"/><div><p>BRIDAL + EVENT MAKEUP · MONTRÉAL</p><h3>MIRA</h3><span><Localized en="View artist, transformation and gallery" fr="Voir l’artiste, les transformations et la galerie" /> ↗</span></div></a></section>
     <section className="weddingCta"><p className="kicker"><Localized en="Now booking" fr="Réservations ouvertes" /></p><h2><Localized en="Your story deserves" fr="Votre histoire mérite" /><br/><em><Localized en="to feel like yours." fr="de vous ressembler." /></em></h2><a className="button gold" href="/booking"><Localized en="Check availability" fr="Vérifier les disponibilités" /> <b>↗</b></a></section>
-    
+
 <style>{`
 /* ========================================================
    WEDDING — FINAL VISUAL POLISH
@@ -1038,7 +1038,7 @@ export default function WeddingsPage() {
 }
 
 .weddingStoryList::before{
-    content:"THREE STORIES";
+    content:"FEATURED FILMS";
     position:absolute;
     left:0;
     top:-.45rem;
@@ -1545,6 +1545,314 @@ export default function WeddingsPage() {
 }
 
 `}</style>
+
+
+      <style>{`
+        /* WEDDINGS ESTABLISHED EDITORIAL PASS */
+
+        /*
+          Direction:
+          - cinematic black foundation
+          - photographs carry the page
+          - quieter typography
+          - substantially larger story images
+          - less dead vertical space
+          - tighter image/text relationship
+          - restrained champagne details
+          - NO white/cream sections
+        */
+
+        .weddingPage {
+          background:#080808 !important;
+        }
+
+        /* -----------------------------------
+           GLOBAL WEDDING TONE
+        ----------------------------------- */
+
+        .weddingPage h1,
+        .weddingPage h2,
+        .weddingPage h3 {
+          color:#f7f4ee !important;
+        }
+
+        .weddingPage .weddingSectionHead p,
+        .weddingPage .weddingStoryCopy p {
+          color:rgba(247,244,238,.70) !important;
+        }
+
+        .weddingPage .kicker,
+        .weddingPage .weddingStoryNumber {
+          color:#c4a065 !important;
+        }
+
+
+        /* -----------------------------------
+           PHOTOGRAPHY — LIGHTER, NOT FILTERED
+        ----------------------------------- */
+
+        .weddingIntro img,
+        .publishedFilmStill img,
+        .weddingStoryMedia img,
+        #weddingGalleryFinal img,
+        #makeupArtists img {
+          filter:
+            brightness(1.065)
+            contrast(.985)
+            saturate(1.025) !important;
+        }
+
+        .weddingIntro img,
+        .publishedFilmStill,
+        .weddingStoryMedia {
+          box-shadow:
+            0 22px 54px rgba(0,0,0,.30),
+            0 0 28px rgba(196,160,101,.025) !important;
+        }
+
+
+        /* -----------------------------------
+           WEDDING STORIES — MAIN CHANGE
+        ----------------------------------- */
+
+        #weddingStoriesFinal {
+          background:#080808 !important;
+          padding-top:clamp(3.75rem,6vw,6rem) !important;
+          padding-bottom:clamp(3.75rem,6vw,6rem) !important;
+        }
+
+        #weddingStoriesFinal .weddingStoryList {
+          gap:clamp(3.25rem,5vw,4.75rem) !important;
+        }
+
+        /* Image gets the visual authority */
+        #weddingStoriesFinal .weddingStoryRow {
+          grid-template-columns:
+            minmax(0,1.18fr)
+            minmax(250px,.82fr) !important;
+
+          gap:clamp(2rem,3.7vw,3.75rem) !important;
+          align-items:center !important;
+
+          margin:0 !important;
+          padding-block:clamp(.6rem,1.5vw,1.25rem) !important;
+        }
+
+        /* Alternating story: large image remains large */
+        #weddingStoriesFinal .weddingStoryReverse {
+          grid-template-columns:
+            minmax(250px,.82fr)
+            minmax(0,1.18fr) !important;
+        }
+
+        #weddingStoriesFinal .weddingStoryMedia {
+          width:100% !important;
+          max-width:none !important;
+          min-width:0 !important;
+        }
+
+        #weddingStoriesFinal .weddingStoryMedia img {
+          width:100% !important;
+          height:auto !important;
+          display:block !important;
+        }
+
+
+        /* -----------------------------------
+           STORY TYPOGRAPHY — QUIETER
+        ----------------------------------- */
+
+        #weddingStoriesFinal .weddingStoryCopy {
+          background:transparent !important;
+          border:0 !important;
+          box-shadow:none !important;
+
+          max-width:30rem !important;
+          padding:0 !important;
+        }
+
+        #weddingStoriesFinal .weddingStoryCopy h2,
+        #weddingStoriesFinal .weddingStoryCopy h3 {
+          font-size:clamp(2.25rem,3.4vw,3.4rem) !important;
+          line-height:.96 !important;
+          letter-spacing:-.035em !important;
+          font-weight:500 !important;
+          margin-bottom:clamp(1rem,1.7vw,1.4rem) !important;
+        }
+
+        #weddingStoriesFinal .weddingStoryCopy p {
+          font-size:clamp(.95rem,1.12vw,1.08rem) !important;
+          line-height:1.58 !important;
+          max-width:28rem !important;
+        }
+
+        #weddingStoriesFinal .weddingStoryNumber {
+          font-size:.68rem !important;
+          letter-spacing:.20em !important;
+          margin-bottom:.75rem !important;
+        }
+
+        #weddingStoriesFinal .weddingStoryLink {
+          margin-top:1.35rem !important;
+          border-color:rgba(196,160,101,.52) !important;
+        }
+
+
+        /* -----------------------------------
+           FEATURE / WEDDING REEL
+        ----------------------------------- */
+
+        #weddingStoriesFinal .publishedFilmStill {
+          max-width:none !important;
+        }
+
+        #weddingStoriesFinal .publishedFilmStill img {
+          width:100% !important;
+          display:block !important;
+        }
+
+
+        /* -----------------------------------
+           MOMENTS, PRESERVED
+        ----------------------------------- */
+
+        #weddingGalleryFinal {
+          background:#080808 !important;
+
+          padding-top:clamp(3.75rem,5.5vw,5.5rem) !important;
+          padding-bottom:clamp(4rem,6vw,6rem) !important;
+        }
+
+        #weddingGalleryFinal .weddingGalleryGrid {
+          gap:clamp(.55rem,1vw,1rem) !important;
+        }
+
+        #weddingGalleryFinal .weddingGalleryItem {
+          box-shadow:0 16px 44px rgba(0,0,0,.24) !important;
+        }
+
+        #weddingGalleryFinal .weddingSectionHead {
+          margin-bottom:clamp(2rem,3vw,3rem) !important;
+        }
+
+
+        /* -----------------------------------
+           MAKEUP ARTISTS
+        ----------------------------------- */
+
+        #makeupArtists {
+          background:#080808 !important;
+          padding-top:clamp(4rem,6vw,6rem) !important;
+          padding-bottom:clamp(4rem,6vw,6rem) !important;
+        }
+
+        #makeupArtists .makeupArtistCard {
+          background:rgba(255,255,255,.015) !important;
+          border-color:rgba(255,255,255,.07) !important;
+        }
+
+
+        /* -----------------------------------
+           FINAL CTA
+        ----------------------------------- */
+
+        .weddingCta {
+          background:#050505 !important;
+          border-top:1px solid rgba(196,160,101,.13) !important;
+        }
+
+        .weddingPage .button.gold {
+          border-color:rgba(196,160,101,.55) !important;
+        }
+
+
+        /* -----------------------------------
+           MOBILE
+        ----------------------------------- */
+
+        @media (max-width:800px) {
+
+          #weddingStoriesFinal {
+            padding-top:3.25rem !important;
+            padding-bottom:3.5rem !important;
+          }
+
+          #weddingStoriesFinal .weddingStoryList {
+            gap:3.5rem !important;
+          }
+
+          #weddingStoriesFinal .weddingStoryRow,
+          #weddingStoriesFinal .weddingStoryReverse {
+            grid-template-columns:1fr !important;
+            gap:1.4rem !important;
+            padding-block:.35rem !important;
+          }
+
+          #weddingStoriesFinal .weddingStoryCopy {
+            max-width:none !important;
+          }
+
+          #weddingStoriesFinal .weddingStoryCopy h2,
+          #weddingStoriesFinal .weddingStoryCopy h3 {
+            font-size:clamp(2.2rem,10vw,3rem) !important;
+          }
+
+          .weddingIntro img,
+          .publishedFilmStill img,
+          .weddingStoryMedia img,
+          #weddingGalleryFinal img,
+          #makeupArtists img {
+            filter:
+              brightness(1.055)
+              contrast(.985)
+              saturate(1.02) !important;
+          }
+        }
+      `}</style>
+
+
+      <style>{`
+        /* WEDDINGS HERO-STORIES TIGHTENING */
+
+        /* Pull Wedding Stories closer to the hero */
+        .weddingIntro {
+          margin-bottom: 0 !important;
+          padding-bottom: clamp(1rem, 2vw, 1.75rem) !important;
+        }
+
+        .weddingIntro + #weddingStoriesFinal,
+        #weddingStoriesFinal {
+          margin-top: 0 !important;
+          padding-top: clamp(1.75rem, 3vw, 2.75rem) !important;
+        }
+
+        #weddingStoriesFinal .weddingSectionHead {
+          margin-top: 0 !important;
+          margin-bottom: clamp(1.75rem, 2.8vw, 2.75rem) !important;
+        }
+
+        /* Reel → actual featured weddings:
+           remove the old oversized empty transition */
+        #weddingStoriesList {
+          margin-top: clamp(2.25rem, 3.5vw, 3.5rem) !important;
+          padding-top: clamp(1.75rem, 2.8vw, 2.75rem) !important;
+        }
+
+        @media (max-width: 800px) {
+          .weddingIntro {
+            padding-bottom: 1rem !important;
+          }
+
+          #weddingStoriesFinal {
+            padding-top: 1.75rem !important;
+          }
+
+          #weddingStoriesList {
+            margin-top: 2.25rem !important;
+            padding-top: 1.75rem !important;
+          }
+        }
+      `}</style>
 
 </main>;
 }

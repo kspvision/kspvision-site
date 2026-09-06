@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./session-polish.css";
 
 export const metadata: Metadata = {
   title: { default: "KSP Vision — Film Production in Montréal", template: "%s — KSP Vision" },

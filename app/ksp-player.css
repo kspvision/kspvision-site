@@ -1,0 +1,42 @@
+.ksp-player {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  background: rgba(3,3,3,.97);
+  color: #f6f5f1;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.ksp-player[open] { display: grid; place-items: center; }
+.ksp-player::backdrop { background: #030303; }
+.ksp-player * { box-sizing: border-box; }
+.ksp-player-panel { width: min(1120px, 100%, calc((100dvh - 190px) * 16 / 9)); }
+.ksp-player-topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 14px; }
+.ksp-player-brand { font-size: 11px; font-weight: 700; letter-spacing: .22em; }
+.ksp-player-close { min-height: 44px; padding: 8px 12px; border: 1px solid #555; border-radius: 3px; background: #111; color: #fff; cursor: pointer; font: inherit; font-size: 13px; display: flex; align-items: center; gap: 16px; }
+.ksp-player-close span { font-size: 26px; line-height: 1; }
+.ksp-player a:focus-visible, .ksp-player button:focus-visible { outline: 2px solid #d3ad3b; outline-offset: 4px; }
+.ksp-player-screen { aspect-ratio: 16 / 9; width: 100%; background: #000; }
+.ksp-player-screen iframe, .ksp-player-screen video { display: block; width: 100%; height: 100%; border: 0; object-fit: contain; }
+.ksp-player-caption { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-top: 18px; }
+.ksp-player-caption h2 { margin: 0; font-size: clamp(17px, 2vw, 25px); line-height: 1.25; letter-spacing: -.02em; font-weight: 600; overflow-wrap: anywhere; }
+.ksp-player-caption p { margin: 7px 0 0; color: #aaa; font-size: 12px; line-height: 1.4; }
+.ksp-player-caption a { flex-shrink: 0; color: #ccc; font-size: 12px; line-height: 1.5; padding: 8px 0; text-decoration: underline; text-underline-offset: 4px; }
+.ksp-player-error { color: #ddd; font-size: 13px; line-height: 1.5; }
+@media (max-width: 600px) {
+  .ksp-player-caption { flex-direction: column; gap: 6px; }
+  .ksp-player-panel { width: 100%; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .ksp-player { padding-top: 8px; padding-bottom: 8px; }
+  .ksp-player-panel { width: min(100%, calc((100dvh - 125px) * 16 / 9)); }
+  .ksp-player-topbar { margin-bottom: 6px; }
+  .ksp-player-caption { padding-top: 8px; flex-direction: row; }
+  .ksp-player-caption h2 { font-size: 15px; }
+}

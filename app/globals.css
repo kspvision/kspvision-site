@@ -2664,3 +2664,1529 @@ body{font-size:15px}.heroContent,.pathways>*,.services>*,.contact>*,footer,.deta
   transform: none !important;
 }
 
+
+/* HOME NAV OPTICAL ALIGNMENT — keep larger homepage header, lift contents only */
+.homeNav {
+  top: 22px !important;
+}
+
+@media (max-width: 800px) {
+  .homeNav {
+    top: 19px !important;
+  }
+}
+
+/* ===== KSP FINAL VIDEO + NAV CORRECTION ===== */
+
+
+/* ==========================================================
+   1. HOMEPAGE DESKTOP NAV
+   Keep the larger homepage header exactly the same size.
+   Move the WHOLE navigation assembly upward.
+========================================================== */
+
+@media (min-width: 801px) {
+
+  body .homeNav {
+    position: relative !important;
+    top: auto !important;
+    transform: translateY(-14px) !important;
+  }
+
+}
+
+
+/* ==========================================================
+   2. HOMEPAGE MOBILE REEL
+   Previous crop was almost perfect.
+   Push the encoded top black bar slightly farther out.
+========================================================== */
+
+@media (max-width: 800px) {
+
+  body .heroImage {
+    overflow: hidden !important;
+  }
+
+  body .heroImage > video {
+    position: absolute !important;
+
+    left: 0 !important;
+    right: auto !important;
+
+    top: -16% !important;
+
+    width: 100% !important;
+    height: 132% !important;
+    max-width: none !important;
+
+    object-fit: cover !important;
+    object-position: 50% 14% !important;
+
+    transform: none !important;
+    transform-origin: center top !important;
+  }
+
+}
+
+
+/* ==========================================================
+   3. MUSIC VIDEOS
+   Establish proper video/background stacking first.
+========================================================== */
+
+.mv-page {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow-x: hidden !important;
+}
+
+
+/* Let the moving background escape the original hero crop */
+
+.mv-page .mv-hero {
+  overflow: visible !important;
+  background: transparent !important;
+}
+
+
+/* Actual moving reel */
+
+.mv-page.mv-page .mv-hero .mv-hero-video,
+.mv-page.mv-page .mv-hero-video {
+  display: block !important;
+  visibility: visible !important;
+
+  pointer-events: none !important;
+}
+
+
+/* ==========================================================
+   4. MUSIC VIDEOS — MOBILE MOVING BACKGROUND
+   Make the reel live behind the ENTIRE catalogue.
+========================================================== */
+
+@media (max-width: 800px) {
+
+  .mv-page {
+    background: #050609 !important;
+  }
+
+
+  .mv-page.mv-page .mv-hero-video {
+    position: fixed !important;
+
+    inset: -8vh -8vw !important;
+
+    width: 116vw !important;
+    height: 116vh !important;
+    max-width: none !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    opacity: .68 !important;
+
+    filter:
+      blur(22px)
+      brightness(.48)
+      saturate(.86)
+      contrast(1.05) !important;
+
+    transform: scale(1.08) !important;
+    transform-origin: center center !important;
+
+    z-index: 0 !important;
+  }
+
+
+  /* Dark atmospheric veil over the reel */
+
+  .mv-page.mv-page .mv-hero-overlay {
+    display: block !important;
+    visibility: visible !important;
+
+    position: fixed !important;
+    inset: 0 !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3,5,10,.40) 0%,
+        rgba(3,5,10,.52) 38%,
+        rgba(2,3,7,.65) 100%
+      ) !important;
+
+    pointer-events: none !important;
+    z-index: 1 !important;
+  }
+
+
+  /*
+     Everything people actually read/click remains
+     above the reel + dark veil.
+  */
+
+  .mv-page .mv-hero-content,
+  .mv-page .mv-row,
+  .mv-page .mv-collabs,
+  .mv-page #archive,
+  .mv-page .mv-enter {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+}
+
+
+/* ==========================================================
+   5. MUSIC VIDEOS SECTION RHYTHM
+   Desktop + mobile.
+
+   Instead of huge dead areas of blurred imagery, each major
+   catalogue area gets a subtle nearly-black glass shelf and
+   a restrained hairline separator.
+========================================================== */
+
+.mv-page .mv-row,
+.mv-page .mv-collabs,
+.mv-page #archive {
+  position: relative !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3,5,10,.34) 0%,
+      rgba(3,5,10,.20) 45%,
+      rgba(3,5,10,.07) 82%,
+      transparent 100%
+    ) !important;
+
+  border-top:
+    1px solid rgba(255,255,255,.065) !important;
+
+  box-shadow:
+    inset 0 22px 50px rgba(0,0,0,.10) !important;
+}
+
+
+/* tiny gold/white editorial beginning to the divider */
+
+.mv-page .mv-row::before,
+.mv-page .mv-collabs::before,
+.mv-page #archive::before {
+  content: "" !important;
+
+  position: absolute !important;
+  top: -1px !important;
+  left: clamp(32px, 3.5vw, 58px) !important;
+
+  width: 54px !important;
+  height: 1px !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(207,171,72,.72),
+      rgba(255,255,255,.20)
+    ) !important;
+
+  pointer-events: none !important;
+}
+
+
+/* mobile divider stays inset from the phone edges */
+
+@media (max-width: 800px) {
+
+  .mv-page .mv-row::before,
+  .mv-page .mv-collabs::before,
+  .mv-page #archive::before {
+    left: 16px !important;
+    width: 38px !important;
+  }
+
+}
+
+
+/* ===== /KSP FINAL VIDEO + NAV CORRECTION ===== */
+
+/* ===== KSP SAFE FINAL VISUAL FIX ===== */
+
+
+/* ---------------------------------------------------------
+   1. HOMEPAGE DESKTOP NAV
+   Keep exact dimensions; move the ENTIRE navigation upward.
+   --------------------------------------------------------- */
+
+@media (min-width: 801px) {
+  .homeNav {
+    top: 8px !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   2. HOMEPAGE MOBILE REEL
+   Final tiny upward crop to hide encoded top black strip.
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+  .heroImage {
+    overflow: hidden !important;
+  }
+
+  .heroImage video {
+    top: -18% !important;
+    object-position: center top !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   3. MUSIC VIDEOS — SECTION SHELVES
+   Dark translucent editorial separation instead of dead blur.
+   Desktop + mobile.
+   --------------------------------------------------------- */
+
+.mv-page .mv-row {
+  position: relative !important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,5,5,.76) 0%,
+      rgba(5,5,5,.58) 62%,
+      rgba(5,5,5,.28) 100%
+    ) !important;
+
+  border-top: 1px solid rgba(255,255,255,.07) !important;
+  border-bottom: 1px solid rgba(255,255,255,.025) !important;
+}
+
+
+/* ---------------------------------------------------------
+   4. MUSIC VIDEOS MOBILE MOVING BACKGROUND
+   Existing JSX video only — NO JSX modifications.
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  .mv-page {
+    position: relative !important;
+    isolation: isolate !important;
+    background: #080808 !important;
+  }
+
+  .mv-page .mv-mobile-background-reel {
+    display: block !important;
+
+    position: fixed !important;
+    inset: 0 !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    transform: scale(1.12) !important;
+    transform-origin: center center !important;
+
+    filter:
+      blur(26px)
+      brightness(.34)
+      saturate(.90)
+      contrast(1.04) !important;
+
+    opacity: .92 !important;
+
+    z-index: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .mv-page > *:not(.mv-mobile-background-reel) {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .mv-page .mv-row {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5,5,5,.78) 0%,
+        rgba(5,5,5,.58) 65%,
+        rgba(5,5,5,.34) 100%
+      ) !important;
+
+    border-top: 1px solid rgba(255,255,255,.075) !important;
+  }
+}
+
+
+/* ===== /KSP SAFE FINAL VISUAL FIX ===== */
+
+
+/* ===== KSP SEPT 5 FINAL HOMEPAGE + MUSIC PASS ===== */
+
+
+/* ---------------------------------------------------------
+   1. HOMEPAGE DESKTOP REEL
+   Mobile crop is already correct. DESKTOP ONLY.
+   Push encoded top black bar outside the visible hero.
+--------------------------------------------------------- */
+
+
+
+
+
+/* ---------------------------------------------------------
+   2. HOMEPAGE MOBILE NAV
+   Keep exact same size. Lift the whole row only.
+--------------------------------------------------------- */
+
+@media (max-width: 800px) {
+  body .homeNav {
+    transform: translateY(-14px) !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   3. MUSIC VIDEOS MOBILE BACKGROUND REEL
+   The video already exists in JSX as:
+   .mv-mobile-background-reel
+   We only expose/layout it here.
+--------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  .mv-page {
+    position: relative !important;
+    isolation: isolate !important;
+    background: #050505 !important;
+  }
+
+  .mv-page .mv-mobile-background-reel {
+    display: block !important;
+
+    position: fixed !important;
+    top: -10vh !important;
+    left: -10vw !important;
+
+    width: 120vw !important;
+    height: 120vh !important;
+
+    min-width: 120vw !important;
+    min-height: 120vh !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    opacity: .82 !important;
+
+    filter:
+      blur(26px)
+      brightness(.34)
+      saturate(.90)
+      contrast(1.04) !important;
+
+    transform: scale(1.12) !important;
+    transform-origin: center center !important;
+
+    pointer-events: none !important;
+    z-index: 0 !important;
+  }
+
+  .mv-page::before {
+    content: "" !important;
+
+    position: fixed !important;
+    inset: 0 !important;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,.54) 0%,
+        rgba(0,0,0,.42) 42%,
+        rgba(0,0,0,.57) 100%
+      ) !important;
+
+    pointer-events: none !important;
+    z-index: 1 !important;
+  }
+
+  .mv-page > *:not(.mv-mobile-background-reel) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   4. MUSIC VIDEOS SECTION SHELVES
+   Desktop + mobile.
+   Dark translucent separation instead of giant dead areas.
+--------------------------------------------------------- */
+
+.mv-page .mv-hero,
+.mv-page .mv-row {
+  position: relative !important;
+
+  background: rgba(5,5,5,.76) !important;
+
+  border-top:
+    1px solid rgba(255,255,255,.055) !important;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.045) !important;
+}
+
+.mv-page .mv-row + .mv-row {
+  margin-top: 1px !important;
+}
+
+@media (max-width: 800px) {
+  .mv-page .mv-hero,
+  .mv-page .mv-row {
+    background: rgba(5,5,5,.72) !important;
+  }
+}
+
+
+/* ===== /KSP SEPT 5 FINAL HOMEPAGE + MUSIC PASS ===== */
+/* =========================================================
+   KSP — FINAL HOMEPAGE + MUSIC BACKGROUND CORRECTION
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. DESKTOP HOMEPAGE VIDEO
+   Crop the VIDEO ITSELF upward inside the existing hero.
+   Header/menu remains completely untouched.
+   --------------------------------------------------------- */
+
+
+
+
+
+/* ---------------------------------------------------------
+   2. MOBILE HOMEPAGE
+   DO NOT CHANGE THE VIDEO — user approved it.
+
+   Only preserve the lifted navigation/header positioning.
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  body .homeNav {
+    transform: translateY(-14px) !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   3. MOBILE MUSIC VIDEOS BACKGROUND
+
+   IMPORTANT:
+   We are now using the dedicated EXISTING element:
+   .mv-mobile-background-reel
+
+   Do NOT hide it.
+   Do NOT turn the normal hero video into the background.
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  body .mv-page {
+    position: relative !important;
+    isolation: isolate !important;
+    background: #050505 !important;
+  }
+
+  body .mv-mobile-background-reel {
+    display: block !important;
+
+    position: fixed !important;
+    inset: -8vh -10vw !important;
+
+    width: 120vw !important;
+    height: 116vh !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    opacity: .62 !important;
+
+    filter:
+      blur(30px)
+      brightness(.42)
+      saturate(.92)
+      contrast(1.06) !important;
+
+    transform: scale(1.08) !important;
+    transform-origin: center center !important;
+
+    pointer-events: none !important;
+
+    z-index: -2 !important;
+  }
+
+  /* Dim film over the moving reel */
+  body .mv-page::before {
+    content: "" !important;
+    position: fixed !important;
+    inset: 0 !important;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,.42),
+        rgba(0,0,0,.60)
+      ) !important;
+
+    pointer-events: none !important;
+    z-index: -1 !important;
+  }
+
+  /* Page content stays above the reel */
+  body .mv-page > header,
+  body .mv-page > section,
+  body .mv-page > main,
+  body .mv-page > footer {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  /* Hero remains readable but does not create an opaque wall */
+  body .mv-hero {
+    background: rgba(5,5,5,.76) !important;
+  }
+
+  /* Editorial shelves between catalogue sections */
+  body .mv-row,
+  body .mv-section,
+  body .videoCollection {
+    position: relative !important;
+    background: rgba(5,5,5,.72) !important;
+    border-top: 1px solid rgba(255,255,255,.08) !important;
+    border-bottom: 1px solid rgba(255,255,255,.035) !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   4. MUSIC VIDEOS DESKTOP SECTION SEPARATION
+   Keep moving atmosphere visible but give sections structure.
+   --------------------------------------------------------- */
+
+@media (min-width: 801px) {
+
+  body .mv-row,
+  body .mv-section,
+  body .videoCollection {
+    background: rgba(5,5,5,.72) !important;
+    border-top: 1px solid rgba(255,255,255,.07) !important;
+  }
+}
+
+
+/* =========================================================
+   /KSP — FINAL HOMEPAGE + MUSIC BACKGROUND CORRECTION
+   ========================================================= */
+
+
+/* =========================================================
+   KSP — VIDEO VISIBILITY CORRECTION 2026-09-05
+   Homepage desktop crop + Music Videos mobile background
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   DESKTOP HOMEPAGE
+   Header/navbar stays exactly where it is.
+   Pull the visual layer upward AND overscale it.
+   --------------------------------------------------------- */
+
+
+
+
+
+/* ---------------------------------------------------------
+   MOBILE HOMEPAGE
+   LEAVE THE APPROVED VIDEO CROP ALONE.
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  body .homeNav {
+    transform: translateY(-14px) !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE KSP FILMS / MUSIC VIDEOS
+
+   Previous mistake:
+   video = negative z-index
+   page = opaque black
+   result = video hidden behind its own page
+
+   Correct stack:
+   moving video = 0
+   dark atmosphere = 1
+   actual content = 2+
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  body .mv-page {
+    position: relative !important;
+    isolation: isolate !important;
+
+    /* MUST be transparent or the video underneath cannot be seen */
+    background: transparent !important;
+  }
+
+
+  body .mv-mobile-background-reel {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    position: fixed !important;
+
+    top: -8vh !important;
+    left: -12vw !important;
+
+    width: 124vw !important;
+    height: 116vh !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    transform: scale(1.08) !important;
+    transform-origin: center center !important;
+
+    filter:
+      blur(27px)
+      brightness(.42)
+      saturate(.88)
+      contrast(1.05) !important;
+
+    pointer-events: none !important;
+
+    /* NOT NEGATIVE */
+    z-index: 0 !important;
+  }
+
+
+  /* Dark film over moving video */
+  body .mv-page::before {
+    content: "" !important;
+
+    position: fixed !important;
+    inset: 0 !important;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,.52) 0%,
+        rgba(0,0,0,.64) 100%
+      ) !important;
+
+    pointer-events: none !important;
+
+    z-index: 1 !important;
+  }
+
+
+  /* Everything the visitor reads sits above both layers */
+  body .mv-page > *:not(.mv-mobile-background-reel) {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+
+  /* Remove opaque page-sized backgrounds that can hide the reel */
+  body .mv-page main,
+  body .mv-page .mv-hero,
+  body .mv-page .mv-content {
+    background-color: transparent !important;
+  }
+
+
+  /* Keep the nice section separation we added */
+  body .mv-row,
+  body .mv-section,
+  body .videoCollection {
+    background: rgba(5,5,5,.72) !important;
+
+    border-top:
+      1px solid rgba(255,255,255,.075) !important;
+
+    border-bottom:
+      1px solid rgba(255,255,255,.025) !important;
+
+    position: relative !important;
+    z-index: 2 !important;
+  }
+}
+
+
+/* =========================================================
+   /KSP — VIDEO VISIBILITY CORRECTION 2026-09-05
+   ========================================================= */
+
+
+
+/* =========================================================
+   KSP — FINAL FRAMING + MUSIC SECTION TUNE
+   ========================================================= */
+
+
+/* DESKTOP HOME — crop the reel much harder.
+   DO NOT alter the approved navbar. */
+
+
+
+
+/* MUSIC VIDEOS — soften the section shelves.
+   Keep separation, but don't make them giant panels. */
+body .mv-page .mv-row,
+body .mv-page .mv-section,
+body .mv-page .videoCollection {
+  background: rgba(5, 5, 5, .52) !important;
+
+  border-top:
+    1px solid rgba(255,255,255,.045) !important;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.018) !important;
+}
+
+
+/* LATEST WORK — give it the same editorial hierarchy
+   as the other sections without changing JSX. */
+body .mv-page .mv-row:first-of-type h2::before {
+  content: "RECENT RELEASES";
+  display: block;
+
+  margin-bottom: .42rem;
+
+  color: #d5aa55;
+
+  font-size: .48rem;
+  line-height: 1;
+  font-weight: 700;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   /KSP — FINAL FRAMING + MUSIC SECTION TUNE
+   ========================================================= */
+
+
+/* =========================================================
+   KSP FILMS MOBILE BACKGROUND — VISIBILITY TUNE
+   Video playback is WORKING. Only brighten the presentation.
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  body .mv-mobile-background-reel {
+    opacity: .82 !important;
+
+    filter:
+      blur(22px)
+      brightness(.78)
+      saturate(.92)
+      contrast(1.04) !important;
+  }
+
+  /* Let more of the moving reel breathe through the catalogue */
+  body .mv-row,
+  body .mv-section,
+  body .videoCollection {
+    background: rgba(5, 5, 5, .46) !important;
+
+    border-top:
+      1px solid rgba(255,255,255,.04) !important;
+
+    border-bottom:
+      1px solid rgba(255,255,255,.018) !important;
+  }
+
+}
+
+/* ===== /KSP FILMS MOBILE BACKGROUND — VISIBILITY TUNE ===== */
+
+/* =========================================================
+   KSP FILMS MOBILE REEL — VISIBILITY BOOST
+   Temporary strong visibility pass before tuning sections.
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  body .mv-mobile-background-reel {
+    opacity: 1 !important;
+
+    filter:
+      blur(14px)
+      brightness(1.18)
+      saturate(1.05)
+      contrast(.96) !important;
+  }
+
+}
+
+/* ===== /KSP FILMS MOBILE REEL — VISIBILITY BOOST ===== */
+
+/* =========================================================
+   KSP FILMS — BACKGROUND / SECTION BALANCE
+   Desktop + Mobile
+   ========================================================= */
+
+/* Softer translucent shelves so the moving reel can breathe through */
+body .mv-page .mv-row,
+body .mv-page .mv-section,
+body .mv-page .videoCollection {
+  background: rgba(5, 5, 5, .20) !important;
+
+  border-top:
+    1px solid rgba(255,255,255,.030) !important;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.012) !important;
+}
+
+/* MOBILE — video clearly visible, but no longer nuclear */
+@media (max-width: 800px) {
+
+  body .mv-mobile-background-reel {
+    opacity: .88 !important;
+
+    filter:
+      blur(14px)
+      brightness(1.28)
+      saturate(1.03)
+      contrast(.96) !important;
+  }
+
+  /* Even lighter shelves on phone */
+  body .mv-page .mv-row,
+  body .mv-page .mv-section,
+  body .mv-page .videoCollection {
+    background: rgba(5, 5, 5, .15) !important;
+
+    border-top:
+      1px solid rgba(255,255,255,.025) !important;
+
+    border-bottom:
+      1px solid rgba(255,255,255,.010) !important;
+  }
+}
+
+/* ===== /KSP FILMS — BACKGROUND / SECTION BALANCE ===== */
+
+/* ==========================================================
+   KSP FILMS — MOBILE SECTION TRANSPARENCY FINAL TUNE
+   ========================================================== */
+
+@media (max-width: 800px) {
+
+  /* Let the moving background reel actually show through */
+  body .mv-page,
+  body .mv-page main,
+  body .mv-page .mv-content {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  /* Sections almost transparent on mobile */
+  body .mv-page .mv-row,
+  body .mv-page .mv-section,
+  body .mv-page .videoCollection {
+    background: rgba(5, 5, 5, .02) !important;
+    background-color: rgba(5, 5, 5, .02) !important;
+
+    border-top:
+      1px solid rgba(255,255,255,.012) !important;
+
+    border-bottom:
+      1px solid rgba(255,255,255,.008) !important;
+
+    box-shadow: none !important;
+  }
+
+  /* Moving reel: visible, but still cinematic */
+  body .mv-mobile-background-reel {
+    opacity: .92 !important;
+
+    filter:
+      blur(13px)
+      brightness(1.30)
+      saturate(1.02)
+      contrast(.96) !important;
+  }
+}
+
+/* ===== /KSP FILMS — MOBILE SECTION TRANSPARENCY FINAL TUNE ===== */
+
+
+
+/* ==========================================================
+   KSP — MOBILE FINAL VISUAL TUNE
+   1. KSP Films mobile sections almost transparent
+   2. Homepage mobile reel fades naturally into black below
+   ========================================================== */
+
+@media (max-width: 800px) {
+
+  /* ----------------------------------------------------------
+     KSP FILMS — let the moving reel breathe through the page
+     ---------------------------------------------------------- */
+
+  body .mv-page,
+  body .mv-page main,
+  body .mv-page .mv-content {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  body .mv-page .mv-row,
+  body .mv-page .mv-section,
+  body .mv-page .videoCollection {
+    background: rgba(5, 5, 5, .02) !important;
+    background-color: rgba(5, 5, 5, .02) !important;
+    background-image: none !important;
+
+    border-top:
+      1px solid rgba(255,255,255,.012) !important;
+
+    border-bottom:
+      1px solid rgba(255,255,255,.008) !important;
+
+    box-shadow: none !important;
+  }
+
+  /* prevent pseudo overlays from recreating the dark shelves */
+  body .mv-page .mv-row::before,
+  body .mv-page .mv-row::after,
+  body .mv-page .mv-section::before,
+  body .mv-page .mv-section::after,
+  body .mv-page .videoCollection::before,
+  body .mv-page .videoCollection::after {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+
+  /* ----------------------------------------------------------
+     HOMEPAGE MOBILE — soften the hard bottom edge of the reel
+     ---------------------------------------------------------- */
+
+  .homeNav + .hero {
+    position: relative !important;
+  }
+
+  .homeNav + .hero::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: -1px !important;
+    height: 90px !important;
+
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(5,5,5,0) 0%,
+        rgba(5,5,5,.18) 30%,
+        rgba(5,5,5,.62) 68%,
+        #050505 100%
+      ) !important;
+
+    pointer-events: none !important;
+    z-index: 4 !important;
+  }
+}
+
+/* ===== /KSP — MOBILE FINAL VISUAL TUNE ===== */
+
+
+/* ============================================================
+   KSP — FINAL MOBILE KSP FILMS VISIBILITY + HOME REEL FINISH
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   MOBILE KSP FILMS
+   Remove the remaining dark section sheets completely.
+   The moving reel becomes the actual atmosphere.
+   ------------------------------------------------------------ */
+
+@media (max-width: 800px) {
+
+  html body .mv-page,
+  html body .mv-page main,
+  html body .mv-page .mv-content,
+  html body .mv-page section,
+  html body .mv-page .mv-row,
+  html body .mv-page .mv-section,
+  html body .mv-page .videoCollection,
+  html body .mv-page .musicGrid {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+
+  /* Kill any pseudo-element dark sheets */
+  html body .mv-page .mv-row::before,
+  html body .mv-page .mv-row::after,
+  html body .mv-page .mv-section::before,
+  html body .mv-page .mv-section::after,
+  html body .mv-page .videoCollection::before,
+  html body .mv-page .videoCollection::after,
+  html body .mv-page .musicGrid::before,
+  html body .mv-page .musicGrid::after {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+
+  /* Reel: clearly visible, but still blurred/cinematic */
+  html body .mv-mobile-background-reel {
+    opacity: .94 !important;
+
+    filter:
+      blur(11px)
+      brightness(1.48)
+      saturate(1.04)
+      contrast(.96) !important;
+  }
+
+
+  /* VERY subtle section separation only */
+  html body .mv-page .mv-row,
+  html body .mv-page .videoCollection {
+    border-top:
+      1px solid rgba(255,255,255,.025) !important;
+
+    border-bottom:
+      1px solid rgba(255,255,255,.010) !important;
+
+    box-shadow: none !important;
+  }
+
+
+  /* ----------------------------------------------------------
+     MOBILE HOMEPAGE
+     Keep approved framing. Just soften the bottom transition.
+     ---------------------------------------------------------- */
+
+  html body .homeNav + .hero .heroImage {
+    overflow: hidden !important;
+  }
+
+  html body .homeNav + .hero .heroImage::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: 105px !important;
+
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(5,5,5,0) 0%,
+        rgba(5,5,5,.08) 28%,
+        rgba(5,5,5,.42) 63%,
+        rgba(5,5,5,.88) 88%,
+        #050505 100%
+      ) !important;
+
+    pointer-events: none !important;
+    z-index: 3 !important;
+  }
+}
+
+
+/* ------------------------------------------------------------
+   DESKTOP HOMEPAGE REEL
+   Physically crop/overscale the encoded upper black strip.
+   Header/nav is NOT touched.
+   ------------------------------------------------------------ */
+
+
+
+
+/* ===== /KSP FINAL VISIBILITY PASS ===== */
+
+
+/* ============================================================
+   KSP FILMS MOBILE — LIGHTER CATALOGUE SECTIONS ONLY
+   Keep A DECADE IN MUSIC / mv-hero untouched.
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+  body .mv-page .mv-row,
+  body .mv-page .videoCollection,
+  body .mv-page .musicGrid {
+    background: rgba(5, 5, 5, .045) !important;
+    background-color: rgba(5, 5, 5, .045) !important;
+    background-image: none !important;
+
+    border-top:
+      1px solid rgba(255,255,255,.018) !important;
+
+    border-bottom:
+      1px solid rgba(255,255,255,.008) !important;
+
+    box-shadow: none !important;
+  }
+
+  body .mv-page .mv-row::before,
+  body .mv-page .mv-row::after,
+  body .mv-page .videoCollection::before,
+  body .mv-page .videoCollection::after,
+  body .mv-page .musicGrid::before,
+  body .mv-page .musicGrid::after {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+}
+
+/* ===== /KSP FILMS MOBILE LIGHTER CATALOGUE ===== */
+
+
+/* ============================================================
+   KSP FILMS MOBILE — ZERO SECTION BACKGROUNDS TEST
+   Diagnostic only.
+   KEEP the A DECADE IN MUSIC hero untouched.
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+  /* Catalogue sections below hero = fully transparent */
+  body .mv-page .mv-row,
+  body .mv-page .mv-section,
+  body .mv-page .videoCollection,
+  body .mv-page .musicGrid {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: 0 !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Kill any fake separator/overlay layers */
+  body .mv-page .mv-row::before,
+  body .mv-page .mv-row::after,
+  body .mv-page .mv-section::before,
+  body .mv-page .mv-section::after,
+  body .mv-page .videoCollection::before,
+  body .mv-page .videoCollection::after,
+  body .mv-page .musicGrid::before,
+  body .mv-page .musicGrid::after {
+    content: none !important;
+    display: none !important;
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+}
+
+/* ===== /KSP FILMS MOBILE ZERO SECTION BACKGROUNDS TEST ===== */
+
+/* ==========================================================
+   KSP FILMS MOBILE — ACTUAL SECTION WRAPPERS
+   Remove catalogue backgrounds so moving reel can show through.
+   HERO / A DECADE IN MUSIC IS INTENTIONALLY LEFT ALONE.
+   ========================================================== */
+
+@media (max-width: 800px) {
+
+  /* Page itself must not cover the fixed background reel */
+  html body .mv-page {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  /* LATEST WORK */
+  html body .mv-page > .mv-row,
+
+  /* MOST WATCHED */
+  html body .mv-page > .mv-million,
+
+  /* KSP FILMS ERA */
+  html body .mv-page > .mv-collabs,
+
+  /* EARLIER WORK / LIBRARY */
+  html body .mv-page > .mv-library,
+
+  /* Remaining catalogue sections */
+  html body .mv-page > .mv-bottom-bts,
+  html body .mv-page > .mv-stats,
+  html body .mv-page > .mv-end {
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+
+    box-shadow: none !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Kill overlay/pseudo backgrounds on the ACTUAL wrappers */
+  html body .mv-page > .mv-row::before,
+  html body .mv-page > .mv-row::after,
+
+  html body .mv-page > .mv-million::before,
+  html body .mv-page > .mv-million::after,
+
+  html body .mv-page > .mv-collabs::before,
+  html body .mv-page > .mv-collabs::after,
+
+  html body .mv-page > .mv-library::before,
+  html body .mv-page > .mv-library::after,
+
+  html body .mv-page > .mv-bottom-bts::before,
+  html body .mv-page > .mv-bottom-bts::after,
+
+  html body .mv-page > .mv-stats::before,
+  html body .mv-page > .mv-stats::after,
+
+  html body .mv-page > .mv-end::before,
+  html body .mv-page > .mv-end::after {
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* ===== /KSP FILMS MOBILE — ACTUAL SECTION WRAPPERS ===== */
+
+/* ==========================================================
+   KSP FILMS MOBILE — NUCLEAR TRANSPARENCY TEST
+   Keep hero intact. Everything after hero becomes transparent.
+   ========================================================== */
+
+@media (max-width: 800px) {
+
+  /* Keep the page itself transparent */
+  html body .mv-page {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  /* EVERYTHING after A DECADE IN MUSIC */
+  html body .mv-page > section:not(.mv-hero),
+  html body .mv-page > .mv-row,
+  html body .mv-page > .mv-million,
+  html body .mv-page > .mv-collabs,
+  html body .mv-page > .mv-library,
+  html body .mv-page > .mv-bottom-bts,
+  html body .mv-page > .mv-stats,
+  html body .mv-page > .mv-end {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+  }
+
+  /* Kill every decorative covering layer too */
+  html body .mv-page > section:not(.mv-hero)::before,
+  html body .mv-page > section:not(.mv-hero)::after,
+  html body .mv-page > .mv-row::before,
+  html body .mv-page > .mv-row::after,
+  html body .mv-page > .mv-million::before,
+  html body .mv-page > .mv-million::after,
+  html body .mv-page > .mv-collabs::before,
+  html body .mv-page > .mv-collabs::after,
+  html body .mv-page > .mv-library::before,
+  html body .mv-page > .mv-library::after {
+    content: none !important;
+    display: none !important;
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ===== /KSP FILMS MOBILE — NUCLEAR TRANSPARENCY TEST ===== */
+
+/* ==========================================================
+   KSP FILMS MOBILE — REMOVE ACTUAL PAGE COVER
+   Keep header + A DECADE IN MUSIC intact
+   ========================================================== */
+
+@media (max-width: 800px) {
+
+  /* Remove full-page pseudo overlays */
+  html body .mv-page::before,
+  html body .mv-page::after {
+    content: none !important;
+    display: none !important;
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /*
+    Neutralize the catch-all layer on everything AFTER the hero.
+    Do NOT affect:
+    - mobile background video
+    - header
+    - A DECADE IN MUSIC hero
+  */
+  html body .mv-page > *:not(.mv-mobile-background-reel):not(.mv-hero):not(header) {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  html body .mv-page > *:not(.mv-mobile-background-reel):not(.mv-hero):not(header)::before,
+  html body .mv-page > *:not(.mv-mobile-background-reel):not(.mv-hero):not(header)::after {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Lock the actual moving reel underneath everything */
+  html body .mv-mobile-background-reel {
+    display: block !important;
+    visibility: visible !important;
+    opacity: .92 !important;
+    z-index: 0 !important;
+
+    filter:
+      blur(13px)
+      brightness(1.30)
+      saturate(1.02)
+      contrast(.96) !important;
+  }
+}
+
+/* ===== /KSP FILMS MOBILE — REMOVE ACTUAL PAGE COVER ===== */
+
+/* ===== KSP FILMS MOBILE — FINAL REEL VISIBILITY ===== */
+@media (max-width: 800px) {
+  html body .mv-mobile-background-reel {
+    opacity: 1 !important;
+
+    filter:
+      blur(9px)
+      brightness(1.58)
+      saturate(1.06)
+      contrast(.98) !important;
+  }
+}
+/* ===== /KSP FILMS MOBILE — FINAL REEL VISIBILITY ===== */
+
+
+/* =========================================================
+   KSP FILMS MOBILE — REEL 2.45 + ACTUAL SECTION TRANSPARENCY
+   ========================================================= */
+@media (max-width: 800px) {
+
+  /* Moving background reel */
+  html body .mv-mobile-background-reel {
+    opacity: 1 !important;
+    filter:
+      blur(9px)
+      brightness(2.45)
+      saturate(1.06)
+      contrast(.98) !important;
+  }
+
+  /* KEEP "A DECADE IN MUSIC" HERO ALONE */
+
+  /* Actual catalogue sections */
+  html body .mv-page > .mv-row,
+  html body .mv-page > .mv-million,
+  html body .mv-page > .mv-collabs,
+  html body .mv-page > .mv-library,
+  html body .mv-page > .mv-bottom-bts,
+  html body .mv-page > .mv-stats,
+  html body .mv-page > .mv-end,
+  html body .mv-page .videoCollection {
+    background: rgba(5,5,5,.015) !important;
+    background-color: rgba(5,5,5,.015) !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Kill dark decorative layers sitting over those sections */
+  html body .mv-page > .mv-row::before,
+  html body .mv-page > .mv-row::after,
+  html body .mv-page > .mv-million::before,
+  html body .mv-page > .mv-million::after,
+  html body .mv-page > .mv-collabs::before,
+  html body .mv-page > .mv-collabs::after,
+  html body .mv-page > .mv-library::before,
+  html body .mv-page > .mv-library::after,
+  html body .mv-page > .mv-bottom-bts::before,
+  html body .mv-page > .mv-bottom-bts::after,
+  html body .mv-page > .mv-stats::before,
+  html body .mv-page > .mv-stats::after,
+  html body .mv-page > .mv-end::before,
+  html body .mv-page > .mv-end::after,
+  html body .mv-page .videoCollection::before,
+  html body .mv-page .videoCollection::after {
+    content: none !important;
+    display: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ===== /KSP FILMS MOBILE — REEL + TRANSPARENCY ===== */
+

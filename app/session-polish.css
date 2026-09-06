@@ -1,0 +1,654 @@
+/* Scoped September 5 polish; preserve the accepted global baseline. */
+
+
+@media (max-width: 800px) {
+  /* Remove inherited rectangle geometry so the existing fade spans the bottom. */
+  html body .homeNav + .hero .heroImage::after {
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    border: 0 !important;
+  }
+
+  /* Keep both language modes reachable from the mobile homepage. */
+  html body .homeNav .langSwitch { display: block; }
+}
+
+/* ============================================================
+   KSP — SEPT 5 FINAL SMALL POLISH
+   ============================================================ */
+
+/* DESKTOP ONLY — close the small dead gap below approved navbar.
+   Keep the hero content visually in the same place. */
+@media (min-width: 801px) {
+  html body .homeNav + .hero {
+    margin-top: -14px !important;
+    padding-top: 114px !important;
+  }
+
+  /* Give MOST WATCHED the same restrained section finish */
+  html body .mv-page > .mv-million {
+    border-bottom: 1px solid rgba(255,255,255,.03) !important;
+  }
+}
+
+
+/* ===== KSP DESKTOP HOME REEL FINAL CROP =====
+   Hide the encoded black strip INSIDE the source video.
+   Navbar / hero container / text positions stay untouched.
+================================================ */
+
+
+/* ===== END KSP DESKTOP HOME REEL FINAL CROP ===== */
+
+/* =========================================================
+   KSP HOME DESKTOP — NAVBAR OVER VIDEO
+   Remove solid black navbar while preserving hero composition.
+   MOBILE UNTOUCHED.
+========================================================= */
+@media (min-width: 801px) {
+
+  /* Only a navbar immediately followed by the homepage hero */
+  html body:has(.homeNav + .hero) .homeNav {
+    position: relative !important;
+    z-index: 20 !important;
+
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    box-shadow: none !important;
+    border-bottom-color: transparent !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /*
+   * Pull the hero underneath the 76px navbar.
+   * Add the same amount back as padding so the HERO CONTENT
+   * stays approximately where it already is.
+   */
+  html body .homeNav + .hero {
+    margin-top: -108px !important;
+    padding-top: 208px !important;
+  }
+}
+
+/* ===== END KSP HOME DESKTOP NAVBAR OVER VIDEO ===== */
+
+/* =========================================================
+   KSP HOME DESKTOP — FINAL REEL HEADROOM TUNE
+   Navbar placement is approved. Only lower the reel slightly.
+========================================================= */
+
+
+/* ===== END DESKTOP REEL HEADROOM TUNE ===== */
+
+/* =========================================================
+   KSP HOME DESKTOP — CLEAN REEL GEOMETRY RESET
+   One crop method only.
+   Navbar + mobile untouched.
+========================================================= */
+
+
+/* ===== END CLEAN DESKTOP REEL GEOMETRY RESET ===== */
+
+
+/* DESKTOP HOMEPAGE — SCALE BACKGROUND VIDEO ONLY */
+@media (min-width: 801px) {
+  html body .homeNav + .hero .heroImage > video {
+    transform: scale(1.08) !important;
+    transform-origin: center center !important;
+  }
+}
+
+
+/* ===== KSP FILMS CARD META POLISH ===== */
+
+/* Titles: stronger editorial treatment, same layout/size */
+.mv-video-meta h3 {
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: .01em !important;
+}
+
+/* Artists: still secondary, but no longer faint/thin */
+.mv-card-artist {
+  font-weight: 600 !important;
+  color: rgba(255,255,255,.76) !important;
+  letter-spacing: .015em !important;
+}
+
+/* Views: closer to the solid Higgsfield-style treatment */
+.mv-card-views {
+  color: rgba(255,255,255,.72) !important;
+  font-weight: 500 !important;
+}
+
+.mv-view-eye {
+  color: rgba(255,255,255,.78) !important;
+  opacity: 1 !important;
+}
+
+/* ===== END KSP FILMS CARD META POLISH ===== */
+
+
+/* ===== KSP FILMS FINAL CATALOGUE SCALE ===== */
+
+@media (min-width: 801px) {
+
+  /*
+    Explicitly applies to:
+    LATEST WORK
+    MOST WATCHED
+    KSP FILMS ERA
+    EARLIER WORK
+    ARCHIVE
+  */
+  html body .mv-page .mv-catalogue-section-title,
+  html body .mv-page .mv-million h2 {
+    font-size: 24px !important;
+    line-height: 1.02 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  /* THE LIBRARY — intentionally much more visible */
+  html body .mv-page .mv-library-kicker {
+    font-size: 15px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: .15em !important;
+  }
+}
+
+/* Keep the new solid Higgsfield-style views treatment */
+.mv-card-views {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  color: rgba(255,255,255,.78) !important;
+  font-weight: 500 !important;
+}
+
+.mv-view-eye {
+  display: block !important;
+  width: 14px !important;
+  height: 14px !important;
+  flex: 0 0 14px !important;
+  color: rgba(255,255,255,.82) !important;
+  opacity: 1 !important;
+}
+
+/* ===== END KSP FILMS FINAL CATALOGUE SCALE ===== */
+
+/* KSP FILMS — MOST WATCHED FINAL SEPARATION */
+html body .mv-page .mv-million {
+  border-top: 1px solid rgba(255,255,255,.08) !important;
+  border-bottom: 1px solid rgba(255,255,255,.06) !important;
+}
+
+/* Keep the divider clean across the full section */
+html body .mv-page .mv-million::before,
+html body .mv-page .mv-million::after {
+  pointer-events: none !important;
+}
+
+
+/* ===== KSP FILMS ARTISTS FULL BLEED ===== */
+
+@media (min-width: 801px) {
+
+  /*
+    Make Artists / Collaborators a real full-width editorial moment
+    instead of a small inset ticker.
+  */
+  html body .mv-page .mv-artists-feature {
+    width: 100vw !important;
+    max-width: none !important;
+
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+
+    padding: 24px 36px 26px !important;
+    box-sizing: border-box !important;
+
+    min-height: 104px !important;
+
+    border-top: 1px solid rgba(255,255,255,.09) !important;
+    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+
+    overflow: hidden !important;
+  }
+
+  /* Keep the eyebrow editorial, but more visible */
+  html body .mv-page .mv-artists-feature-label {
+    display: block !important;
+    margin-bottom: 18px !important;
+
+    font-size: 11px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    letter-spacing: .16em !important;
+
+    color: #d3ad3b !important;
+  }
+
+  /*
+    Artist names become a stronger piece of social proof.
+    Preserve the current ticker/layout behavior.
+  */
+  html body .mv-page .mv-artists-feature a,
+  html body .mv-page .mv-artists-feature span:not(.mv-artists-feature-label) {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    font-weight: 650 !important;
+  }
+}
+
+/* ===== END KSP FILMS ARTISTS FULL BLEED ===== */
+
+/* KSP FILMS — ARTIST NAMES TRUE FULL BLEED */
+@media (min-width: 801px) {
+
+  /* Bar still full width, but no horizontal inset for the moving names */
+  html body .mv-page .mv-artists-feature {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Keep the ARTISTS / COLLABORATORS label aligned with the page */
+  html body .mv-page .mv-artists-feature-label {
+    margin-left: 36px !important;
+    margin-right: 36px !important;
+  }
+
+  /*
+    Let the names extend slightly beyond both viewport edges.
+    The browser edge becomes the crop, not an inset box.
+  */
+  html body .mv-page .mv-artists-feature > :not(.mv-artists-feature-label) {
+    width: calc(100% + 48px) !important;
+    margin-left: -24px !important;
+    margin-right: -24px !important;
+    max-width: none !important;
+  }
+}
+
+
+/* =========================================================
+   KSP WEDDINGS — FINAL REEL + MOMENTS CORRECTION
+   ========================================================= */
+
+/* MOMENTS, PRESERVED — editorial square photography */
+html body #weddingGalleryFinal .galleryItem,
+html body #weddingGalleryFinal .galleryItem img,
+html body #weddingGalleryFinal > div,
+html body #weddingGalleryFinal img {
+  border-radius: 0 !important;
+}
+
+/* WEDDING REEL — true full viewport bleed */
+html body .weddingsPage .weddingReel,
+html body .weddingPage .weddingReel {
+  position: relative !important;
+
+  width: 100vw !important;
+  max-width: none !important;
+
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  overflow: hidden !important;
+  background: #000 !important;
+}
+
+/* Main reel media fills the bleed.
+   Fade only the picture/video — text overlays remain readable. */
+html body .weddingsPage .weddingReel > img,
+html body .weddingsPage .weddingReel > video,
+html body .weddingPage .weddingReel > img,
+html body .weddingPage .weddingReel > video {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 7%,
+      #000 91%,
+      transparent 100%
+    ) !important;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 7%,
+      #000 91%,
+      transparent 100%
+    ) !important;
+}
+
+/* Anything nested around the reel media must not reintroduce rounding */
+html body .weddingReel img,
+html body .weddingReel video {
+  border-radius: 0 !important;
+}
+
+/* =========================================================
+   END KSP WEDDINGS — FINAL REEL + MOMENTS CORRECTION
+   ========================================================= */
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   KSP WEDDINGS — MOBILE REEL: REMOVE TEXT OVERLAYS
+   Desktop untouched.
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  html body .weddingReel span,
+  html body .weddingReel small,
+  html body .weddingReel p,
+  html body .weddingReel .filmNumber,
+  html body .weddingReel .filmStatus {
+    display: none !important;
+  }
+
+}
+
+/* =========================================================
+   END KSP WEDDINGS — MOBILE REEL TEXT REMOVAL
+   ========================================================= */
+
+
+/* ===== KSP WEDDINGS ACTUAL REEL GRADIENT ===== */
+
+/*
+   VERIFIED STRUCTURE:
+   weddingSectionHead
+   ↓
+   article.weddingReel
+      WeddingReel video
+      overlay text div
+
+   Therefore:
+   - margin TOP creates breathing room below the intro sentence.
+   - ::before / ::after sit directly over the visible reel.
+*/
+
+html body #weddingStoriesFinal .weddingReel {
+  position: relative !important;
+  isolation: isolate !important;
+
+  /* Space between:
+     "Honest moments. Lasting images..." and the reel */
+  margin-top: 28px !important;
+}
+
+
+/* TOP black bar/fade */
+html body #weddingStoriesFinal .weddingReel::before {
+  content: "" !important;
+
+  position: absolute !important;
+  z-index: 4 !important;
+
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+
+  height: 12% !important;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #050505 0%,
+      #050505 18%,
+      rgba(5,5,5,.92) 35%,
+      rgba(5,5,5,.55) 65%,
+      transparent 100%
+    ) !important;
+
+  pointer-events: none !important;
+}
+
+
+/* BOTTOM black bar/fade
+   Slightly stronger so subtitles disappear into it. */
+html body #weddingStoriesFinal .weddingReel::after {
+  content: "" !important;
+
+  position: absolute !important;
+  z-index: 4 !important;
+
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+
+  height: 15% !important;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(5,5,5,.48) 28%,
+      rgba(5,5,5,.88) 58%,
+      #050505 82%,
+      #050505 100%
+    ) !important;
+
+  pointer-events: none !important;
+}
+
+
+/*
+   Existing desktop reel labels stay ABOVE the gradients.
+*/
+html body #weddingStoriesFinal .weddingReel > div {
+  z-index: 5 !important;
+}
+
+
+/* Mobile labels remain hidden — already approved. */
+@media (max-width: 800px) {
+
+  html body #weddingStoriesFinal .weddingReel {
+    margin-top: 22px !important;
+  }
+
+  html body #weddingStoriesFinal .weddingReel::before {
+    height: 10% !important;
+  }
+
+  html body #weddingStoriesFinal .weddingReel::after {
+    height: 14% !important;
+  }
+}
+
+/* ===== END KSP WEDDINGS ACTUAL REEL GRADIENT ===== */
+
+
+
+/* ===== KSP WEDDINGS INTRO IMAGE FINAL TREATMENT ===== */
+
+/*
+   ACTUAL hero photograph:
+   .weddingIntro > img
+
+   Keep its existing size and composition.
+   Only dissolve it naturally into the black page.
+*/
+
+@media (min-width: 801px) {
+
+  html body .weddingPage .weddingIntro > img {
+    border-radius: 0 !important;
+
+    /* Main luxury effect:
+       photograph gently disappears toward the title side */
+    -webkit-mask-image:
+      linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0,0,0,.22) 4%,
+        rgba(0,0,0,.70) 10%,
+        #000 19%,
+        #000 100%
+      ) !important;
+
+    mask-image:
+      linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0,0,0,.22) 4%,
+        rgba(0,0,0,.70) 10%,
+        #000 19%,
+        #000 100%
+      ) !important;
+  }
+
+  /*
+     Very subtle black atmosphere at the bottom of the entire intro.
+     This doesn't crop or move the photograph.
+  */
+  html body .weddingPage .weddingIntro {
+    position: relative !important;
+  }
+
+  html body .weddingPage .weddingIntro::after {
+    content: "" !important;
+    position: absolute !important;
+
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+
+    height: 14% !important;
+
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(8,7,6,.18) 45%,
+        rgba(8,7,6,.68) 82%,
+        #080706 100%
+      ) !important;
+
+    pointer-events: none !important;
+    z-index: 3 !important;
+  }
+
+  /* Keep the title/button safely above the atmospheric fade */
+  html body .weddingPage .weddingIntro > div {
+    position: relative !important;
+    z-index: 4 !important;
+  }
+}
+
+/* Mobile composition stays exactly as it currently is. */
+
+/* ===== END KSP WEDDINGS INTRO IMAGE FINAL TREATMENT ===== */
+
+
+
+
+
+/* =========================================================
+   KSP WEDDINGS — FINAL STORIES SPACING V2
+   Pull the entire section upward, while keeping the
+   description slightly inside the reel gradient.
+   ========================================================= */
+
+@media (min-width: 801px) {
+
+  /*
+     THIS moves Selected Celebrations + Wedding Stories +
+     the reel upward as one section.
+  */
+  html body #weddingStoriesFinal {
+    margin-top: -46px !important;
+    padding-top: 0 !important;
+  }
+
+  /*
+     Keep the heading group compact.
+  */
+  html body #weddingStoriesFinal .weddingSectionHead {
+    position: relative !important;
+    z-index: 6 !important;
+
+    margin-top: 0 !important;
+    margin-bottom: -8px !important;
+    padding-top: 0 !important;
+  }
+
+  /*
+     Selected Celebrations and Wedding Stories stay together
+     in their new higher position.
+  */
+  html body #weddingStoriesFinal .weddingSectionHead > div {
+    transform: translateY(0) !important;
+  }
+
+  /*
+     Only the descriptive sentence drops slightly toward
+     the approved black fade on top of the reel.
+  */
+  html body #weddingStoriesFinal .weddingSectionHead > p:not(.kicker) {
+    position: relative !important;
+    z-index: 7 !important;
+
+    transform: translateY(14px) !important;
+  }
+
+  /*
+     Reel remains directly below the heading block.
+  */
+  html body #weddingStoriesFinal .weddingReel {
+    margin-top: 0 !important;
+  }
+}
+
+
+/* Keep mobile conservative */
+@media (max-width: 800px) {
+
+  html body #weddingStoriesFinal {
+    margin-top: -18px !important;
+    padding-top: 0 !important;
+  }
+
+  html body #weddingStoriesFinal .weddingSectionHead {
+    margin-bottom: .6rem !important;
+  }
+
+  html body #weddingStoriesFinal .weddingSectionHead > p:not(.kicker) {
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   END KSP WEDDINGS — FINAL STORIES SPACING V2
+   ========================================================= */
