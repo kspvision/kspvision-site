@@ -207,7 +207,7 @@ export default function Page() {
         <a href="#archive" className="mv-enter">
             <Localized en="EXPLORE THE WORK" fr="EXPLORER LE TRAVAIL" /> ↓
           </a>
-        <a className="mv-hero-project-cta" href="/booking">
+        <a className="mv-hero-project-cta" href="/booking?project=music-video">
           <span>START A PROJECT</span>
           <span aria-hidden="true">↗</span>
         </a>
@@ -352,7 +352,7 @@ export default function Page() {
           NEXT.
         </h2>
 
-        <a href="/booking">START A PROJECT ↗</a>
+        <a href="/booking?project=music-video">START A PROJECT ↗</a>
       </section>
 
       <SiteFooter />

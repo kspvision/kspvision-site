@@ -270,6 +270,25 @@ export default function BookingForm() {
   const [projectType, setProjectType] =
     useState<ProjectType>("");
 
+  // KSP_CONTEXTUAL_PROJECT_PREFILL
+  useEffect(() => {
+    const source = new URLSearchParams(window.location.search).get("project");
+
+    const presets: Record<string, string> = {
+      "music-video": "Music Video",
+      "wedding": "Wedding",
+      "brand-commercial": "Brand / Commercial",
+      "documentary": "Documentary",
+    };
+
+    const preset = source ? presets[source] : undefined;
+
+    if (preset) {
+      setProjectType(preset as Parameters<typeof setProjectType>[0]);
+    }
+  }, []);
+
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 

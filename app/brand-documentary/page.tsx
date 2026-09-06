@@ -18,7 +18,29 @@ const documentaries = [
 ];
 
 export default function Page() { return <main className="detailPage brandPage"><SiteHeader active="brand" />
-  <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1 className="brandHeroTitle"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><a className="button gold" href="/booking"><Localized en="Start a project" fr="Lancer un projet" /> <b>↗</b></a></div></section>
+  <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1 className="brandHeroTitle"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><div className="brand-booking-wrap">
+      <span className="brand-booking-label">
+        <Localized en="START A PROJECT" fr="LANCER UN PROJET" />
+      </span>
+
+      <div className="brand-booking-choices">
+        <a
+          className="brand-booking-choice"
+          href="/booking?project=brand-commercial"
+        >
+          <Localized en="BRAND / COMMERCIAL" fr="MARQUE / COMMERCIAL" />
+          <span aria-hidden="true">↗</span>
+        </a>
+
+        <a
+          className="brand-booking-choice brand-booking-choice-secondary"
+          href="/booking?project=documentary"
+        >
+          <Localized en="DOCUMENTARY" fr="DOCUMENTAIRE" />
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div></div></section>
         <BusinessCapabilities />
       <CollaborationRail />
 
