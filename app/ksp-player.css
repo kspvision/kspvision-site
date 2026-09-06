@@ -8,13 +8,13 @@
   margin: 0;
   border: 0;
   padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
-  background: rgba(3,3,3,.97);
+  background: rgba(3,3,3,.42);
   color: #f6f5f1;
   overflow: auto;
   overscroll-behavior: contain;
 }
 .ksp-player[open] { display: grid; place-items: center; }
-.ksp-player::backdrop { background: #030303; }
+.ksp-player::backdrop { background: rgba(3,3,3,.78); }
 .ksp-player * { box-sizing: border-box; }
 .ksp-player-panel { width: min(1120px, 100%, calc((100dvh - 190px) * 16 / 9)); }
 .ksp-player-topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 14px; }

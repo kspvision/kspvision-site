@@ -1,0 +1,81 @@
+/* Scoped execution-session additions. Approved homepage and background geometry stay in their original files. */
+html body .mv-page a.mv-card,
+html body .mv-page a.mv-million-card {
+  padding: 5px 5px 9px !important;
+  border: 1px solid rgba(255,255,255,.025) !important;
+  border-bottom-color: rgba(255,255,255,.12) !important;
+  border-radius: 12px !important;
+  background: rgba(8,8,8,.19) !important;
+  height: auto !important;
+  box-sizing: border-box;
+}
+html body .mv-page .mv-card .mv-thumb,
+html body .mv-page .mv-million-card .mv-million-thumb { border-radius: 8px !important; overflow: hidden; }
+html body .mv-page .mv-video-meta { padding: 5px 3px 0 !important; }
+html body .mv-page .mv-card-details { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+html body .mv-page .mv-card-details .mv-card-artist { min-width: 0; }
+html body .mv-page .mv-card-year { color: rgba(255,255,255,.55); font-size: 10px; font-variant-numeric: tabular-nums; flex-shrink: 0; line-height: 1.4; }
+html body .mv-page .mv-million-grid { align-items: start; height: auto !important; }
+html body .mv-page > .mv-million { height: auto !important; min-height: 0 !important; padding-bottom: 28px !important; }
+html body .mv-page > .mv-row { padding-block: 16px !important; }
+html body .mv-page .mv-collabs-track > span { display: inline; text-transform: uppercase; }
+@media (max-width:700px) {
+  html body .mv-page > .mv-row { padding-block: 12px !important; }
+  html body .mv-page > .mv-row .mv-track { padding-left: 18px !important; padding-right: 18px !important; margin-left: 0 !important; margin-right: 0 !important; scroll-padding-inline: 18px; }
+  html body .mv-page > .mv-row { padding-left: 0 !important; padding-right: 0 !important; }
+  html body .mv-page > .mv-row .mv-row-head { padding-inline: 18px !important; }
+  html body .mv-page .mv-grid { padding-inline: 18px !important; margin-inline: 0 !important; box-sizing: border-box; }
+  html body .mv-page .mv-card-year { font-size: 10px; }
+}
+/* Correct only story thumbnails, not the approved hero or reel. */
+html body #weddingStoriesFinal .weddingStoryFilm .publishedFilmStill img {
+  filter: brightness(1.16) saturate(1.025) contrast(.98) !important;
+}
+html body #weddingStoriesList {
+  margin-top: 28px !important; margin-bottom: 0 !important; padding-top: 0 !important;
+  gap: clamp(36px,4vw,58px) !important;
+}
+html body #weddingStoriesFinal { padding-bottom: 36px !important; }
+html body #weddingGalleryFinal { padding-top: 36px !important; }
+html body #weddingStoriesFinal .weddingStoryCopy h3 a { color: inherit; text-decoration: none; }
+html body #weddingGalleryFinal .weddingGalleryGrid {
+  display: grid !important; grid-template-columns: repeat(4,minmax(0,1fr)) !important;
+  grid-auto-rows: auto !important; gap: 12px !important;
+}
+html body #weddingGalleryFinal .weddingGalleryGrid > a.weddingGalleryItem {
+  width: 100% !important; height: auto !important; min-height: 0 !important; max-height: none !important;
+  aspect-ratio: 4 / 5 !important; grid-column: auto !important; grid-row: auto !important;
+  padding: 0 !important; margin: 0 !important; border: 0 !important; box-shadow: none !important; overflow: hidden;
+}
+html body #weddingGalleryFinal .weddingGalleryGrid > a.weddingGalleryItem img {
+  display: block !important; width: 100% !important; height: 100% !important; min-height: 0 !important;
+  max-height: none !important; object-fit: cover !important; transition: transform .25s ease;
+}
+html body #weddingGalleryFinal .weddingGalleryLink:hover img { transform: scale(1.025); }
+@media(max-width:800px) {
+  html body #weddingGalleryFinal .weddingGalleryGrid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 8px !important; }
+}
+.wedding-lightbox { position: fixed; inset: 0; width: min(1200px,96vw); max-width:96vw; max-height:96dvh; margin:auto; padding:12px; border:0; background:#090909; color:#eee; }
+.wedding-lightbox::backdrop { background:rgba(0,0,0,.88); }
+.wedding-lightbox[open] { display:flex; flex-direction:column; align-items:center; }
+.wedding-lightbox > img { display:block; max-width:100%; width:auto; height:auto; max-height:calc(96dvh - 125px); object-fit:contain; }
+.wedding-lightbox-bar,.wedding-lightbox-controls { width:100%; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.wedding-lightbox button { padding:12px; min-height:44px; color:inherit; border:0; background:transparent; cursor:pointer; font:inherit; }
+.wedding-lightbox button:disabled { opacity:.3; cursor:default; }
+.wedding-lightbox button:focus-visible { outline:1px solid #c4a065; outline-offset:-2px; }
+html body .brandPage .commercialCollection,
+html body .brandPage .commercialCollection .brandGrid,
+html body .brandPage .commercialCollection .brandFilm,
+html body .brandPage .commercialCollection .publishedFilmStill {
+  border:0 !important; box-shadow:none !important; background:transparent !important;
+}
+html body .brandPage .commercialCollection::before,
+html body .brandPage .commercialCollection::after { display:none !important; }
+html body .brandPage .commercialProjectNote { margin:10px 0 5px !important; color:#c4a065 !important; font-size:12px !important; }
+html body .brandPage .commercialProjectDisclosure { max-width:44ch; font-size:13px !important; line-height:1.5 !important; text-transform:none !important; letter-spacing:0 !important; color:#aaa !important; }
+html body .brandPage a.documentaryMedia { display:block; position:relative; color:inherit; text-decoration:none; }
+html body .brandPage .docWatch { position:absolute; bottom:12px; left:12px; padding:6px 9px; background:rgba(0,0,0,.65); color:#fff; font-size:12px; }
+@media(prefers-reduced-motion:reduce) { html body #weddingGalleryFinal .weddingGalleryGrid > a.weddingGalleryItem img { transition:none; } }
+
+/* Match the existing desktop inset when a longer row can now scroll-snap. */
+@media(min-width:701px) { html body .mv-page .mv-track { scroll-padding-inline: clamp(25px,4vw,65px); } }

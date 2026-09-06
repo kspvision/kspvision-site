@@ -1,3 +1,5 @@
+import { KSPPlayerProvider } from "./ksp-player";
+import "./catalogue-polish.css";
 import type { Metadata } from "next";
 import "./globals.css";
 import "./session-polish.css";
@@ -17,5 +19,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
+  return <html lang="en"><body><KSPPlayerProvider>{children}</KSPPlayerProvider></body></html>;
 }

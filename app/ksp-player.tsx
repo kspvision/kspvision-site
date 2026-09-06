@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
-import { createPortal } from "react-dom";
+import { createPortal, flushSync } from "react-dom";
 import { Localized } from "./site-language";
 import { videoSource, type KSPVideo } from "./video-source";
 import "./ksp-player.css";
@@ -29,7 +29,8 @@ export function KSPPlayerLink({ video, className, children }: {
     onClick={(event) => {
       if (!source || !open || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
       event.preventDefault();
-      open(video, event.currentTarget);
+      // Mount the iframe during the original tap/click; keep audible autoplay enabled.
+      flushSync(() => open(video, event.currentTarget));
     }}>{children}</a>;
 }
 

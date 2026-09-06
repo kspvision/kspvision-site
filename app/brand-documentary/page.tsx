@@ -1,6 +1,7 @@
+import { KSPPlayerLink } from "../ksp-player";
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 
-const commercial = [{ title: "Barbancourt", type: "Commercial film", youtubeId: "hNRG8NT3sRs" }, { title: "NOIR ÉCLAT ELIXIR", type: "Product campaign", youtubeId: "FYL9RmYlZ6U" }];
+const commercial = [{ title: "Barbancourt", type: "Spirit film concept", youtubeId: "hNRG8NT3sRs" }, { title: "NOIR ÉCLAT ELIXIR", type: "Fragrance film concept", youtubeId: "FYL9RmYlZ6U" }];
 const documentaries = [
   { title: "Corneille présente ADVANCE Québec", src: "/corneille-web.mp4" },
   {
@@ -12,7 +13,7 @@ const documentaries = [
 
 export default function Page() { return <main className="detailPage brandPage"><SiteHeader active="brand" />
   <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1 className="brandHeroTitle"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><a className="button gold" href="/booking"><Localized en="Start a project" fr="Lancer un projet" /> <b>↗</b></a></div></section>
-  <section className="brandCollection"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected work" fr="Travaux sélectionnés" /></p><h2><Localized en="Commercial stories" fr="Histoires de marque" /></h2></div></div><div className="brandGrid">{commercial.map((project, index) => <a className="brandFilm" href={`https://www.youtube.com/watch?v=${project.youtubeId}`} target="_blank" rel="noreferrer" key={project.title}><div className="publishedFilmStill"><video
+  <section className="brandCollection commercialCollection"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected work" fr="Travaux sélectionnés" /></p><h2><Localized en="Commercial stories" fr="Histoires de marque" /></h2></div></div><div className="brandGrid">{commercial.map((project, index) => <KSPPlayerLink className="brandFilm" video={{sourceType:"youtube", source:project.youtubeId, title:project.title}} key={project.title}><div className="publishedFilmStill"><video
   className="commercialAutoVideo"
   autoPlay
   muted
@@ -24,7 +25,7 @@ export default function Page() { return <main className="detailPage brandPage"><
     src={index === 0 ? "/barbancourt-ad-web.mp4" : "/fragrance-ad-web.mp4"}
     type="video/mp4"
   />
-</video><span><Localized en="Watch film" fr="Voir le film" /> ↗</span></div><div><p>{project.type}</p><h3>{project.title}</h3></div></a>)}</div></section>
+</video><span><Localized en="Watch film" fr="Voir le film" /> ↗</span></div><div className="commercialProjectInfo"><p>{project.type}</p><h3>{project.title}</h3><p className="commercialProjectNote"><Localized en="Spec concept · Visual study" fr="Concept spéculatif · Étude visuelle" /></p><p className="commercialProjectDisclosure"><Localized en="Independent creative exploration. Not a commissioned brand campaign." fr="Exploration créative indépendante. Aucune commande de la marque." /></p></div></KSPPlayerLink>)}</div></section>
 
 <section className="brandCollection documentaryCollection" id="realStoriesFinal">
   <div className="weddingSectionHead">
@@ -49,11 +50,9 @@ export default function Page() { return <main className="detailPage brandPage"><
 
     {/* 01 — ADVANCE MUSIC GROUP CANADA */}
     <article className="documentaryCard">
-      <div className="documentaryMedia">
-        <video autoPlay muted loop playsInline preload="metadata">
+      <KSPPlayerLink className="documentaryMedia" video={{sourceType:"hosted", source:documentaries[0].src, title:"ADVANCE MUSIC GROUP CANADA"}}><video autoPlay muted loop playsInline preload="metadata">
           <source src={documentaries[0].src} type="video/mp4" />
-        </video>
-      </div>
+        </video><span className="docWatch"><Localized en="Watch film" fr="Voir le film" /> ↗</span></KSPPlayerLink>
 
       <div className="documentaryInfo">
         <strong className="docProjectTitle">
@@ -68,11 +67,9 @@ export default function Page() { return <main className="detailPage brandPage"><
 
     {/* 02 — COMITÉ JEUNE DE FINANCE MONTRÉAL */}
     <article className="documentaryCard">
-      <div className="documentaryMedia">
-        <video autoPlay muted loop playsInline preload="metadata">
+      <KSPPlayerLink className="documentaryMedia" video={{sourceType:"hosted", source:documentaries[1].src, title:"COMITÉ JEUNE DE FINANCE MONTRÉAL"}}><video autoPlay muted loop playsInline preload="metadata">
           <source src={documentaries[1].src} type="video/mp4" />
-        </video>
-      </div>
+        </video><span className="docWatch"><Localized en="Watch film" fr="Voir le film" /> ↗</span></KSPPlayerLink>
 
       <div className="documentaryInfo">
         <strong className="docProjectTitle">
@@ -87,14 +84,12 @@ export default function Page() { return <main className="detailPage brandPage"><
 
     {/* 03 — AMPLIFY SEASON 1 · ADVANCE TORONTO */}
     <article className="documentaryCard">
-      <div className="documentaryMedia">
-        <video autoPlay muted loop playsInline preload="metadata">
+      <KSPPlayerLink className="documentaryMedia" video={{sourceType:"hosted", source:"/amplify-season-1-advance-toronto-web.mp4", title:"AMPLIFY SEASON 1 · ADVANCE TORONTO"}}><video autoPlay muted loop playsInline preload="metadata">
           <source
             src="/amplify-season-1-advance-toronto-web.mp4"
             type="video/mp4"
           />
-        </video>
-      </div>
+        </video><span className="docWatch"><Localized en="Watch film" fr="Voir le film" /> ↗</span></KSPPlayerLink>
 
       <div className="documentaryInfo">
         <strong className="docProjectTitle">
@@ -116,11 +111,9 @@ export default function Page() { return <main className="detailPage brandPage"><
       UPCOMING DOCUMENTARY
     </span>
 
-    <div className="documentaryMedia">
-      <video autoPlay muted loop playsInline preload="metadata">
+    <KSPPlayerLink className="documentaryMedia" video={{sourceType:"hosted", source:documentaries[2].src, title:"LA VILLE — Preview"}}><video autoPlay muted loop playsInline preload="metadata">
         <source src={documentaries[2].src} type="video/mp4" />
-      </video>
-    </div>
+      </video><span className="docWatch"><Localized en="Watch film" fr="Voir le film" /> ↗</span></KSPPlayerLink>
 
     <div className="documentaryInfo">
       <span className="docEyebrow">

@@ -1,3 +1,6 @@
+import { KSPPlayerLink } from "../ksp-player";
+import { WeddingGallery } from "../wedding-gallery";
+import { weddingPhotos } from "../../data/wedding-gallery";
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 import { WeddingReel } from "../wedding-reel";
 
@@ -5,20 +8,6 @@ const films = [
   { title: "Smith & Aureanne", youtubeId: "kCRAeRvvy4M" },
   { title: "Ralph & Evelyne", youtubeId: "uMIXszAhhdw" },
   { title: "Suffrard & Florence", youtubeId: "bpbGlC9mAX0" },
-];
-const gallery = [
-  ["/weddings/wedding-garden-wide.jpg", "Smith and Aureanne with their wedding party"],
-  ["/weddings/smith-rings.jpg", "Smith and Aureanne exchanging rings"],
-  ["/weddings/ralph-prep.jpg", "Wedding-day preparation"],
-  ["/weddings/ralph-bride.jpg", "Bride portrait in the forest"],
-  ["/weddings/suffrard-dress.jpg", "Wedding dress detail"],
-  ["/weddings/ralph-dance.jpg", "Ralph and Evelyne celebration"],
-  ["/weddings/suffrard-couple.jpg", "Suffrard and Florence together"],
-  ["/weddings/ralph-veil.jpg", "Ralph & Evelyne wedding veil"],
-  ["/weddings/smith-group.jpg", "Smith & Aureanne wedding group"],
-  ["/weddings/smith-party.jpg", "Smith & Aureanne wedding celebration"],
-  ["/weddings/wedding-garden-portrait.jpg", "Bride portrait in the garden"],
-  ["/weddings/suffrard-ceremony.jpg", "Suffrard & Florence ceremony"],
 ];
 
 export default function WeddingsPage() {
@@ -34,12 +23,7 @@ export default function WeddingsPage() {
       className={`weddingStoryRow ${index === 1 ? "weddingStoryReverse" : ""}`}
       key={film.title}
     >
-      <a
-        className="weddingStoryFilm"
-        href={`https://www.youtube.com/watch?v=${film.youtubeId}`}
-        target="_blank"
-        rel="noreferrer"
-      >
+      <KSPPlayerLink className="weddingStoryFilm" video={{sourceType:"youtube", source:film.youtubeId, title:film.title}}>
         <div className="publishedFilmStill">
           <img
             src={`https://img.youtube.com/vi/${film.youtubeId}/hqdefault.jpg`}
@@ -49,14 +33,14 @@ export default function WeddingsPage() {
             <Localized en="Watch film" fr="Voir le film" /> ↗
           </span>
         </div>
-      </a>
+      </KSPPlayerLink>
 
       <div className="weddingStoryCopy">
         <span className="weddingStoryNumber">
           {String(index + 1).padStart(2, "0")}
         </span>
 
-        <h3>{film.title}</h3>
+        <h3><KSPPlayerLink video={{sourceType:"youtube", source:film.youtubeId, title:film.title}}>{film.title}</KSPPlayerLink></h3>
 
         <p>
           {film.title === "Smith & Aureanne"
@@ -66,14 +50,9 @@ export default function WeddingsPage() {
             : "More than fifty years of marriage, celebrated all over again. Their renewal becomes a portrait of legacy, family and endurance, honoring a lifetime together while opening one more beautiful chapter."}
         </p>
 
-        <a
-          className="weddingStoryLink"
-          href={`https://www.youtube.com/watch?v=${film.youtubeId}`}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <KSPPlayerLink className="weddingStoryLink" video={{sourceType:"youtube", source:film.youtubeId, title:film.title}}>
           <Localized en="Watch their story" fr="Voir leur histoire" /> ↗
-        </a>
+        </KSPPlayerLink>
       </div>
     </article>
   ))}
@@ -94,20 +73,7 @@ export default function WeddingsPage() {
     </div>
   </div>
 
-  <div className="weddingGalleryGrid">
-    {gallery.map(([src, alt], index) => (
-      <a
-        className={`weddingGalleryLink weddingGalleryItem item${index + 1}`}
-        key={src}
-        href={src}
-        target="_blank"
-        rel="noreferrer"
-        aria-label={`Open ${alt}`}
-      >
-        <img src={src} alt={alt} />
-      </a>
-    ))}
-  </div>
+  <WeddingGallery photos={weddingPhotos} />
 </section>
 
 <section className="makeupArtists" aria-labelledby="makeup-heading"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Wedding beauty" fr="Beauté mariage" /></p><h2 id="makeup-heading">MAKEUP ARTISTS</h2></div><p><Localized en="Discover trusted beauty artists for weddings, celebrations and on-camera work." fr="Découvrez des artistes beauté de confiance pour les mariages, célébrations et projets caméra." /></p></div><a className="makeupArtistCard" href="/mira"><img src="/mira/final/mira-working.jpg" alt="Mira applying bridal makeup"/><div><p>BRIDAL + EVENT MAKEUP · MONTRÉAL</p><h3>MIRA</h3><span><Localized en="View artist, transformation and gallery" fr="Voir l’artiste, les transformations et la galerie" /> ↗</span></div></a></section>

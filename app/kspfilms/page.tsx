@@ -1,117 +1,21 @@
-import { KSPPlayerProvider, KSPPlayerLink } from "../ksp-player";
+import { KSPPlayerLink } from "../ksp-player";
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 
-const videos = [
-  ["_pGbFSSgh_o", "AK Green — Focus sur mes plans", "Recent · KSP Films"],
-  ["npDVn0MSbQk", "NICKEALDAGREAT - CAN YOU FEEL IT", "441 VIEWS"],
-  ["DXV6uLPcWUQ", "FUCCO - TIP H-MIX", "970 VIEWS"],
-  ["foENa43ZOvc", "Tizzo x Shreez — KreydayEveryday", "Recent · 75K views"],
-  ["lpm-NBRsNGM", "Ti Juice — Appel / Get Busy", "Selected work"],
-  ["9iQLjcR6stY", "Ti Juice — Écriture Sale 2", "26K views"],
-  ["N1GdG2wxqKE", "LE ICE FT. MIKEZUP - 6 PIASSES", "118K VIEWS"],
-  ["RRw4QrZY5X4", "LE ICE - LE SCOUT", "80K VIEWS"],
-  ["_hr9inD0dqA", "LE ICE - MR RICHARD", "54K VIEWS"],
-  ["CqslhWMO-nM", "ZACHA FT. SHREEZ - MONEY MAN", "128K VIEWS"],
-  ["qfe5gSj4NjE", "LE ICE - 5 DANS LA WHIP", "592K VIEWS"],
-  ["vnDASE5p4eQ", "SHREEZ - PLANKTON", "838K VIEWS"],
-  ["KAig8vIrgOg", "LK THA GOON X MIGHTY P X PRECISE - CHANGES", "116K VIEWS"],
-  ["VEWpAYwugVU", "SHREEZ X TIZZO X SOFT - HERCULES", "212K VIEWS"],
-  ["u_AkO15Nz1w", "TAMMY TUESDAYZ - FETE", "11K VIEWS"],
-  ["Bk9yk7d7eVE", "TAMMY TUESDAYZ - NO MORE", "15K VIEWS"],
-  ["7rvXITEmYnM", "MIKEZUP FT. SHREEZ - FAST LIFE", "388K VIEWS"],
-  ["QBRh_yyr1kE", "TAMMY TUESDAYZ - PEACE", "5K VIEWS"],
-  ["Q0ejc1FRaro", "Freeman — If I Die", "KSP Films"],
-  ["XY-_FdHYspA", "Zoe Kot X — By Myself", "KSP Films"],
-  ["4PiqS4zQTLI", "Tizzo x Shreez x Soft — Dragon", "KSP Films"],
-  ["kHWK9pK2Qc0", "Bilo Da Kid — Never", "KSP Films"],
-  ["tpGCNT5tKG4", "Sabz — Intoxicated", "KSP Films"],
-  ["GUbCpGGs8Qw", "Faxxts — Affiliated", "KSP Films"],
-  ["F1VzsoBr03Y", "YLS — Lifestyle", "94K views"],
-  ["Mhb4RP1sTmQ", "SARAHMÉE - T’AS PAS CRU", "23K VIEWS"],
-  ["1QHbt4cGNkc", "Tizzo x Shreez x Soft — On Fouette", "1.6M views"],
-  ["paEIFYsnBIk", "Young A Stunnin' & A1 — Murk", "52K views"],
-  ["Xigfun9PNh4", "Soft — Dopeman Go", "85K views"],
-  ["hgA5A3PgPUE", "Mighty P ft. LK — Believe It", "59K views"],
-  ["lAu2Q4mBddM", "Busy Bros — Life A Movie", "14K views"],
-  ["lhT8luz5X3Y", "Kay Bandz — Winning", "KSP Films"],
-  ["sNPWXgvifMU", "Õr Pür — Get Right Witcha", "KSP Films"],
-  ["Zc6beDmPFHM", "Lordt — 9 Nights", "10K views"],
-  ["Tm5jIdEmbp4", "Enima — For the Low", "6.8M views"],
-  ["9rEhnIFJSJo", "RUSSKOV - ARGENT ET DIAMANDS", "188K VIEWS"],
-  ["bLHcxEtVMao", "Vulture ft. Hooks — Tout Ma Vie", "KSP Films"],
-  ["eQFct9W8OBc", "RUSSKOV - MOI ET MES LOUPS", "343K VIEWS"],
-  ["zn6t267flQs", "Enima — Intro", "Archive"],
-  ["oxMC068NZTs", "Enima ft. Russkov — Cette Nuit", "Archive"],
-  ["6PgAanYdKg8", "Enima — MMS / Power Remix", "5.4M views"],
+// Additions and metadata refreshes are managed by scripts/import-ksp-films.mjs.
+import catalogue from "../../data/ksp-films.json";
+import { sections, collaborators, viewLabel } from "../film-catalogue.mjs";
+
+const groups = sections(catalogue.videos);
+const asCard = (video: typeof catalogue.videos[number]) => [
+  video.id, `${video.artist} — ${video.title}`, video.viewCount === null ? "" : `${viewLabel(video.viewCount)} views`,
+  video.publishedAt?.slice(0, 4) || "", video.thumbnail,
 ];
-
-const featured = [
-  ["Tm5jIdEmbp4", "Enima — For the Low", "6.8M views"],
-  ["foENa43ZOvc", "Tizzo x Shreez — KreydayEveryday", "Recent · 75K views"],
-  ["9iQLjcR6stY", "Ti Juice — Écriture Sale 2", "26K views"],
-  ["oxMC068NZTs", "Enima ft. Russkov — Cette Nuit", "Archive"],
-  ["4PiqS4zQTLI", "Tizzo x Shreez x Soft — Dragon", "KSP Films"],
-  ["F1VzsoBr03Y", "YLS — Lifestyle", "94K views"],
-];
-
-const byId = (id: string) => videos.find((video) => video[0] === id)!;
-
-const standout = [
-  byId("Tm5jIdEmbp4"),
-  byId("6PgAanYdKg8"),
-  byId("1QHbt4cGNkc"),
-];
-
-const latest = [
-  ["_pGbFSSgh_o", "AK Green — Focus sur mes plans", "Recent · KSP Films"],
-  ["npDVn0MSbQk", "NICKEALDAGREAT - CAN YOU FEEL IT", "RECENT · 441 VIEWS"],
-  ["DXV6uLPcWUQ", "FUCCO - TIP H-MIX", "RECENT · 970 VIEWS"],
-  ["foENa43ZOvc", "Tizzo x Shreez — KreydayEveryday", "Recent · 75K views"],
-  ["lpm-NBRsNGM", "Ti Juice — Appel / Get Busy", "Selected work"],
-  ["9iQLjcR6stY", "Ti Juice — Écriture Sale 2", "26K views"],
-  ["zn6t267flQs", "Enima — Intro", "Archive"],
-  ["oxMC068NZTs", "Enima ft. Russkov — Cette Nuit", "Archive"],
-];
-
-const kspFilmsEraVideos = [
-  ["N1GdG2wxqKE", "LE ICE FT. MIKEZUP - 6 PIASSES", "KSP FILMS · 118K VIEWS"],
-  ["RRw4QrZY5X4", "LE ICE - LE SCOUT", "KSP FILMS · 80K VIEWS"],
-  ["_hr9inD0dqA", "LE ICE - MR RICHARD", "KSP FILMS · 54K VIEWS"],
-  ["CqslhWMO-nM", "ZACHA FT. SHREEZ - MONEY MAN", "KSP FILMS · 128K VIEWS"],
-  ["qfe5gSj4NjE", "LE ICE - 5 DANS LA WHIP", "KSP FILMS · 592K VIEWS"],
-  ["vnDASE5p4eQ", "SHREEZ - PLANKTON", "KSP FILMS · 838K VIEWS"],
-  ["KAig8vIrgOg", "LK THA GOON X MIGHTY P X PRECISE - CHANGES", "KSP FILMS · 116K VIEWS"],
-  ["VEWpAYwugVU", "SHREEZ X TIZZO X SOFT - HERCULES", "KSP FILMS · 212K VIEWS"],
-  ["u_AkO15Nz1w", "TAMMY TUESDAYZ - FETE", "KSP FILMS · 11K VIEWS"],
-  ["Bk9yk7d7eVE", "TAMMY TUESDAYZ - NO MORE", "KSP FILMS · 15K VIEWS"],
-  ["7rvXITEmYnM", "MIKEZUP FT. SHREEZ - FAST LIFE", "KSP FILMS · 388K VIEWS"],
-  ["QBRh_yyr1kE", "TAMMY TUESDAYZ - PEACE", "KSP FILMS · 5K VIEWS"],
-  ["4PiqS4zQTLI", "Tizzo x Shreez x Soft — Dragon", "KSP Films"],
-  ["F1VzsoBr03Y", "YLS — Lifestyle", "94K views"],
-  ["Mhb4RP1sTmQ", "SARAHMÉE - T’AS PAS CRU", "KSP FILMS · 23K VIEWS"],
-  ["1QHbt4cGNkc", "Tizzo x Shreez x Soft — On Fouette", "1.6M views"],
-  ["paEIFYsnBIk", "Young A Stunnin' & A1 — Murk", "52K views"],
-  ["Xigfun9PNh4", "Soft — Dopeman Go", "85K views"],
-  ["hgA5A3PgPUE", "Mighty P ft. LK — Believe It", "59K views"],
-  ["lAu2Q4mBddM", "Busy Bros — Life A Movie", "14K views"],
-  ["sNPWXgvifMU", "Õr Pür — Get Right Witcha", "KSP Films"],
-  ["9rEhnIFJSJo", "RUSSKOV - ARGENT ET DIAMANDS", "KSP FILMS · 188K VIEWS"],
-  ["eQFct9W8OBc", "RUSSKOV - MOI ET MES LOUPS", "KSP FILMS · 343K VIEWS"],
-];
-
-const earlierWorkVideos = [
-  ["Q0ejc1FRaro", "Freeman — If I Die", "KSP Films"],
-  ["XY-_FdHYspA", "Zoe Kot X — By Myself", "KSP Films"],
-  ["kHWK9pK2Qc0", "Bilo Da Kid — Never", "KSP Films"],
-  ["tpGCNT5tKG4", "Sabz — Intoxicated", "KSP Films"],
-  ["GUbCpGGs8Qw", "Faxxts — Affiliated", "KSP Films"],
-  ["lhT8luz5X3Y", "Kay Bandz — Winning", "KSP Films"],
-  ["Zc6beDmPFHM", "Lordt — 9 Nights", "10K views"],
-  ["bLHcxEtVMao", "Vulture ft. Hooks — Tout Ma Vie", "KSP Films"],
-];
-
-
-
+const videos = groups.archive.map(asCard);
+const latest = groups.latest.map(asCard);
+const standout = groups.mostWatched.map(asCard);
+const kspFilmsEraVideos = groups.era.map(asCard);
+const earlierWorkVideos = groups.earlier.map(asCard);
+const artists = collaborators(catalogue);
 
 function getVideoIdentity(video: string[]) {
   const raw = video[1] || "";
@@ -159,7 +63,7 @@ function VideoMeta({ video }: { video: string[] }) {
           </span>
         )}
       </div>
-      {artist && <div className="mv-card-artist">{artist}</div>}
+      <div className="mv-card-details">{artist && <div className="mv-card-artist">{artist}</div>}{video[3] && <time className="mv-card-year" dateTime={video[3]}>{video[3]}</time>}</div>
     </div>
   );
 }
@@ -184,7 +88,7 @@ function Card({ video, big = false }: { video: string[]; big?: boolean }) {
     >
       <div className="mv-thumb">
         <img
-          src={`https://img.youtube.com/vi/${video[0]}/hqdefault.jpg`}
+          src={video[4] || `https://img.youtube.com/vi/${video[0]}/hqdefault.jpg`}
           alt=""
           loading="lazy"
         />
@@ -240,7 +144,6 @@ function Row({
 
 export default function Page() {
   return (
-    <KSPPlayerProvider>
     <main className="mv-page">
       <SiteHeader active="music" />
       <video
@@ -299,7 +202,7 @@ export default function Page() {
       <Row
         eyebrow=""
         title="LATEST WORK"
-        items={latest.slice(0, 5)}
+        items={latest}
       />
 
 
@@ -307,7 +210,7 @@ export default function Page() {
 
       <section className="mv-million">
         <div className="mv-million-head">
-          <p>MILLION-VIEW FILMS</p>
+          <p><Localized en="AUDIENCE FAVOURITES" fr="LES PLUS REGARDÉS" /></p>
           <h2 className="mv-catalogue-section-title">MOST WATCHED</h2>
         </div>
 
@@ -320,7 +223,7 @@ export default function Page() {
             >
               <div className="mv-million-thumb">
                 <img
-                  src={`https://img.youtube.com/vi/${video[0]}/hqdefault.jpg`}
+                  src={video[4] || `https://img.youtube.com/vi/${video[0]}/hqdefault.jpg`}
                   alt=""
                   loading="lazy"
                 />
@@ -358,29 +261,7 @@ export default function Page() {
 
         <div className="mv-collabs-window">
           <div className="mv-collabs-track">
-        TIZZO <b>×</b>
-        SHREEZ <b>×</b>
-        ENIMA <b>×</b>
-        SOFT <b>×</b>
-        TI JUICE <b>×</b>
-        KAY BANDZ <b>×</b>
-        YLS <b>×</b>
-        BUSY BROS <b>×</b>
-        AK GREEN <b>×</b>
-        MIGHTY P <b>×</b>
-        LE ICE <b>×</b>
-        MIKEZUP <b>×</b>
-        SARAHMÉE <b>×</b>
-        TAMMY TUESDAYZ <b>×</b>
-        LK THA GOON <b>×</b>
-        THA JUICE <b>×</b>
-        LIL DREW <b>×</b>
-        TREEZY <b>×</b>
-        RUSSKOV <b>×</b>
-        PRECISE <b>×</b>
-        ZACHA <b>×</b>
-        FUCCO <b>×</b>
-        NICKEALDAGREAT
+          {artists.map((artist, index) => <span key={artist}>{index > 0 && <b aria-hidden="true">×</b>}{artist}</span>)}
         </div>
         </div>
       </section>
@@ -392,9 +273,7 @@ export default function Page() {
           <h2 className="mv-catalogue-section-title">ARCHIVE.</h2>
 
           <p>
-            Temporary catalogue for the layout preview.
-            <br />
-            The full music video library comes next.
+            <Localized en="The complete filmography. Newest to earliest." fr="La filmographie complète. Des plus récents aux premiers films." />
           </p>
         </div>
 
@@ -432,8 +311,8 @@ export default function Page() {
         </div>
 
         <div>
-          <strong>24</strong>
-          <span>FILMS IN THIS PREVIEW</span>
+          <strong>{videos.length}</strong>
+          <span>FILMS IN THE ARCHIVE</span>
         </div>
 
         <div>
@@ -2527,6 +2406,5 @@ export default function Page() {
 `}</style>
 
 </main>
-    </KSPPlayerProvider>
   );
 }
