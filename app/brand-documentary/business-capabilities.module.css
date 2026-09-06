@@ -1,258 +1,148 @@
 .section {
-  position: relative;
   width: 100%;
-  padding: clamp(88px, 10vw, 150px) clamp(22px, 5vw, 78px);
+  padding: 30px clamp(22px, 5vw, 78px) 28px;
   color: #f4f1e9;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(8, 8, 8, 0) 0%,
-      rgba(8, 8, 8, .56) 18%,
-      rgba(8, 8, 8, .76) 100%
-    );
+  background: rgba(7, 7, 7, .46);
 }
 
 .intro {
   max-width: 1500px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(30px, 6vw, 90px);
+  align-items: end;
 }
 
 .eyebrow,
-.bottomEyebrow,
 .deliveryLabel {
   color: rgba(214, 173, 78, .92);
-  font-size: 10px;
+  font-size: 7px;
   font-weight: 700;
   letter-spacing: .18em;
-  text-transform: uppercase;
 }
 
-.introGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(320px, .72fr);
-  gap: clamp(50px, 8vw, 140px);
-  align-items: end;
-  margin-top: 24px;
-}
-
-.introGrid h2 {
-  margin: 0;
-  max-width: 850px;
-  color: #f3f0e8;
-  font-size: clamp(48px, 6.6vw, 104px);
-  line-height: .89;
-  letter-spacing: -.055em;
+.intro h2 {
+  margin: 8px 0 0;
+  max-width: 650px;
+  color: #f4f1e9;
+  font-size: clamp(28px, 3.2vw, 46px);
+  line-height: .94;
+  letter-spacing: -.04em;
   font-weight: 500;
 }
 
-.introCopy {
-  max-width: 520px;
-  padding-bottom: 5px;
-}
-
-.introCopy p {
-  margin: 0 0 18px;
-  color: rgba(240, 237, 229, .64);
-  font-size: clamp(14px, 1.15vw, 17px);
-  line-height: 1.65;
-}
-
-.introCopy p:last-child {
-  margin-bottom: 0;
+.summary {
+  max-width: 500px;
+  margin: 0;
+  color: rgba(240, 237, 229, .56);
+  font-size: 11px;
+  line-height: 1.5;
 }
 
 .grid {
   max-width: 1500px;
-  margin: clamp(64px, 7vw, 104px) auto 0;
+  margin: 22px auto 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid rgba(255, 255, 255, .12);
-  border-left: 1px solid rgba(255, 255, 255, .12);
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, .09);
+  border-left: 1px solid rgba(255, 255, 255, .09);
 }
 
 .card {
-  position: relative;
-  min-height: 245px;
-  padding: 30px 30px 34px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 55px;
-  border-right: 1px solid rgba(255, 255, 255, .12);
-  border-bottom: 1px solid rgba(255, 255, 255, .12);
-  background: rgba(255, 255, 255, .012);
-  transition:
-    background .25s ease,
-    border-color .25s ease;
-}
-
-.card:hover {
-  background: rgba(255, 255, 255, .035);
-  border-color: rgba(214, 173, 78, .24);
+  min-height: 86px;
+  padding: 11px 14px 12px;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 8px;
+  align-items: center;
+  border-right: 1px solid rgba(255, 255, 255, .09);
+  border-bottom: 1px solid rgba(255, 255, 255, .09);
+  background: rgba(255, 255, 255, .008);
 }
 
 .number {
-  color: rgba(214, 173, 78, .74);
-  font-size: 9px;
+  align-self: start;
+  padding-top: 2px;
+  color: rgba(214, 173, 78, .70);
+  font-size: 6px;
   font-weight: 700;
-  letter-spacing: .16em;
+  letter-spacing: .14em;
 }
 
 .card h3 {
-  margin: 0 0 13px;
+  margin: 0 0 4px;
   color: #f2efe8;
-  font-size: clamp(15px, 1.3vw, 20px);
+  font-size: 11px;
   line-height: 1.08;
-  letter-spacing: -.015em;
   font-weight: 600;
 }
 
 .card p {
   margin: 0;
-  max-width: 350px;
-  color: rgba(240, 237, 229, .52);
-  font-size: 13px;
-  line-height: 1.58;
+  max-width: 330px;
+  color: rgba(240, 237, 229, .43);
+  font-size: 8.5px;
+  line-height: 1.35;
 }
 
 .delivery {
   max-width: 1500px;
-  margin: 0 auto;
-  padding: 34px 0 38px;
-  border-bottom: 1px solid rgba(255, 255, 255, .12);
+  margin: 14px auto 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .deliveryItems {
   display: flex;
+  gap: 6px;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
 }
 
 .deliveryItems span {
-  padding: 10px 13px;
-  border: 1px solid rgba(255, 255, 255, .13);
+  padding: 6px 9px;
+  border: 1px solid rgba(255, 255, 255, .10);
   border-radius: 999px;
-  color: rgba(244, 241, 233, .72);
-  font-size: 9px;
+  color: rgba(244, 241, 233, .57);
+  font-size: 6.5px;
   font-weight: 650;
-  letter-spacing: .12em;
+  letter-spacing: .10em;
 }
 
-.deliveryNote {
-  margin-top: 19px;
-  color: rgba(244, 241, 233, .37);
-  font-size: 11px;
-  line-height: 1.5;
-}
-
-.bottom {
-  max-width: 1500px;
-  margin: clamp(58px, 6vw, 90px) auto 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 48px;
-}
-
-.bottom h3 {
-  margin: 14px 0 0;
-  color: #f4f1e9;
-  font-size: clamp(34px, 4.7vw, 72px);
-  line-height: .94;
-  letter-spacing: -.045em;
-  font-weight: 500;
-}
-
-.cta {
-  width: min(100%, 245px);
-  min-height: 62px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  border: 1px solid rgba(214, 173, 78, .58);
-  color: #f4f1e9;
-  background: rgba(214, 173, 78, .03);
-  text-decoration: none;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .13em;
-  transition:
-    background .2s ease,
-    border-color .2s ease;
-}
-
-.cta:hover {
-  background: rgba(214, 173, 78, .1);
-  border-color: rgba(214, 173, 78, .92);
-}
-
-@media (max-width: 960px) {
-  .introGrid {
+@media (max-width: 900px) {
+  .intro {
     grid-template-columns: 1fr;
-    gap: 35px;
-  }
-
-  .introCopy {
-    max-width: 650px;
+    gap: 12px;
   }
 
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
   .section {
-    padding: 76px 18px 90px;
+    padding: 28px 18px 26px;
   }
 
-  .introGrid {
-    margin-top: 20px;
-  }
-
-  .introGrid h2 {
-    font-size: clamp(45px, 14vw, 64px);
+  .intro h2 {
+    font-size: 32px;
   }
 
   .grid {
-    margin-top: 56px;
+    margin-top: 18px;
     grid-template-columns: 1fr;
   }
 
   .card {
-    min-height: 200px;
-    padding: 25px 22px 28px;
-    gap: 45px;
-  }
-
-  .card p {
-    max-width: 420px;
+    min-height: 78px;
   }
 
   .delivery {
-    padding-top: 30px;
-  }
-
-  .deliveryItems {
-    gap: 7px;
-  }
-
-  .deliveryItems span {
-    font-size: 8px;
-    padding: 9px 11px;
-  }
-
-  .bottom {
-    align-items: stretch;
+    align-items: flex-start;
     flex-direction: column;
-    gap: 32px;
-  }
-
-  .cta {
-    width: 100%;
-    max-width: none;
+    gap: 9px;
   }
 }
