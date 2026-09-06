@@ -1,7 +1,14 @@
-import { Localized, SiteFooter, SiteHeader } from "../site-language";
+import { SiteFooter, SiteHeader } from "../site-language";
+import BookingForm from "./booking-form";
+import "./booking.css";
+import "./booking-form.css";
 
-export default function Page(){return <main className="bookingPage"><SiteHeader />
-  <section><p className="kicker"><Localized en="Book a project" fr="Réserver un projet" /></p><h1><Localized en="Let’s make it happen." fr="Donnons vie à votre projet." /></h1><p><Localized en="Tell us what you are creating. Include the project type, ideal date, location and approximate budget so we can respond with the right next step." fr="Parlez-nous de votre projet. Indiquez le type de projet, la date idéale, le lieu et le budget approximatif afin que nous puissions vous répondre avec la bonne prochaine étape." /></p>
-    <div className="bookingSteps"><span>01 · <Localized en="Project type" fr="Type de projet" /></span><span>02 · <Localized en="Ideal date" fr="Date idéale" /></span><span>03 · <Localized en="Budget range" fr="Budget approximatif" /></span></div>
-    <div className="bookingContact"><a className="button gold" href="mailto:kspvisioninc@gmail.com?subject=Project%20inquiry%20%E2%80%94%20KSP%20Vision&body=Project%20type%3A%0AIdeal%20date%3A%0ALocation%3A%0AEstimated%20budget%3A%0AProject%20details%3A"><Localized en="Request availability" fr="Demander les disponibilités" /> <b>↗</b></a><p><a href="mailto:kspvisioninc@gmail.com">kspvisioninc@gmail.com</a></p><span><Localized en="Montréal, Québec · Available for select projects beyond the city" fr="Montréal, Québec · Disponible pour certains projets à l’extérieur de la ville" /></span></div>
-  </section><SiteFooter /></main>}
+export default function Page() {
+  return (
+    <main className="bookingPage bookingV2">
+      <SiteHeader />
+      <BookingForm />
+      <SiteFooter />
+    </main>
+  );
+}

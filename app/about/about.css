@@ -1,0 +1,1594 @@
+/* =========================================================
+   KSP VISION — ABOUT / STUDIO
+   Structural first pass.
+   Real history + photography to be inserted next.
+   ========================================================= */
+
+.aboutStudioPage {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 76% 8%,
+      rgba(213,170,85,.055),
+      transparent 26%
+    ),
+    #050505;
+}
+
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
+.studioHero {
+  width: min(1120px, 88vw);
+
+  margin: 0 auto;
+
+  padding:
+    clamp(80px, 10vw, 140px)
+    0
+    clamp(70px, 9vw, 115px);
+}
+
+.studioHeroInner {
+  max-width: 920px;
+}
+
+.studioHero h1 {
+  margin: 18px 0 28px;
+
+  font-size: clamp(3.8rem, 8.2vw, 8rem);
+  line-height: .82;
+
+  letter-spacing: -.068em;
+}
+
+.studioHero h1 em {
+  color: transparent;
+
+  font-style: normal;
+
+  -webkit-text-stroke:
+    1px rgba(255,255,255,.70);
+}
+
+.studioHeroCopy {
+  max-width: 630px;
+
+  color: rgba(255,255,255,.55);
+
+  font-size: .9rem;
+  line-height: 1.75;
+}
+
+.studioHeroProof {
+  display: flex;
+
+  gap: 70px;
+
+  margin-top: 68px;
+  padding-top: 28px;
+
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.studioHeroProof > div {
+  display: flex;
+  align-items: flex-end;
+
+  gap: 14px;
+}
+
+.studioHeroProof strong {
+  color: #f5f3ed;
+
+  font-size: clamp(2.7rem, 5vw, 5rem);
+  line-height: .75;
+
+  letter-spacing: -.07em;
+}
+
+.studioHeroProof span {
+  padding-bottom: 4px;
+
+  color: rgba(255,255,255,.34);
+
+  text-transform: uppercase;
+  letter-spacing: .13em;
+
+  font-size: .51rem;
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   SHARED SECTION
+   --------------------------------------------------------- */
+
+.studioEvolution,
+.studioFounder,
+.studioApproach,
+.studioBranches,
+.studioCta {
+  width: min(1120px, 88vw);
+
+  margin: 0 auto;
+
+  padding:
+    clamp(65px, 8vw, 100px)
+    0;
+
+  border-top: 1px solid rgba(255,255,255,.09);
+}
+
+.studioSectionHead {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+
+  gap: 70px;
+
+  align-items: end;
+
+  margin-bottom: 46px;
+}
+
+.studioSectionHead h2,
+.studioBranchesHead h2 {
+  margin: 13px 0 0;
+
+  color: #f5f3ed;
+
+  text-transform: uppercase;
+
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: .92;
+
+  letter-spacing: -.055em;
+}
+
+.studioSectionHead h2 span {
+  color: var(--gold);
+}
+
+.studioSectionHead > p {
+  max-width: 420px;
+
+  margin: 0;
+
+  color: rgba(255,255,255,.42);
+
+  font-size: .78rem;
+  line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   TIMELINE
+   --------------------------------------------------------- */
+
+.studioTimeline {
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.studioTimeline article {
+  display: grid;
+  grid-template-columns: 55px 1fr auto;
+
+  gap: 28px;
+
+  align-items: start;
+
+  padding: 29px 0;
+
+  border-bottom: 1px solid rgba(255,255,255,.09);
+}
+
+.studioTimelineNo {
+  color: var(--gold);
+
+  font-size: .5rem;
+  font-weight: 800;
+}
+
+.studioTimelineEra {
+  margin: 0 0 9px;
+
+  color: rgba(255,255,255,.28);
+
+  text-transform: uppercase;
+  letter-spacing: .12em;
+
+  font-size: .49rem;
+  font-weight: 700;
+}
+
+.studioTimeline h3 {
+  margin: 0 0 10px;
+
+  color: #f4f2ec;
+
+  text-transform: uppercase;
+
+  font-size: 1.1rem;
+}
+
+.studioTimeline article > div > p:last-child {
+  max-width: 530px;
+
+  margin: 0;
+
+  color: rgba(255,255,255,.42);
+
+  font-size: .72rem;
+  line-height: 1.65;
+}
+
+.studioTimelineDate {
+  color: rgba(255,255,255,.22);
+
+  text-transform: uppercase;
+  letter-spacing: .12em;
+
+  font-size: .43rem;
+}
+
+
+/* ---------------------------------------------------------
+   FOUNDER
+   --------------------------------------------------------- */
+
+.studioFounder {
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+
+  gap: clamp(45px, 7vw, 90px);
+
+  align-items: center;
+}
+
+.studioFounderVisual {
+  position: relative;
+
+  min-height: 510px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.10);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.025),
+      transparent 60%
+    ),
+    #090909;
+}
+
+.studioFounderVisual::before,
+.studioFounderVisual::after {
+  content: "";
+
+  position: absolute;
+
+  background: rgba(255,255,255,.08);
+}
+
+.studioFounderVisual::before {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+}
+
+.studioFounderVisual::after {
+  top: 50%;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+}
+
+.studioPlaceholderMark {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  width: 165px;
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(213,170,85,.28);
+  border-radius: 50%;
+}
+
+.studioPlaceholderMark span {
+  color: rgba(255,255,255,.12);
+
+  font-size: 3.5rem;
+  font-weight: 800;
+
+  letter-spacing: -.08em;
+}
+
+.studioFounderVisual > p {
+  position: absolute;
+
+  left: 22px;
+  bottom: 19px;
+
+  z-index: 2;
+
+  margin: 0;
+
+  color: rgba(255,255,255,.26);
+
+  text-transform: uppercase;
+  letter-spacing: .11em;
+
+  font-size: .47rem;
+}
+
+.studioFounderCopy h2 {
+  margin: 14px 0 28px;
+
+  color: #f6f4ef;
+
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: .78;
+
+  letter-spacing: -.07em;
+}
+
+.studioFounderLead {
+  max-width: 530px;
+
+  color: rgba(255,255,255,.54);
+
+  font-size: .82rem;
+  line-height: 1.75;
+}
+
+.studioStoryPlaceholder {
+  margin-top: 38px;
+  padding-top: 24px;
+
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.studioStoryPlaceholder span {
+  color: var(--gold);
+
+  text-transform: uppercase;
+  letter-spacing: .13em;
+
+  font-size: .49rem;
+  font-weight: 800;
+}
+
+.studioStoryPlaceholder p {
+  max-width: 520px;
+
+  margin: 12px 0 0;
+
+  color: rgba(255,255,255,.31);
+
+  font-size: .71rem;
+  line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   APPROACH
+   --------------------------------------------------------- */
+
+.studioApproachGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid rgba(255,255,255,.10);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.studioApproachGrid article {
+  min-height: 220px;
+
+  padding: 23px;
+}
+
+.studioApproachGrid article + article {
+  border-left: 1px solid rgba(255,255,255,.09);
+}
+
+.studioApproachGrid span {
+  color: var(--gold);
+
+  font-size: .48rem;
+  font-weight: 800;
+}
+
+.studioApproachGrid h3 {
+  margin: 55px 0 12px;
+
+  color: #f5f3ee;
+
+  text-transform: uppercase;
+
+  font-size: .79rem;
+}
+
+.studioApproachGrid p {
+  margin: 0;
+
+  color: rgba(255,255,255,.38);
+
+  font-size: .67rem;
+  line-height: 1.65;
+}
+
+
+/* ---------------------------------------------------------
+   BRANCHES
+   --------------------------------------------------------- */
+
+.studioBranchesHead {
+  margin-bottom: 38px;
+}
+
+.studioBranchGrid {
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.studioBranchGrid a {
+  display: grid;
+  grid-template-columns: 55px 1fr auto;
+
+  gap: 26px;
+
+  align-items: center;
+
+  min-height: 102px;
+
+  border-bottom: 1px solid rgba(255,255,255,.09);
+
+  transition:
+    background .2s ease,
+    padding .2s ease;
+}
+
+.studioBranchGrid > a > span {
+  color: var(--gold);
+
+  font-size: .5rem;
+  font-weight: 800;
+}
+
+.studioBranchGrid p {
+  margin: 0 0 6px;
+
+  color: rgba(255,255,255,.28);
+
+  text-transform: uppercase;
+  letter-spacing: .12em;
+
+  font-size: .47rem;
+}
+
+.studioBranchGrid h3 {
+  margin: 0;
+
+  color: #f6f4ee;
+
+  font-size: clamp(1.2rem, 2vw, 1.9rem);
+  line-height: 1;
+
+  letter-spacing: -.04em;
+}
+
+.studioBranchGrid b {
+  color: var(--gold);
+
+  font-size: 1rem;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .studioBranchGrid a:hover {
+    padding-left: 14px;
+    padding-right: 14px;
+
+    background: rgba(255,255,255,.025);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   CTA
+   --------------------------------------------------------- */
+
+.studioCta {
+  text-align: center;
+
+  padding-top: clamp(80px, 10vw, 130px);
+  padding-bottom: clamp(90px, 11vw, 145px);
+}
+
+.studioCta h2 {
+  margin: 18px auto 32px;
+
+  color: #f6f4ef;
+
+  text-transform: uppercase;
+
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  line-height: .88;
+
+  letter-spacing: -.06em;
+}
+
+.studioCta h2 em {
+  color: transparent;
+
+  font-style: normal;
+
+  -webkit-text-stroke:
+    1px rgba(255,255,255,.65);
+}
+
+.studioCta > a {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 38px;
+
+  min-width: 235px;
+
+  justify-content: space-between;
+
+  padding: 17px 18px;
+
+  background: var(--gold);
+  color: #080808;
+
+  text-transform: uppercase;
+  letter-spacing: .11em;
+
+  font-size: .59rem;
+  font-weight: 800;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  .studioHero,
+  .studioEvolution,
+  .studioFounder,
+  .studioApproach,
+  .studioBranches,
+  .studioCta {
+    width: 90vw;
+  }
+
+  .studioHero {
+    padding-top: 62px;
+  }
+
+  .studioHero h1 {
+    font-size: clamp(3.2rem, 16vw, 5.4rem);
+  }
+
+  .studioHeroProof {
+    gap: 35px;
+  }
+
+  .studioSectionHead {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .studioTimeline article {
+    grid-template-columns: 34px 1fr;
+
+    gap: 15px;
+  }
+
+  .studioTimelineDate {
+    grid-column: 2;
+
+    margin-top: 5px;
+  }
+
+  .studioFounder {
+    grid-template-columns: 1fr;
+  }
+
+  .studioFounderVisual {
+    min-height: 390px;
+  }
+
+  .studioApproachGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .studioApproachGrid article:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.09);
+  }
+
+  .studioApproachGrid article:nth-child(4) {
+    border-top: 1px solid rgba(255,255,255,.09);
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .studioHeroProof {
+    flex-direction: column;
+
+    gap: 30px;
+  }
+
+  .studioApproachGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .studioApproachGrid article + article,
+  .studioApproachGrid article:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.09);
+  }
+
+  .studioBranchGrid a {
+    grid-template-columns: 30px 1fr auto;
+
+    gap: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   ABOUT — NAV ACTIVE STATE
+   ========================================================= */
+
+.aboutStudioPage .mainNav a[href="/about"] {
+  color: var(--gold) !important;
+}
+
+
+/* =========================================================
+   ABOUT — FOUNDER FULL-STORY PREVIEW
+   Temporary presentation only.
+   ========================================================= */
+
+.studioFounder {
+  align-items: stretch;
+}
+
+.studioFounderMock {
+  display: grid !important;
+  grid-template-columns: 1.45fr .75fr;
+  gap: 8px;
+
+  min-height: 560px !important;
+
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+}
+
+.studioFounderMock::before,
+.studioFounderMock::after {
+  display: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   TEMPORARY PHOTO-LIKE COMPOSITIONS
+   --------------------------------------------------------- */
+
+.studioMockMain,
+.studioMockFrame {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.10);
+
+  background: #0b0b0b;
+}
+
+.studioMockMain {
+  min-height: 560px;
+
+  background:
+    radial-gradient(
+      ellipse at 48% 36%,
+      rgba(255,255,255,.16) 0 7%,
+      rgba(255,255,255,.055) 8% 18%,
+      transparent 19%
+    ),
+    radial-gradient(
+      ellipse at 50% 72%,
+      rgba(255,255,255,.10) 0 18%,
+      transparent 19%
+    ),
+    linear-gradient(
+      125deg,
+      #121212,
+      #070707 56%,
+      #15120d
+    );
+}
+
+.studioMockMain::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 45%,
+      rgba(0,0,0,.58)
+    );
+}
+
+.studioMockFigure {
+  position: absolute;
+
+  left: 50%;
+  top: 48%;
+
+  width: 34%;
+  height: 54%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 46% 46% 18% 18%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.10),
+      rgba(255,255,255,.025)
+    );
+
+  filter: blur(7px);
+
+  opacity: .68;
+}
+
+.studioMockSide {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+
+  gap: 8px;
+}
+
+.studioMockFrame {
+  min-height: 0;
+}
+
+.studioMockFrameOne {
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.08),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 68% 38%,
+      rgba(213,170,85,.10),
+      transparent 24%
+    ),
+    #0a0a0a;
+}
+
+.studioMockFrameTwo {
+  background:
+    radial-gradient(
+      circle at 34% 55%,
+      rgba(255,255,255,.10),
+      transparent 18%
+    ),
+    linear-gradient(
+      145deg,
+      #131313,
+      #070707 65%
+    );
+}
+
+.studioMockMain > span,
+.studioMockFrame > span {
+  position: absolute;
+
+  left: 14px;
+  bottom: 13px;
+
+  z-index: 2;
+
+  color: rgba(255,255,255,.30);
+
+  text-transform: uppercase;
+
+  font-size: .42rem;
+  font-weight: 700;
+
+  letter-spacing: .13em;
+}
+
+.studioFounderMock > p {
+  position: absolute;
+
+  left: 14px;
+  top: calc(100% + 10px);
+  bottom: auto;
+
+  color: rgba(255,255,255,.24);
+
+  font-size: .42rem;
+}
+
+
+/* ---------------------------------------------------------
+   FOUNDER COPY — FULLER PREVIEW
+   --------------------------------------------------------- */
+
+.studioFounderCopy {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.studioStoryPreview {
+  margin-top: 28px;
+}
+
+.studioStoryPreviewHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.studioStoryPreviewHead small {
+  color: rgba(255,255,255,.22);
+
+  text-transform: uppercase;
+  letter-spacing: .12em;
+
+  font-size: .42rem;
+}
+
+.studioBlurStory {
+  margin-top: 18px;
+
+  filter: blur(3.6px);
+
+  opacity: .56;
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+.studioBlurStory p {
+  max-width: 570px;
+
+  margin: 0 0 16px;
+
+  color: rgba(255,255,255,.60);
+
+  font-size: .74rem;
+  line-height: 1.78;
+}
+
+.studioStoryPreviewNote {
+  max-width: 545px !important;
+
+  margin-top: 20px !important;
+
+  color: rgba(255,255,255,.26) !important;
+
+  font-size: .58rem !important;
+  line-height: 1.6 !important;
+}
+
+
+/* ---------------------------------------------------------
+   REDUCE DEAD SPACE AROUND FOUNDER AREA
+   --------------------------------------------------------- */
+
+.studioEvolution {
+  padding-bottom: clamp(46px, 5vw, 70px);
+}
+
+.studioFounder {
+  padding-top: clamp(48px, 5.5vw, 72px);
+  padding-bottom: clamp(58px, 6vw, 82px);
+}
+
+.studioApproach {
+  padding-top: clamp(58px, 6vw, 82px);
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  .studioFounderMock {
+    grid-template-columns: 1fr;
+
+    min-height: 0 !important;
+  }
+
+  .studioMockMain {
+    min-height: 430px;
+  }
+
+  .studioMockSide {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
+  }
+
+  .studioMockFrame {
+    min-height: 180px;
+  }
+
+  .studioFounderCopy {
+    padding-top: 26px;
+  }
+
+  .studioBlurStory {
+    filter: blur(3px);
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .studioMockSide {
+    grid-template-columns: 1fr;
+  }
+
+  .studioMockFrame {
+    min-height: 155px;
+  }
+
+}
+
+
+/* =========================================================
+   ABOUT — DENSER EDITORIAL RHYTHM
+   ========================================================= */
+
+/*
+   The first pass intentionally had generous spacing.
+   This pulls the page into one continuous story.
+*/
+
+.aboutStudioPage .studioHero {
+  padding-top: clamp(62px, 7vw, 92px);
+  padding-bottom: clamp(48px, 5vw, 66px);
+}
+
+.aboutStudioPage .studioEvolution,
+.aboutStudioPage .studioFounder,
+.aboutStudioPage .studioApproach,
+.aboutStudioPage .studioBranches {
+  padding-top: clamp(42px, 4.7vw, 60px);
+  padding-bottom: clamp(42px, 4.7vw, 60px);
+}
+
+.aboutStudioPage .studioCta {
+  padding-top: clamp(58px, 6vw, 82px);
+  padding-bottom: clamp(68px, 7vw, 94px);
+}
+
+.aboutStudioPage .studioSectionHead {
+  margin-bottom: 34px;
+}
+
+.aboutStudioPage .studioTimeline article {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.aboutStudioPage .studioFounder {
+  gap: clamp(38px, 5vw, 64px);
+}
+
+.aboutStudioPage .studioBranchesHead {
+  margin-bottom: 27px;
+}
+
+.aboutStudioPage .studioBranchGrid a {
+  min-height: 86px;
+}
+
+
+/* =========================================================
+   ABOUT — SMALL COPY MADE MORE READABLE
+   ========================================================= */
+
+.aboutStudioPage .studioHeroCopy {
+  font-size: .96rem;
+  line-height: 1.7;
+}
+
+.aboutStudioPage .studioHeroProof span {
+  font-size: .57rem;
+}
+
+.aboutStudioPage .studioSectionHead > p {
+  font-size: .88rem;
+  line-height: 1.65;
+}
+
+.aboutStudioPage .studioTimelineEra {
+  font-size: .56rem;
+}
+
+.aboutStudioPage .studioTimeline article > div > p:last-child {
+  max-width: 590px;
+
+  font-size: .82rem;
+  line-height: 1.65;
+}
+
+.aboutStudioPage .studioTimelineDate {
+  font-size: .50rem;
+}
+
+.aboutStudioPage .studioFounderLead {
+  font-size: .91rem;
+  line-height: 1.7;
+}
+
+.aboutStudioPage .studioBlurStory {
+  filter: blur(2.15px);
+  opacity: .70;
+}
+
+.aboutStudioPage .studioBlurStory p {
+  max-width: 590px;
+
+  font-size: .84rem;
+  line-height: 1.72;
+}
+
+.aboutStudioPage .studioStoryPreviewNote {
+  font-size: .63rem !important;
+}
+
+.aboutStudioPage .studioApproachGrid h3 {
+  font-size: .88rem;
+}
+
+.aboutStudioPage .studioApproachGrid p {
+  font-size: .76rem;
+  line-height: 1.62;
+}
+
+.aboutStudioPage .studioBranchGrid p {
+  font-size: .54rem;
+}
+
+
+/* =========================================================
+   FOUNDER — REAL PHOTOGRAPHY
+   ========================================================= */
+
+.studioFounderGallery {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.45fr)
+    minmax(0, .78fr);
+
+  gap: 9px;
+
+  align-self: center;
+
+  min-width: 0;
+}
+
+.studioFounderSide {
+  display: grid;
+
+  grid-template-rows:
+    1fr
+    1fr;
+
+  gap: 9px;
+
+  min-width: 0;
+}
+
+.studioFounderImage {
+  position: relative;
+
+  margin: 0;
+
+  overflow: hidden;
+
+  min-width: 0;
+
+  background: #090909;
+
+  border: 1px solid rgba(255,255,255,.09);
+}
+
+.studioFounderPrimary {
+  aspect-ratio: 4 / 5;
+}
+
+.studioFounderSide .studioFounderImage {
+  min-height: 0;
+}
+
+.studioFounderImage img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter:
+    saturate(.82)
+    contrast(1.035)
+    brightness(.91);
+
+  transition:
+    transform .7s ease,
+    filter .7s ease;
+}
+
+
+/* Main portrait */
+.studioFounderPrimary img {
+  object-position: 49% center;
+}
+
+
+/* Editing / BTS */
+.studioFounderBts img {
+  object-position: 58% center;
+}
+
+
+/* Backlit cinematic portrait */
+.studioFounderCinematic img {
+  object-position: 51% center;
+}
+
+
+.studioFounderImage::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 50%,
+      rgba(0,0,0,.58) 100%
+    );
+}
+
+.studioFounderImage figcaption {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 13px;
+  bottom: 12px;
+
+  color: rgba(255,255,255,.62);
+
+  text-transform: uppercase;
+  letter-spacing: .12em;
+
+  font-size: .47rem;
+  font-weight: 700;
+}
+
+
+@media (hover:hover) and (pointer:fine) {
+
+  .studioFounderImage:hover img {
+    transform: scale(1.018);
+
+    filter:
+      saturate(.9)
+      contrast(1.035)
+      brightness(.98);
+  }
+
+}
+
+
+/* =========================================================
+   APPROACH — SLIGHTLY SHORTER CARDS
+   ========================================================= */
+
+.aboutStudioPage .studioApproachGrid article {
+  min-height: 188px;
+
+  padding: 20px;
+}
+
+.aboutStudioPage .studioApproachGrid h3 {
+  margin-top: 40px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .aboutStudioPage .studioHero {
+    padding-top: 45px;
+    padding-bottom: 44px;
+  }
+
+  .aboutStudioPage .studioEvolution,
+  .aboutStudioPage .studioFounder,
+  .aboutStudioPage .studioApproach,
+  .aboutStudioPage .studioBranches {
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+
+  .studioFounderGallery {
+    grid-template-columns: 1fr;
+  }
+
+  .studioFounderPrimary {
+    aspect-ratio: 4 / 4.6;
+  }
+
+  .studioFounderSide {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
+  }
+
+  .studioFounderSide .studioFounderImage {
+    aspect-ratio: 4 / 3;
+  }
+
+  .aboutStudioPage .studioTimeline article > div > p:last-child {
+    font-size: .78rem;
+  }
+
+  .aboutStudioPage .studioApproachGrid p {
+    font-size: .73rem;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .studioFounderSide {
+    grid-template-columns: 1fr;
+  }
+
+  .studioFounderSide .studioFounderImage {
+    aspect-ratio: 16 / 9;
+  }
+
+}
+
+
+/* =========================================================
+   ABOUT — FINAL COMPACT RHYTHM
+   Last spacing pass before real story/content.
+   ========================================================= */
+
+/* Hero / proof → evolution */
+.aboutStudioPage .studioHero {
+  padding-bottom: 38px;
+}
+
+.aboutStudioPage .studioHeroProof {
+  margin-top: 46px;
+}
+
+
+/* Evolution / timeline */
+.aboutStudioPage .studioEvolution {
+  padding-top: 38px;
+  padding-bottom: 24px;
+}
+
+.aboutStudioPage .studioTimeline article {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+
+/* Timeline → Founder */
+.aboutStudioPage .studioFounder {
+  padding-top: 25px;
+  padding-bottom: 38px;
+
+  gap: clamp(32px, 4vw, 52px);
+}
+
+
+/* Founder → Approach */
+.aboutStudioPage .studioApproach {
+  padding-top: 34px;
+  padding-bottom: 36px;
+}
+
+
+/* Approach cards slightly tighter */
+.aboutStudioPage .studioApproachGrid article {
+  min-height: 170px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.aboutStudioPage .studioApproachGrid h3 {
+  margin-top: 31px;
+}
+
+
+/* Approach → Branches */
+.aboutStudioPage .studioBranches {
+  padding-top: 34px;
+  padding-bottom: 30px;
+}
+
+.aboutStudioPage .studioBranchesHead {
+  margin-bottom: 21px;
+}
+
+.aboutStudioPage .studioBranchGrid a {
+  min-height: 76px;
+}
+
+
+/* Branches → CTA */
+.aboutStudioPage .studioCta {
+  padding-top: 48px;
+  padding-bottom: 68px;
+}
+
+.aboutStudioPage .studioCta h2 {
+  margin-top: 14px;
+  margin-bottom: 25px;
+}
+
+
+/* Keep mobile comfortable — compact, but not cramped */
+@media (max-width: 800px) {
+
+  .aboutStudioPage .studioHero {
+    padding-bottom: 34px;
+  }
+
+  .aboutStudioPage .studioEvolution {
+    padding-top: 32px;
+    padding-bottom: 25px;
+  }
+
+  .aboutStudioPage .studioFounder {
+    padding-top: 28px;
+    padding-bottom: 34px;
+  }
+
+  .aboutStudioPage .studioApproach,
+  .aboutStudioPage .studioBranches {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .aboutStudioPage .studioCta {
+    padding-top: 44px;
+    padding-bottom: 60px;
+  }
+
+}
+
+
+/* =========================================================
+   ABOUT — COMPANY STORY PREVIEW
+   ========================================================= */
+
+.studioCompanyStoryPreview {
+  max-width: 710px;
+
+  margin-top: 26px;
+
+  filter: blur(2.1px);
+
+  opacity: .70;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+.studioCompanyStoryPreview p {
+  margin: 0 0 15px;
+
+  color: rgba(255,255,255,.63);
+
+  font-size: .86rem;
+  line-height: 1.72;
+}
+
+.studioCompanyStoryPreview p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Because the company story is now longer,
+   keep the hero compact rather than creating more dead space. */
+.aboutStudioPage .studioHero {
+  padding-bottom: 31px;
+}
+
+.aboutStudioPage .studioHeroProof {
+  margin-top: 34px;
+}
+
+
+/* Founder story no longer needs explanatory footer text */
+.aboutStudioPage .studioStoryPreviewNote {
+  display: none !important;
+}
+
+
+@media (max-width: 800px) {
+
+  .studioCompanyStoryPreview {
+    max-width: 100%;
+
+    margin-top: 22px;
+
+    filter: blur(1.8px);
+  }
+
+  .studioCompanyStoryPreview p {
+    font-size: .79rem;
+    line-height: 1.68;
+  }
+
+}
+
+/* =========================================================
+   ABOUT — FINAL DENSITY PASS
+   Tighten everything below the company-story paragraph.
+   ========================================================= */
+
+/* Company story → proof */
+.aboutStudioPage .studioCompanyStoryPreview {
+  margin-bottom: 0 !important;
+}
+
+.aboutStudioPage .studioHeroProof {
+  margin-top: 20px !important;
+  padding-top: 20px !important;
+}
+
+/* Proof → evolution */
+.aboutStudioPage .studioHero {
+  padding-bottom: 15px !important;
+}
+
+.aboutStudioPage .studioEvolution {
+  padding-top: 22px !important;
+  padding-bottom: 12px !important;
+}
+
+/* Evolution heading → timeline */
+.aboutStudioPage .studioSectionHead {
+  margin-bottom: 24px !important;
+}
+
+.aboutStudioPage .studioTimeline article {
+  padding-top: 13px !important;
+  padding-bottom: 13px !important;
+}
+
+/* Timeline → Kevin */
+.aboutStudioPage .studioFounder {
+  padding-top: 12px !important;
+  padding-bottom: 22px !important;
+}
+
+/* Kevin → approach */
+.aboutStudioPage .studioApproach {
+  padding-top: 22px !important;
+  padding-bottom: 22px !important;
+}
+
+/* Approach heading/cards */
+.aboutStudioPage .studioApproach .studioSectionHead {
+  margin-bottom: 23px !important;
+}
+
+.aboutStudioPage .studioApproachGrid article {
+  min-height: 145px !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+.aboutStudioPage .studioApproachGrid h3 {
+  margin-top: 25px !important;
+}
+
+/* Approach → branches */
+.aboutStudioPage .studioBranches {
+  padding-top: 22px !important;
+  padding-bottom: 15px !important;
+}
+
+.aboutStudioPage .studioBranchesHead {
+  margin-bottom: 17px !important;
+}
+
+.aboutStudioPage .studioBranchGrid a {
+  min-height: 64px !important;
+}
+
+/* Branches → CTA */
+.aboutStudioPage .studioCta {
+  padding-top: 30px !important;
+  padding-bottom: 44px !important;
+}
+
+.aboutStudioPage .studioCta h2 {
+  margin-top: 11px !important;
+  margin-bottom: 21px !important;
+}
+
+@media (max-width: 800px) {
+  .aboutStudioPage .studioHeroProof {
+    margin-top: 24px !important;
+  }
+
+  .aboutStudioPage .studioEvolution,
+  .aboutStudioPage .studioFounder,
+  .aboutStudioPage .studioApproach,
+  .aboutStudioPage .studioBranches {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+}

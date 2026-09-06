@@ -1,0 +1,512 @@
+/* =========================================================
+   BOOKING — CONDITIONAL PROJECT DETAILS + DATE PICKER
+   ========================================================= */
+
+.bookingProgressShell {
+  width: min(1120px, 88vw);
+  max-width: 1120px;
+
+  margin: -1px auto 0;
+}
+
+
+/* Keep the progress row separate from the intro now that
+   the interactive form is its own component. */
+.bookingProgressShell .bookingProcess {
+  margin-top: 0;
+}
+
+
+/* ---------------------------------------------------------
+   CONDITIONAL QUESTIONS
+   --------------------------------------------------------- */
+
+.bookingConditionalPrompt {
+  display: flex;
+  align-items: center;
+
+  min-height: 74px;
+
+  padding: 0 18px;
+
+  border-left: 1px solid rgba(213,170,85,.36);
+
+  color: rgba(255,255,255,.36);
+
+  font-size: .70rem;
+  line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   CUSTOM-FACING / NATIVE-BACKED DATE PICKER
+   --------------------------------------------------------- */
+
+.bookingDateControl {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 45px;
+
+  border-bottom: 1px solid rgba(255,255,255,.20);
+
+  color: rgba(255,255,255,.38);
+
+  cursor: pointer;
+
+  transition:
+    border-color .2s ease,
+    color .2s ease;
+}
+
+.bookingDateControl:hover {
+  border-color: rgba(255,255,255,.42);
+}
+
+.bookingDateControl:focus-within {
+  border-color: var(--gold);
+}
+
+.bookingDateControl.hasDate {
+  color: #f6f5f1;
+}
+
+.bookingDateText {
+  padding: 11px 0 12px;
+
+  font-size: .94rem;
+
+  pointer-events: none;
+}
+
+
+/* Minimal line-art calendar icon */
+.bookingCalendarIcon {
+  position: relative;
+
+  width: 15px;
+  height: 14px;
+
+  margin-right: 3px;
+
+  border: 1px solid rgba(255,255,255,.48);
+
+  pointer-events: none;
+}
+
+.bookingCalendarIcon::before {
+  content: "";
+
+  position: absolute;
+
+  left: 2px;
+  right: 2px;
+  top: 4px;
+
+  border-top: 1px solid rgba(255,255,255,.38);
+}
+
+.bookingCalendarIcon::after {
+  content: "";
+
+  position: absolute;
+
+  left: 3px;
+  top: -3px;
+
+  width: 7px;
+  height: 4px;
+
+  border-left: 1px solid rgba(255,255,255,.55);
+  border-right: 1px solid rgba(255,255,255,.55);
+}
+
+
+/*
+  The native input covers the entire control invisibly.
+  Clicking ANYWHERE triggers the real browser calendar.
+*/
+.bookingDateNative {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  opacity: 0 !important;
+
+  cursor: pointer !important;
+
+  color-scheme: dark !important;
+}
+
+
+/* ---------------------------------------------------------
+   PROGRESS ROW — COMPLETE STATE
+   --------------------------------------------------------- */
+
+.bookingStepStatus {
+  color: var(--gold);
+}
+
+.bookingStepButton.isComplete {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(213,170,85,.035),
+      transparent 74%
+    );
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  .bookingProgressShell {
+    width: 90vw;
+  }
+
+  .bookingConditionalPrompt {
+    min-height: 64px;
+
+    padding-left: 14px;
+
+    font-size: .66rem;
+  }
+
+  .bookingDateText {
+    font-size: 1rem;
+  }
+
+}
+
+
+@media (max-width: 430px) {
+
+  .bookingProgressShell .bookingProcess {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MUSIC VIDEO — OPTIONAL SONG UPLOAD
+   ========================================================= */
+
+.bookingUpload {
+  display: block;
+}
+
+.bookingUploadHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 9px;
+
+  color: rgba(255,255,255,.50);
+
+  text-transform: uppercase;
+  letter-spacing: .12em;
+
+  font-size: .56rem;
+  font-weight: 700;
+}
+
+.bookingUploadHeading small {
+  color: rgba(255,255,255,.27);
+
+  font-size: .46rem;
+  font-weight: 600;
+  letter-spacing: .11em;
+}
+
+.bookingUploadControl {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+
+  gap: 18px;
+
+  min-height: 58px;
+
+  padding: 0 17px;
+
+  border: 1px solid rgba(255,255,255,.14);
+
+  background: rgba(255,255,255,.018);
+
+  cursor: pointer;
+
+  transition:
+    border-color .2s ease,
+    background .2s ease;
+}
+
+.bookingUploadControl:hover,
+.bookingUploadControl:focus-within {
+  border-color: rgba(213,170,85,.65);
+
+  background: rgba(213,170,85,.025);
+}
+
+.bookingUploadControl.hasFile {
+  border-color: rgba(213,170,85,.34);
+}
+
+.bookingUploadControl input[type="file"] {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+
+  cursor: pointer;
+}
+
+.bookingUploadAction {
+  color: rgba(255,255,255,.78);
+
+  text-transform: uppercase;
+  letter-spacing: .11em;
+
+  font-size: .57rem;
+  font-weight: 800;
+
+  pointer-events: none;
+}
+
+.bookingUploadName {
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: rgba(255,255,255,.34);
+
+  font-size: .68rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  pointer-events: none;
+}
+
+.bookingUploadControl.hasFile .bookingUploadName {
+  color: rgba(255,255,255,.66);
+}
+
+.bookingUploadControl b {
+  color: var(--gold);
+
+  font-size: 1rem;
+  font-weight: 400;
+
+  pointer-events: none;
+}
+
+
+@media (max-width: 600px) {
+
+  .bookingUploadControl {
+    grid-template-columns: 1fr auto;
+
+    gap: 8px 12px;
+
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .bookingUploadName {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    font-size: .64rem;
+  }
+
+}
+
+
+/* =========================================================
+   MUSIC VIDEO — SONG + MOODBOARD ASSET ROW
+   ========================================================= */
+
+.bookingAssetGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.bookingAssetGrid .bookingUpload {
+  min-width: 0;
+}
+
+.bookingAssetGrid .bookingUploadControl {
+  height: 100%;
+}
+
+
+/* Give the longer moodboard label room without breaking layout */
+.bookingAssetGrid .bookingUploadHeading {
+  gap: 12px;
+}
+
+.bookingAssetGrid .bookingUploadHeading small {
+  white-space: nowrap;
+}
+
+
+@media (max-width: 720px) {
+
+  .bookingAssetGrid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+}
+
+
+/* =========================================================
+   BOOKING — WHAT HAPPENS NEXT
+   ========================================================= */
+
+.bookingNext {
+  margin: 0 0 54px;
+  padding: 54px 0;
+
+  border-top: 1px solid rgba(255,255,255,.09);
+  border-bottom: 1px solid rgba(255,255,255,.09);
+}
+
+.bookingNextHead {
+  display: grid;
+  grid-template-columns: .65fr 1.35fr;
+  gap: 50px;
+
+  align-items: end;
+
+  margin-bottom: 38px;
+}
+
+.bookingNextHead .kicker {
+  margin: 0;
+}
+
+.bookingNextHead h2 {
+  max-width: 620px;
+
+  margin: 0;
+
+  color: #f4f2ec;
+
+  text-transform: uppercase;
+
+  font-size: clamp(1.55rem, 2.7vw, 2.5rem);
+  line-height: .98;
+
+  letter-spacing: -.045em;
+}
+
+.bookingNextGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid rgba(255,255,255,.10);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.bookingNextGrid article {
+  min-height: 185px;
+
+  padding: 22px 24px 25px;
+}
+
+.bookingNextGrid article + article {
+  border-left: 1px solid rgba(255,255,255,.10);
+}
+
+.bookingNextGrid article > span {
+  color: var(--gold);
+
+  font-size: .52rem;
+  font-weight: 800;
+
+  letter-spacing: .13em;
+}
+
+.bookingNextGrid h3 {
+  margin: 45px 0 10px;
+
+  color: #f5f3ed;
+
+  text-transform: uppercase;
+
+  font-size: .82rem;
+  letter-spacing: .04em;
+}
+
+.bookingNextGrid p {
+  max-width: 250px;
+
+  margin: 0;
+
+  color: rgba(255,255,255,.42);
+
+  font-size: .69rem;
+  line-height: 1.65;
+}
+
+
+@media (max-width: 800px) {
+
+  .bookingNext {
+    margin-bottom: 42px;
+    padding: 42px 0;
+  }
+
+  .bookingNextHead {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+
+    margin-bottom: 28px;
+  }
+
+  .bookingNextGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .bookingNextGrid article {
+    min-height: 0;
+
+    padding: 20px 4px 22px;
+  }
+
+  .bookingNextGrid article + article {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.09);
+  }
+
+  .bookingNextGrid h3 {
+    margin-top: 24px;
+  }
+
+}

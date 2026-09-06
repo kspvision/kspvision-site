@@ -1,0 +1,871 @@
+/* =========================================================
+   KSP VISION — BOOKING / INQUIRY EXPERIENCE
+   Front-end presentation.
+   Submission wiring intentionally handled separately.
+   ========================================================= */
+
+.bookingV2 {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 82% 14%,
+      rgba(213,170,85,.055),
+      transparent 30%
+    ),
+    #050505;
+}
+
+
+/* ---------------------------------------------------------
+   INTRO
+   --------------------------------------------------------- */
+
+.bookingV2 .bookingIntro {
+  width: min(1120px, 88vw);
+  max-width: 1120px;
+
+  margin: 0 auto;
+
+  padding:
+    clamp(74px, 9vw, 130px)
+    0
+    clamp(54px, 7vw, 90px);
+
+  border-bottom: 1px solid rgba(255,255,255,.09);
+}
+
+.bookingIntroCopy {
+  max-width: 810px;
+}
+
+.bookingV2 .bookingIntro h1 {
+  margin: 18px 0 24px;
+
+  font-size: clamp(3.5rem, 7.6vw, 7.5rem);
+  line-height: .82;
+
+  letter-spacing: -.065em;
+}
+
+.bookingV2 .bookingIntro h1 em {
+  color: transparent;
+
+  font-style: normal;
+
+  -webkit-text-stroke:
+    1px rgba(255,255,255,.72);
+}
+
+.bookingLead {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: rgba(255,255,255,.58);
+
+  font-size: .88rem;
+  line-height: 1.72;
+}
+
+.bookingProcess {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: clamp(48px, 6vw, 78px);
+
+  border-top: 1px solid rgba(255,255,255,.10);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.bookingProcess span {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 58px;
+
+  padding: 0 20px;
+
+  color: rgba(255,255,255,.48);
+
+  text-transform: uppercase;
+  letter-spacing: .14em;
+
+  font-size: .58rem;
+  font-weight: 700;
+}
+
+.bookingProcess span + span {
+  border-left: 1px solid rgba(255,255,255,.08);
+}
+
+.bookingProcess b {
+  color: var(--gold);
+  font-weight: 800;
+}
+
+
+/* ---------------------------------------------------------
+   FORM
+   --------------------------------------------------------- */
+
+.bookingFormSection {
+  width: min(1120px, 88vw);
+  max-width: 1120px;
+
+  margin: 0 auto;
+
+  padding:
+    clamp(52px, 7vw, 88px)
+    0
+    clamp(80px, 9vw, 120px);
+}
+
+.bookingForm {
+  width: 100%;
+}
+
+.bookingFieldset {
+  margin: 0;
+  padding: 0 0 clamp(56px, 7vw, 86px);
+
+  border: 0;
+}
+
+.bookingFieldset + .bookingFieldset {
+  padding-top: clamp(50px, 6vw, 76px);
+
+  border-top: 1px solid rgba(255,255,255,.085);
+}
+
+.bookingFieldset legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  width: 100%;
+
+  margin: 0 0 30px;
+  padding: 0;
+
+  color: #f4f2ec;
+
+  text-transform: uppercase;
+
+  letter-spacing: -.025em;
+
+  font-size: clamp(1.35rem, 2.4vw, 2.15rem);
+  font-weight: 800;
+}
+
+.bookingFieldset legend > span {
+  color: var(--gold);
+
+  font-size: .58rem;
+  letter-spacing: .13em;
+}
+
+.bookingFieldHint {
+  max-width: 520px;
+
+  margin: -13px 0 28px;
+
+  color: rgba(255,255,255,.42);
+
+  font-size: .72rem;
+  line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   CHOICES
+   --------------------------------------------------------- */
+
+.bookingChoices {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.bookingChoices label {
+  cursor: pointer;
+}
+
+.bookingChoices input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bookingChoices label > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 46px;
+
+  padding: 0 18px;
+
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 2px;
+
+  background: rgba(255,255,255,.018);
+
+  color: rgba(255,255,255,.60);
+
+  text-transform: uppercase;
+  letter-spacing: .105em;
+
+  font-size: .59rem;
+  font-weight: 700;
+
+  transition:
+    border-color .2s ease,
+    background .2s ease,
+    color .2s ease;
+}
+
+.bookingChoices label:hover > span {
+  border-color: rgba(255,255,255,.32);
+  color: #fff;
+}
+
+.bookingChoices input:checked + span {
+  border-color: var(--gold);
+
+  background: rgba(213,170,85,.09);
+
+  color: #f5deb0;
+}
+
+.bookingChoices input:focus-visible + span {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+
+/* ---------------------------------------------------------
+   TEXT FIELDS
+   --------------------------------------------------------- */
+
+.bookingFieldsGrid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 36px 46px;
+}
+
+.bookingField {
+  display: block;
+
+  min-width: 0;
+}
+
+.bookingFieldWide {
+  grid-column: 1 / -1;
+}
+
+.bookingField > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 9px;
+
+  color: rgba(255,255,255,.50);
+
+  text-transform: uppercase;
+  letter-spacing: .12em;
+
+  font-size: .56rem;
+  font-weight: 700;
+}
+
+.bookingField > span small {
+  color: rgba(255,255,255,.25);
+
+  font-size: .48rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+
+.bookingField input,
+.bookingField textarea {
+  width: 100%;
+
+  margin: 0;
+  padding: 11px 0 13px;
+
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.20);
+  border-radius: 0;
+
+  outline: 0;
+
+  background: transparent;
+
+  color: #f6f5f1;
+
+  font: inherit;
+  font-size: .94rem;
+
+  transition: border-color .2s ease;
+}
+
+.bookingField textarea {
+  min-height: 150px;
+
+  padding: 14px;
+
+  border:
+    1px solid rgba(255,255,255,.14);
+
+  resize: vertical;
+
+  line-height: 1.65;
+
+  background:
+    rgba(255,255,255,.018);
+}
+
+.bookingField input:hover,
+.bookingField textarea:hover {
+  border-color: rgba(255,255,255,.37);
+}
+
+.bookingField input:focus,
+.bookingField textarea:focus {
+  border-color: var(--gold);
+}
+
+
+/* ---------------------------------------------------------
+   SUBMIT AREA
+   --------------------------------------------------------- */
+
+.bookingSubmitRow {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding-top: 34px;
+
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.bookingSubmitRow > div p {
+  margin: 0 0 6px;
+
+  color: rgba(255,255,255,.70);
+
+  text-transform: uppercase;
+  letter-spacing: .12em;
+
+  font-size: .58rem;
+  font-weight: 700;
+}
+
+.bookingSubmitRow > div span {
+  color: rgba(255,255,255,.34);
+
+  text-transform: uppercase;
+  letter-spacing: .09em;
+
+  font-size: .50rem;
+}
+
+.bookingSubmit {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 34px;
+
+  min-width: 250px;
+
+  min-height: 54px;
+
+  padding: 0 18px;
+
+  border: 1px solid var(--gold);
+
+  background: var(--gold);
+  color: #080808;
+
+  cursor: pointer;
+
+  text-transform: uppercase;
+  letter-spacing: .11em;
+
+  font-size: .61rem;
+  font-weight: 800;
+
+  transition:
+    background .2s ease,
+    color .2s ease;
+}
+
+.bookingSubmit:hover {
+  background: #f4f2ec;
+  border-color: #f4f2ec;
+}
+
+.bookingSubmit b {
+  font-size: .8rem;
+}
+
+.bookingResponseNote {
+  margin: 15px 0 0;
+
+  text-align: right;
+
+  color: rgba(255,255,255,.28);
+
+  text-transform: uppercase;
+  letter-spacing: .11em;
+
+  font-size: .47rem;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  .bookingV2 .bookingIntro,
+  .bookingFormSection {
+    width: 90vw;
+  }
+
+  .bookingV2 .bookingIntro {
+    padding-top: 58px;
+    padding-bottom: 46px;
+  }
+
+  .bookingV2 .bookingIntro h1 {
+    margin-top: 14px;
+
+    font-size: clamp(3.1rem, 15vw, 5.2rem);
+  }
+
+  .bookingLead {
+    max-width: 94%;
+
+    font-size: .82rem;
+  }
+
+  .bookingProcess {
+    grid-template-columns: 1fr;
+
+    margin-top: 40px;
+  }
+
+  .bookingProcess span {
+    min-height: 46px;
+
+    padding: 0 4px;
+  }
+
+  .bookingProcess span + span {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.075);
+  }
+
+  .bookingFormSection {
+    padding-top: 46px;
+  }
+
+  .bookingFieldset {
+    padding-bottom: 50px;
+  }
+
+  .bookingFieldset + .bookingFieldset {
+    padding-top: 45px;
+  }
+
+  .bookingFieldset legend {
+    margin-bottom: 24px;
+
+    font-size: 1.35rem;
+  }
+
+  .bookingChoices {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+  }
+
+  .bookingChoices label > span {
+    min-height: 48px;
+
+    padding: 0 10px;
+
+    text-align: center;
+
+    font-size: .54rem;
+  }
+
+  .bookingFieldsGrid {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+  .bookingFieldWide {
+    grid-column: auto;
+  }
+
+  .bookingSubmitRow {
+    align-items: stretch;
+
+    flex-direction: column;
+
+    gap: 25px;
+  }
+
+  .bookingSubmit {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .bookingResponseNote {
+    text-align: left;
+  }
+}
+
+
+@media (max-width: 430px) {
+
+  .bookingChoices {
+    grid-template-columns: 1fr;
+  }
+
+  .bookingChoices label > span {
+    justify-content: flex-start;
+
+    padding-left: 14px;
+  }
+}
+
+
+/* =========================================================
+   BOOKING V2 — DESKTOP RHYTHM / ALIGNMENT POLISH
+   ========================================================= */
+
+/* Four actual stages */
+.bookingV2 .bookingProcess {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Keep all five project types intentionally on one row */
+.bookingV2 .bookingChoicesProject {
+  display: grid;
+  grid-template-columns:
+    .9fr
+    1.05fr
+    1.45fr
+    1.08fr
+    .72fr;
+  gap: 8px;
+}
+
+.bookingV2 .bookingChoicesProject label {
+  display: block;
+  min-width: 0;
+}
+
+.bookingV2 .bookingChoicesProject label > span {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+
+/* Tighten vertical rhythm without losing luxury spacing */
+.bookingV2 .bookingFormSection {
+  padding-top: clamp(40px, 5vw, 62px);
+  padding-bottom: clamp(70px, 8vw, 105px);
+}
+
+.bookingV2 .bookingFieldset {
+  padding-bottom: clamp(46px, 5.5vw, 68px);
+}
+
+.bookingV2 .bookingFieldset + .bookingFieldset {
+  padding-top: clamp(40px, 5vw, 58px);
+}
+
+.bookingV2 .bookingFieldset legend {
+  margin-bottom: 26px;
+}
+
+
+/* Mobile */
+@media (max-width: 800px) {
+
+  .bookingV2 .bookingProcess {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bookingV2 .bookingProcess span + span {
+    border-left: 0;
+    border-top: 0;
+  }
+
+  .bookingV2 .bookingProcess span:nth-child(even) {
+    border-left: 1px solid rgba(255,255,255,.075);
+  }
+
+  .bookingV2 .bookingProcess span:nth-child(n+3) {
+    border-top: 1px solid rgba(255,255,255,.075);
+  }
+
+  .bookingV2 .bookingChoicesProject {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bookingV2 .bookingFieldset {
+    padding-bottom: 42px;
+  }
+
+  .bookingV2 .bookingFieldset + .bookingFieldset {
+    padding-top: 40px;
+  }
+}
+
+
+@media (max-width: 430px) {
+
+  .bookingV2 .bookingChoicesProject {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   BOOKING — INTERACTIVE STEP NAVIGATION
+   ========================================================= */
+
+.bookingStepSection {
+  scroll-margin-top: 120px;
+}
+
+.bookingV2 .bookingProcess {
+  overflow: hidden;
+}
+
+.bookingV2 .bookingStepButton {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  min-width: 0;
+  min-height: 58px;
+
+  padding: 0 18px;
+
+  border: 0;
+  border-right: 1px solid rgba(255,255,255,.08);
+
+  background: transparent;
+  color: rgba(255,255,255,.48);
+
+  cursor: pointer;
+
+  font: inherit;
+  text-align: left;
+
+  transition:
+    background .2s ease,
+    color .2s ease;
+}
+
+.bookingV2 .bookingStepButton:last-child {
+  border-right: 0;
+}
+
+.bookingStepIdentity {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+
+  gap: 14px;
+
+  text-transform: uppercase;
+  letter-spacing: .14em;
+
+  font-size: .58rem;
+  font-weight: 700;
+}
+
+.bookingStepIdentity b {
+  color: var(--gold);
+
+  font-size: .58rem;
+  font-weight: 800;
+}
+
+.bookingStepStatus {
+  flex: 0 0 auto;
+
+  color: var(--gold);
+
+  font-size: .43rem;
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: .11em;
+
+  white-space: nowrap;
+}
+
+
+/* current section */
+.bookingV2 .bookingStepButton.isActive {
+  background: rgba(255,255,255,.035);
+  color: rgba(255,255,255,.92);
+}
+
+.bookingV2 .bookingStepButton.isActive::after {
+  content: "";
+
+  position: absolute;
+
+  left: 18px;
+  right: 18px;
+  bottom: -1px;
+
+  height: 2px;
+
+  background: var(--gold);
+}
+
+
+/* completed section */
+.bookingV2 .bookingStepButton.isComplete:not(.isActive) {
+  color: rgba(255,255,255,.68);
+}
+
+
+/* keyboard */
+.bookingV2 .bookingStepButton:focus-visible {
+  z-index: 2;
+
+  outline: 1px solid var(--gold);
+  outline-offset: -2px;
+}
+
+
+/* desktop hover */
+@media (hover:hover) and (pointer:fine) {
+  .bookingV2 .bookingStepButton:hover {
+    background: rgba(255,255,255,.035);
+    color: #fff;
+  }
+}
+
+
+/* mobile */
+@media (max-width: 800px) {
+
+  .bookingV2 .bookingStepButton {
+    min-height: 54px;
+
+    padding: 0 12px;
+
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.075);
+  }
+
+  .bookingV2 .bookingStepButton:nth-child(odd) {
+    border-right: 1px solid rgba(255,255,255,.075);
+  }
+
+  .bookingStepIdentity {
+    gap: 8px;
+
+    font-size: .50rem;
+  }
+
+  .bookingStepIdentity b {
+    font-size: .50rem;
+  }
+
+  .bookingStepStatus {
+    font-size: .36rem;
+  }
+
+  .bookingV2 .bookingStepButton.isActive::after {
+    left: 12px;
+    right: 12px;
+  }
+
+  .bookingStepSection {
+    scroll-margin-top: 135px;
+  }
+
+}
+
+
+@media (max-width: 430px) {
+
+  .bookingStepStatus {
+    display: none;
+  }
+
+  .bookingV2 .bookingStepButton.isComplete .bookingStepIdentity::after {
+    content: "✓";
+
+    color: var(--gold);
+
+    font-size: .55rem;
+  }
+
+}
+
+
+/* =========================================================
+   BOOKING — DARK DATE PICKER
+   ========================================================= */
+
+.bookingV2 input[type="date"] {
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+.bookingV2 input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: .58;
+  filter: invert(1);
+  transition: opacity .2s ease;
+}
+
+.bookingV2 input[type="date"]:hover::-webkit-calendar-picker-indicator {
+  opacity: .9;
+}
+
+.bookingV2 input[type="date"]:focus::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
