@@ -30,7 +30,7 @@
     Crops the baked 1000x500 graphic so the title and
     excess black disappear while the logos stay visible.
   */
-  object-position: 50% 59%;
+  object-position: 50% 64%;
 }
 
 @media (max-width: 700px) {
@@ -44,6 +44,6 @@
     width: 620px;
     max-width: none;
     height: 40px;
-    object-position: 50% 59%;
+    object-position: 50% 64%;
   }
 }
