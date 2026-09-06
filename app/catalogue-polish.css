@@ -181,3 +181,108 @@ html body .mv-page .mv-video-meta {
   background: transparent !important;
 }
 
+
+
+/* =========================================================
+   KSP FILMS HERO FINAL CONTROLS
+   ========================================================= */
+
+html body .mv-page .mv-hero {
+  position: relative;
+}
+
+html body .mv-page .mv-hero-actions {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+html body .mv-page .mv-hero-project-cta {
+  min-width: 210px;
+  min-height: 52px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border: 1px solid rgba(225, 181, 84, .62);
+  background: rgba(5, 5, 5, .28);
+  color: #f4f1e9;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  transition:
+    background .22s ease,
+    border-color .22s ease,
+    color .22s ease;
+}
+
+html body .mv-page .mv-hero-project-cta:hover {
+  background: rgba(225, 181, 84, .12);
+  border-color: rgba(225, 181, 84, .9);
+}
+
+html body .mv-page .mv-reel-toggle {
+  position: absolute;
+  z-index: 8;
+  top: 42px;
+  right: clamp(28px, 4vw, 64px);
+  border: 0;
+  padding: 7px 0;
+  background: transparent;
+  color: rgba(245, 242, 234, .62);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+html body .mv-page .mv-reel-toggle-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(225, 181, 84, .92);
+}
+
+html body .mv-page .mv-reel-toggle-state i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  display: block;
+}
+
+html body .mv-page .mv-reel-toggle:hover {
+  color: #fff;
+}
+
+@media (max-width: 800px) {
+  html body .mv-page .mv-hero-actions {
+    gap: 18px;
+    align-items: center;
+  }
+
+  html body .mv-page .mv-hero-project-cta {
+    min-width: 145px;
+    min-height: 44px;
+    padding: 0 14px;
+    gap: 14px;
+    font-size: 8px;
+  }
+
+  html body .mv-page .mv-reel-toggle {
+    top: 25px;
+    right: 18px;
+    gap: 7px;
+    font-size: 6px;
+    letter-spacing: .11em;
+  }
+}

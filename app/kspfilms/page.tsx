@@ -5,6 +5,7 @@ import { Localized, SiteFooter, SiteHeader } from "../site-language";
 import catalogue from "../../data/ksp-films.json";
 import { sections, collaborators, viewLabel } from "../film-catalogue.mjs";
 
+import HeroReelToggle from "./hero-reel-toggle";
 const groups = sections(catalogue.videos);
 const asCard = (video: typeof catalogue.videos[number]) => [
   video.id, `${video.artist} — ${video.title}`, video.viewCount === null ? "" : `${viewLabel(video.viewCount)} views`,
@@ -12,7 +13,11 @@ const asCard = (video: typeof catalogue.videos[number]) => [
 ];
 const videos = groups.archive.map(asCard);
 const latest = groups.latest.map(asCard);
-const standout = groups.mostWatched.map(asCard);
+const standout = [...catalogue.videos]
+  .filter((video) => typeof video.viewCount === "number")
+  .sort((a, b) => (b.viewCount ?? 0) - (a.viewCount ?? 0))
+  .slice(0, 10)
+  .map(asCard);
 const kspFilmsEraVideos = groups.era.map(asCard);
 const earlierWorkVideos = groups.earlier.map(asCard);
 const artists = collaborators(catalogue);
@@ -160,6 +165,7 @@ export default function Page() {
 
 
       <section className="mv-hero">
+      <HeroReelToggle />
         <video
           className="mv-hero-video"
           autoPlay
@@ -192,9 +198,15 @@ export default function Page() {
             />
           </p>
 
-          <a href="#archive" className="mv-enter">
+          <div className="mv-hero-actions">
+        <a href="#archive" className="mv-enter">
             <Localized en="EXPLORE THE WORK" fr="EXPLORER LE TRAVAIL" /> ↓
           </a>
+        <a className="mv-hero-project-cta" href="/booking">
+          <span>START A PROJECT</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
         </div>
       </section>
       <div id="archive" />
