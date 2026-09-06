@@ -365,3 +365,96 @@ html body .mv-page[data-reel="off"]::after {
   html body .mv-page .mv-hero-video,
   html body .mv-page .mv-mobile-background-reel { transition: none !important; }
 }
+
+/* =========================================================
+   KSP FILMS REEL OFF
+   Graphite cinematic background instead of flat black
+   ========================================================= */
+
+html body .mv-page {
+  transition: background-color .35s ease;
+}
+
+html body .mv-page .mv-hero-video,
+html body .mv-page .mv-mobile-background-reel {
+  transition:
+    opacity .38s ease,
+    filter .38s ease;
+}
+
+html body .mv-page[data-reel="off"] {
+  background-color: #050505 !important;
+
+  background-image:
+    radial-gradient(
+      ellipse at 18% 12%,
+      rgba(255, 255, 255, .038) 0%,
+      rgba(255, 255, 255, .012) 22%,
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 82% 42%,
+      rgba(185, 160, 110, .025) 0%,
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 45% 78%,
+      rgba(85, 95, 105, .022) 0%,
+      transparent 46%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, .007) 0px,
+      rgba(255, 255, 255, .007) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, .004) 0px,
+      rgba(255, 255, 255, .004) 1px,
+      transparent 1px,
+      transparent 5px
+    ) !important;
+
+  background-attachment: fixed !important;
+}
+
+html body .mv-page[data-reel="off"] .mv-hero-video,
+html body .mv-page[data-reel="off"] .mv-mobile-background-reel {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  filter: brightness(0) !important;
+}
+
+html body .mv-page[data-reel="on"] .mv-hero-video,
+html body .mv-page[data-reel="on"] .mv-mobile-background-reel {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+}
+
+/* Give OFF state a little more depth without looking like another reel */
+html body .mv-page[data-reel="off"] .mv-catalogue-section,
+html body .mv-page[data-reel="off"] .mv-library,
+html body .mv-page[data-reel="off"] .mv-collabs {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .010),
+      rgba(0, 0, 0, .025)
+    );
+}
+
+/* Toggle itself reads a little differently in OFF state */
+html body .mv-page[data-reel="off"] .mv-reel-toggle {
+  color: rgba(245, 242, 234, .52);
+}
+
+html body .mv-page[data-reel="off"] .mv-reel-toggle-state {
+  color: rgba(245, 242, 234, .48);
+}
+
+html body .mv-page[data-reel="on"] .mv-reel-toggle-state {
+  color: rgba(214, 173, 78, .95);
+}

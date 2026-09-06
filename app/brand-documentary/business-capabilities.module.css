@@ -206,3 +206,100 @@
     color: rgba(214, 173, 78, 1);
   }
 }
+
+/* =========================================================
+   CAPABILITY EXPANDED DETAIL HOVER
+   ========================================================= */
+
+.card {
+  position: relative;
+  overflow: visible;
+}
+
+.cardCopy {
+  min-width: 0;
+}
+
+.hoverDetails {
+  position: absolute;
+  z-index: 30;
+
+  left: -1px;
+  right: -1px;
+  top: calc(100% - 1px);
+
+  padding: 10px 14px 13px;
+
+  border: 1px solid rgba(214, 173, 78, .30);
+  border-top: 1px solid rgba(255, 255, 255, .07);
+
+  border-radius: 0 0 12px 12px;
+
+  background: rgba(12, 12, 12, .985);
+
+  color: rgba(245, 242, 234, .68);
+
+  font-size: 9.5px;
+  line-height: 1.45;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-5px);
+
+  pointer-events: none;
+
+  transition:
+    opacity .20s ease,
+    transform .20s ease,
+    visibility .20s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  .card {
+    transition:
+      transform .20s ease,
+      background .20s ease,
+      border-color .20s ease,
+      box-shadow .20s ease,
+      border-radius .20s ease;
+  }
+
+  .card:hover {
+    z-index: 25;
+
+    transform: translateY(-3px) scale(1.045);
+
+    background: rgba(12, 12, 12, .985);
+
+    border-color: rgba(214, 173, 78, .30);
+
+    border-radius: 12px 12px 0 0;
+
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, .52),
+      inset 0 0 0 1px rgba(214, 173, 78, .07);
+  }
+
+  .card:hover .hoverDetails {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .card:hover h3 {
+    color: #fff;
+  }
+
+  .card:hover .number {
+    color: rgba(214, 173, 78, 1);
+  }
+}
+
+/* No hover expansion on touch devices */
+@media (hover: none), (pointer: coarse) {
+  .hoverDetails {
+    display: none;
+  }
+}
