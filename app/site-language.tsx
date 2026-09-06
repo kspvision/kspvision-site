@@ -30,7 +30,7 @@ export function SiteHeader({ active }: { active?: "music" | "weddings" | "brand"
     window.dispatchEvent(new Event("ksp-language"));
     setLanguage(next);
   };
-  return <header className="detailNav"><a className="brand" href="/" aria-label="KSP Vision home"><span>KSP</span> VISION</a><nav className="mainNav" aria-label="Main navigation"><a className={active === "music" ? "activeNav" : ""} href="/kspfilms">KSP FILMS</a><a className={active === "weddings" ? "activeNav" : ""} href="/weddings">WEDDINGS</a><a className={active === "brand" ? "activeNav" : ""} href="/brand-documentary">{french ? "Marque / Doc" : "Brand / Doc"}</a><a href="/about">{french ? "Studio" : "About"}</a><button className="langSwitch" aria-label={french ? "View the site in English" : "Afficher le site en français"} onClick={toggle}>{french ? "EN" : "FR"}</button><a href="/booking" className="navCta">{french ? "Réserver" : "Book"}</a></nav></header>;
+  return <header className="detailNav"><a className="brand" href="/" aria-label="KSP Vision home"><span>KSP</span> VISION</a><nav className="mainNav" aria-label="Main navigation"><a className={active === "music" ? "activeNav" : ""} href="/kspfilms">KSP FILMS</a><a className={active === "weddings" ? "activeNav" : ""} href="/weddings">WEDDINGS</a><a className={active === "brand" ? "activeNav" : ""} href="/brand-documentary">{french ? "Marque / Doc" : "Brand / Doc"}</a><a href="/about">{french ? "À propos" : "About"}</a><button className="langSwitch" aria-label={french ? "View the site in English" : "Afficher le site en français"} onClick={toggle}>{french ? "EN" : "FR"}</button><a href="/booking" className="navCta">{french ? "Réserver" : "Book"}</a></nav></header>;
 }
 
 export function SiteFooter() {
