@@ -2,6 +2,7 @@ import { KSPPlayerLink } from "../ksp-player";
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 
 import BusinessCapabilities from "./business-capabilities";
+import CollaborationRail from "./collaboration-rail";
 const commercial = [{ title: "Barbancourt", type: "Spirit film concept", youtubeId: "hNRG8NT3sRs" }, { title: "NOIR ÉCLAT ELIXIR", type: "Fragrance film concept", youtubeId: "FYL9RmYlZ6U" }];
 const documentaries = [
   { title: "Corneille présente ADVANCE Québec", src: "/corneille-web.mp4" },
@@ -15,6 +16,7 @@ const documentaries = [
 export default function Page() { return <main className="detailPage brandPage"><SiteHeader active="brand" />
   <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1 className="brandHeroTitle"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><a className="button gold" href="/booking"><Localized en="Start a project" fr="Lancer un projet" /> <b>↗</b></a></div></section>
         <BusinessCapabilities />
+      <CollaborationRail />
 
 <section className="brandCollection commercialCollection"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected work" fr="Travaux sélectionnés" /></p><h2><Localized en="Commercial stories" fr="Histoires de marque" /></h2></div></div><div className="brandGrid">{commercial.map((project, index) => <KSPPlayerLink className="brandFilm" video={{sourceType:"youtube", source:project.youtubeId, title:project.title}} key={project.title}><div className="publishedFilmStill"><video
   className="commercialAutoVideo"
@@ -249,19 +251,7 @@ export default function Page() { return <main className="detailPage brandPage"><
 `}</style>
 
 
-  <section className="brandCollaborations">
-  <div className="brandCollabHeading">
-    <span>SELECTED COLLABORATIONS</span>
-    <p>Selected organizations and creative partners featured across KSP Vision productions.</p>
-  </div>
-
-  <div className="brandCollabStrip">
-    <img
-      src="/collaborations-selected.png"
-      alt="Selected KSP Vision collaborations"
-    />
-  </div>
-</section>
+  
 
 <SiteFooter />
 <style>{`
