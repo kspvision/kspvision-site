@@ -6,7 +6,7 @@ import "./session-polish.css";
 
 export const metadata: Metadata = {
   title: { default: "KSP Vision | Film Production in Montréal", template: "%s | KSP Vision" },
-  description: "Production, cinematography and post-production by Kevin Sanelus. Visual stories designed to make an impact.",
+  description: "Production, cinematography and post-production by Kevin Shayne. Visual stories designed to make an impact.",
   icons: {
     icon: [{ url: "/ksp-favicon.png", type: "image/png" }],
     shortcut: "/ksp-favicon.png",
