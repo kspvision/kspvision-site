@@ -1,0 +1,258 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: clamp(88px, 10vw, 150px) clamp(22px, 5vw, 78px);
+  color: #f4f1e9;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 8, 8, 0) 0%,
+      rgba(8, 8, 8, .56) 18%,
+      rgba(8, 8, 8, .76) 100%
+    );
+}
+
+.intro {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.eyebrow,
+.bottomEyebrow,
+.deliveryLabel {
+  color: rgba(214, 173, 78, .92);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, .72fr);
+  gap: clamp(50px, 8vw, 140px);
+  align-items: end;
+  margin-top: 24px;
+}
+
+.introGrid h2 {
+  margin: 0;
+  max-width: 850px;
+  color: #f3f0e8;
+  font-size: clamp(48px, 6.6vw, 104px);
+  line-height: .89;
+  letter-spacing: -.055em;
+  font-weight: 500;
+}
+
+.introCopy {
+  max-width: 520px;
+  padding-bottom: 5px;
+}
+
+.introCopy p {
+  margin: 0 0 18px;
+  color: rgba(240, 237, 229, .64);
+  font-size: clamp(14px, 1.15vw, 17px);
+  line-height: 1.65;
+}
+
+.introCopy p:last-child {
+  margin-bottom: 0;
+}
+
+.grid {
+  max-width: 1500px;
+  margin: clamp(64px, 7vw, 104px) auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  border-left: 1px solid rgba(255, 255, 255, .12);
+}
+
+.card {
+  position: relative;
+  min-height: 245px;
+  padding: 30px 30px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 55px;
+  border-right: 1px solid rgba(255, 255, 255, .12);
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .012);
+  transition:
+    background .25s ease,
+    border-color .25s ease;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, .035);
+  border-color: rgba(214, 173, 78, .24);
+}
+
+.number {
+  color: rgba(214, 173, 78, .74);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.card h3 {
+  margin: 0 0 13px;
+  color: #f2efe8;
+  font-size: clamp(15px, 1.3vw, 20px);
+  line-height: 1.08;
+  letter-spacing: -.015em;
+  font-weight: 600;
+}
+
+.card p {
+  margin: 0;
+  max-width: 350px;
+  color: rgba(240, 237, 229, .52);
+  font-size: 13px;
+  line-height: 1.58;
+}
+
+.delivery {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 34px 0 38px;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.deliveryItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.deliveryItems span {
+  padding: 10px 13px;
+  border: 1px solid rgba(255, 255, 255, .13);
+  border-radius: 999px;
+  color: rgba(244, 241, 233, .72);
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: .12em;
+}
+
+.deliveryNote {
+  margin-top: 19px;
+  color: rgba(244, 241, 233, .37);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.bottom {
+  max-width: 1500px;
+  margin: clamp(58px, 6vw, 90px) auto 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.bottom h3 {
+  margin: 14px 0 0;
+  color: #f4f1e9;
+  font-size: clamp(34px, 4.7vw, 72px);
+  line-height: .94;
+  letter-spacing: -.045em;
+  font-weight: 500;
+}
+
+.cta {
+  width: min(100%, 245px);
+  min-height: 62px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border: 1px solid rgba(214, 173, 78, .58);
+  color: #f4f1e9;
+  background: rgba(214, 173, 78, .03);
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  transition:
+    background .2s ease,
+    border-color .2s ease;
+}
+
+.cta:hover {
+  background: rgba(214, 173, 78, .1);
+  border-color: rgba(214, 173, 78, .92);
+}
+
+@media (max-width: 960px) {
+  .introGrid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .introCopy {
+    max-width: 650px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 76px 18px 90px;
+  }
+
+  .introGrid {
+    margin-top: 20px;
+  }
+
+  .introGrid h2 {
+    font-size: clamp(45px, 14vw, 64px);
+  }
+
+  .grid {
+    margin-top: 56px;
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 200px;
+    padding: 25px 22px 28px;
+    gap: 45px;
+  }
+
+  .card p {
+    max-width: 420px;
+  }
+
+  .delivery {
+    padding-top: 30px;
+  }
+
+  .deliveryItems {
+    gap: 7px;
+  }
+
+  .deliveryItems span {
+    font-size: 8px;
+    padding: 9px 11px;
+  }
+
+  .bottom {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .cta {
+    width: 100%;
+    max-width: none;
+  }
+}
