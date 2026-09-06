@@ -341,3 +341,27 @@ html body .mv-page .mv-most-watched-track .mv-million-card {
     max-width: 360px !important;
   }
 }
+
+/* Explicit reel states override the approved desktop/mobile treatments only when off. */
+html body .mv-page .mv-hero-video,
+html body .mv-page .mv-mobile-background-reel {
+  transition: opacity .35s ease, visibility .35s ease !important;
+}
+html body .mv-page[data-reel="off"] .mv-hero-video,
+html body .mv-page[data-reel="off"] .mv-mobile-background-reel {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+html body .mv-page[data-reel="off"],
+html body .mv-page[data-reel="off"] .mv-hero,
+html body .mv-page[data-reel="off"] .mv-hero-overlay {
+  background: #000 !important;
+}
+html body .mv-page[data-reel="off"]::before,
+html body .mv-page[data-reel="off"]::after {
+  background: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .mv-page .mv-hero-video,
+  html body .mv-page .mv-mobile-background-reel { transition: none !important; }
+}

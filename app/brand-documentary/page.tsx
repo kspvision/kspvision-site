@@ -1,3 +1,7 @@
+import { pageMetadata } from "../page-metadata";
+
+export const metadata = pageMetadata("/brand-documentary", "Brand & Documentary Film Production | KSP Vision", "Commercial films, company stories, interviews and documentary production, with campaign cutdowns and content prepared for web and social platforms.");
+
 import { KSPPlayerLink } from "../ksp-player";
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 
@@ -116,7 +120,7 @@ export default function Page() { return <main className="detailPage brandPage"><
       UPCOMING DOCUMENTARY
     </span>
 
-    <KSPPlayerLink className="documentaryMedia" video={{sourceType:"hosted", source:documentaries[2].src, title:"LA VILLE — Preview"}}><video autoPlay muted loop playsInline preload="metadata">
+    <KSPPlayerLink className="documentaryMedia" video={{sourceType:"hosted", source:documentaries[2].src, title:"LA VILLE · Preview"}}><video autoPlay muted loop playsInline preload="metadata">
         <source src={documentaries[2].src} type="video/mp4" />
       </video><span className="docWatch"><Localized en="Watch film" fr="Voir le film" /> ↗</span></KSPPlayerLink>
 
@@ -138,7 +142,7 @@ export default function Page() { return <main className="detailPage brandPage"><
       </span>
 
       <span className="comingSoon">
-        DEDICATED FEATURE — COMING SOON
+        DEDICATED FEATURE · COMING SOON
       </span>
     </div>
 

@@ -22,6 +22,13 @@
   letter-spacing: .18em;
 }
 
+.deliveryLabel {
+  font-size: 10px;
+  font-weight: 750;
+  border-left: 2px solid rgba(214, 173, 78, .8);
+  padding-left: 9px;
+}
+
 .intro h2 {
   margin: 8px 0 0;
   max-width: 650px;
@@ -73,7 +80,7 @@
 .card h3 {
   margin: 0 0 4px;
   color: #f2efe8;
-  font-size: 11px;
+  font-size: 12.5px;
   line-height: 1.08;
   font-weight: 600;
 }
@@ -82,7 +89,7 @@
   margin: 0;
   max-width: 330px;
   color: rgba(240, 237, 229, .43);
-  font-size: 8.5px;
+  font-size: 9.5px;
   line-height: 1.35;
 }
 
@@ -102,11 +109,11 @@
 }
 
 .deliveryItems span {
-  padding: 6px 9px;
+  padding: 7.5px 11px;
   border: 1px solid rgba(255, 255, 255, .10);
   border-radius: 999px;
   color: rgba(244, 241, 233, .57);
-  font-size: 6.5px;
+  font-size: 8px;
   font-weight: 650;
   letter-spacing: .10em;
 }
@@ -127,7 +134,14 @@
     padding: 28px 18px 26px;
   }
 
-  .intro h2 {
+  .deliveryLabel {
+  font-size: 10px;
+  font-weight: 750;
+  border-left: 2px solid rgba(214, 173, 78, .8);
+  padding-left: 9px;
+}
+
+.intro h2 {
     font-size: 32px;
   }
 

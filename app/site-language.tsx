@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 
 type Copy = { en: string; fr: string };
 
-function useLanguage() {
+export function useLanguage() {
   const [language, setLanguage] = useState<"en" | "fr">("en");
   useEffect(() => {
     const saved = window.localStorage.getItem("ksp-language");
     if (saved === "fr") setLanguage("fr");
+    document.documentElement.lang = saved === "fr" ? "fr" : "en";
     const update = () => setLanguage(window.localStorage.getItem("ksp-language") === "fr" ? "fr" : "en");
     window.addEventListener("ksp-language", update);
     return () => window.removeEventListener("ksp-language", update);
@@ -27,6 +28,7 @@ export function SiteHeader({ active }: { active?: "music" | "weddings" | "brand"
   const toggle = () => {
     const next = french ? "en" : "fr";
     window.localStorage.setItem("ksp-language", next);
+    document.documentElement.lang = next;
     window.dispatchEvent(new Event("ksp-language"));
     setLanguage(next);
   };

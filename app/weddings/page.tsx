@@ -1,3 +1,7 @@
+import { pageMetadata } from "../page-metadata";
+
+export const metadata = pageMetadata("/weddings", "KSP Weddings | Wedding Films & Photography", "Discover KSP Vision wedding films and photography: celebrations, personal stories and moments preserved. Tell us about your day.");
+
 import { KSPPlayerLink } from "../ksp-player";
 import { WeddingGallery } from "../wedding-gallery";
 import { weddingPhotos } from "../../data/wedding-gallery";
@@ -1686,7 +1690,7 @@ export default function WeddingsPage() {
           background:#080808 !important;
 
           padding-top:clamp(3.75rem,5.5vw,5.5rem) !important;
-          padding-bottom:clamp(4rem,6vw,6rem) !important;
+          padding-bottom:clamp(3rem,4vw,4rem) !important;
         }
 
         #weddingGalleryFinal .weddingGalleryGrid {
@@ -1709,7 +1713,7 @@ export default function WeddingsPage() {
         #makeupArtists {
           background:#080808 !important;
           padding-top:clamp(4rem,6vw,6rem) !important;
-          padding-bottom:clamp(4rem,6vw,6rem) !important;
+          padding-bottom:clamp(3rem,4vw,4rem) !important;
         }
 
         #makeupArtists .makeupArtistCard {

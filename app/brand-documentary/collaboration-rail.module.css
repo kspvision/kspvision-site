@@ -1,49 +1,22 @@
 .rail {
   width: calc(100% - clamp(44px, 10vw, 156px));
   max-width: 1500px;
-
-  height: 58px;
-
-  margin: 4px auto 18px;
-
+  height: 68px;
+  margin: 4px auto 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  overflow: hidden;
-
   border-top: 1px solid rgba(255, 255, 255, .07);
   border-bottom: 1px solid rgba(255, 255, 255, .07);
-
-  background: rgba(0, 0, 0, .38);
+  background: #000;
 }
-
 .image {
   display: block;
-
-  width: min(680px, 92vw);
-  height: 44px;
-
-  object-fit: cover;
-
-  /*
-    Crops the baked 1000x500 graphic so the title and
-    excess black disappear while the logos stay visible.
-  */
-  object-position: 50% 64%;
+  width: min(560px, 100%);
+  height: auto;
+  max-height: 64px;
+  object-fit: contain;
 }
-
 @media (max-width: 700px) {
-  .rail {
-    width: calc(100% - 36px);
-    height: 54px;
-    margin-bottom: 14px;
-  }
-
-  .image {
-    width: 620px;
-    max-width: none;
-    height: 40px;
-    object-position: 50% 64%;
-  }
+  .rail { width: calc(100% - 36px); height: 48px; margin-bottom: 12px; }
 }

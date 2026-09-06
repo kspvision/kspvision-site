@@ -13,7 +13,7 @@ test("renders the finished KSP Vision homepage with production metadata", async 
   const response = await render();
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /<title>KSP Vision — Film Production in Montréal<\/title>/i);
+  assert.match(html, /<title>KSP Vision \| Film Production in Montréal<\/title>/i);
   assert.match(html, /Your vision\./);
   assert.match(html, /KSP FILMS/);
   assert.match(html, /Brand \/ Doc/);

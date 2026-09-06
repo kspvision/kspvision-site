@@ -4,7 +4,9 @@ export default function CollaborationRail() {
   return (
     <div className={styles.rail} aria-label="Selected collaborations">
       <img
-        src="/collaborations-selected.png"
+        src="/collaborations-logos.png"
+        width="1750"
+        height="200"
         alt="Selected KSP Vision collaborations"
         className={styles.image}
       />

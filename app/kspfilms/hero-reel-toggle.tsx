@@ -1,45 +1,40 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Localized } from "../site-language";
 
 export default function HeroReelToggle() {
-  const [enabled, setEnabled] = useState(true);
+  const [enabled, setEnabled] = useState(false);
+  const button = useRef<HTMLButtonElement>(null);
 
-  function toggleReel() {
-    const next = !enabled;
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setEnabled(!preference.matches);
+    sync();
+    preference.addEventListener("change", sync);
+    return () => preference.removeEventListener("change", sync);
+  }, []);
 
-    const videos = Array.from(
-      document.querySelectorAll<HTMLVideoElement>(
-        "video.mv-hero-video, video.mv-mobile-background-reel, .mv-hero-video video, .mv-mobile-background-reel video"
-      )
-    );
-
-    if (next) {
-      videos.forEach((video) => {
+  useEffect(() => {
+    const page = button.current?.closest<HTMLElement>(".mv-page");
+    if (!page) return;
+    const videos = Array.from(page.querySelectorAll<HTMLVideoElement>(".mv-hero-video, .mv-mobile-background-reel"));
+    page.dataset.reel = enabled ? "on" : "off";
+    let active = true;
+    if (enabled) {
+      for (const video of videos) {
         video.muted = true;
-        const playback = video.play();
-        if (playback) playback.catch(() => {});
-      });
+        void video.play().catch(() => { if (active) setEnabled(false); });
+      }
     } else {
-      videos.forEach((video) => video.pause());
+      videos.forEach(video => video.pause());
     }
+    return () => { active = false; videos.forEach(video => video.pause()); };
+  }, [enabled]);
 
-    setEnabled(next);
-  }
-
-  return (
-    <button
-      type="button"
-      className="mv-reel-toggle"
-      onClick={toggleReel}
-      aria-pressed={enabled}
-      aria-label={enabled ? "Pause background reel" : "Play background reel"}
-    >
-      <span>BACKGROUND REEL</span>
-      <span className="mv-reel-toggle-state">
-        <i aria-hidden="true" />
-        {enabled ? "ON" : "OFF"}
-      </span>
-    </button>
-  );
+  return <button ref={button} type="button" className="mv-reel-toggle"
+    onClick={() => setEnabled(value => !value)} aria-pressed={enabled}>
+    <span><Localized en="BACKGROUND REEL" fr="REEL EN ARRIÈRE-PLAN" /></span>
+    <span className="mv-reel-toggle-state"><span aria-hidden="true">{enabled ? "●" : "○"}</span>{enabled ? "ON" : "OFF"}</span>
+  </button>;
 }

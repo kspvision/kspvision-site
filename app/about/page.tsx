@@ -1,3 +1,7 @@
+import { pageMetadata } from "../page-metadata";
+
+export const metadata = pageMetadata("/about", "About KSP Vision | Montréal Production Studio", "Meet KSP Vision and founder Kevin Sanelus. Explore the studio’s work across music videos, weddings, commercial films and documentaries.");
+
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 import "./about.css";
 
@@ -285,7 +289,7 @@ export default function Page() {
           <p>
             <Localized
               en="The company has grown, but the work remains close to the image, from the first conversation through production and the final edit."
-              fr="L’entreprise a grandi, mais le travail reste proche de l’image — de la première conversation jusqu’au tournage et au montage final."
+              fr="L’entreprise a grandi, mais le travail reste proche de l’image · de la première conversation jusqu’au tournage et au montage final."
             />
           </p>
         </div>

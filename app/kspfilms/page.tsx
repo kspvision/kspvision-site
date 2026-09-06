@@ -1,3 +1,7 @@
+import { pageMetadata } from "../page-metadata";
+
+export const metadata = pageMetadata("/kspfilms", "KSP Films | Music Video Production in Montréal", "Explore the KSP Films music video catalogue, from recent releases to earlier work. Direction, cinematography and post-production by KSP Vision.");
+
 import { KSPPlayerLink } from "../ksp-player";
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 
@@ -8,7 +12,7 @@ import { sections, collaborators, viewLabel } from "../film-catalogue.mjs";
 import HeroReelToggle from "./hero-reel-toggle";
 const groups = sections(catalogue.videos);
 const asCard = (video: typeof catalogue.videos[number]) => [
-  video.id, `${video.artist} — ${video.title}`, video.viewCount === null ? "" : `${viewLabel(video.viewCount)} views`,
+  video.id, `${video.artist} · ${video.title}`, video.viewCount === null ? "" : `${viewLabel(video.viewCount)} views`,
   video.publishedAt?.slice(0, 4) || "", video.thumbnail,
 ];
 const videos = groups.archive.map(asCard);
@@ -27,7 +31,7 @@ const artists = collaborators(catalogue);
 
 function getVideoIdentity(video: string[]) {
   const raw = video[1] || "";
-  const match = raw.match(/^(.*?)\s+[—–-]\s+(.+)$/);
+  const match = raw.match(/^(.*?)\s+[·—–-]\s+(.+)$/);
 
   const artist = match ? match[1].trim() : "";
   const title = match ? match[2].trim() : raw.trim();
@@ -129,7 +133,7 @@ function Row({
           </p>
           <h2
             className={
-              ["LATEST WORK", "MOST WATCHED", "KSP FILMS ERA", "EARLIER WORK", "ARCHIVE", "ARCHIVE."]
+              ["RECENT MUSIC VIDEOS", "MOST WATCHED", "KSP FILMS ERA", "EARLIER WORK", "ARCHIVE", "ARCHIVE."]
                 .includes(title)
                 ? "mv-catalogue-section-title"
                 : undefined
@@ -152,11 +156,10 @@ function Row({
 
 export default function Page() {
   return (
-    <main className="mv-page">
+    <main className="mv-page" data-reel="off">
       <SiteHeader active="music" />
       <video
         className="mv-mobile-background-reel"
-        autoPlay
         muted
         loop
         playsInline
@@ -171,8 +174,7 @@ export default function Page() {
       <HeroReelToggle />
         <video
           className="mv-hero-video"
-          autoPlay
-          muted
+            muted
           loop
           playsInline
           preload="metadata"
@@ -215,8 +217,8 @@ export default function Page() {
       <div id="archive" />
 
       <Row
-        eyebrow=""
-        title="LATEST WORK"
+        eyebrow="LATEST WORK"
+        title="RECENT MUSIC VIDEOS"
         items={latest}
       />
 
@@ -1758,8 +1760,8 @@ export default function Page() {
         }
 
         .mv-library {
-          margin-top:27px !important;
-          padding-top:25px !important;
+          margin-top:16px !important;
+          padding-top:16px !important;
         }
 
         .mv-collabs {

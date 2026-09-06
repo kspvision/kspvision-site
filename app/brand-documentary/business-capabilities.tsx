@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useLanguage } from "../site-language";
 import styles from "./business-capabilities.module.css";
 
 const copy = {
@@ -99,47 +99,8 @@ const copy = {
   }
 };
 
-function pageIsFrench() {
-  if (typeof document === "undefined") return false;
-
-  const lang = document.documentElement.lang?.toLowerCase() || "";
-  if (lang.startsWith("fr")) return true;
-
-  const body = document.body?.innerText || "";
-
-  return (
-    body.includes("DES HISTOIRES QUI COMPTENT") ||
-    body.includes("LANCER UN PROJET") ||
-    body.includes("TRAVAUX SÉLECTIONNÉS") ||
-    body.includes("HISTOIRES DE MARQUE")
-  );
-}
-
 export default function BusinessCapabilities() {
-  const [language, setLanguage] = useState<"en" | "fr">("en");
-
-  useEffect(() => {
-    const sync = () => {
-      setLanguage(pageIsFrench() ? "fr" : "en");
-    };
-
-    sync();
-
-    const observer = new MutationObserver(sync);
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["lang"]
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-      characterData: true
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const [language] = useLanguage();
 
   const t = copy[language];
 
