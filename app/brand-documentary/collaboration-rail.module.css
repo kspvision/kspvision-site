@@ -2,7 +2,7 @@
   width: calc(100% - clamp(44px, 10vw, 156px));
   max-width: 1500px;
 
-  height: 46px;
+  height: 52px;
 
   margin: 4px auto 18px;
 
@@ -22,7 +22,7 @@
   display: block;
 
   width: min(680px, 92vw);
-  height: 44px;
+  height: 50px;
 
   object-fit: cover;
 
@@ -30,20 +30,20 @@
     Crops the baked 1000x500 graphic so the title and
     excess black disappear while the logos stay visible.
   */
-  object-position: 50% 64%;
+  object-position: 50% 52%;
 }
 
 @media (max-width: 700px) {
   .rail {
     width: calc(100% - 36px);
-    height: 42px;
+    height: 48px;
     margin-bottom: 14px;
   }
 
   .image {
     width: 620px;
     max-width: none;
-    height: 40px;
-    object-position: 50% 64%;
+    height: 46px;
+    object-position: 50% 52%;
   }
 }
