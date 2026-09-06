@@ -1,6 +1,6 @@
 import { pageMetadata } from "../page-metadata";
 
-export const metadata = pageMetadata("/about", "About KSP Vision | Montréal Production Studio", "Meet KSP Vision and founder Kevin Sanelus. Explore the studio’s work across music videos, weddings, commercial films and documentaries.");
+export const metadata = pageMetadata("/about", "About KSP Vision | Montréal Production Studio", "Meet KSP Vision and founder Kevin Shayne. Explore the studio’s work across music videos, weddings, commercial films and documentaries.");
 
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 import "./about.css";
@@ -220,7 +220,7 @@ export default function Page() {
             <Localized en="Founder / Creative Director" fr="Fondateur / Directeur créatif" />
           </p>
 
-          <h2>KEVIN<br />SANELUS</h2>
+          <h2>KEVIN<br />SHAYNE</h2>
 
           <p className="studioFounderLead">
             <Localized
