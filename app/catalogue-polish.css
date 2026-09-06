@@ -427,13 +427,6 @@ html body .mv-page[data-reel="off"] .mv-mobile-background-reel {
   filter: brightness(0) !important;
 }
 
-html body .mv-page[data-reel="on"] .mv-hero-video,
-html body .mv-page[data-reel="on"] .mv-mobile-background-reel {
-  opacity: 1 !important;
-  visibility: visible !important;
-  filter: none !important;
-}
-
 /* Give OFF state a little more depth without looking like another reel */
 html body .mv-page[data-reel="off"] .mv-catalogue-section,
 html body .mv-page[data-reel="off"] .mv-library,
@@ -457,4 +450,71 @@ html body .mv-page[data-reel="off"] .mv-reel-toggle-state {
 
 html body .mv-page[data-reel="on"] .mv-reel-toggle-state {
   color: rgba(214, 173, 78, .95);
+}
+
+
+/* =========================================================
+   KSP FILMS REEL FINAL STATE CORRECTION
+   ========================================================= */
+
+/*
+   ON:
+   Do NOT force opacity/filter values here.
+   That allows the original approved KSP Films dimming,
+   shading and video treatment to take control again.
+*/
+html body .mv-page[data-reel="on"] .mv-hero-video,
+html body .mv-page[data-reel="on"] .mv-mobile-background-reel {
+  visibility: visible !important;
+}
+
+/*
+   OFF:
+   Slightly lighter than pure black, with quiet graphite depth.
+*/
+html body .mv-page[data-reel="off"] {
+  background-color: #101010 !important;
+
+  background-image:
+    radial-gradient(
+      ellipse at 18% 14%,
+      rgba(255,255,255,.055) 0%,
+      rgba(255,255,255,.018) 28%,
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse at 82% 38%,
+      rgba(185,160,110,.035) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 48% 82%,
+      rgba(95,105,115,.030) 0%,
+      transparent 48%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.012),
+      rgba(0,0,0,.035)
+    ) !important;
+
+  background-attachment: fixed !important;
+}
+
+html body .mv-page[data-reel="off"] .mv-hero-video,
+html body .mv-page[data-reel="off"] .mv-mobile-background-reel {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/*
+   The video has a short fade when switching OFF.
+   When switching ON, the site's original dimmed reel styling wins.
+*/
+html body .mv-page .mv-hero-video,
+html body .mv-page .mv-mobile-background-reel {
+  transition:
+    opacity .42s ease,
+    visibility .42s ease !important;
 }

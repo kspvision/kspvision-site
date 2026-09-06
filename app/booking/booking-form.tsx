@@ -274,18 +274,46 @@ export default function BookingForm() {
   useEffect(() => {
     const source = new URLSearchParams(window.location.search).get("project");
 
-    const presets: Record<string, string> = {
-      "music-video": "Music Video",
-      "wedding": "Wedding",
-      "brand-commercial": "Brand / Commercial",
-      "documentary": "Documentary",
+    const projectLabels: Record<string, string[]> = {
+      "wedding": ["WEDDING"],
+      "music-video": ["MUSIC VIDEO"],
+      "brand-commercial": ["BRAND / COMMERCIAL", "BRAND/COMMERCIAL"],
+      "documentary": ["DOCUMENTARY"],
     };
 
-    const preset = source ? presets[source] : undefined;
+    const wanted = source ? projectLabels[source] : undefined;
 
-    if (preset) {
-      setProjectType(preset as Parameters<typeof setProjectType>[0]);
-    }
+    if (!wanted) return;
+
+    const normalize = (value: string) =>
+      value.replace(/\s+/g, " ").trim().toUpperCase();
+
+    const selectExistingProjectCard = () => {
+      /*
+       * Important:
+       * Do NOT guess the form's internal project values.
+       * Trigger the existing project control so contextual entry behaves
+       * exactly like a visitor manually selecting the project.
+       */
+      const controls = Array.from(
+        document.querySelectorAll<HTMLElement>(
+          'button, label, [role="button"]'
+        )
+      );
+
+      const target = controls.find((control) => {
+        const text = normalize(control.textContent || "");
+        return wanted.some((label) => text === normalize(label));
+      });
+
+      if (target) {
+        target.click();
+      }
+    };
+
+    const frame = window.requestAnimationFrame(selectExistingProjectCard);
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
 
