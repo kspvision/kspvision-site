@@ -79,3 +79,15 @@ html body .brandPage .docWatch { position:absolute; bottom:12px; left:12px; padd
 
 /* Match the existing desktop inset when a longer row can now scroll-snap. */
 @media(min-width:701px) { html body .mv-page .mv-track { scroll-padding-inline: clamp(25px,4vw,65px); } }
+
+
+/* KSP FILMS — FLAT EDITORIAL CARDS
+   No raised / faux-3D card shadows. */
+.mv-page .mv-card,
+.mv-page .mv-video-card,
+.mv-page .mv-catalogue-card,
+.mv-page .mv-archive-card,
+.mv-page [class*="mv-card"] {
+  box-shadow: none !important;
+}
+
