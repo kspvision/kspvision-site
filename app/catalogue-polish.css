@@ -463,11 +463,6 @@ html body .mv-page[data-reel="on"] .mv-reel-toggle-state {
    That allows the original approved KSP Films dimming,
    shading and video treatment to take control again.
 */
-html body .mv-page[data-reel="on"] .mv-hero-video,
-html body .mv-page[data-reel="on"] .mv-mobile-background-reel {
-  visibility: visible !important;
-}
-
 /*
    OFF:
    Slightly lighter than pure black, with quiet graphite depth.
