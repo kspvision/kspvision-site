@@ -148,3 +148,36 @@ html body .brandPage .docWatch { position:absolute; bottom:12px; left:12px; padd
   border-color: rgba(255,255,255,.07) !important;
 }
 
+
+/* =========================================================
+   KSP FILMS — CLEAN FLAT CARD
+   Dark plate stays.
+   No external grey floor / faux depth.
+   ========================================================= */
+
+html body .mv-page a.mv-card,
+html body .mv-page a.mv-million-card {
+  background: transparent !important;
+
+  /* Paint the card itself INSIDE the element */
+  box-shadow:
+    inset 0 0 0 9999px rgba(8, 8, 8, .23),
+    inset 0 0 0 1px rgba(255, 255, 255, .045)
+    !important;
+
+  border: 0 !important;
+  border-radius: 12px !important;
+}
+
+/* Keep thumbnails exactly as they are */
+html body .mv-page a.mv-card .mv-thumb,
+html body .mv-page a.mv-million-card .mv-million-thumb {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+/* No separate metadata background */
+html body .mv-page .mv-video-meta {
+  background: transparent !important;
+}
+
