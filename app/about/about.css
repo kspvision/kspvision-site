@@ -1594,3 +1594,134 @@
 }
 
 
+
+
+
+/* =========================================================
+   ABOUT / STUDIO TODAY
+   ========================================================= */
+
+.studioNow {
+  width: min(1120px, 88vw);
+
+  margin: 0 auto;
+
+  padding:
+    clamp(65px, 8vw, 100px)
+    0;
+
+  border-top: 1px solid rgba(255,255,255,.09);
+}
+
+.studioNowHead {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+
+  gap: 70px;
+
+  align-items: end;
+
+  margin-bottom: 42px;
+}
+
+.studioNowHead h2 {
+  margin: 13px 0 0;
+
+  color: #f5f3ed;
+
+  text-transform: uppercase;
+
+  font-size: clamp(2.2rem, 4.5vw, 4.5rem);
+  line-height: .9;
+
+  letter-spacing: -.055em;
+}
+
+.studioNowHead h2 span {
+  color: var(--gold);
+}
+
+.studioNowHead > p {
+  max-width: 440px;
+
+  margin: 0;
+
+  color: rgba(255,255,255,.48);
+
+  font-size: .78rem;
+  line-height: 1.75;
+}
+
+.studioNowGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid rgba(255,255,255,.10);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.studioNowGrid article {
+  min-height: 205px;
+
+  padding: 24px;
+}
+
+.studioNowGrid article + article {
+  border-left: 1px solid rgba(255,255,255,.09);
+}
+
+.studioNowGrid span {
+  color: var(--gold);
+
+  font-size: .48rem;
+  font-weight: 800;
+}
+
+.studioNowGrid h3 {
+  margin: 52px 0 12px;
+
+  color: #f5f3ee;
+
+  text-transform: uppercase;
+
+  font-size: .82rem;
+}
+
+.studioNowGrid p {
+  max-width: 260px;
+
+  margin: 0;
+
+  color: rgba(255,255,255,.40);
+
+  font-size: .68rem;
+  line-height: 1.7;
+}
+
+
+@media (max-width: 800px) {
+
+  .studioNow {
+    width: 90vw;
+  }
+
+  .studioNowHead {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .studioNowGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .studioNowGrid article + article {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.09);
+  }
+
+  .studioNowGrid article {
+    min-height: 180px;
+  }
+
+}

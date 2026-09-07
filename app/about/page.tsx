@@ -44,15 +44,15 @@ export default function Page() {
           <div className="studioCompanyStoryPreview">
             <p>
               <Localized
-                en="Long before KSP Vision became a company, Kevin Shayne was already inside music: rapping, making beats, recording artists and learning the scene from the inside. Filmmaking came later, when he realized that artists around him needed more than songs. They needed to be seen."
-                fr="Bien avant que KSP Vision devienne une entreprise, Kevin Shayne évoluait déjà dans la musique : rap, production de beats, enregistrement d’artistes et découverte de la scène de l’intérieur. La réalisation est venue plus tard, lorsqu’il a compris que les artistes autour de lui avaient besoin de plus que de musique. Ils avaient besoin d’être vus."
+                en="Long before KSP Vision became a company, Kevin Shayne was already creating through music and absorbing cinema. Rap, beatmaking and recording shaped his instinct for rhythm and performance. Movies sharpened his attention to light, framing, movement and emotion."
+                fr="Bien avant que KSP Vision devienne une entreprise, Kevin Shayne créait déjà à travers la musique tout en développant son regard par le cinéma. Le rap, la production de beats et l’enregistrement ont façonné son instinct pour le rythme et la performance. Les films ont développé son attention à la lumière, au cadrage, au mouvement et à l’émotion."
               />
             </p>
 
             <p>
               <Localized
-                en="He picked up a camera, taught himself filmmaking and began building the visual platform he felt was missing. That became KSP Films. Today, KSP Vision carries that foundation into music, weddings, brand films and documentary storytelling."
-                fr="Il a pris une caméra, appris la réalisation par lui-même et commencé à construire la vitrine visuelle qui, selon lui, manquait. C’est devenu KSP Films. Aujourd’hui, KSP Vision prolonge cette fondation à travers la musique, les mariages, les films de marque et le documentaire."
+                en="When he began directing music videos, those instincts became a professional filmmaking practice. KSP Films grew into hundreds of productions and a recognizable presence around Montréal artists. Today, KSP Vision carries that experience into music, weddings, brand films and documentary storytelling."
+                fr="Lorsqu’il a commencé à réaliser des vidéoclips, ces instincts sont devenus une véritable pratique professionnelle de la réalisation. KSP Films a grandi jusqu’à représenter des centaines de productions et une présence reconnaissable autour des artistes montréalais. Aujourd’hui, KSP Vision transpose cette expérience à la musique, aux mariages, aux films de marque et au documentaire."
               />
             </p>
           </div>
@@ -86,9 +86,11 @@ export default function Page() {
             </p>
 
             <h2>
-              <Localized en="From music to" fr="De la musique à" />
+              <Localized en="A decade" fr="Plus d’une décennie" />
               <br />
-              <span>KSP VISION</span>
+              <span>
+                <Localized en="IN THE MAKING." fr="EN ÉVOLUTION." />
+              </span>
             </h2>
           </div>
 
@@ -137,7 +139,7 @@ export default function Page() {
               </p>
 
               <h3>
-                <Localized en="Learning to think in images." fr="Apprendre à penser en images." />
+                <Localized en="A visual language takes shape." fr="Un langage visuel prend forme." />
               </h3>
 
               <p>
@@ -252,6 +254,77 @@ export default function Page() {
         </div>
       </section>
 
+
+      {/* =====================================================
+          STUDIO TODAY
+          ===================================================== */}
+      <section className="studioNow">
+        <div className="studioNowHead">
+          <div>
+            <p className="kicker">
+              <Localized en="The studio today" fr="Le studio aujourd’hui" />
+            </p>
+
+            <h2>
+              <Localized en="Founder-led." fr="Dirigé par son fondateur." />
+              <br />
+              <span>
+                <Localized en="Built to scale." fr="Pensé pour évoluer." />
+              </span>
+            </h2>
+          </div>
+
+          <p>
+            <Localized
+              en="KSP Vision keeps creative direction close while scaling each production around what the project actually needs. Kevin leads the creative throughline, with collaborators brought in across camera, lighting, production, post and specialized roles when the scope calls for it."
+              fr="KSP Vision garde la direction créative au centre tout en adaptant chaque production aux besoins réels du projet. Kevin dirige la ligne créative, avec des collaborateurs réunis en caméra, éclairage, production, postproduction et rôles spécialisés lorsque l’ampleur du projet le demande."
+            />
+          </p>
+        </div>
+
+        <div className="studioNowGrid">
+          <article>
+            <span>01</span>
+            <h3>
+              <Localized en="Creative core" fr="Noyau créatif" />
+            </h3>
+            <p>
+              <Localized
+                en="Founder-led direction from the first idea through the finished piece."
+                fr="Une direction menée par le fondateur, de la première idée jusqu’au projet final."
+              />
+            </p>
+          </article>
+
+          <article>
+            <span>02</span>
+            <h3>
+              <Localized en="Project-scaled" fr="Échelle adaptée" />
+            </h3>
+            <p>
+              <Localized
+                en="Lean when the project should stay focused, expanded when the production requires more crew and specialization."
+                fr="Une structure légère lorsque le projet doit rester ciblé, élargie lorsque la production exige plus d’équipe et de spécialisation."
+              />
+            </p>
+          </article>
+
+          <article>
+            <span>03</span>
+            <h3>
+              <Localized en="End-to-end" fr="De bout en bout" />
+            </h3>
+            <p>
+              <Localized
+                en="Creative direction, production, cinematography and post connected under one visual vision."
+                fr="Direction créative, production, cinématographie et postproduction réunies sous une même vision visuelle."
+              />
+            </p>
+          </article>
+        </div>
+      </section>
+
+
       {/* =====================================================
           FOUNDER
           ===================================================== */}
@@ -319,15 +392,15 @@ export default function Page() {
           <div className="studioFounderStory">
             <p>
               <Localized
-                en="Kevin’s visual instinct was shaped by both music and movies. Music taught rhythm, performance and energy. Cinema sharpened his attention to light, framing, movement, pacing and emotion. Music videos became the space where those influences could be tested repeatedly and turned into a professional filmmaking practice."
-                fr="L’instinct visuel de Kevin a été façonné à la fois par la musique et par le cinéma. La musique lui a appris le rythme, la performance et l’énergie. Le cinéma a développé son attention à la lumière, au cadrage, au mouvement, au rythme narratif et à l’émotion. Le vidéoclip est devenu l’espace où ces influences pouvaient être testées constamment et transformées en une pratique professionnelle de la réalisation."
+                en="Music shaped the rhythm. Cinema shaped the frame. Kevin’s work brings those two instincts together through performance, atmosphere, lighting, camera movement, pacing and emotion. Music videos became the first major space where that visual language could develop project after project."
+                fr="La musique a façonné le rythme. Le cinéma a façonné le cadre. Le travail de Kevin réunit ces deux instincts à travers la performance, l’atmosphère, la lumière, le mouvement de caméra, le rythme narratif et l’émotion. Le vidéoclip est devenu le premier grand espace où ce langage visuel a pu se développer projet après projet."
               />
             </p>
 
             <p>
               <Localized
-                en="Across more than 300 projects, that practice expanded into creative direction, cinematography, production and post-production across different formats. KSP Vision is the studio built from that experience, carrying the energy of the early years into a more deliberate and long-term production company."
-                fr="À travers plus de 300 projets, cette pratique s’est élargie à la direction créative, à la cinématographie, à la production et à la postproduction dans différents formats. KSP Vision est le studio construit à partir de cette expérience, transportant l’énergie des premières années vers une société de production plus réfléchie et pensée pour le long terme."
+                en="Across more than 300 projects and over a decade behind the camera, that practice expanded into directing, cinematography, creative direction, production and post-production across multiple formats. KSP Vision is the studio built from that experience, with the ambition to keep pushing the work beyond any single category."
+                fr="À travers plus de 300 projets et plus d’une décennie derrière la caméra, cette pratique s’est élargie à la réalisation, à la cinématographie, à la direction créative, à la production et à la postproduction dans plusieurs formats. KSP Vision est le studio construit à partir de cette expérience, avec l’ambition de continuer à faire évoluer le travail au-delà d’une seule catégorie."
               />
             </p>
           </div>
