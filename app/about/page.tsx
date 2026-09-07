@@ -326,6 +326,51 @@ export default function Page() {
 
 
       {/* =====================================================
+          SELECTED COLLABORATIONS
+          ===================================================== */}
+      <section className="studioCollaborations">
+        <div className="studioCollaborationsHead">
+          <div>
+            <p className="kicker">
+              <Localized
+                en="Selected collaborations"
+                fr="Collaborations sélectionnées"
+              />
+            </p>
+
+            <h2>
+              <Localized
+                en="Work built with"
+                fr="Des projets réalisés avec"
+              />
+              <br />
+              <span>
+                <Localized
+                  en="real partners."
+                  fr="de vrais partenaires."
+                />
+              </span>
+            </h2>
+          </div>
+
+          <p>
+            <Localized
+              en="Selected organizations and creative partners represented across the KSP body of work."
+              fr="Une sélection d’organisations et de partenaires créatifs présents à travers le parcours de KSP."
+            />
+          </p>
+        </div>
+
+        <div className="studioCollaborationsLogos">
+          <img
+            src="/collaborations-selected.png"
+            alt="QCL TUR, 7ième Ciel Records, ADVANCE, Finance Montréal and Francos de Montréal"
+          />
+        </div>
+      </section>
+
+
+      {/* =====================================================
           FOUNDER
           ===================================================== */}
       <section className="studioFounder">
