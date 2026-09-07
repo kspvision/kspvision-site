@@ -332,31 +332,22 @@ export default function Page() {
         <div className="studioCollaborationsHead">
           <div>
             <p className="kicker">
-              <Localized
-                en="Selected collaborations"
-                fr="Collaborations sélectionnées"
-              />
+              <Localized en="The work" fr="Le travail" />
             </p>
 
             <h2>
-              <Localized
-                en="Work built with"
-                fr="Des projets réalisés avec"
-              />
+              <Localized en="Selected" fr="Collaborations" />
               <br />
               <span>
-                <Localized
-                  en="real partners."
-                  fr="de vrais partenaires."
-                />
+                <Localized en="collaborations." fr="sélectionnées." />
               </span>
             </h2>
           </div>
 
           <p>
             <Localized
-              en="Selected organizations and creative partners represented across the KSP body of work."
-              fr="Une sélection d’organisations et de partenaires créatifs présents à travers le parcours de KSP."
+              en="Organizations and creative partners represented across the KSP body of work."
+              fr="Des organisations et partenaires créatifs présents à travers le parcours de KSP."
             />
           </p>
         </div>
