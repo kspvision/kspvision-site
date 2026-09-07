@@ -2132,3 +2132,66 @@
   }
 
 }
+
+
+/* =========================================================
+   ABOUT / RESTORE COLLABORATION LOGO SCALE
+   Keep compact section spacing, restore large logo treatment.
+   ========================================================= */
+
+.studioCollaborationsLogos {
+  display: block;
+
+  height: clamp(105px, 12vw, 145px);
+  min-height: 0;
+
+  padding: 0;
+
+  overflow: hidden;
+}
+
+.studioCollaborationsLogos img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  max-height: none;
+
+  object-fit: cover;
+  object-position: center 68%;
+
+  opacity: .92;
+}
+
+@media (max-width: 800px) {
+
+  .studioCollaborationsLogos {
+    height: clamp(90px, 24vw, 120px);
+
+    min-height: 0;
+    padding: 0;
+  }
+
+  .studioCollaborationsLogos img {
+    max-height: none;
+
+    object-fit: cover;
+    object-position: center 68%;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .studioCollaborationsLogos {
+    height: 105px;
+
+    min-height: 0;
+    padding: 0;
+  }
+
+  .studioCollaborationsLogos img {
+    max-height: none;
+  }
+
+}
