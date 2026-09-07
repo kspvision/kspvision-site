@@ -36,8 +36,8 @@ export default function Page() {
 
           <p className="studioHeroThesis">
             <Localized
-              en="Music came first. The camera came because something was missing."
-              fr="La musique est venue en premier. La caméra est arrivée parce qu’il manquait quelque chose."
+              en="Music came first. Cinema shaped the eye. The camera became the language."
+              fr="La musique est venue en premier. Le cinéma a façonné le regard. La caméra est devenue le langage."
             />
           </p>
 
@@ -94,8 +94,8 @@ export default function Page() {
 
           <p>
             <Localized
-              en="KSP Vision was not created in one moment. It is the result of different chapters , music, filmmaking, growth, mistakes, a pause, and a return with a clearer idea of what the company should become."
-              fr="KSP Vision n’est pas né en un seul moment. L’entreprise est le résultat de plusieurs chapitres , la musique, la réalisation, la croissance, les erreurs, une pause et un retour avec une vision plus claire de ce que l’entreprise devait devenir."
+              en="More than a decade and hundreds of productions separate the first KSP shoots from the studio today. Each chapter expanded the craft, the scale and the kind of stories the company could take on."
+              fr="Plus d’une décennie et des centaines de productions séparent les premiers tournages KSP du studio d’aujourd’hui. Chaque chapitre a élargi le savoir-faire, l’échelle et le type d’histoires que l’entreprise pouvait prendre en charge."
             />
           </p>
         </div>
@@ -116,8 +116,8 @@ export default function Page() {
 
               <p>
                 <Localized
-                  en="Kevin grew up around music and began rapping, producing and recording young. Before he ever directed an artist, he understood what it meant to be the person trying to be heard."
-                  fr="Kevin a grandi autour de la musique et a commencé très jeune à rapper, produire et enregistrer. Avant même de diriger un artiste, il comprenait ce que signifiait être la personne qui cherche à se faire entendre."
+                  en="Kevin grew up around music and began rapping, producing and recording young. Those years built an instinct for rhythm, performance and artist identity that would later become part of his filmmaking language."
+                  fr="Kevin a grandi autour de la musique et a commencé très jeune à rapper, produire et enregistrer. Ces années ont développé un instinct pour le rythme, la performance et l’identité artistique qui allait plus tard faire partie de son langage de réalisateur."
                 />
               </p>
             </div>
@@ -133,17 +133,17 @@ export default function Page() {
 
             <div>
               <p className="studioTimelineEra">
-                <Localized en="Build what is missing" fr="Créer ce qui manque" />
+                <Localized en="The visual language" fr="Le langage visuel" />
               </p>
 
               <h3>
-                <Localized en="The camera became the answer." fr="La caméra est devenue la réponse." />
+                <Localized en="Learning to think in images." fr="Apprendre à penser en images." />
               </h3>
 
               <p>
                 <Localized
-                  en="Montréal had artists with something to say, but not enough visual infrastructure to carry their work beyond their immediate circles. Kevin taught himself filmmaking and began building the kind of platform he felt was missing."
-                  fr="Montréal avait des artistes avec quelque chose à dire, mais pas assez d’infrastructure visuelle pour porter leur travail au-delà de leur entourage immédiat. Kevin a appris la réalisation par lui-même et a commencé à bâtir le type de plateforme qui, selon lui, manquait."
+                  en="Movies had always been part of the fascination: lighting, framing, movement, performance and the way editing can change emotion. When Kevin saw the need for a stronger visual platform around Montréal artists, the camera became both a creative outlet and a way to build what was missing."
+                  fr="Les films avaient toujours fait partie de la fascination : la lumière, le cadrage, le mouvement, la performance et la façon dont le montage peut transformer une émotion. Lorsque Kevin a vu le besoin d’une plateforme visuelle plus forte autour des artistes montréalais, la caméra est devenue à la fois un outil créatif et une façon de construire ce qui manquait."
                 />
               </p>
             </div>
@@ -159,15 +159,15 @@ export default function Page() {
 
             <div>
               <p className="studioTimelineEra">
-                <Localized en="The first KSP era" fr="La première ère KSP" />
+                <Localized en="The first body of work" fr="Le premier grand chapitre" />
               </p>
 
               <h3>KSP FILMS</h3>
 
               <p>
                 <Localized
-                  en="KSP Films grew through volume, experimentation and proximity to artists. The work helped document and amplify a generation of Montréal music while Kevin moved fully from artist to filmmaker."
-                  fr="KSP Films a grandi grâce au volume, à l’expérimentation et à la proximité avec les artistes. Le travail a contribué à documenter et amplifier une génération de musique montréalaise pendant que Kevin passait définitivement d’artiste à réalisateur."
+                  en="Music videos became the first major body of work. Project after project, KSP Films developed a recognizable presence around Montréal artists while Kevin refined directing, cinematography, lighting, editing and visual storytelling through constant production."
+                  fr="Les vidéoclips sont devenus le premier grand corpus de travail. Projet après projet, KSP Films a développé une présence reconnaissable autour des artistes montréalais pendant que Kevin affinait la réalisation, la cinématographie, l’éclairage, le montage et la narration visuelle à travers une production constante."
                 />
               </p>
             </div>
@@ -181,23 +181,21 @@ export default function Page() {
 
             <div>
               <p className="studioTimelineEra">
-                <Localized en="Growth without structure" fr="Grandir sans structure" />
+                <Localized en="The expansion" fr="L’expansion" />
               </p>
 
-              <h3>
-                <Localized en="When hustle stopped being enough." fr="Quand le hustle ne suffisait plus." />
-              </h3>
+              <h3>KSP TEAM</h3>
 
               <p>
                 <Localized
-                  en="Demand outgrew one person, so KSP expanded into a team. The creative growth moved faster than the business structure, teaching Kevin the difference between being busy and building something sustainable."
-                  fr="La demande a dépassé ce qu’une seule personne pouvait porter, alors KSP est devenu une équipe. La croissance créative a avancé plus vite que la structure d’entreprise, montrant à Kevin la différence entre être très occupé et bâtir quelque chose de durable."
+                  en="Growing demand pushed KSP beyond a one-person operation. KSP Team brought together shooters, editors and visual collaborators to handle a larger volume of productions. It became Kevin’s first experience building beyond freelance production and understanding the structure required to sustain a creative company."
+                  fr="La croissance de la demande a poussé KSP au-delà d’une opération individuelle. KSP Team a réuni cadreurs, monteurs et collaborateurs visuels afin de gérer un plus grand volume de productions. Cette période est devenue la première expérience de Kevin dans la construction d’une structure allant au-delà du travail autonome et dans la compréhension de ce qu’il faut pour maintenir une entreprise créative."
                 />
               </p>
             </div>
 
             <span className="studioTimelineDate">
-              <Localized en="GROWTH" fr="CROISSANCE" />
+              <Localized en="EXPANSION" fr="EXPANSION" />
             </span>
           </article>
 
@@ -207,23 +205,23 @@ export default function Page() {
 
             <div>
               <p className="studioTimelineEra">
-                <Localized en="The rebuild" fr="La reconstruction" />
+                <Localized en="A wider frame" fr="Un cadre plus large" />
               </p>
 
               <h3>
-                <Localized en="Stepping away changed the vision." fr="S’éloigner a changé la vision." />
+                <Localized en="Beyond music videos." fr="Au-delà du vidéoclip." />
               </h3>
 
               <p>
                 <Localized
-                  en="After years at full speed, Kevin stepped away and rebuilt privately. Becoming a father changed the reason to return: not simply to be visible again, but to build something stronger and capable of lasting."
-                  fr="Après des années à pleine vitesse, Kevin s’est éloigné et s’est reconstruit loin du regard public. Devenir père a changé la raison de revenir : il ne s’agissait plus simplement de redevenir visible, mais de construire quelque chose de plus solide et capable de durer."
+                  en="The work had already begun moving into weddings, documentary, organizations and commercial production. Cinema remained a constant reference point, while each new format expanded Kevin’s understanding of people, story, production and how different kinds of images need to feel."
+                  fr="Le travail avait déjà commencé à s’étendre aux mariages, au documentaire, aux organisations et à la production commerciale. Le cinéma est demeuré une référence constante, tandis que chaque nouveau format élargissait la compréhension de Kevin des personnes, des histoires, de la production et de la sensation propre à chaque type d’image."
                 />
               </p>
             </div>
 
             <span className="studioTimelineDate">
-              <Localized en="REBUILD" fr="RECONSTRUCTION" />
+              <Localized en="EXPANSION OF CRAFT" fr="ÉVOLUTION DU MÉTIER" />
             </span>
           </article>
 
@@ -233,15 +231,15 @@ export default function Page() {
 
             <div>
               <p className="studioTimelineEra">
-                <Localized en="The company today" fr="L’entreprise aujourd’hui" />
+                <Localized en="The studio today" fr="Le studio aujourd’hui" />
               </p>
 
               <h3>KSP VISION</h3>
 
               <p>
                 <Localized
-                  en="KSP Vision is the next version of the idea. KSP Films remains its music foundation, joined by weddings, brand films and documentary work under one production company built for the long term."
-                  fr="KSP Vision est la prochaine version de l’idée. KSP Films demeure sa fondation musicale, rejoint par les mariages, les films de marque et le documentaire au sein d’une seule société de production pensée pour le long terme."
+                  en="KSP Vision brings more than a decade of production experience together under one company. KSP Films remains its music foundation, joined by wedding films, brand work and documentary storytelling, with direction, cinematography, production and post-production connected through one creative vision."
+                  fr="KSP Vision réunit plus d’une décennie d’expérience en production sous une seule entreprise. KSP Films demeure sa fondation musicale, rejoint par les films de mariage, le travail de marque et le documentaire, avec la réalisation, la cinématographie, la production et la postproduction réunies autour d’une même vision créative."
                 />
               </p>
             </div>
@@ -313,23 +311,23 @@ export default function Page() {
 
           <p className="studioFounderLead">
             <Localized
-              en="Artist first. Filmmaker by necessity. Founder by evolution."
-              fr="Artiste d’abord. Réalisateur par nécessité. Fondateur par évolution."
+              en="Filmmaker, Creative Director and founder with more than a decade spent directing, shooting, producing and shaping stories in post."
+              fr="Réalisateur, directeur créatif et fondateur avec plus d’une décennie consacrée à la réalisation, à la prise de vue, à la production et à la construction des histoires en postproduction."
             />
           </p>
 
           <div className="studioFounderStory">
             <p>
               <Localized
-                en="Kevin’s eye comes from music. His approach to filmmaking is rooted in rhythm, performance, identity and an understanding of the person standing in front of the lens."
-                fr="Le regard de Kevin vient de la musique. Son approche de la réalisation est ancrée dans le rythme, la performance, l’identité et la compréhension de la personne devant l’objectif."
+                en="Kevin’s visual instinct was shaped by both music and movies. Music taught rhythm, performance and energy. Cinema sharpened his attention to light, framing, movement, pacing and emotion. Music videos became the space where those influences could be tested repeatedly and turned into a professional filmmaking practice."
+                fr="L’instinct visuel de Kevin a été façonné à la fois par la musique et par le cinéma. La musique lui a appris le rythme, la performance et l’énergie. Le cinéma a développé son attention à la lumière, au cadrage, au mouvement, au rythme narratif et à l’émotion. Le vidéoclip est devenu l’espace où ces influences pouvaient être testées constamment et transformées en une pratique professionnelle de la réalisation."
               />
             </p>
 
             <p>
               <Localized
-                en="He learned outside the traditional film path through self-teaching, repetition, difficult shoots and years of editing. KSP Vision carries the creative instinct of that first era with stronger structure, clearer intention and a longer horizon."
-                fr="Il a appris en dehors du parcours traditionnel du cinéma, par lui-même, grâce à la répétition, aux tournages difficiles et à des années de montage. KSP Vision conserve l’instinct créatif de cette première époque avec une structure plus solide, une intention plus claire et une vision à plus long terme."
+                en="Across more than 300 projects, that practice expanded into creative direction, cinematography, production and post-production across different formats. KSP Vision is the studio built from that experience, carrying the energy of the early years into a more deliberate and long-term production company."
+                fr="À travers plus de 300 projets, cette pratique s’est élargie à la direction créative, à la cinématographie, à la production et à la postproduction dans différents formats. KSP Vision est le studio construit à partir de cette expérience, transportant l’énergie des premières années vers une société de production plus réfléchie et pensée pour le long terme."
               />
             </p>
           </div>
