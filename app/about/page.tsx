@@ -154,29 +154,6 @@ export default function Page() {
           </article>
 
 
-          <div className="studioTimelineMedia">
-            <figure className="studioTimelineMediaWide">
-              <img
-                src="/music-1539-exact.jpg"
-                alt="KSP Films archive"
-              />
-              <figcaption>
-                <Localized en="KSP FILMS / ARCHIVE" fr="KSP FILMS / ARCHIVES" />
-              </figcaption>
-            </figure>
-
-            <figure>
-              <img
-                src="/music-1540.jpg"
-                alt="Music video archive"
-              />
-              <figcaption>
-                <Localized en="MUSIC VIDEO ERA" fr="ÈRE VIDÉOCLIP" />
-              </figcaption>
-            </figure>
-          </div>
-
-
           <article>
             <span className="studioTimelineNo">03</span>
 
@@ -223,29 +200,6 @@ export default function Page() {
               <Localized en="GROWTH" fr="CROISSANCE" />
             </span>
           </article>
-
-
-          <div className="studioTimelineMedia studioTimelineMediaReverse">
-            <figure>
-              <img
-                src="/music-1602.jpg"
-                alt="KSP Films selected frame"
-              />
-              <figcaption>
-                <Localized en="SELECTED FRAME" fr="IMAGE SÉLECTIONNÉE" />
-              </figcaption>
-            </figure>
-
-            <figure className="studioTimelineMediaWide">
-              <img
-                src="/music-1605.jpg"
-                alt="KSP Films production archive"
-              />
-              <figcaption>
-                <Localized en="PRODUCTION / ARCHIVE" fr="PRODUCTION / ARCHIVES" />
-              </figcaption>
-            </figure>
-          </div>
 
 
           <article>
