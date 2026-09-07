@@ -2018,3 +2018,117 @@
   }
 
 }
+
+
+/* =========================================================
+   ABOUT / READABILITY + LOGO FIT FINAL FIX
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   COLLABORATION LOGOS
+   Preserve the tighter section spacing, but never crop logos.
+   --------------------------------------------------------- */
+
+.studioCollaborationsLogos {
+  height: auto;
+  min-height: 118px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px 22px;
+
+  overflow: visible;
+}
+
+.studioCollaborationsLogos img {
+  width: 100%;
+  height: auto;
+  max-height: 112px;
+
+  object-fit: contain;
+  object-position: center;
+
+  opacity: .92;
+}
+
+
+/* ---------------------------------------------------------
+   READABILITY
+   Raise secondary text without flattening hierarchy.
+   --------------------------------------------------------- */
+
+.studioCompanyStoryPreview p {
+  color: rgba(255,255,255,.60);
+}
+
+.studioCompanyStoryPreview p:first-child {
+  color: rgba(255,255,255,.68);
+}
+
+.studioSectionHead > p,
+.studioNowHead > p,
+.studioCollaborationsHead > p {
+  color: rgba(255,255,255,.55);
+}
+
+.studioTimeline article > div > p:last-child {
+  color: rgba(255,255,255,.56);
+}
+
+.studioNowGrid p {
+  color: rgba(255,255,255,.50);
+}
+
+.studioFounderLead {
+  color: rgba(255,255,255,.70);
+}
+
+.studioFounderStory p,
+.studioFounderStory p:first-child,
+.studioFounderStory p + p {
+  color: rgba(255,255,255,.55);
+}
+
+.studioApproachGrid p {
+  color: rgba(255,255,255,.49);
+}
+
+.studioBranchGrid p {
+  color: rgba(255,255,255,.38);
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE LOGO FIT
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  .studioCollaborationsLogos {
+    min-height: 104px;
+
+    padding: 16px 14px;
+  }
+
+  .studioCollaborationsLogos img {
+    max-height: 98px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .studioCollaborationsLogos {
+    height: auto;
+    min-height: 92px;
+
+    padding: 14px 8px;
+  }
+
+  .studioCollaborationsLogos img {
+    max-height: 86px;
+  }
+
+}
