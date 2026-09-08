@@ -4725,3 +4725,8 @@ html body .mv-page .mv-card-artist {
 
 /* END KSP FILMS SYMMETRY / DEADSPACE PASS */
 
+
+/* KSP Films — align view count vertically with raised year metadata */
+.mv-page .mv-card-views {
+  transform: translateY(-3px);
+}
