@@ -407,8 +407,8 @@ export default function FilmsPage() {
 
         <span>
           <Localized
-            en="From concept to final cut."
-            fr="Du concept au montage final."
+            en="From first idea to final cut, KSP Films builds music videos around the artist, the track and its world."
+            fr="De la première idée au montage final, KSP Films construit des vidéoclips autour de l’artiste, du morceau et de son univers."
           />
         </span>
       </div>
@@ -3412,6 +3412,108 @@ export default function FilmsPage() {
 
       `}</style>
       {/* KSP_FINAL_DETAIL_POLISH_END */}
+
+
+      {/* KSP_PIXEL_ALIGNMENT_START */}
+      <style>{`
+
+        /* ================================================
+           FINAL PIXEL ALIGNMENT
+           ================================================ */
+
+        /*
+          Every catalogue heading now has the SAME distance
+          to the thumbnails beneath it.
+        */
+        html body .mv-page .mv-row-head,
+        html body .mv-page .mv-million-head {
+          margin-bottom: 0 !important;
+          padding-bottom: 6px !important;
+        }
+
+        html body .mv-page .mv-row-head + .mv-track,
+        html body .mv-page .mv-million-head + .mv-million-grid {
+          margin-top: 0 !important;
+        }
+
+
+        /* ================================================
+           MOST WATCHED LEFT / RIGHT ALIGNMENT
+
+           Do not use internal padding here.
+           Give the actual rail the same outside gutter as
+           every other catalogue rail.
+           ================================================ */
+
+        html body .mv-page .mv-most-watched-track {
+          box-sizing: border-box !important;
+
+          width: auto !important;
+
+          margin-left: var(--mv-gutter) !important;
+          margin-right: var(--mv-gutter) !important;
+
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+
+        /*
+          Most Watched heading already uses the normal gutter.
+          Keep it on the exact same axis as the cards.
+        */
+        html body .mv-page .mv-million-head {
+          padding-left: var(--mv-gutter) !important;
+          padding-right: var(--mv-gutter) !important;
+        }
+
+
+        /* ================================================
+           NORMAL ROWS:
+           eliminate any leftover invisible top spacing.
+           ================================================ */
+
+        html body .mv-page .mv-track {
+          padding-top: 0 !important;
+        }
+
+
+        /* ================================================
+           BOTTOM CTA COPY
+           Keep the added sentence elegant, not paragraph-y.
+           ================================================ */
+
+        html body .mv-page .mv-final-cta-copy > span {
+          max-width: 560px;
+
+          margin-top: 9px !important;
+
+          font-size: 11px !important;
+          line-height: 1.45 !important;
+
+          color: rgba(255,255,255,.56) !important;
+        }
+
+
+        @media (max-width:700px) {
+
+          html body .mv-page .mv-row-head,
+          html body .mv-page .mv-million-head {
+            padding-bottom: 5px !important;
+          }
+
+          html body .mv-page .mv-most-watched-track {
+            margin-left: var(--mv-gutter) !important;
+            margin-right: var(--mv-gutter) !important;
+          }
+
+          html body .mv-page .mv-final-cta-copy > span {
+            max-width: 100%;
+          }
+
+        }
+
+      `}</style>
+      {/* KSP_PIXEL_ALIGNMENT_END */}
 
 </main>
   );
