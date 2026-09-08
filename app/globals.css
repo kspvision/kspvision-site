@@ -4736,3 +4736,10 @@ html body .mv-page .mv-card-artist {
   position: relative;
   top: 1px;
 }
+
+/* KSP Films — final year baseline alignment */
+html body .mv-page .mv-card-year {
+  position: relative !important;
+  top: 0 !important;
+  transform: translateY(2px) !important;
+}
