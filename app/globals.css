@@ -4736,3 +4736,11 @@ html body .mv-page .mv-card-artist {
   position: relative;
   top: 1px;
 }
+
+/* KSP FILMS — FINAL DATE BASELINE
+   Date only. Match artist-name baseline. */
+html body .mv-page .mv-card-details .mv-card-year {
+  position: relative !important;
+  top: auto !important;
+  transform: translateY(2px) !important;
+}
