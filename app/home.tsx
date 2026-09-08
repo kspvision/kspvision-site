@@ -5,6 +5,7 @@ import { useLanguage } from "./site-language";
 import CollaborationRail from "./brand-documentary/collaboration-rail";
 import "./home-sections.css";
 
+import BranchCardRandomizer from "./branch-card-randomizer";
 function BranchVideo({ src, poster }: { src: string; poster?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -223,6 +224,8 @@ export default function Home() {
       </section>
 
       <footer><a className="brand" href="#accueil"><span>KSP</span> VISION</a><p>{l("Production · Cinematography · Post-production","Production · Cinématographie · Post-production")}</p><p>Montréal, Québec · © 2026</p></footer>
-    </main>
+
+      <BranchCardRandomizer />
+</main>
   );
 }
