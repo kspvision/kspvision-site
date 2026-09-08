@@ -1,6 +1,8 @@
 "use client";
 
 import { useLanguage } from "./site-language";
+import CollaborationRail from "./brand-documentary/collaboration-rail";
+import "./home-sections.css";
 
 export default function Home() {
   const [lang, setLang] = useLanguage();
@@ -43,29 +45,143 @@ export default function Home() {
         <div className="scrollHint">{l("Scroll","Défiler")} <span>↓</span></div>
       </section>
 
-      <section className="pathways section" id="types">
-        <div className="pathIntro"><p className="kicker">{l("Choose your project","Choisissez votre projet")}</p><h2>{l("What are we","Que créons-nous")}<br /><i>{l("creating?","ensemble?")}</i></h2></div>
-        <div className="pathGrid">
-          <a href="/kspfilms"><span>{l("For artists","Pour artistes")}</span><h3>KSP FILMS</h3><p>{l("Concept, direction, cinematography, editing and visual effects.","Concept, réalisation, cinématographie, montage et effets visuels.")}</p><b>{l("Open page","Voir la page")} ↗</b></a>
-          <a href="/weddings"><span>{l("For couples","Pour couples")}</span><h3>{l("Wedding films","Films de mariage")}</h3><p>{l("Emotional, cinematic films built around your day and your story.","Des films émotionnels et cinématographiques, centrés sur votre histoire.")}</p><b>{l("Open page","Voir la page")} ↗</b></a>
-          <a href="/brand-documentary"><span>{l("For organizations","Pour organisations")}</span><h3>{l("Brand & documentary","Marque et documentaire")}</h3><p>{l("Campaigns, branded stories, portraits and documentary content.","Campagnes, récits de marque, portraits et contenu documentaire.")}</p><b>{l("Open page","Voir la page")} ↗</b></a>
+      <section className="homeStudioIntro" id="types">
+        <p className="homeStudioIndex">01 / 06</p>
+        <div className="homeStudioIntroGrid">
+          <div>
+            <p className="kicker">{l("Independent production company", "Maison de production indépendante")}</p>
+            <h2>{l("One vision.", "Une vision.")}<br /><em>{l("Built for every frame.", "Pensée pour chaque image.")}</em></h2>
+          </div>
+          <div className="homeStudioStatement">
+            <p>{l(
+              "KSP Vision is a Montréal production company bringing creative development, production and post-production together under one direction.",
+              "KSP Vision est une maison de production montréalaise qui réunit développement créatif, production et postproduction sous une même direction."
+            )}</p>
+            <span>{l("Music / Weddings / Brand & Documentary", "Musique / Mariages / Marque et documentaire")}</span>
+          </div>
         </div>
       </section>
 
-      <section className="section services" id="services">
-        <div className="sectionHead"><div><p className="kicker">{l("What we do","Ce que nous faisons")}</p><h2>{l("From idea","De l’idée")}<br /><i>{l("to final frame.","à l’image finale.")}</i></h2></div><p>{l("Choose one specialty or entrust KSP Vision with the complete production.","Choisissez une spécialité ou confiez la production complète à KSP Vision.")}</p></div>
-        <div className="serviceList">
+      <section className="homeBranches" aria-labelledby="homeBranchesTitle">
+        <div className="homeSectionHeading">
+          <div>
+            <p className="homeStudioIndex">02 / 06</p>
+            <p className="kicker">{l("Three branches", "Trois branches")}</p>
+            <h2 id="homeBranchesTitle">{l("One company.", "Une entreprise.")}<br /><em>{l("Three ways in.", "Trois portes d’entrée.")}</em></h2>
+          </div>
+          <p>{l(
+            "A focused home for each kind of story, connected by the same cinematic standard.",
+            "Un espace distinct pour chaque type d’histoire, uni par la même exigence cinématographique."
+          )}</p>
+        </div>
+
+        <div className="homeBranchGrid">
+          <a className="homeBranch homeBranchFilms" href="/kspfilms">
+            <span className="homeBranchNumber">01</span>
+            <div>
+              <p>{l("Music Videos", "Vidéoclips")}</p>
+              <h3>KSP FILMS</h3>
+            </div>
+            <b aria-hidden="true">↗</b>
+          </a>
+          <a className="homeBranch homeBranchWeddings" href="/weddings">
+            <span className="homeBranchNumber">02</span>
+            <div>
+              <p>{l("Wedding films & photography", "Films et photographie de mariage")}</p>
+              <h3>KSP WEDDINGS</h3>
+            </div>
+            <b aria-hidden="true">↗</b>
+          </a>
+          <a className="homeBranch homeBranchBrand" href="/brand-documentary">
+            <span className="homeBranchNumber">03</span>
+            <div>
+              <p>{l("Commercial, Branded & Documentary Production", "Production commerciale, de marque et documentaire")}</p>
+              <h3>{l("BRAND & DOCUMENTARY", "MARQUE ET DOCUMENTAIRE")}</h3>
+            </div>
+            <b aria-hidden="true">↗</b>
+          </a>
+        </div>
+      </section>
+
+      <section className="homeCapabilities" aria-labelledby="homeCapabilitiesTitle">
+        <div className="homeCapabilitiesLead">
+          <p className="homeStudioIndex">03 / 06</p>
+          <p className="kicker">{l("What we do", "Ce que nous faisons")}</p>
+          <h2 id="homeCapabilitiesTitle">{l("From first idea", "De la première idée")}<br /><em>{l("to final delivery.", "à la livraison finale.")}</em></h2>
+          <p>{l(
+            "A complete production and post-production practice, scaled around what the film needs.",
+            "Une pratique complète de production et de postproduction, adaptée aux besoins réels du film."
+          )}</p>
+        </div>
+        <div className="homeCapabilityList">
           {[
-            ["01", "Production", l("Concept development, planning, crew direction and production management.","Développement du concept, préparation, direction d’équipe et gestion de production.")],
-            ["02", l("Cinematography","Cinématographie"), l("Camera, lighting and visual direction designed around the story.","Caméra, lumière et direction visuelle pensées autour de votre histoire.")],
-            ["03", "Post-production", l("Editing, colour, sound and visual effects through final delivery.","Montage, couleur, son et effets visuels jusqu’à la livraison finale.")],
-            ["04", l("Creative direction","Direction créative"), l("A clear visual identity aligned with your audience and objectives.","Une identité visuelle claire, alignée sur votre public et vos objectifs.")],
-          ].map(([number, title, copy]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p><b>↗</b></article>)}
+            [l("Creative Development", "Développement créatif"), l("Direction", "Réalisation")],
+            [l("Production", "Production"), l("Cinematography", "Cinématographie")],
+            [l("Editing", "Montage"), l("Colour / Finishing", "Couleur / Finition")],
+            [l("Sound", "Son"), l("Visual Effects", "Effets visuels")],
+          ].map((pair, index) => (
+            <div key={index}>
+              <span>0{index + 1}</span>
+              <p>{pair[0]}</p>
+              <p>{pair[1]}</p>
+            </div>
+          ))}
         </div>
-        <a className="serviceCta" href="/booking">{l("Discuss your project","Parler de votre projet")} <span>↗</span></a>
       </section>
 
-      <section className="homeBook"><p>10+ {l("years of experience","ans d’expérience")} · 300+ {l("projects delivered","projets réalisés")}</p><a href="/booking">{l("Book a project","Réserver un projet")} ↗</a></section>
+      <section className="homeFinishing" aria-labelledby="homeFinishingTitle">
+        <div className="homeFinishingMark" aria-hidden="true"><span>V</span><span>F</span><span>X</span></div>
+        <div className="homeFinishingCopy">
+          <p className="homeStudioIndex">04 / 06</p>
+          <p className="kicker">{l("Post-production capability", "Capacité de postproduction")}</p>
+          <h2 id="homeFinishingTitle">{l("Visual Effects", "Effets visuels")}<br /><em>{l("& Finishing", "et finition")}</em></h2>
+          <p>{l(
+            "Compositing, cleanup, image manipulation, environment enhancement and creative visual effects built around the needs of the film.",
+            "Compositing, nettoyage, manipulation d’image, bonification d’environnements et effets visuels créatifs conçus selon les besoins du film."
+          )}</p>
+          <a href="/booking">{l("Discuss production or post", "Parler de production ou de postproduction")} <span>↗</span></a>
+        </div>
+      </section>
+
+      <section className="homeProof" aria-labelledby="homeProofTitle">
+        <div className="homeSectionHeading">
+          <div>
+            <p className="homeStudioIndex">05 / 06</p>
+            <p className="kicker">{l("Experience / Selected collaborations", "Expérience / Collaborations choisies")}</p>
+            <h2 id="homeProofTitle">{l("Built through", "Bâti par")}<br /><em>{l("the work.", "le travail.")}</em></h2>
+          </div>
+          <p>{l(
+            "More than a decade of production experience across hundreds of projects, artists, organizations and creative partners.",
+            "Plus d’une décennie d’expérience en production à travers des centaines de projets, artistes, organisations et partenaires créatifs."
+          )}</p>
+        </div>
+
+        <div className="homeProofStats">
+          <div><strong>10<span>+</span></strong><p>{l("Years of experience", "Années d’expérience")}</p></div>
+          <div><strong>300<span>+</span></strong><p>{l("Projects", "Projets")}</p></div>
+          <div className="homeFounderProof">
+            <p>{l("Founder-led.", "Dirigé par son fondateur.")}<br /><em>{l("Built to scale.", "Pensé pour évoluer.")}</em></p>
+            <span>{l("Kevin Shayne leads the creative direction, with each team shaped around the project.", "Kevin Shayne dirige la vision créative, avec une équipe adaptée à chaque projet.")}</span>
+            <a href="/about">{l("About KSP Vision", "À propos de KSP Vision")} ↗</a>
+          </div>
+        </div>
+
+        <div className="homeCollaborations">
+          <p>{l("Selected collaborations", "Collaborations choisies")}</p>
+          <CollaborationRail />
+        </div>
+      </section>
+
+      <section className="homeFinalCta" aria-labelledby="homeFinalCtaTitle">
+        <p className="homeStudioIndex">06 / 06</p>
+        <p className="kicker">{l("Start a project", "Démarrer un projet")}</p>
+        <h2 id="homeFinalCtaTitle">{l("Bring the next story", "Portons la prochaine histoire")}<br /><em>{l("into focus.", "à l’écran.")}</em></h2>
+        <p>{l(
+          "Music video, wedding, brand film, documentary, production or post. Tell us what you are building.",
+          "Vidéoclip, mariage, film de marque, documentaire, production ou postproduction. Parlez-nous de votre projet."
+        )}</p>
+        <a href="/booking">{l("Book a project", "Réserver un projet")} <span>↗</span></a>
+      </section>
 
       <footer><a className="brand" href="#accueil"><span>KSP</span> VISION</a><p>{l("Production · Cinematography · Post-production","Production · Cinématographie · Post-production")}</p><p>Montréal, Québec · © 2026</p></footer>
     </main>
