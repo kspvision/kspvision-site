@@ -32,7 +32,17 @@ function getVideoIdentity(video: string[]) {
   const match = raw.match(/^(.*?)\s+[·—–-]\s+(.+)$/);
 
   const artist = match ? match[1].trim() : "";
-  const title = match ? match[2].trim() : raw.trim();
+  let title = match ? match[2].trim() : raw.trim();
+
+  if (artist) {
+    const escapedArtist = artist.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const repeatedArtist = new RegExp(
+      `^${escapedArtist}\\s*(?:-|–|—|·|:)\\s*`,
+      "i"
+    );
+
+    title = title.replace(repeatedArtist, "").trim();
+  }
 
   const views =
     video[2]
@@ -377,6 +387,42 @@ export default function FilmsPage() {
         </div>
         {!active && limit < filtered.length && <button type="button" className="mv-expand" onClick={() => setLimit(n => n + 50)}>{copy("EXPLORE FULL ARCHIVE", "EXPLORER TOUTES LES ARCHIVES")} + <span>{shown.length} / {filtered.length}</span></button>}
       </section>
+
+    {/* KSP_FILMS_BOTTOM_CTA */}
+    <section className="mv-final-cta">
+      <div className="mv-final-cta-copy">
+        <p>
+          <Localized
+            en="THE NEXT FILM"
+            fr="LE PROCHAIN FILM"
+          />
+        </p>
+
+        <h2>
+          <Localized
+            en="YOUR TRACK. NEXT."
+            fr="VOTRE MORCEAU. ENSUITE."
+          />
+        </h2>
+
+        <span>
+          <Localized
+            en="From concept to final cut."
+            fr="Du concept au montage final."
+          />
+        </span>
+      </div>
+
+      <a href="/booking?project=music-video" className="mv-final-cta-button">
+        <Localized
+          en="START A PROJECT"
+          fr="DÉMARRER UN PROJET"
+        />
+        <b aria-hidden="true">↗</b>
+      </a>
+    </section>
+
+
 
 
       <SiteFooter />
@@ -3094,6 +3140,278 @@ export default function FilmsPage() {
 
       `}</style>
       {/* KSP_FINAL_RHYTHM_END */}
+
+
+      {/* KSP_FINAL_DETAIL_POLISH_START */}
+      <style>{`
+
+        /* ==================================================
+           VIDEO METADATA — PULL CLOSER TO THUMBNAILS
+           ================================================== */
+
+        html body .mv-page .mv-video-meta {
+          margin-top: 1px !important;
+        }
+
+        html body .mv-page .mv-video-meta-row {
+          transform: translateY(-1px);
+        }
+
+        html body .mv-page .mv-card-details {
+          transform: translateY(-2px);
+        }
+
+        /*
+          Preserve the fixed metadata geometry.
+          We are moving the content visually upward,
+          NOT changing card heights.
+        */
+        html body .mv-page .mv-card-title,
+        html body .mv-page .mv-card-artist,
+        html body .mv-page .mv-card-year,
+        html body .mv-page .mv-card-views {
+          margin-top: 0 !important;
+        }
+
+
+        /* ==================================================
+           MOST WATCHED — MATCH CATALOGUE GUTTERS
+           ================================================== */
+
+        html body .mv-page .mv-most-watched-track,
+        html body .mv-page .mv-million-grid {
+          box-sizing: border-box !important;
+
+          padding-left: var(--mv-gutter) !important;
+          padding-right: var(--mv-gutter) !important;
+
+          width: 100% !important;
+        }
+
+        html body .mv-page .mv-million-head {
+          padding-left: var(--mv-gutter) !important;
+          padding-right: var(--mv-gutter) !important;
+        }
+
+
+        /* ==================================================
+           SLIDING TITLES
+           Keep exact existing behavior.
+           ================================================== */
+
+        html body .mv-page .mv-title-window {
+          transform: translateY(-1px);
+        }
+
+
+        /* ==================================================
+           CLEAN FINAL CTA
+           ================================================== */
+
+        html body .mv-page .mv-final-cta {
+          box-sizing: border-box;
+
+          width: min(
+            1450px,
+            calc(100% - (var(--mv-gutter) * 2))
+          );
+
+          margin:
+            20px
+            auto
+            18px;
+
+          padding:
+            24px
+            0
+            22px;
+
+          display: flex;
+
+          align-items: flex-end;
+          justify-content: space-between;
+
+          gap: 30px;
+
+          border-top:
+            1px
+            solid
+            rgba(255,255,255,.12);
+
+          position: relative;
+          z-index: 3;
+        }
+
+        html body .mv-page .mv-final-cta-copy {
+          min-width: 0;
+        }
+
+        html body .mv-page .mv-final-cta-copy p {
+          margin:
+            0
+            0
+            7px;
+
+          color: #d3ad3b;
+
+          font-size: 9px;
+          line-height: 1;
+
+          font-weight: 700;
+
+          letter-spacing: .2em;
+
+          text-transform: uppercase;
+        }
+
+        html body .mv-page .mv-final-cta-copy h2 {
+          margin: 0;
+
+          color: #fff;
+
+          font-size:
+            clamp(
+              28px,
+              3.5vw,
+              52px
+            );
+
+          line-height: .92;
+
+          font-weight: 800;
+
+          letter-spacing: -.05em;
+
+          text-transform: uppercase;
+        }
+
+        html body .mv-page .mv-final-cta-copy > span {
+          display: block;
+
+          margin-top: 8px;
+
+          color: rgba(255,255,255,.52);
+
+          font-size: 11px;
+          line-height: 1.3;
+
+          letter-spacing: .02em;
+        }
+
+        html body .mv-page .mv-final-cta-button {
+          flex: 0 0 auto;
+
+          min-height: 46px;
+
+          padding:
+            0
+            19px;
+
+          display: inline-flex;
+
+          align-items: center;
+          justify-content: center;
+
+          gap: 18px;
+
+          border:
+            1px
+            solid
+            rgba(211,173,59,.72);
+
+          color: #fff;
+
+          background:
+            rgba(5,5,5,.18);
+
+          text-decoration: none;
+
+          font-size: 9px;
+
+          font-weight: 700;
+
+          letter-spacing: .14em;
+
+          text-transform: uppercase;
+
+          transition:
+            background .2s ease,
+            border-color .2s ease;
+        }
+
+        html body .mv-page .mv-final-cta-button b {
+          color: #d3ad3b;
+
+          font-size: 13px;
+
+          font-weight: 400;
+        }
+
+        @media (hover:hover) {
+          html body .mv-page .mv-final-cta-button:hover {
+            background:
+              rgba(211,173,59,.08);
+
+            border-color: #d3ad3b;
+          }
+        }
+
+
+        /* ==================================================
+           BOTTOM RHYTHM
+           Archive → CTA → Footer
+           ================================================== */
+
+        html body .mv-page #archive {
+          margin-bottom: 0 !important;
+          padding-bottom: 12px !important;
+        }
+
+        html body .mv-page #archive .mv-expand {
+          margin-bottom: 0 !important;
+        }
+
+
+        /* ==================================================
+           MOBILE
+           ================================================== */
+
+        @media (max-width:700px) {
+
+          html body .mv-page .mv-final-cta {
+            width:
+              calc(
+                100% -
+                44px
+              );
+
+            margin-top: 15px;
+
+            padding:
+              20px
+              0;
+
+            display: block;
+          }
+
+          html body .mv-page .mv-final-cta-copy h2 {
+            font-size: 32px;
+          }
+
+          html body .mv-page .mv-final-cta-button {
+            margin-top: 18px;
+
+            width: 100%;
+
+            justify-content: space-between;
+
+            box-sizing: border-box;
+          }
+
+        }
+
+      `}</style>
+      {/* KSP_FINAL_DETAIL_POLISH_END */}
 
 </main>
   );
