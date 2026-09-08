@@ -268,9 +268,24 @@ export default function FilmsPage() {
       </section>
 
       <div className="mv-timeline-label"><Localized en="BACK THROUGH THE YEARS" fr="AU FIL DES ANNÉES" /> ↓</div>
-      <Row progressive eyebrow={copy("2020 → NOW", "2020 → AUJOURD’HUI")} title={copy("THE 2020s", "LES ANNÉES 2020")} items={eraVideos[0]} />
-      <Row progressive eyebrow="2017 — 2019" title={copy("LATE 2010s", "FIN DES ANNÉES 2010")} items={eraVideos[1]} />
-      <Row progressive eyebrow={copy("2016 & EARLIER", "2016 ET AVANT")} title={copy("THE EARLY YEARS", "LES PREMIÈRES ANNÉES")} items={eraVideos[2]} />
+      <Row
+        eyebrow="2020 — 2024"
+        title={copy("THE 2020s", "LES ANNÉES 2020")}
+        items={groups.archive
+          .filter((v) => {
+            const year = Number(v.publishedAt.slice(0, 4));
+            return year >= 2020 && year <= 2024;
+          })
+          .map(asCard)}
+      />
+      <Row
+        eyebrow={copy("2019 & EARLIER", "2019 ET AVANT")}
+        title={copy("EARLIER WORK", "TRAVAUX ANTÉRIEURS")}
+        items={groups.archive
+          .filter((v) => Number(v.publishedAt.slice(0, 4)) <= 2019)
+          .map(asCard)}
+      />
+
 
       <section className="mv-artists-feature mv-collabs">
         <p><span className="mv-artists-feature-label"><Localized en="ARTISTS / COLLABORATORS" fr="ARTISTES / COLLABORATIONS" /></span></p>
@@ -299,7 +314,7 @@ export default function FilmsPage() {
           {active && <button type="button" onClick={() => {setQuery(""); setYear(""); setLimit(50);}}>{copy("CLEAR", "RÉINITIALISER")}</button>}
         </div>
         <p className="mv-result-count" role="status">{filtered.length} {filtered.length === 1 ? copy("video", "clip") : copy("videos", "clips")}{filtered.length === 0 && ` — ${copy("No matching videos.", "Aucun clip ne correspond à votre recherche.")}`}</p>
-        <div className="mv-track mv-archive-track">
+        <div className="mv-grid mv-archive-grid">
           {shown.map((video) => (
             <Card key={`grid-${video[0]}`} video={video} />
           ))}

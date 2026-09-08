@@ -4438,3 +4438,212 @@ body .mv-page .videoCollection {
 }
 
 /* END KSP FILMS COMPACT TIMELINE PASS */
+
+/* KSP FILMS FINAL TIMELINE STRUCTURE — 2026-09-07 */
+
+/* ---------------------------------------------------------
+   ALL FEATURED / TIMELINE SECTIONS:
+   one horizontal rail, ALL cards already rendered.
+   --------------------------------------------------------- */
+
+.mv-page .mv-row .mv-track,
+.mv-page .mv-track {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  width: 100% !important;
+  max-width: none !important;
+  align-items: stretch !important;
+  gap: 12px !important;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mv-page .mv-row .mv-track > *,
+.mv-page .mv-track > * {
+  flex-shrink: 0 !important;
+  scroll-snap-align: start;
+}
+
+/*
+  NO "EXPLORE THE ERA" buttons.
+  Timeline sections already contain all of their videos
+  and users navigate them horizontally.
+*/
+.mv-page .mv-row .mv-expand {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------
+   REMOVE DEAD SPACE BETWEEN TIMELINE CHAPTERS
+   --------------------------------------------------------- */
+
+.mv-page .mv-row {
+  min-height: 0 !important;
+  height: auto !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 16px !important;
+  padding-bottom: 18px !important;
+}
+
+.mv-page .mv-timeline-label {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 18px !important;
+  padding-bottom: 2px !important;
+}
+
+.mv-page .mv-row + .mv-row {
+  margin-top: 0 !important;
+}
+
+/* ---------------------------------------------------------
+   ARCHIVE:
+   50 cards visible BEFORE "Explore Full Archive".
+   It is a wrapping grid, NOT a horizontal carousel.
+   --------------------------------------------------------- */
+
+.mv-page #archive,
+.mv-page .mv-library {
+  overflow: visible !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+.mv-page #archive::before,
+.mv-page #archive::after,
+.mv-page .mv-library::before,
+.mv-page .mv-library::after {
+  content: none !important;
+  display: none !important;
+}
+
+.mv-page #archive .mv-archive-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 18px 12px !important;
+
+  width: 100% !important;
+  max-width: none !important;
+
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+
+  padding-top: 0 !important;
+  padding-bottom: 8px !important;
+}
+
+/*
+  Override any earlier rule that attempted to turn
+  Archive into a horizontal rail.
+*/
+.mv-page #archive .mv-archive-grid > * {
+  min-width: 0 !important;
+  width: auto !important;
+  max-width: 100% !important;
+  flex: none !important;
+}
+
+/* ---------------------------------------------------------
+   SEARCH / FILTER:
+   keep functionality, remove the visual "separate slab".
+   --------------------------------------------------------- */
+
+.mv-page #archive .mv-archive-tools {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+
+  padding: 0 !important;
+  margin-top: 10px !important;
+  margin-bottom: 14px !important;
+}
+
+.mv-page #archive .mv-archive-tools input,
+.mv-page #archive .mv-archive-tools select {
+  box-shadow: none !important;
+}
+
+/* ---------------------------------------------------------
+   ARCHIVE SPACING
+   --------------------------------------------------------- */
+
+.mv-page #archive {
+  margin-top: 14px !important;
+  margin-bottom: 24px !important;
+  padding-top: 14px !important;
+  padding-bottom: 18px !important;
+}
+
+/* Only Archive keeps its Explore button. */
+.mv-page #archive .mv-expand {
+  display: block !important;
+  margin: 18px auto 12px !important;
+}
+
+/* ---------------------------------------------------------
+   SUBTLE HORIZONTAL RAIL SCROLLBAR
+   --------------------------------------------------------- */
+
+.mv-page .mv-row .mv-track::-webkit-scrollbar,
+.mv-page .mv-track::-webkit-scrollbar {
+  height: 4px;
+}
+
+.mv-page .mv-row .mv-track::-webkit-scrollbar-track,
+.mv-page .mv-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mv-page .mv-row .mv-track::-webkit-scrollbar-thumb,
+.mv-page .mv-track::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.16);
+  border-radius: 999px;
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE ARCHIVE
+   --------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .mv-page #archive .mv-archive-grid {
+    grid-template-columns: repeat(4, minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .mv-page #archive .mv-archive-grid {
+    grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .mv-page .mv-row {
+    padding-top: 11px !important;
+    padding-bottom: 13px !important;
+  }
+
+  .mv-page .mv-timeline-label {
+    padding-top: 12px !important;
+  }
+
+  .mv-page #archive {
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+  }
+
+  .mv-page #archive .mv-archive-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+    gap: 14px 9px !important;
+  }
+}
+
+/* END KSP FILMS FINAL TIMELINE STRUCTURE */
