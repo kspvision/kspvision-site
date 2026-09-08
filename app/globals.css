@@ -4840,3 +4840,9 @@ html body .mv-page .mv-card-year {
   transform: none !important;
 }
 
+
+/* KSP FILMS — lift complete card metadata block */
+html body .mv-page .mv-card .mv-video-meta,
+html body .mv-page .mv-million-card .mv-video-meta {
+  transform: translateY(-4px) !important;
+}
