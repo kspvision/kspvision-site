@@ -124,7 +124,7 @@ function Row({
   progressive?: boolean;
   big?: boolean;
 }) {
-  const [visible, setVisible] = useState(6);
+  const [visible, setVisible] = useState(20);
   return (
     <section className={`mv-row ${progressive ? "mv-era" : ""}`}>
       <div className="mv-row-head">
@@ -141,12 +141,12 @@ function Row({
         {!progressive && <span><Localized en="SCROLL" fr="DÉFILER" /> →</span>}
       </div>
 
-      <div className={progressive ? "mv-grid mv-era-grid" : "mv-track"}>
+      <div className="mv-track">
         {(progressive ? items.slice(0, visible) : items).map((video) => (
           <Card key={`${title}-${video[0]}`} video={video} big={big} />
         ))}
       </div>
-      {progressive && visible < items.length && <button type="button" className="mv-expand" onClick={() => setVisible(n => n + 6)}><Localized en="EXPLORE THE ERA" fr="EXPLORER CETTE ÉPOQUE" /> + <span>{Math.min(visible, items.length)} / {items.length}</span></button>}
+      {progressive && visible < items.length && <button type="button" className="mv-expand" onClick={() => setVisible(n => n + 20)}><Localized en="EXPLORE THE ERA" fr="EXPLORER CETTE ÉPOQUE" /> + <span>{Math.min(visible, items.length)} / {items.length}</span></button>}
     </section>
   );
 }
@@ -157,7 +157,7 @@ export default function FilmsPage() {
   const copy = (en: string, french: string) => fr ? french : en;
   const [query, setQuery] = useState("");
   const [year, setYear] = useState("");
-  const [limit, setLimit] = useState(12);
+  const [limit, setLimit] = useState(50);
   const filtered = filterArchive(groups.archive, query, year);
   const active = Boolean(query.trim() || year);
   const shown = (active ? filtered : filtered.slice(0, limit)).map(asCard);
@@ -296,15 +296,15 @@ export default function FilmsPage() {
         <div className="mv-archive-tools">
           <label><span className="mv-filter-label">{copy("SEARCH", "RECHERCHER")}</span><input type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder={copy("SEARCH ARTIST OR TITLE", "RECHERCHER UN ARTISTE OU UN TITRE")} /></label>
           <label><span className="mv-filter-label">{copy("YEAR", "ANNÉE")}</span><select value={year} onChange={e => setYear(e.target.value)}><option value="">{copy("ALL YEARS", "TOUTES LES ANNÉES")}</option>{years.map(y => <option key={y} value={y}>{y}</option>)}</select></label>
-          {active && <button type="button" onClick={() => {setQuery(""); setYear(""); setLimit(12);}}>{copy("CLEAR", "RÉINITIALISER")}</button>}
+          {active && <button type="button" onClick={() => {setQuery(""); setYear(""); setLimit(50);}}>{copy("CLEAR", "RÉINITIALISER")}</button>}
         </div>
         <p className="mv-result-count" role="status">{filtered.length} {filtered.length === 1 ? copy("video", "clip") : copy("videos", "clips")}{filtered.length === 0 && ` — ${copy("No matching videos.", "Aucun clip ne correspond à votre recherche.")}`}</p>
-        <div className="mv-grid">
+        <div className="mv-track mv-archive-track">
           {shown.map((video) => (
             <Card key={`grid-${video[0]}`} video={video} />
           ))}
         </div>
-        {!active && limit < filtered.length && <button type="button" className="mv-expand" onClick={() => setLimit(n => n + 12)}>{copy("EXPLORE FULL ARCHIVE", "EXPLORER TOUTES LES ARCHIVES")} + <span>{shown.length} / {filtered.length}</span></button>}
+        {!active && limit < filtered.length && <button type="button" className="mv-expand" onClick={() => setLimit(n => n + 50)}>{copy("EXPLORE FULL ARCHIVE", "EXPLORER TOUTES LES ARCHIVES")} + <span>{shown.length} / {filtered.length}</span></button>}
       </section>
 
 

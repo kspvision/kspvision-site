@@ -4271,3 +4271,170 @@ body .mv-page .videoCollection {
     min-height: 44px;
   }
 }
+
+/* KSP FILMS COMPACT TIMELINE PASS — 2026-09-07 */
+
+/*
+  Keep KSP Films catalogue sections as horizontal cinematic rails.
+  Recent remains controlled separately by its existing 10-video logic.
+*/
+.mv-page .mv-track {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  align-items: stretch !important;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+}
+
+/* Keep cards from wrapping into multiple rows. */
+.mv-page .mv-track > * {
+  flex-shrink: 0 !important;
+  scroll-snap-align: start;
+}
+
+/*
+  Archive is now another horizontal catalogue rail.
+  Search/filter controls remain above it.
+*/
+.mv-page #archive .mv-archive-track {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  gap: 12px !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding-top: 0 !important;
+  padding-bottom: 14px !important;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mv-page #archive .mv-archive-track > * {
+  flex-shrink: 0 !important;
+  scroll-snap-align: start;
+}
+
+/*
+  Remove the visually separated Archive slab / artificial division.
+  Archive should feel like the final chapter of the same timeline.
+*/
+.mv-page #archive,
+.mv-page .mv-library {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+.mv-page #archive::before,
+.mv-page #archive::after,
+.mv-page .mv-library::before,
+.mv-page .mv-library::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Search / filter should sit naturally on the page, not inside a panel. */
+.mv-page #archive .mv-archive-tools {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-top: 12px !important;
+  margin-bottom: 14px !important;
+}
+
+/* Keep fields themselves clean and understated. */
+.mv-page #archive .mv-archive-tools input,
+.mv-page #archive .mv-archive-tools select {
+  box-shadow: none !important;
+}
+
+/*
+  Tighten the chronology.
+  Remove the giant empty vertical pockets introduced by wrapped era grids.
+*/
+.mv-page .mv-row {
+  min-height: 0 !important;
+  height: auto !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+}
+
+/* Timeline marker should stay present but compact. */
+.mv-page .mv-timeline-label {
+  padding-top: 18px !important;
+  padding-bottom: 4px !important;
+}
+
+/* Progressive controls stay close to the rail they control. */
+.mv-page .mv-expand {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+/* Compress Archive entry into the final timeline chapter. */
+.mv-page #archive {
+  margin-top: 18px !important;
+  margin-bottom: 30px !important;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+}
+
+/* Remove excess spacing around the collaborator-to-archive transition. */
+.mv-page #archive + .mv-row {
+  margin-top: 0 !important;
+}
+
+/* Horizontal rails should be usable without ugly permanent scrollbars. */
+.mv-page .mv-track::-webkit-scrollbar,
+.mv-page #archive .mv-archive-track::-webkit-scrollbar {
+  height: 5px;
+}
+
+.mv-page .mv-track::-webkit-scrollbar-track,
+.mv-page #archive .mv-archive-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mv-page .mv-track::-webkit-scrollbar-thumb,
+.mv-page #archive .mv-archive-track::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.18);
+  border-radius: 999px;
+}
+
+@media (max-width: 700px) {
+  .mv-page .mv-row {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .mv-page .mv-timeline-label {
+    padding-top: 14px !important;
+  }
+
+  .mv-page #archive {
+    margin-top: 12px !important;
+    margin-bottom: 22px !important;
+    padding-top: 12px !important;
+  }
+
+  .mv-page #archive .mv-archive-tools {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+}
+
+/* END KSP FILMS COMPACT TIMELINE PASS */
