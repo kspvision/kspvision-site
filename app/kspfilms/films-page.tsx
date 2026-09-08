@@ -2462,7 +2462,6 @@ export default function FilmsPage() {
         @media(max-width:700px){.mv-page .mv-era-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 10px}.mv-archive-tools{flex-wrap:wrap;gap:12px}.mv-archive-tools label:first-child{flex-basis:100%}.mv-archive-tools label:nth-child(2){flex:1}}
 `}</style>
 
-
       {/* KSP_FINAL_RHYTHM_START */}
       <style>{`
 
