@@ -476,3 +476,59 @@ a[href="/brand-documentary"]:hover video {
     transition: none;
   }
 }
+
+
+/* KSP_FORCE_BRANCH_CROP_START */
+
+/* Keep enlarged/blurred footage clipped inside the rounded branch cards. */
+a[href="/kspfilms"],
+a[href="/weddings"],
+a[href="/brand-documentary"] {
+  overflow: hidden !important;
+}
+
+/* Force enough crop to remove visible letterboxing from the source reels. */
+a[href="/kspfilms"] video {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: scale(1.34) !important;
+  transform-origin: center center !important;
+}
+
+a[href="/weddings"] video {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: scale(1.32) !important;
+  transform-origin: center center !important;
+}
+
+a[href="/brand-documentary"] video {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: scale(1.28) !important;
+  transform-origin: center center !important;
+}
+
+/* Hover: footage becomes slightly clearer AND pushes in a little farther. */
+a[href="/kspfilms"]:hover video {
+  transform: scale(1.39) !important;
+}
+
+a[href="/weddings"]:hover video {
+  transform: scale(1.37) !important;
+}
+
+a[href="/brand-documentary"]:hover video {
+  transform: scale(1.33) !important;
+}
+
+/* KSP_FORCE_BRANCH_CROP_END */
