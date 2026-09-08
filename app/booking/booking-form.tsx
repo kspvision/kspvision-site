@@ -14,6 +14,7 @@ type ProjectType =
   | "music-video"
   | "brand-commercial"
   | "documentary"
+  | "post-production-vfx"
   | "other";
 
 type StepNumber = 1 | 2 | 3 | 4;
@@ -279,6 +280,7 @@ export default function BookingForm() {
       "music-video": ["MUSIC VIDEO"],
       "brand-commercial": ["BRAND / COMMERCIAL", "BRAND/COMMERCIAL"],
       "documentary": ["DOCUMENTARY"],
+      "post-production-vfx": ["POST-PRODUCTION & VFX", "POSTPRODUCTION ET EFFETS VISUELS"],
     };
 
     const wanted = source ? projectLabels[source] : undefined;
@@ -356,6 +358,8 @@ export default function BookingForm() {
       : projectType === "brand-commercial"
       ? Boolean(projectOne.trim() && projectTwo.trim())
       : projectType === "documentary"
+      ? Boolean(projectOne.trim() && projectTwo.trim())
+      : projectType === "post-production-vfx"
       ? Boolean(projectOne.trim() && projectTwo.trim())
       : projectType === "other"
       ? Boolean(projectOne.trim())
@@ -730,6 +734,46 @@ export default function BookingForm() {
         );
 
 
+      case "post-production-vfx":
+        return (
+          <>
+            <label className="bookingField">
+              <span>
+                <Localized
+                  en="Project / film"
+                  fr="Projet / film"
+                />
+              </span>
+
+              <input
+                type="text"
+                value={projectOne}
+                onChange={(e) =>
+                  setProjectOne(e.target.value)
+                }
+              />
+            </label>
+
+            <label className="bookingField">
+              <span>
+                <Localized
+                  en="Post-production needs"
+                  fr="Besoins en postproduction"
+                />
+              </span>
+
+              <input
+                type="text"
+                value={projectTwo}
+                onChange={(e) =>
+                  setProjectTwo(e.target.value)
+                }
+              />
+            </label>
+          </>
+        );
+
+
       case "other":
         return (
           <label className="bookingField bookingFieldWide">
@@ -1010,6 +1054,28 @@ export default function BookingForm() {
                   <Localized
                     en="Documentary"
                     fr="Documentaire"
+                  />
+                </span>
+              </label>
+
+
+              <label>
+                <input
+                  type="radio"
+                  name="projectType"
+                  value="post-production-vfx"
+                  checked={
+                    projectType === "post-production-vfx"
+                  }
+                  onChange={() =>
+                    chooseProject("post-production-vfx")
+                  }
+                />
+
+                <span>
+                  <Localized
+                    en="Post-Production & VFX"
+                    fr="Postproduction et effets visuels"
                   />
                 </span>
               </label>

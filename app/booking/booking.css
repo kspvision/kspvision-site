@@ -571,15 +571,16 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
-/* Keep all five project types intentionally on one row */
+/* Keep all six project types intentionally on one row */
 .bookingV2 .bookingChoicesProject {
   display: grid;
   grid-template-columns:
-    .9fr
-    1.05fr
-    1.45fr
-    1.08fr
-    .72fr;
+    .82fr
+    .96fr
+    1.28fr
+    1fr
+    1.42fr
+    .62fr;
   gap: 8px;
 }
 

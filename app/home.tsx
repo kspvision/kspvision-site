@@ -1,8 +1,38 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useLanguage } from "./site-language";
 import CollaborationRail from "./brand-documentary/collaboration-rail";
 import "./home-sections.css";
+
+function BranchVideo({ src, poster }: { src: string; poster?: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePlayback = () => {
+      const video = videoRef.current;
+      if (!video) return;
+
+      if (reducedMotion.matches) {
+        video.pause();
+        video.currentTime = 0;
+      } else {
+        video.play().catch(() => {});
+      }
+    };
+
+    updatePlayback();
+    reducedMotion.addEventListener("change", updatePlayback);
+    return () => reducedMotion.removeEventListener("change", updatePlayback);
+  }, []);
+
+  return (
+    <video ref={videoRef} autoPlay muted loop playsInline preload="metadata" poster={poster}>
+      <source src={src} type="video/mp4" />
+    </video>
+  );
+}
 
 export default function Home() {
   const [lang, setLang] = useLanguage();
@@ -78,7 +108,7 @@ export default function Home() {
         <div className="homeBranchGrid">
           <a className="homeBranch homeBranchFilms" href="/kspfilms">
             <div className="homeBranchMedia" aria-hidden="true">
-              <img src="https://i.ytimg.com/vi/foENa43ZOvc/hqdefault.jpg" alt="" />
+              <BranchVideo src="/music-hero-mobile.mp4" poster="/music-1603.jpg" />
             </div>
             <span className="homeBranchNumber">01</span>
             <div>
@@ -89,7 +119,7 @@ export default function Home() {
           </a>
           <a className="homeBranch homeBranchWeddings" href="/weddings">
             <div className="homeBranchMedia" aria-hidden="true">
-              <img src="/weddings/smith-kiss.jpg" alt="" />
+              <BranchVideo src="/wedding-reel-web.mp4" poster="/weddings/wedding-garden-portrait.jpg" />
             </div>
             <span className="homeBranchNumber">02</span>
             <div>
@@ -100,9 +130,7 @@ export default function Home() {
           </a>
           <a className="homeBranch homeBranchBrand" href="/brand-documentary">
             <div className="homeBranchMedia" aria-hidden="true">
-              <video autoPlay muted loop playsInline preload="metadata">
-                <source src="/corneille-web.mp4" type="video/mp4" />
-              </video>
+              <BranchVideo src="/corneille-web.mp4" />
             </div>
             <span className="homeBranchNumber">03</span>
             <div>
@@ -150,7 +178,7 @@ export default function Home() {
             "Compositing, cleanup, image manipulation, environment enhancement and creative visual effects built around the needs of the film.",
             "Compositing, nettoyage, manipulation d’image, bonification d’environnements et effets visuels créatifs conçus selon les besoins du film."
           )}</p>
-          <a href="/booking">{l("Discuss production or post", "Parler de production ou de postproduction")} <span>↗</span></a>
+          <a href="/booking?project=post-production-vfx">{l("Discuss production or post", "Parler de production ou de postproduction")} <span>↗</span></a>
         </div>
       </section>
 
