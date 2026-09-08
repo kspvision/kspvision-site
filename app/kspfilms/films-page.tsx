@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { KSPPlayerLink } from "../ksp-player";
 import { Localized, SiteFooter, SiteHeader, useLanguage } from "../site-language";
 
@@ -43,13 +43,69 @@ function getVideoIdentity(video: string[]) {
   return { artist, title, views };
 }
 
+
+/* KSP_TITLE_MARQUEE_COMPONENT_START */
+
+function SlidingTitle({ text }: { text: string }) {
+  const windowRef = useRef<HTMLSpanElement>(null);
+  const measureRef = useRef<HTMLSpanElement>(null);
+  const [overflowing, setOverflowing] = useState(false);
+
+  useEffect(() => {
+    const measure = () => {
+      const box = windowRef.current;
+      const measureNode = measureRef.current;
+
+      if (!box || !measureNode) return;
+
+      setOverflowing(
+        measureNode.scrollWidth > box.clientWidth + 2
+      );
+    };
+
+    measure();
+
+    const frame = requestAnimationFrame(measure);
+    window.addEventListener("resize", measure);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", measure);
+    };
+  }, [text]);
+
+  return (
+    <span
+      ref={windowRef}
+      className={`mv-title-window${overflowing ? " is-overflowing" : ""}`}
+    >
+      <span ref={measureRef} className="mv-title-measure" aria-hidden="true">
+        {text}
+      </span>
+
+      <span className="mv-title-track">
+        <span>{text}</span>
+
+        {overflowing && (
+          <>
+            <span className="mv-title-gap" aria-hidden="true">•</span>
+            <span aria-hidden="true">{text}</span>
+          </>
+        )}
+      </span>
+    </span>
+  );
+}
+
+/* KSP_TITLE_MARQUEE_COMPONENT_END */
+
 function VideoMeta({ video }: { video: string[] }) {
   const { artist, title, views } = getVideoIdentity(video);
 
   return (
     <div className="mv-video-meta">
       <div className="mv-video-meta-row">
-        <h3>{title}</h3>
+        <h3><SlidingTitle text={title} /></h3>
         {views && (
           <span className="mv-card-views">
             <svg
@@ -2405,6 +2461,640 @@ export default function FilmsPage() {
         html body .mv-page .mv-library {padding-top:28px!important;padding-bottom:32px!important;}
         @media(max-width:700px){.mv-page .mv-era-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 10px}.mv-archive-tools{flex-wrap:wrap;gap:12px}.mv-archive-tools label:first-child{flex-basis:100%}.mv-archive-tools label:nth-child(2){flex:1}}
 `}</style>
+
+
+      {/* KSP_FINAL_RHYTHM_START */}
+      <style>{`
+
+        /* ====================================================
+           KSP FILMS — TRUE FINAL CATALOGUE RHYTHM
+           This block intentionally comes AFTER previous inline
+           styles so legacy spacing rules cannot override it.
+           ==================================================== */
+
+        .mv-page {
+          --mv-gutter: clamp(25px,4vw,65px);
+          --mv-section-top: 14px;
+          --mv-section-bottom: 10px;
+        }
+
+
+        /* ====================================================
+           1. REMOVE THE ACTUAL DEADSPACE
+           ==================================================== */
+
+        html body .mv-page .mv-row {
+          min-height: 0 !important;
+          height: auto !important;
+
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+
+          padding-top: var(--mv-section-top) !important;
+          padding-bottom: var(--mv-section-bottom) !important;
+        }
+
+        /*
+          OLD CSS had:
+          row-head padding-bottom:16px
+          PLUS margin-bottom:12px.
+
+          That was creating ~28px before the cards by itself.
+        */
+        html body .mv-page .mv-row-head {
+          box-sizing: border-box !important;
+
+          margin: 0 !important;
+          padding:
+            0
+            var(--mv-gutter)
+            8px
+          !important;
+
+          min-height: 0 !important;
+          height: auto !important;
+        }
+
+        html body .mv-page .mv-row-head p {
+          margin: 0 0 5px !important;
+        }
+
+        html body .mv-page .mv-row-head h2 {
+          margin: 0 !important;
+        }
+
+        /*
+          OLD track had 20px bottom padding.
+          Combined with row bottom + next row top this created
+          the large empty bands visible in the screenshots.
+        */
+        html body .mv-page .mv-track {
+          box-sizing: border-box !important;
+
+          margin: 0 !important;
+
+          padding:
+            0
+            var(--mv-gutter)
+            3px
+          !important;
+
+          gap: 10px !important;
+
+          min-height: 0 !important;
+          height: auto !important;
+
+          align-items: flex-start !important;
+        }
+
+
+        /* ====================================================
+           2. MOST WATCHED — SAME VERTICAL RHYTHM
+           Keep cards large, only remove empty space.
+           ==================================================== */
+
+        html body .mv-page .mv-million {
+          min-height: 0 !important;
+          height: auto !important;
+
+          margin: 0 !important;
+
+          padding:
+            14px
+            0
+            10px
+          !important;
+        }
+
+        html body .mv-page .mv-million-head {
+          box-sizing: border-box !important;
+
+          width: 100% !important;
+
+          margin: 0 !important;
+
+          padding:
+            0
+            var(--mv-gutter)
+            8px
+          !important;
+        }
+
+        html body .mv-page .mv-million-head p {
+          margin: 0 0 5px !important;
+        }
+
+        html body .mv-page .mv-million-head h2 {
+          margin: 0 !important;
+        }
+
+        html body .mv-page .mv-million-grid {
+          box-sizing: border-box !important;
+
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+
+          padding-bottom: 3px !important;
+
+          min-height: 0 !important;
+        }
+
+
+        /* ====================================================
+           3. BACK THROUGH THE YEARS
+           Keep it, but stop making it its own empty section.
+           ==================================================== */
+
+        html body .mv-page .mv-timeline-label {
+          box-sizing: border-box !important;
+
+          min-height: 0 !important;
+          height: auto !important;
+
+          margin: 0 !important;
+
+          padding:
+            10px
+            var(--mv-gutter)
+            3px
+          !important;
+
+          line-height: 1 !important;
+        }
+
+
+        /* ====================================================
+           4. UNIFORM NORMAL VIDEO CARDS
+           ==================================================== */
+
+        html body .mv-page .mv-track .mv-card {
+          flex:
+            0
+            0
+            clamp(185px,18vw,275px)
+          !important;
+
+          width: clamp(185px,18vw,275px) !important;
+          min-width: clamp(185px,18vw,275px) !important;
+          max-width: clamp(185px,18vw,275px) !important;
+
+          height: auto !important;
+          min-height: 0 !important;
+
+          align-self: flex-start !important;
+
+          overflow: hidden !important;
+        }
+
+        html body .mv-page .mv-thumb {
+          display: block !important;
+
+          width: 100% !important;
+
+          aspect-ratio: 16 / 9 !important;
+          height: auto !important;
+          min-height: 0 !important;
+
+          margin: 0 !important;
+
+          overflow: hidden !important;
+        }
+
+        html body .mv-page .mv-thumb img {
+          display: block !important;
+
+          width: 100% !important;
+          height: 100% !important;
+
+          max-width: none !important;
+
+          object-fit: cover !important;
+          object-position: center center !important;
+
+          aspect-ratio: auto !important;
+        }
+
+
+        /* ====================================================
+           5. EVERY NORMAL CARD GETS THE SAME META HEIGHT
+           ==================================================== */
+
+        html body .mv-page .mv-video-meta {
+          box-sizing: border-box !important;
+
+          display: grid !important;
+          grid-template-rows: 14px 12px !important;
+
+          row-gap: 2px !important;
+
+          width: 100% !important;
+          height: 28px !important;
+          min-height: 28px !important;
+          max-height: 28px !important;
+
+          margin: 4px 0 0 !important;
+
+          overflow: hidden !important;
+        }
+
+        html body .mv-page .mv-video-meta-row {
+          display: flex !important;
+
+          align-items: center !important;
+
+          width: 100% !important;
+          min-width: 0 !important;
+
+          height: 14px !important;
+          min-height: 14px !important;
+          max-height: 14px !important;
+
+          margin: 0 !important;
+
+          gap: 7px !important;
+        }
+
+        html body .mv-page .mv-video-meta h3 {
+          display: block !important;
+
+          flex: 1 1 auto !important;
+
+          width: auto !important;
+          min-width: 0 !important;
+
+          height: 14px !important;
+          min-height: 14px !important;
+          max-height: 14px !important;
+
+          margin: 0 !important;
+
+          overflow: hidden !important;
+
+          white-space: nowrap !important;
+
+          font-size: 11px !important;
+          line-height: 14px !important;
+          font-weight: 800 !important;
+
+          text-transform: uppercase !important;
+        }
+
+        html body .mv-page .mv-card-views {
+          display: inline-flex !important;
+
+          flex: 0 0 auto !important;
+
+          align-items: center !important;
+
+          height: 14px !important;
+
+          margin: 0 !important;
+
+          white-space: nowrap !important;
+        }
+
+        html body .mv-page .mv-card-details {
+          box-sizing: border-box !important;
+
+          display: flex !important;
+
+          align-items: center !important;
+          justify-content: space-between !important;
+
+          gap: 8px !important;
+
+          width: 100% !important;
+          min-width: 0 !important;
+
+          height: 12px !important;
+          min-height: 12px !important;
+          max-height: 12px !important;
+
+          margin: 0 !important;
+
+          overflow: hidden !important;
+        }
+
+        html body .mv-page .mv-card-artist {
+          flex: 1 1 auto !important;
+
+          min-width: 0 !important;
+
+          height: 12px !important;
+
+          margin: 0 !important;
+
+          overflow: hidden !important;
+
+          white-space: nowrap !important;
+          text-overflow: ellipsis !important;
+
+          font-size: 9px !important;
+          line-height: 12px !important;
+          font-weight: 500 !important;
+        }
+
+        html body .mv-page .mv-card-year {
+          flex: 0 0 auto !important;
+
+          height: 12px !important;
+
+          white-space: nowrap !important;
+
+          line-height: 12px !important;
+        }
+
+
+        /* ====================================================
+           6. OVERFLOW-AWARE TITLE MARQUEE
+           ONLY LONG TITLES MOVE.
+           SHORT TITLES REMAIN COMPLETELY STILL.
+           ==================================================== */
+
+        html body .mv-page .mv-title-window {
+          position: relative !important;
+
+          display: block !important;
+
+          width: 100% !important;
+          max-width: 100% !important;
+
+          height: 14px !important;
+
+          overflow: hidden !important;
+
+          white-space: nowrap !important;
+        }
+
+        html body .mv-page .mv-title-measure {
+          position: absolute !important;
+
+          left: 0 !important;
+          top: 0 !important;
+
+          visibility: hidden !important;
+
+          width: max-content !important;
+
+          pointer-events: none !important;
+
+          white-space: nowrap !important;
+        }
+
+        html body .mv-page .mv-title-track {
+          display: block;
+
+          width: max-content;
+
+          white-space: nowrap;
+
+          will-change: transform;
+        }
+
+        html body .mv-page
+        .mv-title-window.is-overflowing
+        .mv-title-track {
+          display: inline-flex !important;
+
+          align-items: center !important;
+
+          animation:
+            mvCardTitleTicker
+            9s
+            linear
+            infinite
+          !important;
+        }
+
+        html body .mv-page .mv-title-gap {
+          display: inline-block;
+
+          margin: 0 22px;
+
+          color: #d3ad3b;
+
+          font-size: 7px;
+        }
+
+        @keyframes mvCardTitleTicker {
+          from {
+            transform: translateX(0);
+          }
+
+          to {
+            transform: translateX(calc(-50% - 11px));
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          html body .mv-page
+          .mv-title-window.is-overflowing
+          .mv-title-track {
+            animation: none !important;
+          }
+
+          html body .mv-page .mv-title-window {
+            text-overflow: ellipsis !important;
+          }
+        }
+
+
+        /* ====================================================
+           7. ARTISTS / COLLABORATORS
+           Pull it directly underneath Earlier Work.
+           ==================================================== */
+
+        html body .mv-page .mv-collabs {
+          min-height: 0 !important;
+          height: auto !important;
+
+          margin:
+            0
+            !important;
+
+          padding:
+            9px
+            0
+            9px
+          !important;
+        }
+
+        html body .mv-page .mv-collabs > p {
+          box-sizing: border-box !important;
+
+          margin:
+            0
+            0
+            6px
+          !important;
+
+          padding:
+            0
+            var(--mv-gutter)
+          !important;
+        }
+
+        html body .mv-page .mv-collabs-window {
+          margin: 0 !important;
+
+          min-height: 0 !important;
+        }
+
+
+        /* ====================================================
+           8. ARCHIVE
+           Preserve its NON-scrollable wrapping grid.
+           Tighten only the transition into it.
+           ==================================================== */
+
+        html body .mv-page .mv-library {
+          box-sizing: border-box !important;
+
+          width: min(1600px,100%) !important;
+
+          min-height: 0 !important;
+          height: auto !important;
+
+          margin:
+            0
+            auto
+          !important;
+
+          padding:
+            12px
+            var(--mv-gutter)
+            20px
+          !important;
+        }
+
+        html body .mv-page .mv-library-head {
+          margin: 0 0 7px !important;
+          padding: 0 !important;
+        }
+
+        html body .mv-page .mv-library-head p {
+          margin-top: 0 !important;
+        }
+
+        html body .mv-page .mv-archive-tools {
+          margin:
+            7px
+            0
+            8px
+          !important;
+
+          padding: 0 !important;
+        }
+
+        html body .mv-page .mv-result-count {
+          margin:
+            0
+            0
+            8px
+          !important;
+        }
+
+        html body .mv-page #archive .mv-archive-grid {
+          margin: 0 !important;
+
+          padding: 0 !important;
+
+          overflow: visible !important;
+
+          align-items: start !important;
+        }
+
+        html body .mv-page
+        #archive .mv-archive-grid
+        > .mv-card {
+          width: 100% !important;
+
+          min-width: 0 !important;
+          max-width: 100% !important;
+
+          height: auto !important;
+
+          overflow: hidden !important;
+        }
+
+        /*
+          Archive cards share the EXACT same 16:9 + 28px metadata
+          geometry as the horizontal catalogue cards.
+        */
+        html body .mv-page
+        #archive .mv-archive-grid
+        .mv-thumb {
+          width: 100% !important;
+
+          aspect-ratio: 16 / 9 !important;
+
+          height: auto !important;
+        }
+
+
+        /* ====================================================
+           9. EXPLORE BUTTON:
+           Archive only.
+           ==================================================== */
+
+        html body .mv-page .mv-row .mv-expand {
+          display: none !important;
+        }
+
+        html body .mv-page #archive .mv-expand {
+          display: block !important;
+
+          margin:
+            14px
+            auto
+            2px
+          !important;
+        }
+
+
+        /* ====================================================
+           10. MOBILE
+           ==================================================== */
+
+        @media (max-width: 700px) {
+
+          .mv-page {
+            --mv-section-top: 10px;
+            --mv-section-bottom: 8px;
+          }
+
+          html body .mv-page .mv-row-head {
+            padding-bottom: 7px !important;
+          }
+
+          html body .mv-page .mv-track {
+            padding-bottom: 2px !important;
+          }
+
+          html body .mv-page .mv-track .mv-card {
+            flex-basis: 61vw !important;
+
+            width: 61vw !important;
+            min-width: 61vw !important;
+            max-width: 61vw !important;
+          }
+
+          html body .mv-page .mv-million {
+            padding-top: 10px !important;
+            padding-bottom: 8px !important;
+          }
+
+          html body .mv-page .mv-timeline-label {
+            padding-top: 8px !important;
+          }
+
+          html body .mv-page .mv-library {
+            padding-top: 10px !important;
+          }
+        }
+
+      `}</style>
+      {/* KSP_FINAL_RHYTHM_END */}
 
 </main>
   );
