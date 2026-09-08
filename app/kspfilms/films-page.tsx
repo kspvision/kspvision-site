@@ -3515,6 +3515,180 @@ export default function FilmsPage() {
       `}</style>
       {/* KSP_PIXEL_ALIGNMENT_END */}
 
+
+      {/* KSP_FINAL_20260907_START */}
+      <style>{`
+
+        /* =================================================
+           FINAL MOST WATCHED GEOMETRY
+
+           Same page gutter as Recent / 2020s / Earlier Work.
+           Full horizontal scrolling area.
+           Last card can scroll completely into view.
+           ================================================= */
+
+        html body .mv-page .mv-million {
+          box-sizing: border-box !important;
+          width: 100% !important;
+          max-width: none !important;
+
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+
+          overflow: visible !important;
+        }
+
+        html body .mv-page .mv-million-head {
+          box-sizing: border-box !important;
+
+          width: 100% !important;
+
+          padding-left:
+            clamp(25px,4vw,65px)
+            !important;
+
+          padding-right:
+            clamp(25px,4vw,65px)
+            !important;
+        }
+
+        html body .mv-page .mv-most-watched-track {
+          box-sizing: border-box !important;
+
+          display: flex !important;
+          flex-wrap: nowrap !important;
+
+          justify-content: flex-start !important;
+          align-items: stretch !important;
+
+          width: 100% !important;
+          max-width: none !important;
+
+          margin: 0 !important;
+
+          padding:
+            0
+            clamp(25px,4vw,65px)
+            4px
+            clamp(25px,4vw,65px)
+            !important;
+
+          gap: 10px !important;
+
+          overflow-x: auto !important;
+          overflow-y: hidden !important;
+
+          scroll-snap-type:
+            x proximity !important;
+
+          scroll-padding-inline:
+            clamp(25px,4vw,65px)
+            !important;
+
+          scrollbar-width: none !important;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        html body
+        .mv-page
+        .mv-most-watched-track::-webkit-scrollbar {
+          display: none !important;
+        }
+
+        html body
+        .mv-page
+        .mv-most-watched-track
+        > .mv-million-card {
+
+          flex:
+            0 0
+            clamp(300px,31vw,470px)
+            !important;
+
+          width:
+            clamp(300px,31vw,470px)
+            !important;
+
+          min-width:
+            clamp(300px,31vw,470px)
+            !important;
+
+          max-width:
+            clamp(300px,31vw,470px)
+            !important;
+
+          scroll-snap-align: start !important;
+        }
+
+
+        /* Give the scroll rail a true right-end gutter. */
+        html body
+        .mv-page
+        .mv-most-watched-track::after {
+
+          content: "" !important;
+
+          display: block !important;
+
+          flex:
+            0 0
+            clamp(15px,2vw,32px)
+            !important;
+        }
+
+
+        /* =================================================
+           YEAR ALIGNMENT
+
+           Artist names already sit correctly.
+           Move ONLY every year/date upward.
+           No card-height or thumbnail changes.
+           ================================================= */
+
+        html body .mv-page .mv-card-year {
+          position: relative !important;
+
+          top: -3px !important;
+
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+
+          line-height: 1 !important;
+
+          align-self: center !important;
+        }
+
+
+        @media(max-width:700px) {
+
+          html body
+          .mv-page
+          .mv-most-watched-track
+          > .mv-million-card {
+
+            flex:
+              0 0
+              76vw
+              !important;
+
+            width:
+              76vw
+              !important;
+
+            min-width:
+              76vw
+              !important;
+
+            max-width:
+              76vw
+              !important;
+          }
+
+        }
+
+      `}</style>
+      {/* KSP_FINAL_20260907_END */}
+
 </main>
   );
 }
