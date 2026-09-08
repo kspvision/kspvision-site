@@ -4730,3 +4730,9 @@ html body .mv-page .mv-card-artist {
 .mv-page .mv-card-views {
   transform: translateY(-3px);
 }
+
+/* KSP Films — micro-align year with artist row */
+.mv-page .mv-card-year {
+  position: relative;
+  top: 1px;
+}
