@@ -532,3 +532,19 @@ a[href="/brand-documentary"]:hover video {
 }
 
 /* KSP_FORCE_BRANCH_CROP_END */
+
+/* KSP_HOME_INTRO_GAP_FIX */
+.homeStudioIntro {
+  min-height: 0 !important;
+  height: auto !important;
+  margin-top: 0 !important;
+  padding-top: 32px !important;
+  align-content: start !important;
+  justify-content: start !important;
+}
+
+@media (max-width: 768px) {
+  .homeStudioIntro {
+    padding-top: 24px !important;
+  }
+}
