@@ -7,8 +7,8 @@ const catalogue = JSON.parse(await readFile(new URL('../data/ksp-films.json',imp
 const batch = JSON.parse(await readFile(new URL('../data/ksp-films-batch-2026-09.json',import.meta.url)));
 
 test('all original and batch IDs are preserved once, dated, and supported by the player', async()=>{
-  assert.equal(catalogue.videos.length,134);
-  assert.equal(new Set(catalogue.videos.map(v=>v.id)).size,134);
+  assert.equal(catalogue.videos.length,180);
+  assert.equal(new Set(catalogue.videos.map(v=>v.id)).size,180);
   for(const item of batch) assert.ok(catalogue.videos.some(v=>v.id===item.id),item.id);
   for(const v of catalogue.videos) {
     assert.ok(Number.isFinite(Date.parse(v.publishedAt)),v.id);
@@ -19,8 +19,8 @@ test('all original and batch IDs are preserved once, dated, and supported by the
 test('sections use actual dates across 2016/2017/2020 and include entire archive',()=>{
   const groups=sections(catalogue.videos);
   assert.equal(groups.latest.length,10);
-  assert.equal(groups.archive.length,134);
-  assert.equal(groups.twenties.length+groups.late.length+groups.early.length,134);
+  assert.equal(groups.archive.length,180);
+  assert.equal(groups.twenties.length+groups.late.length+groups.early.length,180);
   for(let i=1;i<groups.archive.length;i++) assert.ok(Date.parse(groups.archive[i-1].publishedAt)>=Date.parse(groups.archive[i].publishedAt));
   assert.deepEqual(groups.latest,groups.archive.slice(0,10));
   assert.ok(groups.twenties.every(v=>+v.publishedAt.slice(0,4)>=2020));
@@ -64,4 +64,38 @@ test('timeline batch is deduplicated and archive filters combine without a displ
  assert.deepEqual(filterArchive(archive,'','2018'),archive.filter(v=>v.publishedAt.startsWith('2018')));
  assert.deepEqual(filterArchive(archive,'xyz-no-match'),[]);
  assert.deepEqual(filterArchive(archive,'  '),archive);
+});
+
+
+test('September 47-work KSP catalogue batch', () => {
+  const ids = ["kyAOs1T--Is", "pWd-9CbNZ80", "KQaj8aEM9Kg", "T4DdRhvkK28", "h3R3qhw_Vi4", "hgA5A3PgPUE", "EyK9bNxAHYA", "1SlH8oFMp_A", "SMP9iCSMGpg", "S4ks-J7MuNQ", "CDsmJkdzSkw", "ho5i63UR0q8", "fhQJ230vhjY", "cN9oeRev4iY", "cxLXv-P6mn0", "waVo4T5I7kk", "v0m0GhuDQvw", "A7iY-pVAjG4", "0FBbVw5Ja6k", "ksIqv4ickPo", "64fDehpVyeM", "ZRCwONALNH8", "csh5sgjCCGg", "YNaOs_MJURo", "ODMV-OqJSqU", "KCypvi2i3Oo", "M1-48IgkmF8", "ZdWr7lRQ2N8", "Zlk_HAjqTOM", "C92-kaIqEbE", "U4oIX0X53MQ", "wbpi511nQX4", "ILBlxE9Ybw0", "8EnKPtxgvxo", "gOqqjTrZbQQ", "Q1KQZI9SxdM", "fZp1SP5kt6o", "Wo149HgW9JE", "jCZAVJOSZgc", "PElQ_WauYAE", "f17rhafJ31o", "cjoZmfvmGVQ", "8YjCXmuJORM", "HVQhS2_h9xI", "9_iPdwto-9U", "ubyRwaiTdXQ", "C48DyvnV_eQ"];
+
+  for (const id of ids) {
+    assert.equal(
+      catalogue.videos.filter(v => v.id === id).length,
+      1,
+      id,
+    );
+  }
+});
+
+
+test('Cartel alias resolves Cart3l', () => {
+  const direct = filterArchive(
+    catalogue.videos,
+    'Cart3l',
+  );
+
+  const alias = filterArchive(
+    catalogue.videos,
+    'Cartel',
+  );
+
+  assert.ok(
+    direct.some(v => v.id === 'cxLXv-P6mn0')
+  );
+
+  assert.ok(
+    alias.some(v => v.id === 'cxLXv-P6mn0')
+  );
 });

@@ -47,6 +47,6 @@ export function mergeVideos(existing, incoming) {
 }
 
 export function filterArchive(videos, query = '', year = '') {
-  const term = query.trim().toLocaleLowerCase();
+  const term = query.trim().toLocaleLowerCase().replace(/\bcartel\b/g, 'cart3l');
   return videos.filter(v => (!year || v.publishedAt?.slice(0,4) === year) && (!term || `${v.artist} ${v.title}`.toLocaleLowerCase().includes(term)));
 }
