@@ -25,8 +25,9 @@ export function sections(videos) {
   return {
     archive,
     latest: dated.slice(0,10),
-    era: dated.filter(v => Number(v.publishedAt.slice(0,4)) >= 2022),
-    earlier: dated.filter(v => Number(v.publishedAt.slice(0,4)) <= 2021),
+    twenties: dated.filter(v => Number(v.publishedAt.slice(0,4)) >= 2020),
+    late: dated.filter(v => Number(v.publishedAt.slice(0,4)) >= 2017 && Number(v.publishedAt.slice(0,4)) <= 2019),
+    early: dated.filter(v => Number(v.publishedAt.slice(0,4)) <= 2016),
     mostWatched: archive.filter(v => Number.isSafeInteger(v.viewCount) && v.viewCount >= 0)
       .sort((a,b) => b.viewCount-a.viewCount || a.id.localeCompare(b.id)).slice(0,3),
   };
@@ -43,4 +44,9 @@ export function mergeVideos(existing, incoming) {
     merged.set(item.id, previous ? {...previous, ...item, artist: previous.artist || item.artist, title: previous.title || item.title} : {...item});
   }
   return [...merged.values()];
+}
+
+export function filterArchive(videos, query = '', year = '') {
+  const term = query.trim().toLocaleLowerCase();
+  return videos.filter(v => (!year || v.publishedAt?.slice(0,4) === year) && (!term || `${v.artist} ${v.title}`.toLocaleLowerCase().includes(term)));
 }

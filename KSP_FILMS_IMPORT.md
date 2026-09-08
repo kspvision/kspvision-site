@@ -33,3 +33,7 @@ Unknown dates are excluded from dated chapters and Latest Work but retained in A
 Add a `[path, factual alt text]` item to `data/wedding-gallery.ts`. The responsive gallery uses equal 4:5 tiles and the same lightbox automatically. No per-photo CSS is needed.
 
 References: [YouTube videos.list](https://developers.google.com/youtube/v3/docs/videos/list), [YouTube player parameters](https://developers.google.com/youtube/player_parameters).
+
+## September 7 timeline snapshot
+
+The timeline batch contains 62 supplied IDs: 61 new videos and one existing ID, merged into 133 unique catalogue entries. Publication timestamps and views for these 62 IDs were checked against YouTube public player metadata because the official importer had no configured API key. Existing editorial labels are preserved for duplicates. Per-video provenance and check timestamps remain in the catalogue; the documented official API refresh workflow is unchanged. Fixed chronological eras are 2020 onward, 2017–2019, and 2016 or earlier. Archive search and year filtering operate over the complete date-sorted catalogue, independent of the initial display limit.

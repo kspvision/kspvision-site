@@ -35,6 +35,6 @@ export default function HeroReelToggle() {
   return <button ref={button} type="button" className="mv-reel-toggle"
     onClick={() => setEnabled(value => !value)} aria-pressed={enabled}>
     <span><Localized en="BACKGROUND REEL" fr="REEL EN ARRIÈRE-PLAN" /></span>
-    <span className="mv-reel-toggle-state"><span aria-hidden="true">{enabled ? "●" : "○"}</span>{enabled ? "ON" : "OFF"}</span>
+    <span className="mv-reel-toggle-state"><span aria-hidden="true">{enabled ? "●" : "○"}</span>{enabled ? <Localized en="ON" fr="ACTIVÉ" /> : <Localized en="OFF" fr="DÉSACTIVÉ" />}</span>
   </button>;
 }

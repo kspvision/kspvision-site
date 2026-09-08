@@ -33,7 +33,7 @@ test("renders all portfolio routes and excludes local wedding masters", async ()
   for (const name of ["smith-aureanne.mp4", "ralph-evelyne.mp4", "suffrard-florence.mp4"]) {
     await assert.rejects(lstat(new URL(`../public/weddings/${name}`, import.meta.url)));
   }
-  const music = await readFile(new URL("../app/kspfilms/page.tsx", import.meta.url), "utf8");
+  const music = await readFile(new URL("../app/kspfilms/films-page.tsx", import.meta.url), "utf8");
   assert.doesNotMatch(music, /Discontinué|TazManiax/);
   assert.match(music, /hqdefault\.jpg/);
 });
