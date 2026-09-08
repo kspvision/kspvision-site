@@ -4794,3 +4794,49 @@ html body .mv-page .mv-card-details .mv-card-year {
     display: none;
   }
 }
+
+/* =========================================================
+   KSP FILMS — FINAL METADATA TEXT CLIPPING FIX
+   Preserve artist/year baseline and existing card geometry.
+   ========================================================= */
+
+html body .mv-page .mv-video-meta {
+  overflow: visible !important;
+}
+
+/* TITLE:
+   keep the existing horizontal sliding/truncation behavior,
+   but stop letters being vertically shaved */
+html body .mv-page .mv-video-meta-row {
+  overflow: visible !important;
+  min-height: 13px !important;
+}
+
+html body .mv-page .mv-video-meta h3 {
+  line-height: 1.18 !important;
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+}
+
+/* ARTIST + YEAR:
+   preserve the baseline alignment Work finally fixed */
+html body .mv-page .mv-card-details {
+  align-items: baseline !important;
+  min-height: 12px !important;
+  overflow: visible !important;
+}
+
+html body .mv-page .mv-card-artist,
+html body .mv-page .mv-card-year {
+  line-height: 1.18 !important;
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+}
+
+/* Do NOT reposition the year again */
+html body .mv-page .mv-card-year {
+  position: static !important;
+  top: auto !important;
+  transform: none !important;
+}
+
