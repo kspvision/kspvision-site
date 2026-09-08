@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import { KSPPlayerLink } from "../ksp-player";
 import { Localized, SiteFooter, SiteHeader, useLanguage } from "../site-language";
 
@@ -177,6 +177,55 @@ function Card({ video, big = false }: { video: string[]; big?: boolean }) {
   );
 }
 
+function ScrollRail({ className, children }: { className: string; children: ReactNode }) {
+  const railRef = useRef<HTMLDivElement>(null);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+
+    const update = () => {
+      setCanScrollRight(rail.scrollLeft + rail.clientWidth < rail.scrollWidth - 2);
+    };
+    const observer = new ResizeObserver(update);
+
+    update();
+    observer.observe(rail);
+    rail.addEventListener("scroll", update, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      rail.removeEventListener("scroll", update);
+    };
+  }, []);
+
+  const advance = () => {
+    const rail = railRef.current;
+    const firstCard = rail?.firstElementChild as HTMLElement | null;
+    if (!rail) return;
+
+    const gap = Number.parseFloat(getComputedStyle(rail).columnGap) || 0;
+    const cardWidth = firstCard?.getBoundingClientRect().width || rail.clientWidth / 3;
+    rail.scrollBy({ left: (cardWidth + gap) * 3, behavior: "smooth" });
+  };
+
+  return (
+    <div className="mv-scroll-rail">
+      <div ref={railRef} className={className}>{children}</div>
+      <button
+        type="button"
+        className="mv-scroll-arrow"
+        onClick={advance}
+        disabled={!canScrollRight}
+        aria-label="Scroll right"
+      >
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+  );
+}
+
 function Row({
   eyebrow,
   title,
@@ -207,11 +256,11 @@ function Row({
         {!progressive && <span><Localized en="SCROLL" fr="DÉFILER" /> →</span>}
       </div>
 
-      <div className="mv-track">
+      <ScrollRail className="mv-track">
         {(progressive ? items.slice(0, visible) : items).map((video) => (
           <Card key={`${title}-${video[0]}`} video={video} big={big} />
         ))}
-      </div>
+      </ScrollRail>
       {progressive && visible < items.length && <button type="button" className="mv-expand" onClick={() => setVisible(n => n + 20)}><Localized en="EXPLORE THE ERA" fr="EXPLORER CETTE ÉPOQUE" /> + <span>{Math.min(visible, items.length)} / {items.length}</span></button>}
     </section>
   );
@@ -223,11 +272,18 @@ export default function FilmsPage() {
   const copy = (en: string, french: string) => fr ? french : en;
   const [query, setQuery] = useState("");
   const [year, setYear] = useState("");
-  const [limit, setLimit] = useState(50);
+  const [limit, setLimit] = useState(70);
   const filtered = filterArchive(groups.archive, query, year);
   const active = Boolean(query.trim() || year);
   const shown = (active ? filtered : filtered.slice(0, limit)).map(asCard);
   const years = [...new Set(groups.archive.map(v => v.publishedAt.slice(0, 4)))];
+  const showArtistInArchive = (artist: string) => {
+    setQuery(artist);
+    setYear("");
+    requestAnimationFrame(() => {
+      document.getElementById("archive")?.scrollIntoView({ behavior: "smooth" });
+    });
+  };
   return (
     <main className="mv-page" data-reel="off">
       <SiteHeader active="music" />
@@ -304,7 +360,7 @@ export default function FilmsPage() {
           <h2 className="mv-catalogue-section-title"><Localized en="MOST WATCHED" fr="LES PLUS REGARDÉS" /></h2>
         </div>
 
-        <div className="mv-million-grid mv-most-watched-track">
+        <ScrollRail className="mv-million-grid mv-most-watched-track">
           {standout.map((video) => (
             <KSPPlayerLink
               key={`million-${video[0]}`}
@@ -330,13 +386,13 @@ export default function FilmsPage() {
               <VideoMeta video={video} />
             </KSPPlayerLink>
           ))}
-        </div>
+        </ScrollRail>
       </section>
 
       <div className="mv-timeline-label"><Localized en="BACK THROUGH THE YEARS" fr="AU FIL DES ANNÉES" /> ↓</div>
       <Row
         eyebrow="2020 — 2024"
-        title={copy("THE 2020s", "LES ANNÉES 2020")}
+        title={copy("MODERN ERA", "ÈRE MODERNE")}
         items={groups.archive
           .filter((v) => {
             const year = Number(v.publishedAt.slice(0, 4));
@@ -346,7 +402,7 @@ export default function FilmsPage() {
       />
       <Row
         eyebrow={copy("2019 & EARLIER", "2019 ET AVANT")}
-        title={copy("EARLIER WORK", "TRAVAUX ANTÉRIEURS")}
+        title={copy("EARLY CATALOGUE", "PREMIER CATALOGUE")}
         items={groups.archive
           .filter((v) => Number(v.publishedAt.slice(0, 4)) <= 2019)
           .map(asCard)}
@@ -358,7 +414,7 @@ export default function FilmsPage() {
 
         <div className="mv-collabs-window">
           <div className="mv-collabs-track">
-          {artists.map((artist, index) => <span key={artist}>{index > 0 && <b aria-hidden="true">×</b>}{artist}</span>)}
+          {artists.map((artist, index) => <span key={artist}>{index > 0 && <b aria-hidden="true">×</b>}<button type="button" className="mv-collab-button" onClick={() => showArtistInArchive(artist)}>{artist}</button></span>)}
         </div>
         </div>
       </section>
@@ -377,7 +433,7 @@ export default function FilmsPage() {
         <div className="mv-archive-tools">
           <label><span className="mv-filter-label">{copy("SEARCH", "RECHERCHER")}</span><input type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder={copy("SEARCH ARTIST OR TITLE", "RECHERCHER UN ARTISTE OU UN TITRE")} /></label>
           <label><span className="mv-filter-label">{copy("YEAR", "ANNÉE")}</span><select value={year} onChange={e => setYear(e.target.value)}><option value="">{copy("ALL YEARS", "TOUTES LES ANNÉES")}</option>{years.map(y => <option key={y} value={y}>{y}</option>)}</select></label>
-          {active && <button type="button" onClick={() => {setQuery(""); setYear(""); setLimit(50);}}>{copy("CLEAR", "RÉINITIALISER")}</button>}
+          {active && <button type="button" onClick={() => {setQuery(""); setYear(""); setLimit(70);}}>{copy("CLEAR", "RÉINITIALISER")}</button>}
         </div>
         <p className="mv-result-count" role="status">{filtered.length} {filtered.length === 1 ? copy("video", "clip") : copy("videos", "clips")}{filtered.length === 0 && ` — ${copy("No matching videos.", "Aucun clip ne correspond à votre recherche.")}`}</p>
         <div className="mv-grid mv-archive-grid">
@@ -3431,8 +3487,8 @@ export default function FilmsPage() {
           padding-bottom: 6px !important;
         }
 
-        html body .mv-page .mv-row-head + .mv-track,
-        html body .mv-page .mv-million-head + .mv-million-grid {
+        html body .mv-page .mv-row-head + .mv-scroll-rail > .mv-track,
+        html body .mv-page .mv-million-head + .mv-scroll-rail > .mv-million-grid {
           margin-top: 0 !important;
         }
 
@@ -3634,28 +3690,6 @@ export default function FilmsPage() {
             0 0
             clamp(15px,2vw,32px)
             !important;
-        }
-
-
-        /* =================================================
-           YEAR ALIGNMENT
-
-           Artist names already sit correctly.
-           Move ONLY every year/date upward.
-           No card-height or thumbnail changes.
-           ================================================= */
-
-        html body .mv-page .mv-card-year {
-          position: relative !important;
-
-          top: -3px !important;
-
-          margin-top: 0 !important;
-          margin-bottom: 0 !important;
-
-          line-height: 1 !important;
-
-          align-self: center !important;
         }
 
 
