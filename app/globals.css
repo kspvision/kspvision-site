@@ -4780,6 +4780,7 @@ html body .mv-page .mv-card-details .mv-card-year {
   color: inherit;
   font: inherit;
   letter-spacing: inherit;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -4828,9 +4829,9 @@ html body .mv-page .mv-card-details {
 
 html body .mv-page .mv-card-artist,
 html body .mv-page .mv-card-year {
-  line-height: 1.18 !important;
-  padding-top: 1px !important;
-  padding-bottom: 1px !important;
+  line-height: 12px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* Do NOT reposition the year again */
@@ -4838,11 +4839,4 @@ html body .mv-page .mv-card-year {
   position: static !important;
   top: auto !important;
   transform: none !important;
-}
-
-
-/* KSP FILMS — lift complete card metadata block */
-html body .mv-page .mv-card .mv-video-meta,
-html body .mv-page .mv-million-card .mv-video-meta {
-  transform: translateY(-4px) !important;
 }

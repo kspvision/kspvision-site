@@ -25,7 +25,10 @@ const standout = [...catalogue.videos]
   .sort((a, b) => (b.viewCount ?? 0) - (a.viewCount ?? 0))
   .map(asCard);
 const eraVideos = [groups.twenties, groups.late, groups.early].map(items => items.map(asCard));
-const artists = collaborators(catalogue);
+const artists = collaborators(catalogue).filter((artist, index, names) => {
+  const key = artist.toLocaleLowerCase("en").replace(/[\s_-]+/g, "");
+  return names.findIndex((name) => name.toLocaleLowerCase("en").replace(/[\s_-]+/g, "") === key) === index;
+});
 
 function getVideoIdentity(video: string[]) {
   const raw = video[1] || "";
