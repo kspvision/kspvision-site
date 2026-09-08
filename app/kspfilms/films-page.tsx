@@ -2859,7 +2859,7 @@ export default function FilmsPage() {
 
           display: flex !important;
 
-          align-items: center !important;
+          align-items: baseline !important;
           justify-content: space-between !important;
 
           gap: 8px !important;
