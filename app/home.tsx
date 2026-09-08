@@ -77,6 +77,9 @@ export default function Home() {
 
         <div className="homeBranchGrid">
           <a className="homeBranch homeBranchFilms" href="/kspfilms">
+            <div className="homeBranchMedia" aria-hidden="true">
+              <img src="https://i.ytimg.com/vi/foENa43ZOvc/hqdefault.jpg" alt="" />
+            </div>
             <span className="homeBranchNumber">01</span>
             <div>
               <p>{l("Music Videos", "Vidéoclips")}</p>
@@ -85,6 +88,9 @@ export default function Home() {
             <b aria-hidden="true">↗</b>
           </a>
           <a className="homeBranch homeBranchWeddings" href="/weddings">
+            <div className="homeBranchMedia" aria-hidden="true">
+              <img src="/weddings/smith-kiss.jpg" alt="" />
+            </div>
             <span className="homeBranchNumber">02</span>
             <div>
               <p>{l("Wedding films & photography", "Films et photographie de mariage")}</p>
@@ -93,6 +99,11 @@ export default function Home() {
             <b aria-hidden="true">↗</b>
           </a>
           <a className="homeBranch homeBranchBrand" href="/brand-documentary">
+            <div className="homeBranchMedia" aria-hidden="true">
+              <video autoPlay muted loop playsInline preload="metadata">
+                <source src="/corneille-web.mp4" type="video/mp4" />
+              </video>
+            </div>
             <span className="homeBranchNumber">03</span>
             <div>
               <p>{l("Commercial, Branded & Documentary Production", "Production commerciale, de marque et documentaire")}</p>
