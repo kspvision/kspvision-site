@@ -274,7 +274,7 @@ export default function FilmsPage() {
         items={groups.archive
           .filter((v) => {
             const year = Number(v.publishedAt.slice(0, 4));
-            return year >= 2020 && year <= 2024;
+            return year >= 2020 && year <= 2024 && v.youtubeId !== "gFhVhJHWgKA";
           })
           .map(asCard)}
       />
