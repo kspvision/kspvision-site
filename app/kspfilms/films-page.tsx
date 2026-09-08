@@ -3217,7 +3217,7 @@ export default function FilmsPage() {
         }
 
         html body .mv-page .mv-card-details {
-          transform: translateY(-2px);
+          transform: translateY(-4px);
         }
 
         /*
