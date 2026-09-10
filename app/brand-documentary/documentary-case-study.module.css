@@ -1,0 +1,385 @@
+.section{width:min(960px,88vw);margin:2.8rem auto}.transition{margin:clamp(4rem,10vw,8rem) 0 1.4rem;text-align:center;color:rgba(255,255,255,.28);font:800 clamp(.8rem,1.5vw,1.15rem)/1 Arial,sans-serif;letter-spacing:.45em}.caseStudy{padding:clamp(1.15rem,2.5vw,2.25rem);border-block:1px solid rgba(255,255,255,.18)}.heading p,.story>small,.credits small,.disclosureLabel{color:var(--gold);font-size:.55rem;font-weight:800;letter-spacing:.15em}.heading h3{margin:.55rem 0 .35rem;font:900 clamp(1.45rem,2.6vw,2.7rem)/.95 Arial,sans-serif;letter-spacing:-.045em}.heading>span{color:rgba(255,255,255,.64);font-size:.62rem;letter-spacing:.13em}.grid{display:grid;grid-template-columns:1.35fr .85fr;gap:clamp(1.25rem,3vw,3rem);margin-top:1.45rem}.film,.poster{position:relative;display:flex;align-items:end;aspect-ratio:16/9;padding:1rem;overflow:hidden;border:1px solid rgba(213,170,85,.38);background:#070707;color:#f4f1e9;border-radius:6px}.film img,.poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72}.film:after,.poster:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.72),transparent 66%)}.film span,.poster span{position:relative;z-index:3;font-size:.58rem;font-weight:800;letter-spacing:.13em}.hoverTitle{position:absolute;z-index:2;left:1rem;right:1rem;bottom:2.2rem;text-align:center;color:#fff;font:800 .58rem/1.25 Arial,sans-serif;letter-spacing:.08em;opacity:0;transition:opacity .2s}.film:hover .hoverTitle,.film:focus-visible .hoverTitle,.poster:hover .hoverTitle,.poster:focus-visible .hoverTitle{opacity:1}.story>p{margin:.6rem 0 0;color:rgba(255,255,255,.78);font-size:.78rem;line-height:1.6}.context{padding-top:.7rem;border-top:1px solid rgba(255,255,255,.12)}.credits{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1.1rem;padding-top:.9rem;border-top:1px solid rgba(255,255,255,.12)}.credits div{display:flex;flex-direction:column;gap:.25rem}.credits span,.credits a{font-size:.66rem;line-height:1.4;color:inherit;text-decoration:none}.credits a:hover,.credits a:focus-visible{color:var(--gold);text-decoration:underline;text-underline-offset:3px}.archiveRows{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.3rem}.disclosure{border-top:1px solid rgba(255,255,255,.12);padding-top:.7rem}.disclosureLabel{margin:0}.participantsWrap,.photosWrap{position:relative;overflow:hidden}.participantsWrap{max-height:8.1rem}.photosWrap{margin-top:.7rem;max-height:90px}.participantsWrap:after,.photosWrap:after{content:"";position:absolute;inset:auto 0 0;height:2.5rem;background:linear-gradient(transparent,#050505)}.expanded{max-height:none}.expanded:after{display:none}.participants{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem .8rem;margin-top:.75rem;color:rgba(255,255,255,.74);font-size:.68rem;font-style:italic;line-height:1.45}.teaser{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.teaser img,.gallery img{display:block;width:100%;object-fit:cover;background:#111;border-radius:6px}.teaser img{aspect-ratio:1.4}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.gallery img{aspect-ratio:1.35}.reveal{display:block;margin:.7rem auto 0;border:0;background:transparent;color:var(--gold);font:800 .72rem/1 inherit;letter-spacing:.14em;cursor:pointer}.standard{padding:1.1rem 0;border-top:0}.standard .heading h3{font-size:clamp(1.1rem,1.8vw,1.65rem)}.standard .grid{grid-template-columns:minmax(180px,.75fr) minmax(0,1fr);gap:1.2rem;margin-top:.85rem}.standard .poster{padding:.7rem}.standard .story>p{margin:0;font-size:.72rem}.standard .credits{margin-top:.75rem;padding-top:.7rem;gap:.55rem}.standard .credits span,.standard .credits a{font-size:.61rem}.miniGallery{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;margin-top:1rem}.miniGallery>div>small{display:block;margin-top:.45rem;color:rgba(255,255,255,.7);font-size:.55rem;letter-spacing:.08em;line-height:1.35}.miniGallery .poster{padding:.55rem}@media(max-width:900px){.grid,.standard .grid,.archiveRows{grid-template-columns:1fr}.participants{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.section{width:90vw}.credits{grid-template-columns:1fr 1fr}.gallery,.miniGallery{grid-template-columns:repeat(2,1fr)}.caseStudy{padding:1.15rem 0}}@media(max-width:420px){.participants,.gallery,.miniGallery{grid-template-columns:1fr}.teaser{grid-template-columns:repeat(2,1fr)}}:global(.brandPage[data-brand-theme="light"]) .caseStudy{color:#191611;border-color:rgba(42,35,26,.24)}:global(.brandPage[data-brand-theme="light"]) .heading h3,:global(.brandPage[data-brand-theme="light"]) .credits span{color:#191611}:global(.brandPage[data-brand-theme="light"]) .heading>span,:global(.brandPage[data-brand-theme="light"]) .story>p,:global(.brandPage[data-brand-theme="light"]) .participants,:global(.brandPage[data-brand-theme="light"]) .miniGallery>div>small{color:rgba(25,22,17,.78)}:global(.brandPage[data-brand-theme="light"]) .context,:global(.brandPage[data-brand-theme="light"]) .credits,:global(.brandPage[data-brand-theme="light"]) .disclosure{border-color:rgba(42,35,26,.2)}:global(.brandPage[data-brand-theme="light"]) .participantsWrap:after,:global(.brandPage[data-brand-theme="light"]) .photosWrap:after{background:linear-gradient(transparent,#f1ede4)}:global(.brandPage[data-brand-theme="light"]) .disclosureLabel,:global(.brandPage[data-brand-theme="light"]) .reveal{color:#876119}:global(.brandPage[data-brand-theme="light"]) .transition{color:rgba(25,22,17,.42)}:global(.brandPage[data-brand-theme="light"]) .credits a{color:#191611}
+/* FINAL MANUAL POLISH — KEVIN 2026-09-10 */
+
+/*
+  PARTICIPANTS + COULISSES
+  Always use the existing KSP gold/beige accent.
+*/
+.disclosureLabel,
+.reveal {
+  color: #d5aa55 !important;
+}
+
+/*
+  DOCUMENTARY ARCHIVE / ARCHIVES DOCUMENTAIRES
+  Dark on the ivory LIGHT theme.
+  DARK theme remains untouched.
+*/
+:global([data-brand-theme="light"]) .heading > p,
+:global(.brandPage[data-brand-theme="light"]) .heading > p {
+  color: #151412 !important;
+  opacity: 1 !important;
+}
+
+/*
+  VIDEO HOVER TITLES
+  Larger and centered in the actual middle of every poster.
+*/
+.hoverTitle {
+  left: 50% !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+
+  width: calc(100% - 2rem) !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  text-align: center !important;
+  font-size: clamp(.9rem, 1.35vw, 1.15rem) !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+  letter-spacing: .02em !important;
+
+  margin: 0 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+}
+
+
+/* MANUAL LOCK — archive disclosure accent */
+.archiveRows .disclosure .disclosureLabel,
+.archiveRows .disclosure .reveal {
+  color: var(--gold, #d5aa55) !important;
+  opacity: 1 !important;
+}
+
+
+/* MANUAL LOCK — Documentary Archive labels in LIGHT mode */
+:global([data-brand-theme="light"]) .heading > p,
+:global(.brandPage[data-brand-theme="light"]) .heading > p {
+  color: #151412 !important;
+  opacity: 1 !important;
+}
+
+/* MANUAL LOCK — centered documentary hover titles */
+.hoverTitle {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+
+  width: calc(100% - 2.25rem) !important;
+  margin: 0 !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  text-align: center !important;
+  font-size: clamp(1.05rem, 1.8vw, 1.4rem) !important;
+  line-height: 1.08 !important;
+  font-weight: 800 !important;
+  letter-spacing: .01em !important;
+
+  z-index: 5 !important;
+  pointer-events: none !important;
+}
+/* MANUAL LOCK — Les 12 event context */
+.eventNote {
+  width: 100%;
+  margin: 1.35rem 0 1.45rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.eventNote > small {
+  display: block;
+  margin-bottom: .65rem;
+  color: var(--gold, #d5aa55);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.eventNote > p {
+  max-width: 72ch;
+  margin: 0;
+  color: #aaa79f;
+  font-size: .84rem;
+  line-height: 1.65;
+}
+
+:global([data-brand-theme="light"]) .eventNote {
+  border-top-color: rgba(21,20,18,.18);
+}
+
+:global([data-brand-theme="light"]) .eventNote > p {
+  color: #332f2a;
+}
+/* MANUAL LOCK — Les 12 event under poster */
+.mediaColumn {
+  min-width: 0;
+  width: 100%;
+}
+
+.mediaColumn > .film {
+  width: 100%;
+}
+
+.eventNote {
+  width: 100%;
+  margin: .95rem 0 0;
+  padding: 0;
+  border-top: 0 !important;
+}
+
+.eventNote > small {
+  display: block;
+  margin: 0 0 .55rem;
+  color: var(--gold, #d5aa55);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.eventNote > p {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  color: #aaa79f;
+  font-size: .82rem;
+  line-height: 1.62;
+}
+
+:global([data-brand-theme="light"]) .eventNote > p,
+:global(.brandPage[data-brand-theme="light"]) .eventNote > p {
+  color: #332f2a;
+}
+/* MANUAL LOCK — YouTube thumbnail grade */
+
+/*
+  Archive YouTube posters only.
+  Does NOT affect Coulisses or Real Stories hosted preview videos.
+*/
+.film > img,
+.poster > img {
+  filter: brightness(1.12) contrast(1.07) !important;
+  transition:
+    filter .28s ease,
+    transform .28s ease;
+}
+
+.film:hover > img,
+.film:focus-visible > img,
+.poster:hover > img,
+.poster:focus-visible > img {
+  filter: brightness(1.16) contrast(1.09) !important;
+}
+/* MANUAL LOCK — AMPLIFY season + LIGHT archive rail */
+
+/* ---------------------------------------------------------
+   AMPLIFY SEASON 1
+   Smaller/dense episode library.
+   ADVANCE Québec remains the larger multi-film treatment.
+   --------------------------------------------------------- */
+
+.episodeHead {
+  margin-top: 1rem;
+  color: var(--gold, #d5aa55);
+  font-size: .58rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.episodeGallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .55rem;
+  margin-top: .65rem;
+}
+
+.episodeGallery > div {
+  min-width: 0;
+}
+
+.episodeGallery .poster {
+  padding: .4rem;
+  border-radius: 6px;
+}
+
+.episodeGallery .poster > span {
+  font-size: .46rem;
+}
+
+.episodeGallery .hoverTitle {
+  width: calc(100% - 1rem) !important;
+  font-size: clamp(.58rem, .72vw, .78rem) !important;
+  line-height: 1.08 !important;
+}
+
+.episodeGallery > div > small {
+  display: block;
+  margin-top: .35rem;
+  color: rgba(255,255,255,.62);
+  font-size: .47rem;
+  line-height: 1.3;
+  letter-spacing: .045em;
+}
+
+@media (max-width: 900px) {
+  .episodeGallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .episodeGallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ---------------------------------------------------------
+   LIGHT MODE ONLY
+   Full-width black ARCHIVE separator rail.
+   DARK MODE IS NOT TOUCHED.
+   --------------------------------------------------------- */
+
+:global(.brandPage[data-brand-theme="light"]) .transition {
+  width: 100vw;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  box-sizing: border-box;
+
+  padding: 1.9rem 6vw;
+
+  background: #050505 !important;
+  color: #f1ede4 !important;
+
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+
+  opacity: 1 !important;
+}
+
+:global(.brandPage[data-brand-theme="light"]) .episodeGallery > div > small {
+  color: rgba(25,22,17,.72);
+}
+
+/* MANUAL LOCK — stable full-bleed ARCHIVE rail, LIGHT ONLY
+   Replaces viewport-width positioning with a responsive full-bleed fill. */
+:global(.brandPage[data-brand-theme="light"]) .transition {
+  width: auto !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  position: relative;
+  left: auto !important;
+  right: auto !important;
+
+  background: #050505 !important;
+  color: #f1ede4 !important;
+
+  /*
+    Extend the black visually to both viewport edges without
+    changing the centered Archive layout or using 100vw math.
+  */
+  box-shadow: 0 0 0 100vmax #050505;
+  clip-path: inset(0 -100vmax);
+
+  box-sizing: border-box;
+  text-align: center;
+  opacity: 1 !important;
+}
+/* MANUAL LOCK — compact archive readability */
+
+/*
+  Accessibility/readability bump for standard archive projects only.
+  No grid, thumbnail, margin, padding or section-spacing changes.
+*/
+
+/* DOCUMENTARY ARCHIVE / ARCHIVES DOCUMENTAIRES */
+.standard .heading > p {
+  font-size: .64rem !important;
+  line-height: 1.25 !important;
+}
+
+/* SERIES / COLLECTION / DATE metadata */
+.standard .heading > span {
+  font-size: .64rem !important;
+  line-height: 1.35 !important;
+}
+
+/* Documentary descriptions */
+.standard .story > p {
+  font-size: clamp(.74rem, .78vw, .84rem) !important;
+  line-height: 1.58 !important;
+}
+
+/* AMPLIFY Season mini-library heading */
+.standard .episodeHead {
+  font-size: .65rem !important;
+  line-height: 1.3 !important;
+}
+
+/* Episode / video titles underneath thumbnails */
+.standard .episodeGallery > div > small,
+.standard .miniGallery > div > small {
+  font-size: .55rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Credit labels: RÉALISATION, CAMÉRA, etc. */
+.standard .credits small {
+  font-size: .61rem !important;
+  line-height: 1.3 !important;
+}
+
+/* Credit names */
+.standard .credits a,
+.standard .credits span {
+  font-size: .67rem !important;
+  line-height: 1.45 !important;
+}
+
+/*
+  Keep mobile readable without making the cards oversized.
+*/
+@media (max-width: 600px) {
+  .standard .story > p {
+    font-size: .79rem !important;
+  }
+
+  .standard .episodeGallery > div > small,
+  .standard .miniGallery > div > small {
+    font-size: .58rem !important;
+  }
+
+  .standard .credits a,
+  .standard .credits span {
+    font-size: .7rem !important;
+  }
+}
+
+/* MANUAL LOCK — Les 12 event note readability in LIGHT mode */
+
+/* Keep L'ÉVÉNEMENT gold */
+:global(.brandPage[data-brand-theme="light"]) .eventNote small {
+  color: #b7872b !important;
+  opacity: 1 !important;
+}
+
+/* Event paragraph = dark charcoal on ivory */
+:global(.brandPage[data-brand-theme="light"]) .eventNote p {
+  color: #332f2a !important;
+  opacity: 1 !important;
+}
+
+/* Catch any inherited text inside the event paragraph */
+:global(.brandPage[data-brand-theme="light"]) .eventNote p * {
+  color: inherit !important;
+}

@@ -1194,3 +1194,63 @@ html body .bookingV2[data-booking-theme="light"] .bookingNext p {
 }
 
 /* === KSP BOOKING LIGHT CONTRAST FINAL END === */
+
+/* === KSP BOOKING LIGHT FINAL STRUCTURE POLISH === */
+
+/*
+   LIGHT ONLY.
+   Strengthen the architectural lines that already exist.
+   No spacing / sizing / geometry changes.
+*/
+
+html body .bookingV2[data-booking-theme="light"] .bookingIntro,
+html body .bookingV2[data-booking-theme="light"] .bookingProcess,
+html body .bookingV2[data-booking-theme="light"] .bookingFieldset + .bookingFieldset,
+html body .bookingV2[data-booking-theme="light"] .bookingSubmitRow,
+html body .bookingV2[data-booking-theme="light"] .bookingNext {
+    border-color: rgba(38, 32, 23, .30) !important;
+}
+
+html body .bookingV2[data-booking-theme="light"] .bookingStepButton {
+    border-color: rgba(38, 32, 23, .24) !important;
+}
+
+html body .bookingV2[data-booking-theme="light"] .bookingChoices label > span,
+html body .bookingV2[data-booking-theme="light"] .bookingUploadControl {
+    border-color: rgba(38, 32, 23, .28) !important;
+}
+
+html body .bookingV2[data-booking-theme="light"] .bookingField input,
+html body .bookingV2[data-booking-theme="light"] .bookingField textarea,
+html body .bookingV2[data-booking-theme="light"] .bookingDateControl {
+    border-color: rgba(38, 32, 23, .28) !important;
+}
+
+html body .bookingV2[data-booking-theme="light"] .bookingBudgetDetail header,
+html body .bookingV2[data-booking-theme="light"] .bookingBudgetDetail dl > div,
+html body .bookingV2[data-booking-theme="light"] .bookingNext article {
+    border-color: rgba(38, 32, 23, .24) !important;
+}
+
+/* REQUEST AVAILABILITY / DEMANDER LES DISPONIBILITÉS */
+html body .bookingV2[data-booking-theme="light"] .bookingSubmit {
+    background: transparent !important;
+    color: #171511 !important;
+    border: 1px solid rgba(23, 21, 17, .52) !important;
+    box-shadow: none !important;
+}
+
+html body .bookingV2[data-booking-theme="light"] .bookingSubmit:not(:disabled):hover {
+    background: #171511 !important;
+    color: #f1ede4 !important;
+    border-color: #171511 !important;
+}
+
+html body .bookingV2[data-booking-theme="light"] .bookingSubmit:disabled,
+html body .bookingV2[data-booking-theme="light"] .bookingSubmit[aria-disabled="true"] {
+    background: transparent !important;
+    color: rgba(23, 21, 17, .46) !important;
+    border-color: rgba(23, 21, 17, .34) !important;
+}
+
+/* === END KSP BOOKING LIGHT FINAL STRUCTURE POLISH === */

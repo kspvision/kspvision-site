@@ -10,21 +10,42 @@ import { WeddingReel, WeddingStoriesAmbient } from "../wedding-reel";
 import { WeddingTheme, WeddingThemeToggle } from "./wedding-theme";
 
 const films = [
-  { title: "Smith & Aureanne", youtubeId: "kCRAeRvvy4M" },
-  { title: "Ralph & Evelyne", youtubeId: "uMIXszAhhdw" },
-  { title: "Suffrard & Florence", youtubeId: "bpbGlC9mAX0" },
+  {
+    title: "Smith & Aureanne",
+    youtubeId: "kCRAeRvvy4M",
+    description: {
+      en: "A love story rooted in friendship and growing up together. What began long before the wedding day becomes an intimate celebration of trust, history, family and the life they continue building side by side.",
+      fr: "Une histoire d’amour née d’une amitié et d’une complicité qui remontent à l’enfance. Ce qui a commencé bien avant le jour du mariage devient une célébration intime de la confiance, de leur histoire, de la famille et de la vie qu’ils continuent de construire côte à côte.",
+    },
+  },
+  {
+    title: "Ralph & Evelyne",
+    youtubeId: "uMIXszAhhdw",
+    description: {
+      en: "A childhood love story carried into a new chapter. Their wedding feels warm and deeply personal, shaped by shared memories, familiarity and a connection that has grown with them through the years.",
+      fr: "Un amour d’enfance qui s’ouvre sur un nouveau chapitre. Leur mariage est chaleureux et profondément personnel, façonné par des souvenirs partagés, une grande complicité et un lien qui a grandi avec eux au fil des années.",
+    },
+  },
+  {
+    title: "Suffrard & Florence",
+    youtubeId: "bpbGlC9mAX0",
+    description: {
+      en: "More than fifty years of marriage, celebrated all over again. Their renewal becomes a portrait of legacy, family and endurance, honoring a lifetime together while opening one more beautiful chapter.",
+      fr: "Plus de cinquante ans de mariage, célébrés une nouvelle fois. Le renouvellement de leurs vœux devient un portrait d’héritage, de famille et de résilience, honorant toute une vie à deux tout en ouvrant un nouveau chapitre.",
+    },
+  },
 ];
 
 export default function WeddingsPage() {
   return <WeddingTheme>
     <SiteHeader active="weddings" />
-    <section className="weddingIntro"><div><p className="kicker">WEDDING FILMS</p><h1><Localized en="More than a day." fr="Plus qu’une journée." /><br/><em><Localized en="A feeling, preserved." fr="Une émotion, préservée." /></em></h1><p><Localized en="Honest, elegant films for the moments you will want to return to." fr="Des films élégants et sincères, pour les moments auxquels vous voudrez revenir." /></p><a className="button gold" href="/booking?project=wedding"><Localized en="Tell us about your day" fr="Parlez-nous de votre journée" /> <b>↗</b></a></div><img src="/weddings/wedding-garden-wide.jpg" alt="Smith and Aureanne with their wedding party" /><WeddingThemeToggle /></section>
-    <section className="weddingFilms" id="weddingStoriesFinal"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected celebrations" fr="Célébrations sélectionnées" /></p><h2 id="weddingStoriesTitle"><Localized en="Wedding stories" fr="Histoires de mariage" /></h2></div><p><Localized en="Honest moments. Lasting images. Films made to bring you back." fr="Des moments vrais. Des images qui restent. Des films qui vous y ramènent." /></p></div>
+    <section className="weddingIntro"><div><p className="kicker"><Localized en="WEDDING FILMS" fr="FILMS DE MARIAGE" /></p><h1><Localized en="More than a day." fr="Plus qu’une journée." /><br/><em><Localized en="A feeling, preserved." fr="Une émotion, préservée." /></em></h1><p><Localized en="Honest, elegant films for the moments you will want to return to." fr="Des films élégants et sincères, pour les moments auxquels vous voudrez revenir." /></p><a className="button gold" href="/booking?project=wedding"><Localized en="Tell us about your day" fr="Parlez-nous de votre journée" /> <b>↗</b></a></div><img src="/weddings/wedding-garden-wide.jpg" alt="Smith and Aureanne with their wedding party" /><WeddingThemeToggle /></section>
+    <section className="weddingFilms" id="weddingStoriesFinal"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected celebrations" fr="Célébrations sélectionnées" /></p><h2 id="weddingStoriesTitle"><Localized en="Wedding stories" fr="Histoires de mariage" /></h2></div><p><Localized en="Honest moments. Lasting images. Films made to bring you back." fr="DES MOMENTS VRAIS. DES IMAGES QUI RESTENT. DES FILMS QUI VOUS Y RAMÈNENT." /></p></div>
       <article className="weddingReel">
 <span className="weddingReelTribal weddingReelTribalTop" aria-hidden="true" />
 <WeddingReel />
 <span className="weddingReelTribal weddingReelTribalBottom" aria-hidden="true" />
-<div><p>WEDDING REEL</p><span><Localized en="KSP WEDDING FILMS" fr="Une sélection de moments" /></span></div></article>
+<div><p><Localized en="WEDDING REEL" fr="BANDE DÉMO" /></p><span><Localized en="KSP WEDDING FILMS" fr="Une sélection de moments" /></span></div></article>
 
 <div id="weddingStoriesList" className="weddingStoryList">
   <div className="weddingStoriesAmbient" aria-hidden="true"><WeddingStoriesAmbient /></div>
@@ -53,11 +74,7 @@ export default function WeddingsPage() {
         <h3><KSPPlayerLink video={{sourceType:"youtube", source:film.youtubeId, title:film.title}}>{film.title}</KSPPlayerLink></h3>
 
         <p>
-          {film.title === "Smith & Aureanne"
-            ? "A love story rooted in friendship and growing up together. What began long before the wedding day becomes an intimate celebration of trust, history, family and the life they continue building side by side."
-            : film.title === "Ralph & Evelyne"
-            ? "A childhood love story carried into a new chapter. Their wedding feels warm and deeply personal, shaped by shared memories, familiarity and a connection that has grown with them through the years."
-            : "More than fifty years of marriage, celebrated all over again. Their renewal becomes a portrait of legacy, family and endurance, honoring a lifetime together while opening one more beautiful chapter."}
+          <Localized en={film.description.en} fr={film.description.fr} />
         </p>
 
         <KSPPlayerLink className="weddingStoryLink" video={{sourceType:"youtube", source:film.youtubeId, title:film.title}}>
@@ -1025,6 +1042,8 @@ export default function WeddingsPage() {
     font-weight:700;
     letter-spacing:.24em;
 }
+
+html[lang="fr"] .weddingStoryList::before{content:"FILMS À L’HONNEUR";}
 
 .weddingStoryRow{
     gap:clamp(2rem,4vw,4rem) !important;

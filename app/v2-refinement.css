@@ -4731,3 +4731,558 @@ html body .weddingPage[data-wedding-theme="ivory"]
 /* Dark mode untouched. */
 
 /* === END BOTTOM ORNAMENT FINAL SCALE === */
+
+/* === KSP WEDDINGS IVORY HERO CTA FINAL === */
+
+/*
+   LIGHT ONLY:
+   same visible rectangular treatment as dark,
+   but adapted to the ivory canvas.
+*/
+html body .weddingPage[data-wedding-theme="ivory"]
+.weddingIntro a.button.gold {
+  background: transparent !important;
+  color: #171511 !important;
+  border: 1px solid rgba(23, 21, 17, .38) !important;
+  box-shadow: none !important;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  html body .weddingPage[data-wedding-theme="ivory"]
+  .weddingIntro a.button.gold:hover {
+    background: #171511 !important;
+    color: #f1ede4 !important;
+    border-color: #171511 !important;
+  }
+}
+
+/* === END KSP WEDDINGS IVORY HERO CTA FINAL === */
+/* MANUAL LOCK — upcoming documentary hero cleanup */
+
+/*
+   LA VILLE upcoming-documentary transition.
+   Make the title itself carry the section instead of dead space.
+*/
+
+.brandPage .laVilleStandalone {
+  min-height: 0 !important;
+  height: auto !important;
+
+  margin-top: clamp(24px, 3vw, 42px) !important;
+  padding-top: clamp(22px, 3vw, 40px) !important;
+}
+
+/* Remove the long decorative horizontal stroke */
+.brandPage .laVilleStandalone::before,
+.brandPage .laVilleStandalone::after {
+  display: none !important;
+  content: none !important;
+}
+
+.brandPage .laVilleStandalone {
+  border-top: 0 !important;
+}
+
+/*
+   DOCUMENTARY COMING SOON / DOCUMENTAIRE À VENIR
+   Turn it into the visual transition itself.
+*/
+.brandPage .laVilleStandalone .kicker {
+  margin: 0 0 clamp(18px, 2vw, 28px) !important;
+
+  font-size: clamp(2.1rem, 5.2vw, 5.4rem) !important;
+  line-height: .9 !important;
+  font-weight: 900 !important;
+
+  letter-spacing: -.045em !important;
+  text-align: center !important;
+
+  color: var(--gold, #d5aa55) !important;
+}
+
+/* Kill common empty-space contributors inside this section */
+.brandPage .laVilleStandalone > :first-child {
+  margin-top: 0 !important;
+}
+
+.brandPage .laVilleStandalone [class*="spacer"] {
+  min-height: 0 !important;
+  height: auto !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/*
+   Important:
+   LIGHT-specific corrections only.
+   Existing DARK world remains otherwise unchanged.
+*/
+.brandPage[data-brand-theme="light"] .laVilleStandalone .kicker {
+  color: #9b721f !important;
+}
+/* MANUAL LOCK — ARCHIVE TO LA VILLE JOIN */
+
+/*
+  The old dead zone was cumulative:
+  - DocumentaryCaseStudies had its own bottom margin
+  - LA VILLE had additional top margin/padding
+  - an internal rule added more visual separation
+
+  Collapse ONLY this junction.
+*/
+
+.brandPage .documentaryArchiveCases {
+  margin-bottom: 0 !important;
+}
+
+.brandPage .documentaryArchiveCases + .laVilleStandalone,
+.brandPage .laVilleStandalone {
+  margin-top: 0 !important;
+  padding-top: clamp(8px, 1vw, 14px) !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+
+/* Remove the long decorative line at the top of this one section. */
+
+.brandPage .laVilleStandalone {
+  border-top: 0 !important;
+}
+
+.brandPage .laVilleStandalone::before,
+.brandPage .laVilleStandalone::after,
+.brandPage .laVilleStandalone > :first-child::before,
+.brandPage .laVilleStandalone > :first-child::after {
+  display: none !important;
+  content: none !important;
+}
+
+.brandPage .laVilleStandalone > hr,
+.brandPage .laVilleStandalone hr {
+  display: none !important;
+}
+
+
+/*
+  DOCUMENTAIRE À VENIR / DOCUMENTARY COMING SOON
+  This is now the visual divider instead of a tiny label
+  floating in a large empty region.
+*/
+
+.brandPage .laVilleComingSoonTitle {
+  display: block !important;
+
+  width: 100% !important;
+  margin: clamp(10px, 1.4vw, 18px) auto clamp(18px, 2vw, 30px) !important;
+
+  color: var(--gold, #d5aa55) !important;
+
+  font-family: Arial, sans-serif !important;
+  font-size: clamp(2.7rem, 7vw, 6.8rem) !important;
+  font-weight: 900 !important;
+  line-height: .82 !important;
+
+  letter-spacing: -.055em !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+}
+
+
+/*
+  Kill margins on whatever element currently wraps the wording,
+  because earlier CSS was leaving that wrapper in place even when
+  the inner text size changed.
+*/
+
+.brandPage .laVilleStandalone .laVilleComingSoonTitle {
+  padding: 0 !important;
+}
+
+.brandPage .laVilleStandalone :has(> .laVilleComingSoonTitle) {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  border-top: 0 !important;
+}
+
+
+/* LIGHT remains readable; DARK keeps the same gold treatment. */
+
+.brandPage[data-brand-theme="light"] .laVilleComingSoonTitle {
+  color: #9b721f !important;
+}
+
+
+/* Mobile: still large, but never causes horizontal overflow. */
+
+@media (max-width: 600px) {
+  .brandPage .laVilleComingSoonTitle {
+    font-size: clamp(2.35rem, 12vw, 4rem) !important;
+    line-height: .86 !important;
+  }
+}
+/* MANUAL LOCK — LA VILLE title balance */
+
+/*
+  Keep the tighter spacing we just approved.
+  Only rebalance the two headline sizes.
+*/
+
+.brandPage .laVilleComingSoonTitle {
+  font-size: clamp(2.35rem, 5vw, 5rem) !important;
+  line-height: .86 !important;
+  letter-spacing: -.045em !important;
+}
+
+/*
+  LA VILLE should feel nearly as important as
+  DOCUMENTAIRE À VENIR, just slightly subordinate.
+*/
+.brandPage .laVilleStandalone h2,
+.brandPage .laVilleStandalone h3 {
+  font-size: clamp(2.15rem, 4.4vw, 4.5rem) !important;
+  line-height: .9 !important;
+  letter-spacing: -.04em !important;
+  font-weight: 900 !important;
+}
+
+/* Preserve responsive behavior */
+@media (max-width: 600px) {
+  .brandPage .laVilleComingSoonTitle {
+    font-size: clamp(2rem, 10vw, 3.5rem) !important;
+  }
+
+  .brandPage .laVilleStandalone h2,
+  .brandPage .laVilleStandalone h3 {
+    font-size: clamp(1.9rem, 9vw, 3.15rem) !important;
+  }
+}
+
+/* MANUAL LOCK — LA VILLE title prominence */
+.brandPage .laVilleStandalone h2,
+.brandPage .laVilleStandalone h3 {
+  font-size: clamp(2.8rem, 5.4vw, 5.4rem) !important;
+  line-height: .88 !important;
+  letter-spacing: -.045em !important;
+  font-weight: 900 !important;
+}
+
+@media (max-width: 600px) {
+  .brandPage .laVilleStandalone h2,
+  .brandPage .laVilleStandalone h3 {
+    font-size: clamp(2.35rem, 11vw, 4rem) !important;
+  }
+}
+
+/* MANUAL LOCK — final LA VILLE scale */
+.brandPage .laVilleStandalone h2,
+.brandPage .laVilleStandalone h3 {
+  font-size: clamp(3.15rem, 5.9vw, 5.9rem) !important;
+  line-height: .86 !important;
+  letter-spacing: -.047em !important;
+  font-weight: 900 !important;
+}
+
+@media (max-width: 600px) {
+  .brandPage .laVilleStandalone h2,
+  .brandPage .laVilleStandalone h3 {
+    font-size: clamp(2.55rem, 12vw, 4.35rem) !important;
+  }
+}
+
+/* MANUAL LOCK — LA VILLE oversized title without changing section spacing */
+
+/*
+  Scale visually instead of increasing layout dimensions.
+  transform-origin at the bottom means the title grows upward,
+  keeping the tagline directly underneath in the existing flow.
+*/
+.brandPage .laVilleStandalone h2,
+.brandPage .laVilleStandalone h3 {
+  transform: scale(1.28) !important;
+  transform-origin: center bottom !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep the mobile increase more restrained to prevent clipping */
+@media (max-width: 600px) {
+  .brandPage .laVilleStandalone h2,
+  .brandPage .laVilleStandalone h3 {
+    transform: scale(1.14) !important;
+  }
+}
+
+/* MANUAL LOCK — actual LA VILLE title element
+   Visual enlargement only: does NOT alter document flow or spacing. */
+
+#realStoriesFinal .laVilleStandalone .documentaryInfo > .docProjectTitle {
+  display: block !important;
+
+  /* Keep its existing layout dimensions */
+  font-size: clamp(1.9rem, 3.3vw, 2.7rem) !important;
+  line-height: .95 !important;
+
+  /* Enlarge visually without pushing the tagline downward */
+  transform: scale(1.62) !important;
+  transform-origin: center bottom !important;
+
+  position: relative !important;
+  z-index: 2 !important;
+
+  font-weight: 900 !important;
+  letter-spacing: -.045em !important;
+}
+
+/* Mobile: large, but restrained enough to stay inside viewport */
+@media (max-width: 800px) {
+  #realStoriesFinal .laVilleStandalone .documentaryInfo > .docProjectTitle {
+    transform: scale(1.32) !important;
+  }
+}
+
+/* MANUAL LOCK — slide LA VILLE title down only */
+#realStoriesFinal .laVilleStandalone .documentaryInfo > .docProjectTitle {
+  transform: translateY(12px) scale(1.62) !important;
+  transform-origin: center bottom !important;
+}
+
+@media (max-width: 800px) {
+  #realStoriesFinal .laVilleStandalone .documentaryInfo > .docProjectTitle {
+    transform: translateY(8px) scale(1.32) !important;
+  }
+}
+
+/* MANUAL LOCK — LA VILLE final vertical position */
+#realStoriesFinal .laVilleStandalone .documentaryInfo > .docProjectTitle {
+  transform: translateY(28px) scale(1.62) !important;
+  transform-origin: center bottom !important;
+}
+
+@media (max-width: 800px) {
+  #realStoriesFinal .laVilleStandalone .documentaryInfo > .docProjectTitle {
+    transform: translateY(18px) scale(1.32) !important;
+  }
+}
+
+/* MANUAL LOCK — final Brand Stories media polish */
+
+/* Give BARBANCOURT + NOIR ÉCLAT clear editorial separation */
+.brandPage .commercialCollection .brandGrid {
+  gap: clamp(30px, 3vw, 48px) !important;
+}
+
+/* Subtle cinematic corners — commercial story media only */
+.brandPage .commercialCollection .publishedFilmStill {
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+.brandPage .commercialCollection .publishedFilmStill video,
+.brandPage .commercialCollection .publishedFilmStill img {
+  border-radius: inherit !important;
+}
+
+/* Same 4px treatment for LA VILLE preview only */
+#realStoriesFinal .laVilleStandalone .documentaryMedia {
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+#realStoriesFinal .laVilleStandalone .documentaryMedia video,
+#realStoriesFinal .laVilleStandalone .documentaryMedia img {
+  border-radius: inherit !important;
+}
+
+/* ============================================================
+   KSP FILMS — ARCHIVE YEAR TIMELINE
+   ============================================================ */
+
+.mv-page .mv-archive-year-timeline {
+  width: 100%;
+  margin: 17px 0 15px;
+}
+
+.mv-page .mv-archive-year-heading {
+  display: block;
+  margin-bottom: 11px;
+  color: #d6ad45;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.mv-page .mv-archive-year-track {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mv-page .mv-archive-year-track button {
+  position: relative;
+  flex: 0 0 auto;
+  min-width: 66px;
+  padding: 14px 10px 0;
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,.22);
+  background: transparent;
+  color: rgba(255,255,255,.56);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mv-page .mv-archive-year-track button::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: -3px;
+  left: 50%;
+  border-radius: 999px;
+  background: rgba(255,255,255,.3);
+  transform: translateX(-50%);
+}
+
+.mv-page .mv-archive-year-track button:hover,
+.mv-page .mv-archive-year-track button.is-active {
+  color: #d6ad45;
+}
+
+.mv-page .mv-archive-year-track button.is-active {
+  border-top-color: #d6ad45;
+}
+
+.mv-page .mv-archive-year-track button.is-active::before {
+  background: #d6ad45;
+  transform: translateX(-50%) scale(1.4);
+}
+
+@media (max-width: 700px) {
+  .mv-page .mv-archive-year-track button {
+    min-width: 60px;
+  }
+}
+
+/* KSP FILMS — stretch Archive timeline across full grid width */
+@media (min-width: 701px) {
+  .mv-page .mv-archive-year-track {
+    width: 100% !important;
+  }
+
+  .mv-page .mv-archive-year-track button {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+}
+
+/* Keep horizontal swipe behavior on smaller screens */
+@media (max-width: 700px) {
+  .mv-page .mv-archive-year-track button {
+    flex: 0 0 62px !important;
+    min-width: 62px !important;
+  }
+}
+
+/* KSP FILMS — final Archive readability scale */
+
+/* Bigger year numbers, same timeline geometry */
+.mv-page .mv-archive-year-track button {
+  font-size: 13px !important;
+}
+
+/* Slightly enlarge ONLY the image inside Archive cards.
+   Uses the independent scale property so existing hover transforms survive. */
+.mv-page section:has(.mv-archive-tools) img {
+  scale: 1.045;
+  transform-origin: center center;
+}
+
+/* Keep mobile restrained */
+@media (max-width: 700px) {
+  .mv-page .mv-archive-year-track button {
+    font-size: 12px !important;
+  }
+
+  .mv-page section:has(.mv-archive-tools) img {
+    scale: 1.03;
+  }
+}
+
+
+/* ============================================================
+   KSP FILMS — OVERSIZED ARCHIVE THUMBNAIL TEST
+   Deliberately larger so we can actually judge the scale.
+   ============================================================ */
+
+/* Put timeline typography back to restrained size */
+.mv-page .mv-archive-year-track button {
+  font-size: 13px !important;
+}
+
+/* REAL card enlargement: 5 columns -> 4 columns */
+.mv-page .mv-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+/* Remove the previous internal crop/zoom.
+   The cards themselves are now physically larger. */
+.mv-page section:has(.mv-archive-tools) .mv-grid img {
+  scale: 1 !important;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .mv-page .mv-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .mv-page .mv-archive-year-track button {
+    font-size: 12px !important;
+  }
+
+  .mv-page .mv-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .mv-page .mv-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================================
+   KSP FILMS — ARTIST NAMES ALWAYS UPPERCASE
+   Presentation only. Titles/data remain untouched.
+   ============================================================ */
+
+/* Artist names underneath every video card */
+.mv-page .mv-card-artist {
+  text-transform: uppercase !important;
+}
+
+/* ARTISTES / COLLABORATIONS scrolling banner */
+.mv-page .mv-collab-button {
+  text-transform: uppercase !important;
+}
+
+/* Artist dropdown + selected artist */
+.mv-page .mv-archive-tools select {
+  text-transform: uppercase !important;
+}
+
+.mv-page .mv-archive-tools select option {
+  text-transform: uppercase !important;
+}

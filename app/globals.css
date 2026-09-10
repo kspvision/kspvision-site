@@ -4840,3 +4840,45 @@ html body .mv-page .mv-card-year {
   top: auto !important;
   transform: none !important;
 }
+
+/* Brand/documentary archive divider: compact section rhythm, not a viewport spacer. */
+.brandPage [class*="transition"] {
+  margin: clamp(3.75rem, 6vw, 5.5rem) 0 clamp(2.5rem, 4vw, 3.75rem) !important;
+}
+
+/* Final archive divider: eliminate the accumulated collection/section/marker gap. */
+.brandPage #realStoriesFinal {
+  padding-top: 0 !important;
+}
+.brandPage #realStoriesFinal > [class*="section"] {
+  margin-top: 0 !important;
+}
+.brandPage #realStoriesFinal [class*="transition"] {
+  margin: clamp(2.5rem, 4vw, 4.3rem) 0 clamp(1.9rem, 3vw, 3.1rem) !important;
+}
+
+/* Requested four-item polish only. */
+.weddingPage #weddingStoriesFinal .weddingSectionHead > p:not(.kicker) {
+  font-size: 75% !important;
+}
+.brandPage[data-brand-theme="light"] [class*="story"] > p {
+  color: #332f2a !important;
+}
+.brandPage [class*="disclosureLabel"],
+.brandPage [class*="reveal"] {
+  color: var(--gold) !important;
+}
+
+/* Final visual adjustment from local review: tighter Archive divider and decisive ivory contrast. */
+.brandPage #realStoriesFinal [class*="transition"] {
+  margin: clamp(1.8rem, 2.8vw, 3.1rem) 0 clamp(1.35rem, 2vw, 2.1rem) !important;
+  font-size: clamp(1rem, 1.8vw, 1.35rem) !important;
+}
+.brandPage [class*="disclosureLabel"] {
+  color: var(--gold) !important;
+}
+.brandPage[data-brand-theme="light"] #realStoriesFinal [class*="heading"] h3,
+.brandPage[data-brand-theme="light"] #realStoriesFinal .docProjectTitle,
+.brandPage[data-brand-theme="light"] #realStoriesFinal .weddingSectionHead h2 {
+  color: #191611 !important;
+}

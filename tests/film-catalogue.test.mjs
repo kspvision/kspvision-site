@@ -7,8 +7,8 @@ const catalogue = JSON.parse(await readFile(new URL('../data/ksp-films.json',imp
 const batch = JSON.parse(await readFile(new URL('../data/ksp-films-batch-2026-09.json',import.meta.url)));
 
 test('all original and batch IDs are preserved once, dated, and supported by the player', async()=>{
-  assert.equal(catalogue.videos.length,180);
-  assert.equal(new Set(catalogue.videos.map(v=>v.id)).size,180);
+  assert.equal(catalogue.videos.length,200);
+  assert.equal(new Set(catalogue.videos.map(v=>v.id)).size,200);
   for(const item of batch) assert.ok(catalogue.videos.some(v=>v.id===item.id),item.id);
   for(const v of catalogue.videos) {
     assert.ok(Number.isFinite(Date.parse(v.publishedAt)),v.id);
@@ -19,8 +19,8 @@ test('all original and batch IDs are preserved once, dated, and supported by the
 test('sections use actual dates across 2016/2017/2020 and include entire archive',()=>{
   const groups=sections(catalogue.videos);
   assert.equal(groups.latest.length,10);
-  assert.equal(groups.archive.length,180);
-  assert.equal(groups.twenties.length+groups.late.length+groups.early.length,180);
+  assert.equal(groups.archive.length,200);
+  assert.equal(groups.twenties.length+groups.late.length+groups.early.length,200);
   for(let i=1;i<groups.archive.length;i++) assert.ok(Date.parse(groups.archive[i-1].publishedAt)>=Date.parse(groups.archive[i].publishedAt));
   assert.deepEqual(groups.latest,groups.archive.slice(0,10));
   assert.ok(groups.twenties.every(v=>+v.publishedAt.slice(0,4)>=2020));

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { SiteFooter, SiteHeader } from "../site-language";
+import { Localized, SiteFooter, SiteHeader } from "../site-language";
+import { MiraTheme } from "./mira-theme";
 
 export const metadata: Metadata = {
   title: "Mira Bridal Makeup Montréal",
@@ -47,16 +48,16 @@ const rates = [
 ];
 
 export default function MiraPage() {
-  return <main className="detailPage weddingPage miraPage">
+  return <MiraTheme><main className="detailPage weddingPage miraPage">
     <SiteHeader />
     <section className="miraSection" aria-labelledby="mira-page-heading">
-      <div className="miraLead"><img src="/mira/final/mira-working.jpg" alt="Mira applying bridal eye makeup" /><div className="miraLeadCopy"><p className="miraEyebrow">Bridal + event makeup</p><h1 id="mira-page-heading" className="miraTitle">MIRA</h1><p className="miraLocation">Montréal + surroundings</p><p className="miraNameNote"><strong>Mira is her professional name.</strong></p><p>Soft, polished and camera-ready beauty tailored to your features, your comfort and the feeling of your celebration.</p><a className="button miraButton" href="mailto:divya.vila91@gmail.com?subject=Makeup%20booking%20with%20Mira">Book Mira by email ↗</a></div></div>
-      <div className="miraProofGroup"><h2><span>01</span> Before + application</h2><div className="miraPortfolio">{application.map(([src, alt]) => <a href={src} target="_blank" rel="noreferrer" aria-label={`Open full-size photo: ${alt}`} key={src}><img src={src} alt={alt} /></a>)}</div></div>
-      <div className="miraProofGroup"><h2><span>02</span> The finished look</h2><div className="miraPortfolio">{finished.map(([src, alt]) => <a href={src} target="_blank" rel="noreferrer" aria-label={`Open full-size photo: ${alt}`} key={src}><img src={src} alt={alt} /></a>)}</div></div>
-      <div className="miraProofGroup miraGalleryGroup"><div className="miraGalleryHeading"><h2><span>03</span> Selected work</h2><p>Bridal mornings, finished portraits and event beauty. A wider look at Mira’s work.</p></div><div className="miraPortfolio miraGallery">{gallery.map(([src, alt]) => <a href={src} target="_blank" rel="noreferrer" aria-label={`Open full-size photo: ${alt}`} key={src}><img src={src} alt={alt} /></a>)}</div></div>
-      <div className="miraRates"><div><p className="miraEyebrow">Services</p><h2>Launch rates</h2><p>Starting rates in Canadian dollars. Travel outside Montréal is quoted according to distance.</p></div><div className="miraRateList">{rates.map(([service, price]) => <div key={service}><span>{service}</span><strong>{price}</strong></div>)}</div></div>
-      <p className="miraContact">Availability and quotes: <a href="mailto:divya.vila91@gmail.com">divya.vila91@gmail.com</a></p>
+      <div className="miraLead"><img src="/mira/final/mira-working.jpg" alt="Mira appliquant du maquillage de mariée" /><div className="miraLeadCopy"><p className="miraEyebrow"><Localized en="Bridal + event makeup" fr="Maquillage mariage + événement"/></p><h1 id="mira-page-heading" className="miraTitle">MIRA</h1><p className="miraLocation">Montréal + <Localized en="surroundings" fr="environs"/></p><p className="miraNameNote"><strong><Localized en="Mira is her professional name." fr="Mira est son nom professionnel."/></strong></p><p><Localized en="Soft, polished and camera-ready beauty tailored to your features, your comfort and the feeling of your celebration." fr="Un maquillage doux, soigné et prêt pour la caméra, adapté à vos traits, votre confort et l’esprit de votre célébration."/></p><a className="button miraButton" href="mailto:divya.vila91@gmail.com?subject=Makeup%20booking%20with%20Mira"><Localized en="Book Mira by email" fr="Réserver Mira par courriel"/> ↗</a></div></div>
+      <div className="miraProofGroup"><h2><span>01</span> <Localized en="Before + application" fr="Avant + application"/></h2><div className="miraPortfolio">{application.map(([src, alt]) => <a href={src} target="_blank" rel="noreferrer" aria-label={`Open full-size photo: ${alt}`} key={src}><img src={src} alt={alt} /></a>)}</div></div>
+      <div className="miraProofGroup"><h2><span>02</span> <Localized en="The finished look" fr="Le résultat final"/></h2><div className="miraPortfolio">{finished.map(([src, alt]) => <a href={src} target="_blank" rel="noreferrer" aria-label={`Open full-size photo: ${alt}`} key={src}><img src={src} alt={alt} /></a>)}</div></div>
+      <div className="miraProofGroup miraGalleryGroup"><div className="miraGalleryHeading"><h2><span>03</span> <Localized en="Selected work" fr="Travaux sélectionnés"/></h2><p><Localized en="Bridal mornings, finished portraits and event beauty. A wider look at Mira’s work." fr="Matins de mariage, portraits finis et beauté événementielle. Un aperçu plus large du travail de Mira."/></p></div><div className="miraPortfolio miraGallery">{gallery.map(([src, alt]) => <a href={src} target="_blank" rel="noreferrer" aria-label={`Open full-size photo: ${alt}`} key={src}><img src={src} alt={alt} /></a>)}</div></div>
+      <div className="miraRates"><div><p className="miraEyebrow"><Localized en="Services" fr="Services"/></p><h2><Localized en="Launch rates" fr="Tarifs de lancement"/></h2><p><Localized en="Starting rates in Canadian dollars. Travel outside Montréal is quoted according to distance." fr="Tarifs de départ en dollars canadiens. Les déplacements hors Montréal sont calculés selon la distance."/></p></div><div className="miraRateList">{rates.map(([service, price]) => <div key={service}><span><Localized en={service} fr={service==="Bridal makeup"?"Maquillage de mariée":service==="Bridal trial"?"Essai mariage":service==="Bride + trial"?"Mariée + essai":service==="Bridal party / guest"?"Cortège / invitée":"Maquillage événementiel"}/></span><strong>{price.replace("per person","par personne")}</strong></div>)}</div></div>
+      <p className="miraContact"><Localized en="Availability and quotes:" fr="Disponibilités et devis :"/> <a href="mailto:divya.vila91@gmail.com">divya.vila91@gmail.com</a></p>
     </section>
     <SiteFooter />
-  </main>;
+  </main></MiraTheme>;
 }

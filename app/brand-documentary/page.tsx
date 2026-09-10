@@ -8,6 +8,7 @@ import { Localized, SiteFooter, SiteHeader } from "../site-language";
 import BusinessCapabilities from "./business-capabilities";
 import CollaborationRail from "./collaboration-rail";
 import { BrandTheme } from "./brand-theme";
+import DocumentaryCaseStudies from "./documentary-case-study";
 const commercial = [{ title: "Barbancourt", type: "Spirit film concept", youtubeId: "hNRG8NT3sRs" }, { title: "NOIR ÉCLAT ELIXIR", type: "Fragrance film concept", youtubeId: "FYL9RmYlZ6U" }];
 const documentaries = [
   { title: "Corneille présente ADVANCE Québec", src: "/corneille-web.mp4" },
@@ -17,9 +18,14 @@ const documentaries = [
 },
   { title: "Kevin Shayne Story", src: "/kevin-shayne-web.mp4", preview: true },
 ];
+const realStoryFilms = [
+  { youtubeId: "QcDHkjJcruA", credits: { en: "DIRECTION · BENNY / QCULTR · KOUDJO ONI\nCAMERA · KEVIN SHAYNE\nEDITING · KEVIN SHAYNE", fr: "RÉALISATION · BENNY / QCULTR · KOUDJO ONI\nCAMÉRA / TOURNAGE · KEVIN SHAYNE\nMONTAGE · KEVIN SHAYNE" } },
+  { youtubeId: "MOvdfgm6m2E", relatedVideos: ["6FSUnr_jmp0"], credits: { en: "DIRECTION · BENNY / QCULTR · KOUDJO ONI\nCAMERA · KEVIN SHAYNE\nEDITING · KEVIN SHAYNE", fr: "RÉALISATION · BENNY / QCULTR · KOUDJO ONI\nCAMÉRA / TOURNAGE · KEVIN SHAYNE\nMONTAGE · KEVIN SHAYNE" } },
+  { youtubeId: "Ursdlc6oGug", credits: { en: "SERIES · SEASON 1\nCAMERA · KEVIN SHAYNE · JAYNE PETIGNY\nEDITING · KEVIN SHAYNE", fr: "SÉRIE · SAISON 1\nCAMÉRA · KEVIN SHAYNE · JAYNE PETIGNY\nMONTAGE · KEVIN SHAYNE" } },
+];
 
 export default function Page() { return <BrandTheme><SiteHeader active="brand" />
-  <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1 className="brandHeroTitle"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><div className="brand-booking-wrap">
+  <section className="detailHero toneBrand"><div><p className="kicker"><Localized en="BRAND & DOCUMENTARY" fr="MARQUE & DOCUMENTAIRE" /></p><h1 className="brandHeroTitle"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><div className="brand-booking-wrap">
       <span className="brand-booking-label">
         <Localized en="START A PROJECT" fr="LANCER UN PROJET" />
       </span>
@@ -66,7 +72,7 @@ export default function Page() { return <BrandTheme><SiteHeader active="brand" /
         <Localized en="DOCUMENTARY" fr="DOCUMENTAIRE" />
       </p>
       <h2>
-        <Localized en="Real stories" fr="Histoires réelles" />
+        <Localized en="More real stories" fr="Autres histoires réelles" />
       </h2>
     </div>
 
@@ -82,16 +88,16 @@ export default function Page() { return <BrandTheme><SiteHeader active="brand" /
 
     {/* 01 — ADVANCE MUSIC GROUP CANADA */}
     <article className="documentaryCard">
-      <KSPPlayerLink className="documentaryMedia" video={{sourceType:"hosted", source:documentaries[0].src, title:"ADVANCE MUSIC GROUP CANADA"}}><video autoPlay muted loop playsInline preload="metadata">
+      <div className="documentaryMedia"><video autoPlay muted loop playsInline preload="metadata">
           <source src={documentaries[0].src} type="video/mp4" />
-        </video><span className="docWatch"><Localized en="Watch film" fr="Voir le film" /> ↗</span></KSPPlayerLink>
+        </video><KSPPlayerLink className="docWatch" video={{sourceType:"youtube",source:realStoryFilms[0].youtubeId,title:"ADVANCE MUSIC GROUP CANADA"}}><Localized en="Watch film" fr="Voir le film" /> ↗</KSPPlayerLink></div>
 
       <div className="documentaryInfo">
         <strong className="docProjectTitle">
           ADVANCE MUSIC GROUP CANADA
         </strong>
         <span className="docProjectRole">
-          TOURNAGE · MONTAGE
+          <Localized en="CAMERA · EDITING" fr="TOURNAGE · MONTAGE" />
         </span>
       </div>
     </article>
@@ -99,16 +105,16 @@ export default function Page() { return <BrandTheme><SiteHeader active="brand" /
 
     {/* 02 — COMITÉ JEUNE DE FINANCE MONTRÉAL */}
     <article className="documentaryCard">
-      <KSPPlayerLink className="documentaryMedia" video={{sourceType:"hosted", source:documentaries[1].src, title:"COMITÉ JEUNE DE FINANCE MONTRÉAL"}}><video autoPlay muted loop playsInline preload="metadata">
+      <div className="documentaryMedia"><video autoPlay muted loop playsInline preload="metadata">
           <source src={documentaries[1].src} type="video/mp4" />
-        </video><span className="docWatch"><Localized en="Watch film" fr="Voir le film" /> ↗</span></KSPPlayerLink>
+        </video><KSPPlayerLink className="docWatch" video={{sourceType:"youtube",source:realStoryFilms[1].youtubeId,title:"COMITÉ JEUNE DE FINANCE MONTRÉAL"}}><Localized en="Watch film" fr="Voir le film" /> ↗</KSPPlayerLink></div>
 
       <div className="documentaryInfo">
         <strong className="docProjectTitle">
           COMITÉ JEUNE DE FINANCE MONTRÉAL
         </strong>
         <span className="docProjectRole">
-          TOURNAGE · MONTAGE
+          <Localized en="CAMERA · EDITING" fr="TOURNAGE · MONTAGE" />
         </span>
       </div>
     </article>
@@ -116,19 +122,19 @@ export default function Page() { return <BrandTheme><SiteHeader active="brand" /
 
     {/* 03 — AMPLIFY SEASON 1 · ADVANCE TORONTO */}
     <article className="documentaryCard">
-      <KSPPlayerLink className="documentaryMedia" video={{sourceType:"hosted", source:"/amplify-season-1-advance-toronto-web.mp4", title:"AMPLIFY SEASON 1 · ADVANCE TORONTO"}}><video autoPlay muted loop playsInline preload="metadata">
+      <div className="documentaryMedia"><video autoPlay muted loop playsInline preload="metadata">
           <source
             src="/amplify-season-1-advance-toronto-web.mp4"
             type="video/mp4"
           />
-        </video><span className="docWatch"><Localized en="Watch film" fr="Voir le film" /> ↗</span></KSPPlayerLink>
+        </video><KSPPlayerLink className="docWatch" video={{sourceType:"youtube",source:realStoryFilms[2].youtubeId,title:"AMPLIFY SEASON 1 · ADVANCE TORONTO"}}><Localized en="Watch film" fr="Voir le film" /> ↗</KSPPlayerLink></div>
 
       <div className="documentaryInfo">
         <strong className="docProjectTitle">
           AMPLIFY SEASON 1 · ADVANCE TORONTO
         </strong>
         <span className="docProjectRole">
-          TOURNAGE · MONTAGE
+          <Localized en="CAMERA · EDITING" fr="TOURNAGE · MONTAGE" />
         </span>
       </div>
     </article>
@@ -136,11 +142,13 @@ export default function Page() { return <BrandTheme><SiteHeader active="brand" /
   </div>
 
 
+  <DocumentaryCaseStudies />
+
   {/* 04 — LA VILLE — ALONE UNDER ALL THREE */}
   <article className="documentaryCard laVilleStandalone">
 
     <span className="docEyebrow">
-      UPCOMING DOCUMENTARY
+      <span className="laVilleComingSoonTitle"><Localized en="UPCOMING DOCUMENTARY" fr="DOCUMENTAIRE À VENIR" /></span>
     </span>
 
     <KSPPlayerLink className="documentaryMedia" video={{sourceType:"hosted", source:documentaries[2].src, title:"LA VILLE · Preview"}}><video autoPlay muted loop playsInline preload="metadata">
@@ -156,8 +164,18 @@ export default function Page() { return <BrandTheme><SiteHeader active="brand" /
         LA VILLE
       </strong>
 <div className="laVilleEditorial">
-  <strong>A STORY STILL UNFOLDING.</strong>
-  <p>LA VILLE is an upcoming KSP Vision documentary built around the voices, experiences and realities that shape the city. A dedicated feature is currently in development.</p>
+  <strong>
+    <Localized
+      en="A STORY STILL UNFOLDING."
+      fr="UNE HISTOIRE VÉCUE. RACONTÉE PAR CEUX QUI LA FONT."
+    />
+  </strong>
+  <p>
+    <Localized
+      en="LA VILLE is an upcoming KSP Vision documentary built around the voices, experiences and realities that shape the city. A dedicated feature is currently in development."
+      fr="LA VILLE est un documentaire KSP Vision à venir, construit autour des voix, des expériences et des réalités qui façonnent la ville. Un projet documentaire dédié est actuellement en développement."
+    />
+  </p>
 </div>
 
       <span className="docProjectRole">
@@ -165,7 +183,10 @@ export default function Page() { return <BrandTheme><SiteHeader active="brand" /
       </span>
 
       <span className="comingSoon">
-        DEDICATED FEATURE · COMING SOON
+        <Localized
+          en="DEDICATED FEATURE · COMING SOON"
+          fr="DOCUMENTAIRE DÉDIÉ · À VENIR"
+        />
       </span>
     </div>
 
@@ -229,6 +250,15 @@ export default function Page() { return <BrandTheme><SiteHeader active="brand" /
     gap:1rem !important;
     align-items:start !important;
   }
+
+  #realStoriesFinal{
+    display:flex !important;
+    flex-direction:column !important;
+  }
+  #realStoriesFinal > [class*="section"]{order:1}
+  #realStoriesFinal > .laVilleStandalone{order:2}
+  #realStoriesFinal > .weddingSectionHead{order:3;margin-top:4rem}
+  #realStoriesFinal > .realStoriesTop{order:4}
 
   #realStoriesFinal .realStoriesTop .documentaryCard{
     width:100% !important;

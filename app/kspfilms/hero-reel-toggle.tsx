@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Localized } from "../site-language";
 
 export default function HeroReelToggle() {
-  const [enabled, setEnabled] = useState(false);
+  const [enabled, setEnabled] = useState(true);
   const button = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -18,7 +18,12 @@ export default function HeroReelToggle() {
   useEffect(() => {
     const page = button.current?.closest<HTMLElement>(".mv-page");
     if (!page) return;
-    const videos = Array.from(page.querySelectorAll<HTMLVideoElement>(".mv-hero-video, .mv-mobile-background-reel"));
+    const mobile = window.matchMedia("(max-width: 800px)").matches;
+    const videos = Array.from(page.querySelectorAll<HTMLVideoElement>(mobile ? ".mv-mobile-background-reel" : ".mv-hero-video"));
+    if (mobile) {
+      const video = videos[0];
+      if (video && !video.src) video.src = "/music-hero-mobile.mp4";
+    }
     page.dataset.reel = enabled ? "on" : "off";
     let active = true;
     if (enabled) {

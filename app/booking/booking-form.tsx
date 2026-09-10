@@ -23,6 +23,7 @@ const budgetOptions = [
   {
     value: "under-1k",
     label: "UNDER $1K",
+    labelFr: "MOINS DE 1 000 $",
     position: { en: "Lean / focused production", fr: "Production légère et ciblée" },
     details: [
       { label: { en: "Typical setup", fr: "Configuration typique" }, value: { en: "Often a solo filmmaker using the KSP in-house kit at an existing or client location, with natural or compact lighting.", fr: "Souvent un cinéaste solo avec l’équipement interne KSP, dans un lieu existant ou chez le client, avec un éclairage naturel ou compact." } },
@@ -37,6 +38,7 @@ const budgetOptions = [
   {
     value: "1k-2.5k",
     label: "$1K–$2.5K",
+    labelFr: "1 000 $ – 2 500 $",
     position: { en: "Small polished production", fr: "Petite production soignée" },
     details: [
       { label: { en: "Typical setup", fr: "Configuration typique" }, value: { en: "A more developed shoot with stronger lighting and audio, with rental possibilities depending on the concept.", fr: "Un tournage plus développé avec un éclairage et un son renforcés, et des possibilités de location selon le concept." } },
@@ -51,6 +53,7 @@ const budgetOptions = [
   {
     value: "2.5k-5k",
     label: "$2.5K–$5K",
+    labelFr: "2 500 $ – 5 000 $",
     position: { en: "Campaign-level small production", fr: "Petite production de niveau campagne" },
     details: [
       { label: { en: "Typical setup", fr: "Configuration typique" }, value: { en: "Creative development, advanced lighting and studio or location rental where the concept calls for it.", fr: "Développement créatif, éclairage avancé et location de studio ou de lieu lorsque le concept le demande." } },
@@ -65,6 +68,7 @@ const budgetOptions = [
   {
     value: "5k-plus",
     label: "$5K+",
+    labelFr: "5 000 $ ET PLUS",
     position: { en: "Full / custom production", fr: "Production complète et sur mesure" },
     details: [
       { label: { en: "Typical setup", fr: "Configuration typique" }, value: { en: "Concept development, pre-production, locations or studio, production design and specialty equipment as needed.", fr: "Développement du concept, préproduction, lieux ou studio, direction artistique et équipement spécialisé au besoin." } },
@@ -79,6 +83,7 @@ const budgetOptions = [
   {
     value: "not-sure",
     label: "NOT SURE YET",
+    labelFr: "À DÉTERMINER",
     position: { en: "We’ll help shape the right level", fr: "Nous vous aiderons à choisir le bon niveau" },
     details: [
       { label: { en: "What to share", fr: "Quoi partager" }, value: { en: "Describe the project, goal, timeline and intended platforms. KSP will recommend a production level suited to what you are building.", fr: "Décrivez le projet, l’objectif, l’échéancier et les plateformes visées. KSP recommandera un niveau de production adapté à votre projet." } },
@@ -1336,7 +1341,7 @@ export default function BookingForm() {
 
             <div className="bookingChoices bookingBudgetChoices">
 
-              {budgetOptions.map(({ value, label }) => (
+              {budgetOptions.map(({ value, label, labelFr }) => (
                 <label key={value}>
                   <input
                     type="radio"
@@ -1350,7 +1355,7 @@ export default function BookingForm() {
                   />
 
                   <span className="bookingBudgetCard">
-                    <strong>{label}</strong>
+                    <strong><Localized en={label} fr={labelFr} /></strong>
                   </span>
                 </label>
               ))}
@@ -1364,7 +1369,7 @@ export default function BookingForm() {
                 aria-live="polite"
               >
                 <header>
-                  <span>{selectedBudget.label}</span>
+                  <span><Localized en={selectedBudget.label} fr={selectedBudget.labelFr} /></span>
                   <h3>
                     <Localized
                       en={selectedBudget.position.en}

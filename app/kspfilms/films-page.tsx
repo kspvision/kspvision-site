@@ -288,18 +288,17 @@ export default function FilmsPage() {
     });
   };
   return (
-    <main className="mv-page" data-reel="off">
+    <main className="mv-page" data-reel="on">
       <SiteHeader active="music" />
       <video
         className="mv-mobile-background-reel"
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         poster="/music-1603.jpg"
         aria-hidden="true"
       >
-        <source src="/music-hero-mobile.mp4" type="video/mp4" />
       </video>
 
 
@@ -307,10 +306,11 @@ export default function FilmsPage() {
       <HeroReelToggle />
         <video
           className="mv-hero-video"
+          autoPlay
           muted
           loop
           playsInline
-          preload="none"
+          preload="auto"
           poster="/music-1603.jpg"
           aria-hidden="true"
         >
@@ -436,10 +436,79 @@ export default function FilmsPage() {
         </div>
 
         <div className="mv-archive-tools">
-          <label><span className="mv-filter-label">{copy("SEARCH", "RECHERCHER")}</span><input type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder={copy("SEARCH ARTIST OR TITLE", "RECHERCHER UN ARTISTE OU UN TITRE")} /></label>
-          <label><span className="mv-filter-label">{copy("YEAR", "ANNÉE")}</span><select value={year} onChange={e => setYear(e.target.value)}><option value="">{copy("ALL YEARS", "TOUTES LES ANNÉES")}</option>{years.map(y => <option key={y} value={y}>{y}</option>)}</select></label>
-          {active && <button type="button" onClick={() => {setQuery(""); setYear(""); setLimit(70);}}>{copy("CLEAR", "RÉINITIALISER")}</button>}
+          <label>
+            <span className="mv-filter-label">{copy("SEARCH", "RECHERCHER")}</span>
+            <input
+              type="search"
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              placeholder={copy(
+                "SEARCH ARTIST OR TITLE",
+                "RECHERCHER UN ARTISTE OU UN TITRE"
+              )}
+            />
+          </label>
+
+          <label>
+            <span className="mv-filter-label">{copy("ARTIST", "ARTISTE")}</span>
+            <select
+              value={artists.includes(query) ? query : ""}
+              onChange={e => setQuery(e.target.value)}
+            >
+              <option value="">{copy("ALL ARTISTS", "TOUS LES ARTISTES")}</option>
+              {artists.map(artist => (
+                <option key={artist} value={artist}>{artist}</option>
+              ))}
+            </select>
+          </label>
+
+          {active && (
+            <button
+              type="button"
+              onClick={() => {
+                setQuery("");
+                setYear("");
+                setLimit(70);
+              }}
+            >
+              {copy("CLEAR", "RÉINITIALISER")}
+            </button>
+          )}
         </div>
+
+        <div className="mv-archive-year-timeline">
+          <span className="mv-archive-year-heading">
+            {copy("BY YEAR", "PAR ANNÉE")}
+          </span>
+
+          <div className="mv-archive-year-track">
+            <button
+              type="button"
+              className={!year ? "is-active" : ""}
+              onClick={() => {
+                setYear("");
+                setLimit(70);
+              }}
+            >
+              {copy("ALL", "TOUS")}
+            </button>
+
+            {years.map(y => (
+              <button
+                type="button"
+                key={y}
+                className={year === y ? "is-active" : ""}
+                onClick={() => {
+                  setYear(y);
+                  setLimit(70);
+                }}
+              >
+                {y}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <p className="mv-result-count" role="status">{filtered.length} {filtered.length === 1 ? copy("video", "clip") : copy("videos", "clips")}{filtered.length === 0 && ` — ${copy("No matching videos.", "Aucun clip ne correspond à votre recherche.")}`}</p>
         <div className="mv-grid mv-archive-grid">
           {shown.map((video) => (

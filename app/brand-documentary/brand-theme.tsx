@@ -1,14 +1,17 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { useLanguage } from "../site-language";
 
 export function BrandTheme({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [language] = useLanguage();
+  const french = language === "fr";
   return <main className="detailPage brandPage" data-brand-theme={theme}>
     {children}
-    <aside className="brandThemeToggle" role="group" aria-label="Brand and Documentary page theme">
-      <button type="button" aria-pressed={theme === "light"} onClick={() => setTheme("light")}>LIGHT</button>
-      <button type="button" aria-pressed={theme === "dark"} onClick={() => setTheme("dark")}>DARK</button>
+    <aside className="brandThemeToggle" role="group" aria-label={french ? "Thème de la page marque et documentaire" : "Brand and Documentary page theme"}>
+      <button type="button" aria-pressed={theme === "light"} onClick={() => setTheme("light")}>{french ? "CLAIR" : "LIGHT"}</button>
+      <button type="button" aria-pressed={theme === "dark"} onClick={() => setTheme("dark")}>{french ? "SOMBRE" : "DARK"}</button>
     </aside>
     <style>{`.brandThemeToggle{position:fixed;right:clamp(18px,3vw,42px);bottom:clamp(18px,3vw,34px);z-index:12;display:flex;padding:3px;border:1px solid rgba(213,170,85,.52);background:#080808}.brandThemeToggle button{border:0;padding:7px 9px;background:transparent;color:rgba(255,255,255,.58);cursor:pointer;font:800 .52rem/1 inherit;letter-spacing:.12em}.brandThemeToggle button[aria-pressed="true"]{background:var(--gold);color:#080808}
 .brandPage[data-brand-theme="light"]{background:#f1ede4!important;color:#191611!important}.brandPage[data-brand-theme="light"] .detailHero.toneBrand{background:radial-gradient(circle at 80% 30%,rgba(213,170,85,.13),transparent 32%),#f1ede4!important}.brandPage[data-brand-theme="light"] .detailHero h1,.brandPage[data-brand-theme="light"] .weddingSectionHead h2,.brandPage[data-brand-theme="light"] .commercialProjectInfo h3,.brandPage[data-brand-theme="light"] .documentaryInfo strong,.brandPage[data-brand-theme="light"] .brandClosing h2{color:#191611!important}.brandPage[data-brand-theme="light"] .detailHero>div>p:not(.kicker),.brandPage[data-brand-theme="light"] .weddingSectionHead>p,.brandPage[data-brand-theme="light"] .commercialProjectInfo p,.brandPage[data-brand-theme="light"] .documentaryInfo p,.brandPage[data-brand-theme="light"] .brandClosing p{color:rgba(25,22,17,.66)!important}.brandPage[data-brand-theme="light"] .brandCollection,.brandPage[data-brand-theme="light"] .documentaryCollection,.brandPage[data-brand-theme="light"] .brandClosing{background:transparent!important;border-color:rgba(42,35,26,.15)!important}.brandPage[data-brand-theme="light"] .brandClosing::before,.brandPage[data-brand-theme="light"] .documentaryCard3::before{background:linear-gradient(135deg,rgba(213,170,85,.10),transparent 55%)!important}

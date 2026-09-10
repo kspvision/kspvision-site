@@ -51,7 +51,7 @@ export default function Home() {
       <header className="nav homeNav" aria-label="Main navigation">
         <a className="brand" href="/" aria-label="KSP Vision | Home"><span>KSP</span> VISION</a>
         <nav className="mainNav">
-          <a href="/kspfilms">KSP FILMS</a><a href="/weddings">WEDDINGS</a><a href="/brand-documentary">{l("Brand / Doc","Marque / Doc")}</a><a href="/about">{l("About","À propos")}</a>
+          <a href="/kspfilms">KSP FILMS</a><a href="/weddings">{l("WEDDINGS","MARIAGES")}</a><a href="/brand-documentary">{l("Brand / Doc","Marque / Doc")}</a><a href="/about">{l("About","À propos")}</a>
           <button className="langSwitch" aria-label={lang === "en" ? "Afficher le site en français" : "View the site in English"} onClick={toggleLanguage}>{lang === "en" ? "FR" : "EN"}</button>
           <a className="navCta" href="/booking">{l("Book","Réserver")}</a>
         </nav>
