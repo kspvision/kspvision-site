@@ -7,6 +7,7 @@ import { WeddingGallery } from "../wedding-gallery";
 import { weddingPhotos } from "../../data/wedding-gallery";
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
 import { WeddingReel, WeddingStoriesAmbient } from "../wedding-reel";
+import { WeddingTheme, WeddingThemeToggle } from "./wedding-theme";
 
 const films = [
   { title: "Smith & Aureanne", youtubeId: "kCRAeRvvy4M" },
@@ -15,9 +16,9 @@ const films = [
 ];
 
 export default function WeddingsPage() {
-  return <main className="detailPage weddingPage">
+  return <WeddingTheme>
     <SiteHeader active="weddings" />
-    <section className="weddingIntro"><div><p className="kicker">WEDDING FILMS</p><h1><Localized en="More than a day." fr="Plus qu’une journée." /><br/><em><Localized en="A feeling, preserved." fr="Une émotion, préservée." /></em></h1><p><Localized en="Honest, elegant films for the moments you will want to return to." fr="Des films élégants et sincères, pour les moments auxquels vous voudrez revenir." /></p><a className="button gold" href="/booking?project=wedding"><Localized en="Tell us about your day" fr="Parlez-nous de votre journée" /> <b>↗</b></a></div><img src="/weddings/wedding-garden-wide.jpg" alt="Smith and Aureanne with their wedding party" /></section>
+    <section className="weddingIntro"><div><p className="kicker">WEDDING FILMS</p><h1><Localized en="More than a day." fr="Plus qu’une journée." /><br/><em><Localized en="A feeling, preserved." fr="Une émotion, préservée." /></em></h1><p><Localized en="Honest, elegant films for the moments you will want to return to." fr="Des films élégants et sincères, pour les moments auxquels vous voudrez revenir." /></p><a className="button gold" href="/booking?project=wedding"><Localized en="Tell us about your day" fr="Parlez-nous de votre journée" /> <b>↗</b></a></div><img src="/weddings/wedding-garden-wide.jpg" alt="Smith and Aureanne with their wedding party" /><WeddingThemeToggle /></section>
     <section className="weddingFilms" id="weddingStoriesFinal"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected celebrations" fr="Célébrations sélectionnées" /></p><h2 id="weddingStoriesTitle"><Localized en="Wedding stories" fr="Histoires de mariage" /></h2></div><p><Localized en="Honest moments. Lasting images. Films made to bring you back." fr="Des moments vrais. Des images qui restent. Des films qui vous y ramènent." /></p></div>
       <article className="weddingReel"><WeddingReel /><div><p>WEDDING REEL</p><span><Localized en="KSP WEDDING FILMS" fr="Une sélection de moments" /></span></div></article>
 
@@ -1825,5 +1826,5 @@ export default function WeddingsPage() {
         }
       `}</style>
 
-</main>;
+</WeddingTheme>;
 }

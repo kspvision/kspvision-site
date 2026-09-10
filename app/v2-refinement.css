@@ -1419,3 +1419,1663 @@ html body .weddingPage #weddingStoriesList .publishedFilmStill {
 }
 
 /* === WEDDING FEATURED FILMS MEASURED RHYTHM END === */
+
+/* ==========================================================
+   WEDDINGS — COMPLETE IVORY THEME EXPERIMENT
+   LOCAL VISUAL TEST
+   NO GEOMETRY / SPACING / SIZE CHANGES
+   ========================================================== */
+
+.weddingPage {
+  --wedding-paper: #f1eee7;
+  --wedding-paper-soft: #ebe6dc;
+  --wedding-ink: #11110f;
+  --wedding-muted: rgba(17,17,15,.64);
+  --wedding-gold: #a77e34;
+  --wedding-line: rgba(17,17,15,.14);
+}
+
+/*
+   IMPORTANT:
+   Remove the black browser/page gutters around the centered Wedding layout.
+   This is scoped to a page containing .weddingPage.
+*/
+body:has(.weddingPage:where([data-wedding-theme="ivory"])) {
+  background: #f1eee7 !important;
+}
+
+/* ==========================================================
+   ENTIRE WEDDING PAGE STRUCTURE
+   ========================================================== */
+
+.weddingPage:where([data-wedding-theme="ivory"]),
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingIntro,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingFilms,
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal,
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesList,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingStoryList,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingStoryRow,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingGallery,
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal,
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingCta {
+  background-color: var(--wedding-paper) !important;
+  color: var(--wedding-ink) !important;
+}
+
+/* Remove leftover black section-head panels. */
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingSectionHead {
+  background: var(--wedding-paper) !important;
+  color: var(--wedding-ink) !important;
+}
+
+/* ==========================================================
+   NAVIGATION
+   THE ONE STRUCTURAL AREA THAT STAYS BLACK
+   ========================================================== */
+
+.weddingPage:where([data-wedding-theme="ivory"]) > header,
+.weddingPage:where([data-wedding-theme="ivory"]) .siteHeader {
+  background: #070707 !important;
+  color: #f5f2eb !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) > header a,
+.weddingPage:where([data-wedding-theme="ivory"]) .siteHeader a {
+  color: #f5f2eb !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) > header a[aria-current="page"],
+.weddingPage:where([data-wedding-theme="ivory"]) .siteHeader a[aria-current="page"] {
+  color: #d5aa55 !important;
+}
+
+/* ==========================================================
+   TYPOGRAPHY
+   ========================================================== */
+
+.weddingPage:where([data-wedding-theme="ivory"]) h1,
+.weddingPage:where([data-wedding-theme="ivory"]) h2,
+.weddingPage:where([data-wedding-theme="ivory"]) h3,
+.weddingPage:where([data-wedding-theme="ivory"]) h4,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingStoryCopy h3,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingStoryCopy h3 a {
+  color: var(--wedding-ink) !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) p {
+  color: var(--wedding-muted) !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) .kicker,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingStoryNumber {
+  color: var(--wedding-gold) !important;
+}
+
+/* Hero outlined typography keeps the Wedding gold. */
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingIntro h1 em {
+  color: transparent !important;
+  -webkit-text-stroke-color: #a98349 !important;
+}
+
+/* ==========================================================
+   HERO
+   BLACK FADE -> IVORY FADE
+   ========================================================== */
+
+@media (min-width:801px) {
+  html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingIntro::after {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(241,238,231,0) 0%,
+        rgba(241,238,231,.08) 32%,
+        rgba(241,238,231,.38) 60%,
+        rgba(241,238,231,.82) 86%,
+        var(--wedding-paper) 100%
+      ) !important;
+  }
+}
+
+/* ==========================================================
+   WEDDING STORIES HEADER
+   ========================================================== */
+
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal > .weddingSectionHead,
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal > .weddingSectionHead > div {
+  background: var(--wedding-paper) !important;
+}
+
+/* Any old pseudo-panels surrounding the header become paper. */
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal > .weddingSectionHead::before,
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal > .weddingSectionHead::after {
+  background: var(--wedding-paper) !important;
+}
+
+/* ==========================================================
+   CLEAN WEDDING REEL
+   VIDEO REMAINS CINEMATIC.
+   EVERYTHING AROUND IT BECOMES IVORY.
+   ========================================================== */
+
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingReel {
+  background: var(--wedding-paper) !important;
+  color: var(--wedding-ink) !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingReel > div {
+  background: var(--wedding-paper) !important;
+  color: var(--wedding-ink) !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingReel > div p,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingReel > div span {
+  color: var(--wedding-ink) !important;
+}
+
+/* Bottom video dissolve goes into paper instead of black. */
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingReel::after {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(241,238,231,0) 56%,
+      rgba(241,238,231,.12) 69%,
+      rgba(241,238,231,.54) 84%,
+      rgba(241,238,231,.90) 95%,
+      var(--wedding-paper) 100%
+    ) !important;
+}
+
+/* ==========================================================
+   FEATURED FILMS / AMBIENT VIDEO
+   KEEP MOVEMENT, REMOVE DARK RECTANGULAR WORLD
+   ========================================================== */
+
+:where(.weddingPage[data-wedding-theme="ivory"]) #weddingStoriesList > .weddingStoriesAmbient {
+  background: var(--wedding-paper) !important;
+}
+
+/*
+   Light photographic haze instead of dark green/black atmosphere.
+*/
+:where(.weddingPage[data-wedding-theme="ivory"]) #weddingStoriesList > .weddingStoriesAmbient .weddingStoriesBackgroundVideo {
+  opacity: .18 !important;
+
+  filter:
+    blur(30px)
+    saturate(.62)
+    brightness(1.08)
+    contrast(.76) !important;
+}
+
+/* Entire ambient clip dissolves into ivory at both ends. */
+:where(.weddingPage[data-wedding-theme="ivory"]) #weddingStoriesList > .weddingStoriesAmbient::after {
+  background:
+    linear-gradient(
+      to bottom,
+      var(--wedding-paper) 0%,
+      rgba(241,238,231,.94) 7%,
+      rgba(241,238,231,.68) 16%,
+      rgba(241,238,231,.30) 30%,
+      rgba(241,238,231,.30) 70%,
+      rgba(241,238,231,.68) 84%,
+      rgba(241,238,231,.94) 93%,
+      var(--wedding-paper) 100%
+    ) !important;
+}
+
+/* Story copy itself remains clean and transparent. */
+:where(.weddingPage[data-wedding-theme="ivory"]) #weddingStoriesList > .weddingStoryRow,
+:where(.weddingPage[data-wedding-theme="ivory"]) #weddingStoriesList .weddingStoryCopy {
+  background: transparent !important;
+}
+
+/* Story links become dark-on-light. */
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingStoryLink {
+  color: var(--wedding-ink) !important;
+  border-color: rgba(167,126,52,.60) !important;
+}
+
+/* ==========================================================
+   FEATURED FILM THUMBNAILS
+   REMOVE BLACK CARD STRIPS / BACKGROUNDS
+   KEEP EXISTING 6PX CORNERS
+   ========================================================== */
+
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingStoryFilm,
+.weddingPage:where([data-wedding-theme="ivory"]) .publishedFilmStill {
+  background: var(--wedding-paper) !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) .publishedFilmStill span {
+  background: var(--wedding-paper) !important;
+  color: var(--wedding-ink) !important;
+}
+
+/* ==========================================================
+   MOMENTS, PRESERVED
+   REMOVE BLACK CELL/GALLERY BACKGROUNDS
+   ========================================================== */
+
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal,
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal .weddingSectionHead,
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal .weddingGalleryGrid,
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal figure,
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal a {
+  background-color: var(--wedding-paper) !important;
+}
+
+/*
+   Some gallery cells use div wrappers as the letterbox surface.
+   Turn those ivory too without touching images.
+*/
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal .weddingGalleryGrid > div,
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal figure > div {
+  background-color: var(--wedding-paper) !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal {
+  border-color: var(--wedding-line) !important;
+}
+
+/* ==========================================================
+   MAKEUP ARTISTS
+   REMOVE THE LARGE BLACK RIGHT-HAND CARD PANEL
+   ========================================================== */
+
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists,
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists article,
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists figure,
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists article > div,
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists figure > div {
+  background-color: var(--wedding-paper) !important;
+  color: var(--wedding-ink) !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists h2,
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists h3,
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists h4,
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists a,
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists span {
+  color: var(--wedding-ink) !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists p {
+  color: var(--wedding-muted) !important;
+}
+
+/* ==========================================================
+   FINAL CTA
+   REMOVE BLACK SIDE PANELS / GUTTERS
+   ========================================================== */
+
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingCta,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingCta > div,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingCta article {
+  background: var(--wedding-paper) !important;
+  color: var(--wedding-ink) !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingCta h2,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingCta h3,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingCta a {
+  color: var(--wedding-ink) !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingCta::before,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingCta::after {
+  background: var(--wedding-paper) !important;
+}
+
+/* ==========================================================
+   LIGHT-THEME DIVIDERS
+   ========================================================== */
+
+.weddingPage:where([data-wedding-theme="ivory"]) hr {
+  border-color: var(--wedding-line) !important;
+}
+
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingFilms,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingGallery,
+.weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists,
+.weddingPage:where([data-wedding-theme="ivory"]) .weddingCta {
+  border-color: var(--wedding-line) !important;
+}
+
+/* ==========================================================
+   PROTECT ACTUAL MEDIA
+   Do NOT apply paper treatment to photography/video pixels.
+   ========================================================== */
+
+.weddingPage img,
+.weddingPage video {
+  background-color: transparent !important;
+}
+
+/* ==========================================================
+   COMPLETE IVORY EXPERIMENT END
+   ========================================================== */
+
+
+/* ==========================================================
+   WEDDINGS — IVORY CORRECTION PASS
+   Target actual rendered Wedding elements only.
+   Preserve approved geometry except Moments gallery scale.
+   ========================================================== */
+
+/* ---------- HERO TYPOGRAPHY ---------- */
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingIntro h1 {
+  color: var(--wedding-ink) !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingIntro h1 em {
+  color: transparent !important;
+  -webkit-text-stroke: 1px #a98349 !important;
+  -webkit-text-stroke-color: #a98349 !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingIntro > div > p:not(.kicker) {
+  color: var(--wedding-muted) !important;
+}
+
+
+/* ---------- WEDDING STORIES ---------- */
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal .weddingSectionHead h2,
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesList .weddingStoryCopy h3,
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesList .weddingStoryCopy h3 a {
+  color: var(--wedding-ink) !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal .weddingSectionHead > p,
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesList .weddingStoryCopy > p {
+  color: var(--wedding-muted) !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesList .weddingStoryLink {
+  color: var(--wedding-ink) !important;
+  border-color: rgba(167,126,52,.60) !important;
+}
+
+/* Preserve story thumbnail dimensions. Only soften the media edge. */
+html body .weddingPage #weddingStoriesList .weddingStoryFilm,
+html body .weddingPage #weddingStoriesList .publishedFilmStill {
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
+html body .weddingPage #weddingStoriesList .publishedFilmStill img {
+  border-radius: 6px !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesList .publishedFilmStill span {
+  color: var(--wedding-ink) !important;
+  background: var(--wedding-paper) !important;
+}
+
+
+/* ---------- MOMENTS, PRESERVED ---------- */
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal .weddingSectionHead h2 {
+  color: var(--wedding-ink) !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal .weddingSectionHead .kicker {
+  color: var(--wedding-gold) !important;
+}
+
+/* Larger editorial cards: 4 columns -> 3 columns. */
+html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  gap: 14px !important;
+}
+
+/* Actual gallery anchor used by wedding-gallery.tsx */
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryItem {
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryItem {
+  background: var(--wedding-paper) !important;
+}
+
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryItem img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+}
+
+@media (max-width:800px) {
+  html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    gap: 8px !important;
+  }
+}
+
+
+/* ---------- MAKEUP ARTISTS ---------- */
+
+/*
+   IMPORTANT:
+   The rendered card is an <a class="makeupArtistCard">,
+   NOT an article. Explicitly target the real element.
+*/
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists .makeupArtistCard,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists a.makeupArtistCard,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists .makeupArtistCard > div {
+  background: var(--wedding-paper) !important;
+  color: var(--wedding-ink) !important;
+}
+
+html body .weddingPage .makeupArtists .makeupArtistCard {
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists .makeupArtistCard {
+  border: 1px solid var(--wedding-line) !important;
+}
+
+html body .weddingPage .makeupArtists .makeupArtistCard img {
+  border-radius: 6px 0 0 6px !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists .makeupArtistCard h3,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists .makeupArtistCard span {
+  color: var(--wedding-ink) !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists .makeupArtistCard p {
+  color: var(--wedding-muted) !important;
+}
+
+@media (max-width:800px) {
+  html body .weddingPage .makeupArtists .makeupArtistCard img {
+    border-radius: 6px 6px 0 0 !important;
+  }
+}
+
+
+/* ---------- FINAL CTA ---------- */
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingCta {
+  background: var(--wedding-paper) !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingCta h2,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingCta h2 em {
+  color: var(--wedding-ink) !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingCta .kicker {
+  color: var(--wedding-gold) !important;
+}
+
+/* ==========================================================
+   WEDDINGS — IVORY CORRECTION PASS END
+   ========================================================== */
+
+/* === KSP WEDDING EDITORIAL GALLERY START ===
+   PERMANENT — DARK + IVORY
+   Taller Higgsfield-inspired editorial Wedding masonry.
+   ============================================================ */
+
+html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+  display: block !important;
+
+  columns: 3 !important;
+  column-gap: 12px !important;
+
+  grid-template-columns: none !important;
+  grid-auto-rows: initial !important;
+  gap: 0 !important;
+}
+
+/*
+   CARD FRAME
+   Intentionally taller than the source photography.
+   Source images crop INSIDE these editorial frames.
+*/
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryItem,
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryLink {
+
+  display: inline-block !important;
+
+  position: relative !important;
+  width: 100% !important;
+
+  /* default portrait editorial shape */
+  aspect-ratio: 4 / 5 !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
+
+  break-inside: avoid !important;
+
+  overflow: hidden !important;
+  border-radius: 6px !important;
+
+  background: transparent !important;
+
+  vertical-align: top !important;
+}
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryItem,
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryLink {
+
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/*
+   Subtle controlled variation like Higgsfield.
+   Still predominantly vertical — never back to flat landscape rows.
+*/
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > :nth-child(3n + 2) {
+  aspect-ratio: 3 / 4 !important;
+}
+
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > :nth-child(6n + 3) {
+  aspect-ratio: 2 / 3 !important;
+}
+
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > :nth-child(6n + 6) {
+  aspect-ratio: 4 / 5 !important;
+}
+
+/*
+   PHOTO INSIDE FRAME
+   Fill the card completely and crop the source.
+   Slight overscale helps remove baked-in black strips/letterboxing.
+*/
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryItem img,
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryLink img {
+
+  position: absolute !important;
+  inset: -2% !important;
+
+  display: block !important;
+
+  width: 104% !important;
+  height: 104% !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  aspect-ratio: auto !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  border-radius: 6px !important;
+
+  background: transparent !important;
+
+  transform: scale(1.07) !important;
+  transform-origin: center center !important;
+
+  transition:
+    transform .4s ease,
+    filter .4s ease !important;
+}
+
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryItem:hover img,
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryLink:hover img {
+
+  transform: scale(1.095) !important;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+
+  html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+    columns: 2 !important;
+    column-gap: 10px !important;
+  }
+
+  html body .weddingPage #weddingGalleryFinal
+  .weddingGalleryGrid > a.weddingGalleryItem,
+  html body .weddingPage #weddingGalleryFinal
+  .weddingGalleryGrid > a.weddingGalleryLink {
+    margin-bottom: 10px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+
+  html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+    columns: 1 !important;
+  }
+
+  html body .weddingPage #weddingGalleryFinal
+  .weddingGalleryGrid > a.weddingGalleryItem,
+  html body .weddingPage #weddingGalleryFinal
+  .weddingGalleryGrid > a.weddingGalleryLink {
+    aspect-ratio: 4 / 5 !important;
+  }
+}
+
+/* === KSP WEDDING EDITORIAL GALLERY END === */
+
+/* === KSP WEDDING IVORY STRUCTURE CLEANUP START ===
+   EXPERIMENT ONLY.
+   Removes leftover DARK STRUCTURAL backgrounds.
+   Does NOT recolor navigation, actual photography/video,
+   lightbox backdrop, or Wedding Reel cinematic imagery.
+   ============================================================ */
+
+/*
+   Main ivory section shells.
+*/
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal,
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesList,
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingGallery,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingCta {
+  background-color: var(--wedding-paper) !important;
+}
+
+/*
+   Remove dark outer gutters / structural pseudo-panels.
+*/
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal::before,
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal::after,
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal::before,
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal::after,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingGallery::before,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingGallery::after,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists::before,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists::after,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingCta::before,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingCta::after {
+  background: var(--wedding-paper) !important;
+}
+
+/*
+   Inner structural wrappers.
+   This is intentionally NOT a universal div rule.
+*/
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingGalleryFinal > div,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists > div,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingCta > div {
+  background-color: var(--wedding-paper) !important;
+}
+
+/*
+   Wedding Stories must remain ivory behind the editorial rows,
+   while the moving ambient reel can still render as imagery.
+*/
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal {
+  color: var(--wedding-ink) !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesList {
+  color: var(--wedding-ink) !important;
+}
+
+/*
+   Gallery cards have NO artificial black backing / letterbox.
+*/
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryItem,
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryLink {
+  background: transparent !important;
+}
+
+/*
+   Makeup Artists card.
+*/
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists .makeupArtistCard {
+  background: var(--wedding-paper) !important;
+  color: var(--wedding-ink) !important;
+  border-color: var(--wedding-line) !important;
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists .makeupArtistCard::before,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists .makeupArtistCard::after {
+  background: transparent !important;
+}
+
+/*
+   Final booking CTA.
+*/
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingCta,
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingCta article {
+  background: var(--wedding-paper) !important;
+  color: var(--wedding-ink) !important;
+}
+
+/*
+   IMPORTANT:
+   Media stays media. Do not paint over photos/videos.
+*/
+html body .weddingPage img,
+html body .weddingPage video {
+  background-color: transparent !important;
+}
+
+/*
+   Do not touch the global black navigation.
+   Do not touch lightbox darkness.
+*/
+html body .weddingPage .wedding-lightbox,
+html body .weddingPage .wedding-lightbox::backdrop {
+  /* intentionally preserved */
+}
+
+/* === KSP WEDDING IVORY STRUCTURE CLEANUP END === */
+
+/* ==========================================================
+   WEDDINGS — IVORY FINAL MICRO FIX
+   1. Stronger internal gallery crop
+   2. Selected Celebrations kicker -> wedding gold
+   Geometry intentionally untouched.
+   ========================================================== */
+
+/*
+   Increase ONLY the photograph inside each gallery frame.
+   Card dimensions / masonry / spacing / 6px corners stay unchanged.
+*/
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryItem img,
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryLink img {
+  inset: -5% !important;
+  width: 110% !important;
+  height: 110% !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  transform: scale(1.12) !important;
+}
+
+/* Keep hover extremely subtle from the new resting crop. */
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryItem:hover img,
+html body .weddingPage #weddingGalleryFinal
+.weddingGalleryGrid > a.weddingGalleryLink:hover img {
+  transform: scale(1.14) !important;
+}
+
+/*
+   Wedding Stories eyebrow.
+   Ivory version must not inherit white.
+*/
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingSectionHead .kicker,
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal .weddingSectionHead .kicker {
+  color: var(--wedding-gold) !important;
+  opacity: 1 !important;
+}
+
+/* === WEDDINGS IVORY FINAL MICRO FIX END === */
+
+
+/* ==========================================================
+   WEDDINGS — MOMENTS PRESERVED FINAL DENSITY PASS
+   Gallery only.
+   Keep ivory theme, natural image proportions and 6px corners.
+   ========================================================== */
+
+/*
+   Desktop gallery density.
+   Squeezed desktop = 4 across.
+*/
+@media (min-width: 801px) {
+  html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+  }
+}
+
+/*
+   Larger desktop = 5 across.
+*/
+@media (min-width: 1280px) {
+  html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+
+/*
+   Very wide desktop = 6 across.
+   More side-by-side, less unnecessary vertical stacking.
+*/
+@media (min-width: 1720px) {
+  html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  }
+}
+
+/*
+   Preserve restrained Wedding corners.
+*/
+html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid > a {
+  overflow: hidden !important;
+  border-radius: 6px !important;
+}
+
+/*
+   Slightly stronger crop inside every card.
+   This is specifically to hide residual black letterboxing.
+*/
+html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid > a img {
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  transform: scale(1.22) !important;
+  transform-origin: center center !important;
+}
+
+/*
+   Tiny hover movement only.
+*/
+html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid > a:hover img {
+  transform: scale(1.24) !important;
+}
+
+/* === MOMENTS PRESERVED FINAL DENSITY PASS END === */
+
+
+/* ==========================================================
+   WEDDINGS — MOMENTS PRESERVED FINAL TIGHT WALL
+   Gallery only.
+   Keep existing columns/card geometry.
+   ========================================================== */
+
+.weddingPage .weddingGalleryGrid {
+  column-gap: 4px !important;
+  row-gap: 2px !important;
+}
+
+.weddingPage .weddingGalleryGrid > *,
+.weddingPage .weddingGalleryGrid figure {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.weddingPage .weddingGalleryGrid img {
+  transform: scale(1.32) !important;
+  transform-origin: center center !important;
+}
+
+.weddingPage .weddingGalleryGrid a:hover img,
+.weddingPage .weddingGalleryGrid figure:hover img {
+  transform: scale(1.34) !important;
+}
+
+/* Keep our restrained Wedding finish. */
+.weddingPage .weddingGalleryGrid > *,
+.weddingPage .weddingGalleryGrid figure,
+.weddingPage .weddingGalleryGrid img {
+  border-radius: 6px !important;
+}
+
+/* === WEDDINGS — MOMENTS PRESERVED FINAL TIGHT WALL END === */
+
+/* ==========================================================
+   WEDDINGS — MOMENTS PRESERVED FINAL TIGHT WALL
+   Gallery only.
+   Keep existing columns/card geometry.
+   ========================================================== */
+
+.weddingPage .weddingGalleryGrid {
+  column-gap: 4px !important;
+  row-gap: 2px !important;
+}
+
+.weddingPage .weddingGalleryGrid > *,
+.weddingPage .weddingGalleryGrid figure {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.weddingPage .weddingGalleryGrid img {
+  transform: scale(1.32) !important;
+  transform-origin: center center !important;
+}
+
+.weddingPage .weddingGalleryGrid a:hover img,
+.weddingPage .weddingGalleryGrid figure:hover img {
+  transform: scale(1.34) !important;
+}
+
+/* Keep our restrained Wedding finish. */
+.weddingPage .weddingGalleryGrid > *,
+.weddingPage .weddingGalleryGrid figure,
+.weddingPage .weddingGalleryGrid img {
+  border-radius: 6px !important;
+}
+
+/* === WEDDINGS — MOMENTS PRESERVED FINAL TIGHT WALL END === */
+
+/* ==========================================================
+   WEDDINGS — MOMENTS PRESERVED FINAL WALL FIX
+   Fix old gallery height + true 4px seams + filled imagery.
+   ========================================================== */
+
+/*
+   The gallery became denser, so release the old vertical
+   space that belonged to the previous taller layout.
+*/
+html body .weddingPage .weddingGallery {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding-bottom: 24px !important;
+}
+
+html body .weddingPage .weddingGalleryGrid {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  gap: 4px !important;
+  column-gap: 4px !important;
+  row-gap: 4px !important;
+
+  align-items: stretch !important;
+}
+
+/*
+   No hidden wrapper spacing.
+*/
+html body .weddingPage .weddingGalleryGrid > * {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  line-height: 0 !important;
+}
+
+html body .weddingPage .weddingGalleryGrid a,
+html body .weddingPage .weddingGalleryGrid figure {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  line-height: 0 !important;
+}
+
+/*
+   Completely fill each existing frame.
+   This is the part that removes the fake thick vertical seams
+   caused by black letterboxing inside some source images.
+*/
+html body .weddingPage .weddingGalleryGrid img {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  min-width: 100% !important;
+  min-height: 100% !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  transform: scale(1.38) !important;
+  transform-origin: center center !important;
+
+  border-radius: 6px !important;
+}
+
+/* Hover stays extremely restrained. */
+html body .weddingPage .weddingGalleryGrid a:hover img,
+html body .weddingPage .weddingGalleryGrid figure:hover img {
+  transform: scale(1.40) !important;
+}
+
+/* === WEDDINGS — MOMENTS PRESERVED FINAL WALL FIX END === */
+
+/* ==========================================================
+   WEDDINGS — MOMENTS PRESERVED TRUE MASONRY FINAL
+   Natural proportions. Higgsfield-style wall.
+   ========================================================== */
+
+html body .weddingPage .weddingGallery {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  padding-bottom: 24px !important;
+  margin-bottom: 0 !important;
+
+  overflow: visible !important;
+}
+
+/*
+   IMPORTANT:
+   Stop using equal-height grid rows.
+   The photographs now determine their own height.
+*/
+html body .weddingPage .weddingGalleryGrid {
+  display: block !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  columns: 4 !important;
+  column-count: 4 !important;
+  column-gap: 4px !important;
+
+  row-gap: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: visible !important;
+}
+
+/*
+   Every gallery tile participates naturally in masonry.
+*/
+html body .weddingPage .weddingGalleryGrid > * {
+  display: block !important;
+
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+
+  margin: 0 0 4px 0 !important;
+  padding: 0 !important;
+
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+
+  overflow: hidden !important;
+
+  border-radius: 6px !important;
+  background: transparent !important;
+
+  line-height: 0 !important;
+}
+
+/*
+   Neutralize ALL previous forced cropping / zoom experiments.
+*/
+html body .weddingPage .weddingGalleryGrid img {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  aspect-ratio: auto !important;
+
+  object-fit: contain !important;
+  object-position: center center !important;
+
+  transform: none !important;
+  scale: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border-radius: 6px !important;
+}
+
+/* Kill the old hover zoom too. */
+html body .weddingPage .weddingGalleryGrid a:hover img,
+html body .weddingPage .weddingGalleryGrid figure:hover img {
+  transform: none !important;
+}
+
+/* Wider desktop = denser visual wall. */
+@media (min-width: 1200px) {
+  html body .weddingPage .weddingGalleryGrid {
+    columns: 5 !important;
+    column-count: 5 !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  html body .weddingPage .weddingGalleryGrid {
+    columns: 6 !important;
+    column-count: 6 !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 800px) {
+  html body .weddingPage .weddingGalleryGrid {
+    columns: 2 !important;
+    column-count: 2 !important;
+  }
+}
+
+/* Phone */
+@media (max-width: 520px) {
+  html body .weddingPage .weddingGalleryGrid {
+    columns: 1 !important;
+    column-count: 1 !important;
+  }
+}
+
+/* === WEDDINGS — MOMENTS PRESERVED TRUE MASONRY FINAL END === */
+
+
+/* ==========================================================
+   WEDDINGS — MOMENTS PRESERVED ZERO VERTICAL SEAM
+   Horizontal seam stays 4px.
+   Cards touch vertically.
+   ========================================================== */
+
+html body .weddingPage .weddingGalleryGrid {
+  column-gap: 4px !important;
+}
+
+html body .weddingPage .weddingGalleryGrid > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Prevent image baseline space from sneaking back in. */
+html body .weddingPage .weddingGalleryGrid img {
+  display: block !important;
+  margin: 0 !important;
+  vertical-align: top !important;
+}
+
+/* === WEDDINGS — MOMENTS PRESERVED ZERO VERTICAL SEAM END === */
+
+
+/* ==========================================================
+   WEDDINGS — MOMENTS PRESERVED ACTUAL FINAL FIX
+   1. Uniform 4px seams
+   2. Crop baked-in source black bars
+   3. Remove blank space after gallery
+   ========================================================== */
+
+/* Keep the real spacing uniform in BOTH directions. */
+html body .weddingPage .weddingGalleryGrid {
+  gap: 4px !important;
+  column-gap: 4px !important;
+  row-gap: 4px !important;
+
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+
+/*
+   The card itself is the clipping window.
+   This is what lets us hide black bars baked into source images.
+*/
+html body .weddingPage .weddingGalleryGrid > *,
+html body .weddingPage .weddingGalleryGrid figure,
+html body .weddingPage .weddingGalleryGrid a {
+  overflow: hidden !important;
+  border-radius: 6px !important;
+
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  background: transparent !important;
+}
+
+/*
+   IMPORTANT:
+   Zoom the SOURCE photograph INSIDE its existing frame.
+   Transform does not resize the card itself.
+*/
+html body .weddingPage .weddingGalleryGrid img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+
+  margin: 0 !important;
+
+  transform: scale(1.12) !important;
+  transform-origin: center center !important;
+
+  border-radius: 6px !important;
+}
+
+/* Slight hover movement only, without exposing bars again. */
+html body .weddingPage .weddingGalleryGrid a:hover img,
+html body .weddingPage .weddingGalleryGrid figure:hover img {
+  transform: scale(1.14) !important;
+}
+
+/*
+   Kill the HUGE empty ivory tail after the final photographs.
+*/
+html body .weddingPage .weddingGallery {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  margin-bottom: 0 !important;
+  padding-bottom: 24px !important;
+
+  overflow: visible !important;
+}
+
+html body .weddingPage .weddingGalleryGrid + * {
+  margin-top: 0 !important;
+}
+
+/* === WEDDINGS — MOMENTS PRESERVED ACTUAL FINAL FIX END === */
+
+/* === WEDDINGS MOMENTS PRESERVED AUTHORITATIVE FIX START ===
+   Targets the REAL DOM:
+   #weddingGalleryFinal
+     .weddingGalleryGrid
+       a.weddingGalleryItem
+         img
+
+   Overrides older catalogue-polish.css ID rules.
+   ================================================ */
+
+/* REAL gallery grid.
+   Same 4px seam horizontally AND vertically. */
+html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+
+  gap: 4px !important;
+  column-gap: 4px !important;
+  row-gap: 4px !important;
+
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Real cards. */
+html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid > a.weddingGalleryItem {
+  display: block !important;
+
+  width: 100% !important;
+  aspect-ratio: 4 / 5 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+}
+
+/* Zoom the SOURCE photograph INSIDE the frame.
+   This is specifically for the black bars baked into source images. */
+html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid > a.weddingGalleryItem > img {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  transform: scale(1.18) !important;
+  transform-origin: center center !important;
+
+  border-radius: 6px !important;
+}
+
+/* Keep hover subtle. Never zoom OUT from the base crop. */
+html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid > a.weddingGalleryItem:hover > img {
+  transform: scale(1.20) !important;
+}
+
+/* Remove the obsolete huge empty ending below the final photographs. */
+html body .weddingPage #weddingGalleryFinal {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  margin-bottom: 0 !important;
+  padding-bottom: 24px !important;
+
+  overflow: hidden !important;
+}
+
+/* Old cinematic bottom fade was designed for the former dark gallery
+   and creates a large visual ending in the new treatment. */
+html body .weddingPage #weddingGalleryFinal::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Keep the requested density as the viewport grows. */
+@media (min-width: 1200px) {
+  html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 800px) {
+  html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* === WEDDINGS MOMENTS PRESERVED AUTHORITATIVE FIX END === */
+
+/* === WEDDING GALLERY SOURCE IMAGE ZOOM FINAL START ===
+   IMAGE PIXELS ONLY.
+   Do not alter grid, gaps, cards, dimensions, columns or section spacing.
+   ==================================================== */
+
+html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid > a.weddingGalleryItem > img {
+  transform: scale(1.50) !important;
+  transform-origin: center center !important;
+}
+
+html body .weddingPage #weddingGalleryFinal .weddingGalleryGrid > a.weddingGalleryItem:hover > img {
+  transform: scale(1.53) !important;
+}
+
+/* === WEDDING GALLERY SOURCE IMAGE ZOOM FINAL END === */
+
+/* ==========================================================
+   WEDDINGS — IVORY PAGE CANVAS FIX START
+
+   Purpose:
+   Fill exposed outer gutters with the Wedding ivory.
+   DO NOT resize sections.
+   DO NOT touch Moments Preserved gallery geometry.
+   DO NOT touch gallery spacing, columns, corners or image zoom.
+   Preserve navigation and cinematic media as dark.
+   ========================================================== */
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) {
+  background-color: var(--wedding-paper, #f1eee7) !important;
+}
+
+/* Navigation intentionally stays KSP black. */
+html body .weddingPage:where([data-wedding-theme="ivory"]) .detailNav,
+html body .weddingPage:where([data-wedding-theme="ivory"]) > header {
+  background-color: #070707 !important;
+}
+
+/* Actual Wedding Reel remains cinematic/dark. */
+html body .weddingPage:where([data-wedding-theme="ivory"]) .weddingReel {
+  background-color: #070707 !important;
+}
+
+/* Never paint over actual photography/video pixels. */
+html body .weddingPage img,
+html body .weddingPage video {
+  background-color: transparent !important;
+}
+
+/* ==========================================================
+   WEDDINGS — IVORY PAGE CANVAS FIX END
+   ========================================================== */
+
+/* ==========================================================
+   WEDDINGS — IVORY FINAL BLACK ARTIFACT CLEANUP START
+
+   ONLY:
+   1. Remove black FEATURED FILMS label backing
+   2. Convert Wedding Reel TOP black fade to ivory fade
+
+   DO NOT TOUCH:
+   - Wedding Stories geometry
+   - Wedding project spacing
+   - Wedding Reel video
+   - Bottom reel gradient
+   - Moments Preserved gallery
+   - 4px gallery seams
+   - 6px gallery corners
+   - Gallery image crop/zoom
+   - Makeup Artists
+   - CTA
+   - Footer
+   - Navbar
+   ========================================================== */
+
+/* FEATURED FILMS
+   Existing pseudo-element stays exactly where it is.
+   Only its old #050505 backing becomes Wedding ivory. */
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesList.weddingStoryList::before {
+  background: var(--wedding-paper, #f1eee7) !important;
+  color: var(--wedding-gold, #b89a55) !important;
+  box-shadow: none !important;
+}
+
+/* Its divider should belong to the light Wedding world too. */
+html body .weddingPage #weddingStoriesList.weddingStoryList {
+  border-top-color: var(--wedding-line, rgba(9,9,9,.12)) !important;
+}
+
+/* WEDDING REEL TOP TRANSITION
+   Preserve the existing gradient concept,
+   but replace the BLACK top fade with IVORY -> transparent.
+   Actual video pixels remain untouched underneath. */
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal .weddingReel::before {
+  background:
+    linear-gradient(
+      to bottom,
+      var(--wedding-paper, #f1eee7) 0%,
+      rgba(241,238,231,.92) 35%,
+      rgba(241,238,231,.58) 65%,
+      rgba(241,238,231,.18) 86%,
+      transparent 100%
+    ) !important;
+}
+
+/* ==========================================================
+   WEDDINGS — IVORY FINAL BLACK ARTIFACT CLEANUP END
+   ========================================================== */
+
+/* ==========================================================
+   WEDDINGS — IVORY FINAL POLISH
+   1. Fix Makeup Artists description contrast
+   2. Remove Wedding Reel top ivory fog
+   3. Black footer bookend
+   ========================================================== */
+
+/* MAKEUP ARTISTS — readable supporting copy */
+html body .weddingPage:where([data-wedding-theme="ivory"]) .makeupArtists .weddingSectionHead > p {
+  color: #6f6b66 !important;
+  opacity: 1 !important;
+}
+
+/* WEDDING REEL — clean ivory → video transition.
+   Remove ONLY the top pseudo-gradient/fog. */
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal .weddingReel::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+/* FOOTER — black KSP bookend matching the navbar */
+html body .weddingPage:where([data-wedding-theme="ivory"]) > footer,
+html body .weddingPage:where([data-wedding-theme="ivory"]) footer {
+  background: #070707 !important;
+  border-color: rgba(255,255,255,.10) !important;
+  color: #f1eee7 !important;
+}
+
+/* Footer supporting typography */
+html body .weddingPage:where([data-wedding-theme="ivory"]) footer p {
+  color: rgba(241,238,231,.62) !important;
+}
+
+/* Keep footer brand readable on black */
+html body .weddingPage:where([data-wedding-theme="ivory"]) footer .brand,
+html body .weddingPage:where([data-wedding-theme="ivory"]) footer .brand span {
+  color: #f1eee7 !important;
+}
+
+/* ==========================================================
+   WEDDINGS — IVORY FINAL POLISH END
+   ========================================================== */
+
+/* ==========================================================
+   WEDDINGS — IVORY TRANSITION + FOOTER BLEED CORRECTION
+   ONLY fixes:
+   1. Wedding Reel top transition
+   2. Footer side gutters
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   WEDDING REEL TOP
+
+   Restore the existing pseudo-element geometry that we
+   mistakenly disabled, but make it SOLID IVORY instead of
+   a gradient/fog.
+
+   Do NOT change reel/video geometry.
+   Do NOT touch the bottom reel treatment.
+   ---------------------------------------------------------- */
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) #weddingStoriesFinal .weddingReel::before {
+  content: "" !important;
+  display: block !important;
+  background: var(--wedding-paper, #f1eee7) !important;
+}
+
+
+/* ----------------------------------------------------------
+   FOOTER
+
+   Footer itself is already correct and black.
+   Extend ONLY its black background horizontally through
+   the ivory side gutters.
+
+   This does NOT make the whole page sides black.
+   This does NOT change footer dimensions or spacing.
+   ---------------------------------------------------------- */
+
+html body .weddingPage:where([data-wedding-theme="ivory"]) footer {
+  background: #070707 !important;
+
+  box-shadow:
+    0 0 0 100vmax #070707 !important;
+
+  clip-path:
+    inset(0 -100vmax) !important;
+}
+
+
+/* ==========================================================
+   WEDDINGS — IVORY TRANSITION + FOOTER BLEED CORRECTION END
+   ========================================================== */
+
+/* Wedding-only theme control and shared film-label treatment. */
+.weddingPage .weddingIntro {
+  position: relative;
+}
+
+.weddingPage .weddingThemeToggle {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  z-index: 5;
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid #a77e34;
+  border-radius: 4px;
+  background: #f1eee7;
+}
+
+.weddingPage .weddingThemeToggle button {
+  border: 0;
+  border-radius: 2px;
+  padding: 6px 10px;
+  background: transparent;
+  color: #11110f;
+  font: 700 10px/1.2 Arial, Helvetica, sans-serif;
+  letter-spacing: .1em;
+  cursor: pointer;
+}
+
+.weddingPage .weddingThemeToggle button[aria-pressed="true"] {
+  background: #11110f;
+  color: #f1eee7;
+}
+
+.weddingPage .weddingThemeToggle button:focus-visible {
+  outline: 2px solid #a77e34;
+  outline-offset: 2px;
+}
+
+.weddingPage[data-wedding-theme="dark"] .weddingThemeToggle {
+  background: #11110f;
+}
+
+.weddingPage[data-wedding-theme="dark"] .weddingThemeToggle button {
+  color: #f1eee7;
+}
+
+.weddingPage[data-wedding-theme="dark"] .weddingThemeToggle button[aria-pressed="true"] {
+  background: #f1eee7;
+  color: #11110f;
+}
+
+html body .weddingPage #weddingStoriesList .publishedFilmStill span {
+  color: #fff !important;
+  background: transparent !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,.75);
+}
+
+html body .weddingPage[data-wedding-theme="ivory"] #weddingStoriesList .weddingStoriesBackgroundVideo {
+  opacity: .20 !important;
+}
+
+html body .weddingPage[data-wedding-theme="dark"] #weddingStoriesList .weddingStoriesBackgroundVideo {
+  opacity: .47 !important;
+}
