@@ -705,7 +705,7 @@
   border-right: 0;
 }
 
-.bookingStepIdentity {
+.bookingV2 .bookingStepIdentity {
   display: flex;
   align-items: center;
 
@@ -716,14 +716,14 @@
   text-transform: uppercase;
   letter-spacing: .14em;
 
-  font-size: .58rem;
+  font-size: .64rem;
   font-weight: 700;
 }
 
 .bookingStepIdentity b {
   color: var(--gold);
 
-  font-size: .58rem;
+  font-size: .64rem;
   font-weight: 800;
 }
 
@@ -804,14 +804,14 @@
     border-right: 1px solid rgba(255,255,255,.075);
   }
 
-  .bookingStepIdentity {
+  .bookingV2 .bookingStepIdentity {
     gap: 8px;
 
-    font-size: .50rem;
+    font-size: .55rem;
   }
 
   .bookingStepIdentity b {
-    font-size: .50rem;
+    font-size: .55rem;
   }
 
   .bookingStepStatus {
@@ -869,4 +869,172 @@
 
 .bookingV2 input[type="date"]:focus::-webkit-calendar-picker-indicator {
   opacity: 1;
+}
+
+
+/* =========================================================
+   BOOKING — COMPACT BUDGET SELECTOR + SELECTED GUIDANCE
+   ========================================================= */
+
+.bookingV2 .bookingBudgetChoices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.bookingV2 .bookingBudgetChoices label,
+.bookingV2 .bookingBudgetCard {
+  width: auto;
+  height: 100%;
+}
+
+.bookingV2 .bookingBudgetCard {
+  min-height: 52px;
+  padding: 0 16px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.bookingV2 .bookingBudgetCard strong {
+  color: inherit;
+  font-size: .8rem;
+  letter-spacing: .11em;
+}
+
+.bookingBudgetDetail {
+  margin-top: 12px;
+  border: 1px solid rgba(213, 170, 85, .26);
+  background:
+    linear-gradient(135deg, rgba(213, 170, 85, .075), transparent 44%),
+    rgba(255, 255, 255, .016);
+  animation: bookingBudgetReveal .26s ease both;
+}
+
+.bookingBudgetDetail header {
+  display: grid;
+  grid-template-columns: minmax(100px, .28fr) 1fr;
+  gap: 18px;
+  align-items: baseline;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, .09);
+}
+
+.bookingBudgetDetail header > span,
+.bookingBudgetDetail dt {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .57rem;
+  font-weight: 800;
+}
+
+.bookingBudgetDetail h3 {
+  margin: 0;
+  color: #f3f0e9;
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.bookingBudgetDetail dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.bookingBudgetDetail dl > div {
+  min-width: 0;
+  padding: 16px 20px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, .075);
+}
+
+.bookingBudgetDetail dl > div:nth-child(odd) {
+  border-right: 1px solid rgba(255, 255, 255, .075);
+}
+
+.bookingBudgetDetail dd {
+  margin: 8px 0 0;
+  max-width: 68ch;
+  color: rgba(255, 255, 255, .56);
+  font-size: .75rem;
+  line-height: 1.58;
+}
+
+.bookingV2 .bookingStepButton:not(.isActive):not(.isComplete) {
+  color: rgba(255, 255, 255, .32);
+}
+
+.bookingV2 .bookingStepButton.isActive {
+  background: rgba(213, 170, 85, .09);
+  color: #f5deb0;
+}
+
+.bookingV2 .bookingStepButton.isComplete:not(.isActive) {
+  background: rgba(255, 255, 255, .025);
+  color: rgba(255, 255, 255, .72);
+}
+
+.bookingSubmit:disabled,
+.bookingSubmit[aria-disabled="true"] {
+  border-color: rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .055);
+  color: rgba(255, 255, 255, .28);
+  cursor: not-allowed;
+}
+
+.bookingSubmit:disabled:hover,
+.bookingSubmit[aria-disabled="true"]:hover {
+  border-color: rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .055);
+  color: rgba(255, 255, 255, .28);
+}
+
+@keyframes bookingBudgetReveal {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .bookingV2 .bookingBudgetChoices,
+  .bookingBudgetDetail dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .bookingV2 .bookingBudgetChoices,
+  .bookingBudgetDetail dl,
+  .bookingBudgetDetail header {
+    grid-template-columns: 1fr;
+  }
+
+  .bookingBudgetDetail header {
+    gap: 8px;
+  }
+
+  .bookingBudgetDetail dl > div:nth-child(odd) {
+    border-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bookingBudgetDetail {
+    animation: none;
+  }
+}
+
+/* Emphasize project decisions without changing choice geometry. */
+.bookingV2 .bookingChoicesProject label > span {
+  font-size: clamp(.62rem, .8vw, .69rem);
+  letter-spacing: .04em;
+  line-height: 1.25;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+@media (max-width: 800px) {
+  .bookingV2 .bookingChoicesProject label > span {
+    font-size: .63rem;
+  }
 }

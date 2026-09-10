@@ -3,6 +3,8 @@ import "./catalogue-polish.css";
 import type { Metadata } from "next";
 import "./globals.css";
 import "./session-polish.css";
+import "./responsive-permanent.css";
+import "./v2-refinement.css";
 
 export const metadata: Metadata = {
   title: { default: "KSP Vision | Film Production in Montréal", template: "%s | KSP Vision" },

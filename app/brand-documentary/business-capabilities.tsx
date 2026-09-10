@@ -128,7 +128,7 @@ export default function BusinessCapabilities() {
   const t = copy[language];
 
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section} brandCommercialCapabilities`}>
       <div className={styles.intro}>
         <div>
           <div className={styles.eyebrow}>{t.eyebrow}</div>
@@ -149,7 +149,38 @@ export default function BusinessCapabilities() {
             </div>
 
             <div className={styles.hoverDetails}>
-              {item.details}
+              {(() => {
+              const label =
+                language === "fr" ? "PORTÉE TYPIQUE" : "TYPICAL SCOPE";
+
+              const prefix =
+                language === "fr" ? "Portée typique : " : "Typical scope: ";
+
+              const conjunction =
+                language === "fr" ? " et " : " and ";
+
+              const scopeItems = item.details
+                .replace(prefix, "")
+                .replace(/\.$/, "")
+                .replace(conjunction, ", ")
+                .split(",")
+                .map((entry) => entry.trim())
+                .filter(Boolean);
+
+              return (
+                <>
+                  <strong className="capabilityScopeLabel">
+                    {label}
+                  </strong>
+
+                  <ul className="capabilityScopeList">
+                    {scopeItems.map((entry) => (
+                      <li key={entry}>{entry}</li>
+                    ))}
+                  </ul>
+                </>
+              );
+            })()}
             </div>
           </article>
         ))}

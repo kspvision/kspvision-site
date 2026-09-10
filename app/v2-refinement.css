@@ -1,0 +1,1396 @@
+
+
+/* Brand / Commercial: warm editorial front half with social-native media rhythm. */
+.brandPage {
+  --brand-ivory: #eee8dc;
+  --brand-graphite: #24211d;
+  background: #090909;
+}
+
+.brandPage > .detailNav {
+  background: #090909;
+  border-bottom-color: rgba(255, 255, 255, .1);
+}
+
+.brandPage .detailHero.toneBrand,
+.brandCommercialCapabilities,
+.brandPage .commercialCollection {
+  background:
+    linear-gradient(90deg, rgba(38, 33, 27, .055) 1px, transparent 1px) 0 0 / 12.5% 100%,
+    radial-gradient(circle at 82% 16%, rgba(203, 126, 51, .22), transparent 25%),
+    linear-gradient(135deg, #f4efe5, #dfd4c3) !important;
+  color: var(--brand-graphite) !important;
+}
+
+.brandPage .detailHero.toneBrand {
+  max-width: none !important;
+  border-bottom: 1px solid rgba(36, 33, 29, .16);
+}
+
+.brandPage .detailHero.toneBrand > div {
+  width: min(88vw, 1500px);
+  margin-inline: auto;
+}
+
+.brandPage :is(.detailHero.toneBrand, .commercialCollection) :is(h1, h2, h3, p),
+.brandCommercialCapabilities :is(h2, h3, p) {
+  color: var(--brand-graphite) !important;
+}
+
+.brandPage .detailHero.toneBrand .kicker,
+.brandPage .commercialCollection :is(.kicker, .commercialProjectNote),
+.brandCommercialCapabilities :is([class*="eyebrow"], [class*="number"], [class*="deliveryLabel"]) {
+  color: #8b5424 !important;
+}
+
+.brandPage .brand-booking-choice {
+  border-color: rgba(36, 33, 29, .34) !important;
+  background: rgba(255, 255, 255, .28) !important;
+  color: var(--brand-graphite) !important;
+}
+
+.brandPage .brand-booking-choice:hover,
+.brandPage .brand-booking-choice:focus-visible {
+  background: var(--brand-graphite) !important;
+  color: #fff !important;
+}
+
+.brandCommercialCapabilities > div:nth-child(2) {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  border-color: rgba(36, 33, 29, .14) !important;
+}
+
+.brandCommercialCapabilities > div:nth-child(2) > article {
+  grid-column: span 4;
+  border-color: rgba(36, 33, 29, .14) !important;
+  background: rgba(255, 255, 255, .2) !important;
+}
+
+.brandCommercialCapabilities > div:nth-child(2) > article:nth-child(5) {
+  grid-column: span 4;
+  background: rgba(139, 84, 36, .09) !important;
+}
+
+.brandCommercialCapabilities [class*="hoverDetails"] {
+  background: #27231e !important;
+  color: #f4efe5 !important;
+}
+
+.brandCommercialCapabilities [class*="deliveryItems"] span {
+  border-color: rgba(36, 33, 29, .16) !important;
+  color: rgba(36, 33, 29, .7) !important;
+}
+
+.brandPage .brandCollaborationRail {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border-color: rgba(36, 33, 29, .14) !important;
+  background: #ddd2c1 !important;
+}
+
+.brandPage .brandCollaborationRail img {
+  filter: invert(1) contrast(1.35);
+  opacity: .8;
+}
+
+.brandPage .commercialCollection .brandGrid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 7fr) minmax(280px, 5fr) !important;
+  align-items: end;
+  gap: clamp(12px, 1.3vw, 24px) !important;
+}
+
+.brandPage .commercialCollection .brandFilm:nth-child(2) {
+  width: min(100%, 620px);
+  justify-self: end;
+}
+
+.brandPage .commercialCollection .brandFilm:nth-child(2) .publishedFilmStill {
+  aspect-ratio: 4 / 5;
+}
+
+.brandPage .commercialCollection .brandFilm:nth-child(2) video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto !important;
+  object-fit: cover;
+}
+
+.brandPage .documentaryCollection {
+  background: linear-gradient(180deg, #4a4540 0, #242220 110px, #090909 310px) !important;
+  color: #f2eee7;
+}
+
+@media (max-width: 900px){
+  .brandCommercialCapabilities > div:nth-child(2) > article,
+.brandCommercialCapabilities > div:nth-child(2) > article:nth-child(5) {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 700px){
+  .brandPage .detailHero.toneBrand > div {
+    width: auto;
+  }
+
+  .brandCommercialCapabilities > div:nth-child(2) {
+    grid-template-columns: 1fr;
+  }
+
+  .brandCommercialCapabilities > div:nth-child(2) > article,
+.brandCommercialCapabilities > div:nth-child(2) > article:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .brandPage .commercialCollection .brandGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .brandPage .commercialCollection .brandFilm:nth-child(2) {
+    width: 100%;
+  }
+
+  .brandPage .commercialCollection .brandFilm:nth-child(2) .publishedFilmStill {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .brandPage * {
+    scroll-behavior: auto;
+  }
+}
+
+
+
+
+@media (min-width: 1600px) {
+  #weddingStoriesFinal .weddingStoryList {
+    width: min(1760px, calc(100vw - 8vw)) !important;
+    max-width: 1760px !important;
+  }
+
+  #weddingStoriesFinal .weddingStoryRow {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  #weddingStoriesFinal .weddingStoryFilm .publishedFilmStill {
+    width: 100%;
+  }
+}
+
+
+/* Mobile: ambience is quieter and ornament smaller */
+
+@media (max-width: 800px) {
+  #weddingStoriesFinal .weddingStoriesAmbient {
+    opacity: .12;
+    filter:
+      blur(38px)
+      saturate(.72)
+      brightness(.36);
+  }
+
+  .weddingPage .weddingHeroMedia::after,
+  .weddingPage .weddingStoryFilm .publishedFilmStill::before {
+    inset: 7px;
+
+    background:
+      linear-gradient(#d7b77c, #d7b77c) left top / 20px 1px no-repeat,
+      linear-gradient(#d7b77c, #d7b77c) left top / 1px 20px no-repeat,
+
+      linear-gradient(#d7b77c, #d7b77c) right top / 20px 1px no-repeat,
+      linear-gradient(#d7b77c, #d7b77c) right top / 1px 20px no-repeat,
+
+      linear-gradient(#d7b77c, #d7b77c) left bottom / 20px 1px no-repeat,
+      linear-gradient(#d7b77c, #d7b77c) left bottom / 1px 20px no-repeat,
+
+      linear-gradient(#d7b77c, #d7b77c) right bottom / 20px 1px no-repeat,
+      linear-gradient(#d7b77c, #d7b77c) right bottom / 1px 20px no-repeat;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   BRAND / DOC
+   Cream Brand world ends BEFORE the collaboration rail.
+   --------------------------------------------------------- */
+
+.brandPage .brandCollaborationRail {
+  position: relative;
+
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+
+  overflow: visible !important;
+
+  background: #050505 !important;
+
+  border-top-color: rgba(255, 255, 255, .08) !important;
+  border-bottom-color: rgba(255, 255, 255, .08) !important;
+}
+
+
+/* Fade from cream into black immediately before logos */
+
+.brandPage .brandCollaborationRail::before {
+  content: "";
+
+  position: absolute;
+  z-index: 0;
+
+  left: 0;
+  right: 0;
+  top: -92px;
+
+  height: 92px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(226, 217, 202, 0) 0%,
+      rgba(91, 86, 78, .30) 42%,
+      #050505 100%
+    );
+}
+
+
+/* Keep logo artwork above the transition */
+
+.brandPage .brandCollaborationRail img {
+  position: relative;
+  z-index: 1;
+
+  opacity: 1;
+}
+
+
+/* Everything after that rail belongs back in the dark KSP world */
+
+.brandPage .commercialCollection {
+  background: #090909 !important;
+  color: #f2eee7 !important;
+  border-top-color: rgba(255, 255, 255, .07) !important;
+}
+
+.brandPage .commercialCollection :is(h2, h3) {
+  color: #f2eee7 !important;
+}
+
+.brandPage .commercialCollection p {
+  color: rgba(242, 238, 231, .56) !important;
+}
+
+.brandPage .commercialCollection :is(.kicker, .commercialProjectNote) {
+  color: #c99543 !important;
+}
+
+.brandPage .commercialCollection .commercialProjectDisclosure {
+  color: rgba(242, 238, 231, .50) !important;
+}
+
+
+/* Documentary remains fully dark after Commercial Stories */
+
+.brandPage .documentaryCollection {
+  background:
+    linear-gradient(
+      180deg,
+      #38342f 0,
+      #181716 110px,
+      #090909 300px
+    ) !important;
+}
+
+
+/* =========================================================
+   KSP BRAND / DOCUMENTARY — DARK PALETTE REVERT
+   Preserve layout + ultrawide improvements.
+   Remove cream/beige experiment only.
+   ========================================================= */
+
+.brandPage {
+  --brand-ivory: #f2eee7;
+  --brand-stone: #8f8b84;
+  --brand-graphite: #f2eee7;
+
+  background: #090909 !important;
+  color: #f2eee7 !important;
+}
+
+
+/* ---------------------------------------------------------
+   HEADER / HERO
+   Return to black KSP foundation.
+   --------------------------------------------------------- */
+
+.brandPage > .detailNav {
+  background: rgba(7, 7, 7, .97) !important;
+  border-bottom-color: rgba(255, 255, 255, .10) !important;
+}
+
+.brandPage .detailHero.toneBrand {
+  background: #090909 !important;
+  color: #f2eee7 !important;
+  border-bottom-color: rgba(255, 255, 255, .08) !important;
+}
+
+.brandPage .detailHero.toneBrand::before,
+.brandPage .detailHero.toneBrand::after {
+  display: none !important;
+}
+
+.brandPage .detailHero.toneBrand :is(h1, h2, h3) {
+  color: #f2eee7 !important;
+}
+
+.brandPage .detailHero.toneBrand p {
+  color: rgba(242, 238, 231, .62) !important;
+}
+
+.brandPage .detailHero.toneBrand .kicker {
+  color: #c99543 !important;
+}
+
+
+/* Booking choices inside Brand hero */
+
+.brandPage .brand-booking-choice {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, .24) !important;
+  color: #f2eee7 !important;
+}
+
+.brandPage .brand-booking-choice:hover,
+.brandPage .brand-booking-choice:focus-visible {
+  background: #c99543 !important;
+  border-color: #c99543 !important;
+  color: #080808 !important;
+}
+
+
+/* ---------------------------------------------------------
+   BRAND / COMMERCIAL CAPABILITIES
+   Keep newer layout,
+remove beige paint.
+   --------------------------------------------------------- */
+
+.brandCommercialCapabilities {
+  background: #090909 !important;
+  color: #f2eee7 !important;
+}
+
+.brandCommercialCapabilities::before,
+.brandCommercialCapabilities::after {
+  display: none !important;
+}
+
+.brandCommercialCapabilities :is(h2, h3) {
+  color: #f2eee7 !important;
+}
+
+.brandCommercialCapabilities p {
+  color: rgba(242, 238, 231, .58) !important;
+}
+
+.brandCommercialCapabilities :is(
+  [class*="eyebrow"],
+  [class*="number"],
+  [class*="deliveryLabel"]
+) {
+  color: #c99543 !important;
+}
+
+.brandCommercialCapabilities > div:nth-child(2) > article {
+  background: rgba(255, 255, 255, .025) !important;
+  border-color: rgba(255, 255, 255, .11) !important;
+}
+
+.brandCommercialCapabilities > div:nth-child(2) > article:nth-child(5) {
+  background: rgba(201, 149, 67, .055) !important;
+}
+
+.brandCommercialCapabilities [class*="hoverDetails"] {
+  background: #181716 !important;
+  color: #f2eee7 !important;
+}
+
+.brandCommercialCapabilities [class*="deliveryItems"] span {
+  border-color: rgba(255, 255, 255, .12) !important;
+  color: rgba(242, 238, 231, .60) !important;
+}
+
+
+/* ---------------------------------------------------------
+   COLLABORATION RAIL
+   Match KSP/Home treatment: black rail,
+white logos.
+   No beige block. No fade.
+   --------------------------------------------------------- */
+
+.brandPage .brandCollaborationRail {
+  position: relative;
+
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+
+  background: #050505 !important;
+
+  border-top-color: rgba(255, 255, 255, .08) !important;
+  border-bottom-color: rgba(255, 255, 255, .08) !important;
+
+  overflow: hidden !important;
+}
+
+.brandPage .brandCollaborationRail::before,
+.brandPage .brandCollaborationRail::after {
+  display: none !important;
+}
+
+.brandPage .brandCollaborationRail img {
+  position: relative;
+  z-index: 1;
+
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   COMMERCIAL STORIES
+   Preserve new layout/vertical experiment,
+dark colors only.
+   --------------------------------------------------------- */
+
+html body main.brandPage section.brandCollection.commercialCollection,
+.brandPage .commercialCollection {
+  background: #090909 !important;
+  color: #f2eee7 !important;
+
+  border-top-color: rgba(255, 255, 255, .08) !important;
+}
+
+.brandPage .commercialCollection::before,
+.brandPage .commercialCollection::after {
+  display: none !important;
+}
+
+html body main.brandPage section.brandCollection.commercialCollection :is(h2, h3),
+.brandPage .commercialCollection :is(h2, h3) {
+  color: #f2eee7 !important;
+}
+
+html body main.brandPage section.brandCollection.commercialCollection p,
+.brandPage .commercialCollection p {
+  color: rgba(242, 238, 231, .56) !important;
+}
+
+html body main.brandPage section.brandCollection.commercialCollection :is(
+  .kicker,
+  .commercialProjectNote
+),
+.brandPage .commercialCollection :is(
+  .kicker,
+  .commercialProjectNote
+) {
+  color: #c99543 !important;
+}
+
+.brandPage .commercialCollection .commercialProjectDisclosure {
+  color: rgba(242, 238, 231, .48) !important;
+}
+
+.brandPage .commercialCollection .publishedFilmStill {
+  background: #080808 !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .08);
+}
+
+
+/* ---------------------------------------------------------
+   DOCUMENTARY
+   Pure KSP dark,
+no brown/grey transition experiment.
+   --------------------------------------------------------- */
+
+.brandPage .documentaryCollection {
+  background: #090909 !important;
+  color: #f2eee7 !important;
+}
+
+.brandPage .documentaryCollection::before,
+.brandPage .documentaryCollection::after {
+  display: none !important;
+}
+
+.brandPage .documentaryCollection :is(h2, h3) {
+  color: #f2eee7 !important;
+}
+
+.brandPage .documentaryCollection p {
+  color: rgba(242, 238, 231, .58) !important;
+}
+
+
+/* =========================================================
+   BRAND / DOC — FINAL SMALL POLISH
+   ========================================================= */
+
+/* What We Build: extremely subtle rounding */
+.brandCommercialCapabilities > div:nth-child(2) > article {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+/* Selected Work: two equal large 16:9 commercial cards */
+.brandPage .commercialCollection .brandGrid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: start !important;
+  gap: clamp(12px, 1.3vw, 24px) !important;
+}
+
+.brandPage .commercialCollection .brandFilm,
+.brandPage .commercialCollection .brandFilm:nth-child(2) {
+  width: 100% !important;
+  max-width: none !important;
+  justify-self: stretch !important;
+}
+
+.brandPage .commercialCollection .brandFilm .publishedFilmStill,
+.brandPage .commercialCollection .brandFilm:nth-child(2) .publishedFilmStill {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+}
+
+.brandPage .commercialCollection .brandFilm video,
+.brandPage .commercialCollection .brandFilm:nth-child(2) video {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+}
+
+/* Mobile returns naturally to one project per row */
+@media (max-width: 800px) {
+  .brandPage .commercialCollection .brandGrid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* =========================================================
+   BRAND / DOC — CAPABILITY HOVER CLEANUP
+   No scaling,
+overlap or transparent stacking.
+   ========================================================= */
+
+.brandCommercialCapabilities > div:nth-child(2) > article,
+.brandCommercialCapabilities > div:nth-child(2) > article:hover,
+.brandCommercialCapabilities > div:nth-child(2) > article:focus-within {
+  transform: none !important;
+  scale: 1 !important;
+}
+
+.brandCommercialCapabilities > div:nth-child(2) > article {
+  position: relative;
+  z-index: 1;
+
+  background: #0d0d0c !important;
+
+  transition:
+    background .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease !important;
+}
+
+.brandCommercialCapabilities > div:nth-child(2) > article:hover,
+.brandCommercialCapabilities > div:nth-child(2) > article:focus-within {
+  z-index: 2;
+
+  background: #15130f !important;
+  border-color: rgba(201, 149, 67, .42) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(201, 149, 67, .08),
+    0 8px 24px rgba(0, 0, 0, .18) !important;
+}
+
+/* Social & Digital keeps a restrained warm identity */
+.brandCommercialCapabilities > div:nth-child(2) > article:nth-child(5) {
+  background: #11100d !important;
+}
+
+.brandCommercialCapabilities > div:nth-child(2) > article:nth-child(5):hover,
+.brandCommercialCapabilities > div:nth-child(2) > article:nth-child(5):focus-within {
+  background: #18150f !important;
+}
+
+
+/* =========================================================
+   BRAND / DOC — FINAL HOVER REVEAL
+   Keep cards stable,
+restore readable detail panel.
+   ========================================================= */
+
+.brandCommercialCapabilities > div:nth-child(2) > article {
+  overflow: visible !important;
+}
+
+/* Main card stays fixed */
+.brandCommercialCapabilities > div:nth-child(2) > article:hover,
+.brandCommercialCapabilities > div:nth-child(2) > article:focus-within {
+  transform: none !important;
+  scale: 1 !important;
+}
+
+/* Detail panel becomes the interaction instead of card scaling */
+.brandCommercialCapabilities [class*="hoverDetails"] {
+  left: -1px !important;
+  right: -1px !important;
+  top: calc(100% - 1px) !important;
+
+  padding: 12px 14px 14px !important;
+
+  background: #15130f !important;
+  color: rgba(245, 242, 234, .78) !important;
+
+  border: 1px solid rgba(201, 149, 67, .34) !important;
+  border-top: 1px solid rgba(255, 255, 255, .07) !important;
+
+  border-radius: 0 0 10px 10px !important;
+
+  box-shadow:
+    0 18px 30px rgba(0, 0, 0, .42),
+    inset 0 0 0 1px rgba(201, 149, 67, .04) !important;
+
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(-5px) !important;
+
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    visibility .18s ease !important;
+
+  pointer-events: none !important;
+}
+
+/* Reveal cleanly on hover/focus */
+.brandCommercialCapabilities > div:nth-child(2) > article:hover [class*="hoverDetails"],
+.brandCommercialCapabilities > div:nth-child(2) > article:focus-within [class*="hoverDetails"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+/* Hovered card/detail always sits above neighboring cards */
+.brandCommercialCapabilities > div:nth-child(2) > article:hover,
+.brandCommercialCapabilities > div:nth-child(2) > article:focus-within {
+  z-index: 20 !important;
+}
+
+
+/* =========================================================
+   BRAND / DOC — SOLID DEPTH + CONTROLLED HOVER POP
+   ========================================================= */
+
+.brandCommercialCapabilities > div:nth-child(2) > article {
+  position: relative;
+  z-index: 1;
+
+  background: #10100f !important;
+
+  border: 1px solid rgba(255, 255, 255, .07) !important;
+  border-top-color: rgba(255, 255, 255, .12) !important;
+
+  border-radius: 10px !important;
+  overflow: visible !important;
+
+  box-shadow:
+    0 7px 16px rgba(0, 0, 0, .18),
+    inset 0 1px 0 rgba(255, 255, 255, .025) !important;
+
+  transform: translateY(0) scale(1) !important;
+  transform-origin: center center;
+
+  transition:
+    transform .18s ease,
+    background .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease !important;
+}
+
+
+/* Actual physical pop forward */
+
+.brandCommercialCapabilities > div:nth-child(2) > article:hover,
+.brandCommercialCapabilities > div:nth-child(2) > article:focus-within {
+  z-index: 40 !important;
+
+  transform: translateY(-2px) scale(1.018) !important;
+
+  background: #15130f !important;
+
+  border-color: rgba(201, 149, 67, .34) !important;
+  border-top-color: rgba(215, 183, 124, .52) !important;
+
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, .40),
+    0 4px 10px rgba(0, 0, 0, .24),
+    inset 0 1px 0 rgba(255, 255, 255, .045) !important;
+}
+
+
+/* Detail bubble belongs visually to the raised card */
+
+.brandCommercialCapabilities [class*="hoverDetails"] {
+  background: #15130f !important;
+
+  border: 1px solid rgba(201, 149, 67, .34) !important;
+  border-top-color: rgba(255, 255, 255, .06) !important;
+
+  box-shadow:
+    0 18px 30px rgba(0, 0, 0, .40) !important;
+}
+
+
+/* Slightly stronger reveal when parent pops */
+
+.brandCommercialCapabilities > div:nth-child(2) > article:hover [class*="hoverDetails"],
+.brandCommercialCapabilities > div:nth-child(2) > article:focus-within [class*="hoverDetails"] {
+  transform: translateY(1px) scale(1.008) !important;
+}
+
+
+/* Social & Digital remains subtly warmer,
+but still solid */
+
+.brandCommercialCapabilities > div:nth-child(2) > article:nth-child(5) {
+  background: #12110e !important;
+}
+
+.brandCommercialCapabilities > div:nth-child(2) > article:nth-child(5):hover,
+.brandCommercialCapabilities > div:nth-child(2) > article:nth-child(5):focus-within {
+  background: #18150f !important;
+}
+
+
+/* =========================================================
+   BRAND / DOC — MERGE HOVER DETAIL INTO ONE SOLID CARD
+   ========================================================= */
+
+/* When opened,
+the main tile becomes the top half of one object */
+.brandCommercialCapabilities > div:nth-child(2) > article:hover,
+.brandCommercialCapabilities > div:nth-child(2) > article:focus-within {
+  border-radius: 10px 10px 0 0 !important;
+}
+
+
+/* Detail is an extension of the SAME tile,
+not a second bubble */
+.brandCommercialCapabilities [class*="hoverDetails"] {
+  left: -1px !important;
+  right: -1px !important;
+  top: calc(100% - 2px) !important;
+
+  background: #15130f !important;
+
+  border: 1px solid rgba(201, 149, 67, .34) !important;
+  border-top: 0 !important;
+
+  border-radius: 0 0 10px 10px !important;
+
+  box-shadow:
+    0 18px 30px rgba(0, 0, 0, .36) !important;
+
+  transform: translateY(-3px) !important;
+
+  padding: 12px 14px 14px !important;
+}
+
+
+/* Parent scaling already scales the detail with it.
+   Do NOT independently scale the lower panel. */
+.brandCommercialCapabilities > div:nth-child(2) > article:hover [class*="hoverDetails"],
+.brandCommercialCapabilities > div:nth-child(2) > article:focus-within [class*="hoverDetails"] {
+  transform: translateY(0) !important;
+}
+
+
+/* Remove the visible seam between the two halves */
+.brandCommercialCapabilities > div:nth-child(2) > article:hover::after,
+.brandCommercialCapabilities > div:nth-child(2) > article:focus-within::after {
+  content: "";
+
+  position: absolute;
+  z-index: 35;
+
+  left: 0;
+  right: 0;
+  bottom: -2px;
+
+  height: 3px;
+
+  background: #15130f;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BRAND / DOC — HOVER SCOPE LIST
+   Functional dash-list exception to the no-dash copy rule.
+   ========================================================= */
+
+.brandCommercialCapabilities [class*="hoverDetails"] .capabilityScopeLabel {
+  display: block;
+
+  margin: 0 0 7px;
+
+  color: #d7b77c;
+
+  font-size: .55rem;
+  font-weight: 800;
+
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.brandCommercialCapabilities [class*="hoverDetails"] .capabilityScopeList {
+  display: grid;
+
+  gap: 4px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.brandCommercialCapabilities [class*="hoverDetails"] .capabilityScopeList li {
+  position: relative;
+
+  margin: 0;
+  padding-left: 12px;
+
+  color: rgba(245, 242, 234, .76);
+
+  font-size: 9.5px;
+  line-height: 1.38;
+}
+
+.brandCommercialCapabilities [class*="hoverDetails"] .capabilityScopeList li::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: .69em;
+  width: 5px;
+  height: 1px;
+
+  background: #d7b77c;
+}
+
+/* === WEDDING HERO TRACKING FADE + AMBIENT REEL START === */
+
+/*
+   HERO FADE
+
+   The old bottom fade was attached to .weddingIntro itself.
+   The photograph is transformed/scaled independently, which
+   caused the bright exposed strip on large displays.
+
+   The vertical dissolve now belongs directly to the image,
+   so it physically scales and moves with the photograph.
+*/
+@media (min-width: 801px) {
+
+  html body .weddingPage .weddingIntro > img {
+    -webkit-mask-image:
+      linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0,0,0,.22) 4%,
+        rgba(0,0,0,.70) 10%,
+        #000 19%,
+        #000 100%
+      ),
+      linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 76%,
+        rgba(0,0,0,.96) 81%,
+        rgba(0,0,0,.78) 87%,
+        rgba(0,0,0,.42) 94%,
+        transparent 100%
+      ) !important;
+
+    mask-image:
+      linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0,0,0,.22) 4%,
+        rgba(0,0,0,.70) 10%,
+        #000 19%,
+        #000 100%
+      ),
+      linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 76%,
+        rgba(0,0,0,.96) 81%,
+        rgba(0,0,0,.78) 87%,
+        rgba(0,0,0,.42) 94%,
+        transparent 100%
+      ) !important;
+
+    -webkit-mask-composite: source-in !important;
+    mask-composite: intersect !important;
+
+    -webkit-mask-repeat: no-repeat !important;
+    mask-repeat: no-repeat !important;
+  }
+
+  /*
+     Kill the OLD section-bound bottom gradient.
+     The image itself now owns the fade.
+  */
+  html body .weddingPage .weddingIntro::after {
+    display: none !important;
+  }
+}
+
+
+/*
+   WEDDING STORIES AMBIENT FILM
+
+   This layer exists behind the foreground reel, heading and
+   Featured Films content. It has its own playback position.
+*/
+#weddingStoriesFinal {
+  position: relative !important;
+  isolation: isolate !important;
+}
+
+#weddingStoriesFinal .weddingStoriesAmbient {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+
+  overflow: hidden !important;
+  pointer-events: none !important;
+
+  opacity: 1 !important;
+}
+
+#weddingStoriesFinal .weddingStoriesBackgroundVideo {
+  position: absolute !important;
+
+  left: -5% !important;
+  top: -5% !important;
+
+  width: 110% !important;
+  height: 110% !important;
+
+  object-fit: cover !important;
+
+  opacity: .48 !important;
+
+  filter:
+    blur(32px)
+    saturate(.72)
+    brightness(.48)
+    contrast(.92) !important;
+
+  transform: scale(1.06) !important;
+  transform-origin: center center !important;
+
+  pointer-events: none !important;
+}
+
+/*
+   Dark cinematic veil.
+   Video remains perceptible without competing with text/cards.
+*/
+#weddingStoriesFinal .weddingStoriesAmbient::after {
+  content: "" !important;
+
+  position: absolute !important;
+  inset: 0 !important;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(7,7,7,.79) 0%,
+      rgba(7,7,7,.58) 22%,
+      rgba(7,7,7,.57) 55%,
+      rgba(7,7,7,.67) 82%,
+      rgba(7,7,7,.88) 100%
+    ) !important;
+
+  pointer-events: none !important;
+}
+
+/* All original Wedding content remains above the ambience. */
+#weddingStoriesFinal > :not(.weddingStoriesAmbient) {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+
+/* Slightly quieter ambient movement on small screens. */
+@media (max-width: 800px) {
+  #weddingStoriesFinal .weddingStoriesBackgroundVideo {
+    opacity: .28 !important;
+
+    filter:
+      blur(38px)
+      saturate(.68)
+      brightness(.42) !important;
+  }
+}
+
+/* === WEDDING HERO TRACKING FADE + AMBIENT REEL END === */
+
+/* === WEDDING FEATURED FILMS AMBIENCE FINAL START === */
+
+/*
+   Ambient Wedding reel belongs ONLY to the three Featured Films.
+   It intentionally escapes the centered content width so the
+   atmospheric background reaches both viewport edges.
+*/
+#weddingStoriesList {
+  position: relative !important;
+  isolation: isolate !important;
+}
+
+#weddingStoriesList > .weddingStoriesAmbient {
+  position: absolute !important;
+
+  top: 0 !important;
+  bottom: 0 !important;
+
+  left: 50% !important;
+  right: auto !important;
+
+  width: 100vw !important;
+  height: auto !important;
+
+  transform: translateX(-50%) !important;
+
+  overflow: hidden !important;
+  pointer-events: none !important;
+
+  z-index: 0 !important;
+}
+
+#weddingStoriesList > .weddingStoriesAmbient .weddingStoriesBackgroundVideo {
+  position: absolute !important;
+
+  left: -3% !important;
+  top: -3% !important;
+
+  width: 106% !important;
+  height: 106% !important;
+
+  object-fit: cover !important;
+
+  opacity: .42 !important;
+
+  filter:
+    blur(32px)
+    saturate(.72)
+    brightness(.46)
+    contrast(.92) !important;
+
+  transform: scale(1.04) !important;
+  transform-origin: center center !important;
+}
+
+#weddingStoriesList > .weddingStoriesAmbient::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(7,7,7,.84) 0%,
+      rgba(7,7,7,.57) 18%,
+      rgba(7,7,7,.48) 48%,
+      rgba(7,7,7,.58) 78%,
+      rgba(7,7,7,.86) 100%
+    ) !important;
+
+  pointer-events: none !important;
+}
+
+/* Actual Featured Film projects always stay above the ambience. */
+#weddingStoriesList > .weddingStoryRow {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* === WEDDING FEATURED FILMS AMBIENCE FINAL END === */
+
+/* ==========================================================
+   WEDDING FEATURED FILMS — FULL-BLEED AMBIENCE CLIP FIX
+   Keep story geometry untouched.
+   ========================================================== */
+
+@media (min-width: 801px) {
+
+  /*
+     The Wedding content remains centered,
+     but the ambient layer must be allowed to escape that
+     centered container and reach the browser edges.
+  */
+  .weddingPage .weddingFilms,
+  .weddingPage #weddingStoriesFinal,
+  #weddingStoriesList {
+    overflow: visible !important;
+  }
+
+  /*
+     Keep the oversized ambient reel centered on the viewport.
+     Do NOT alter the actual story cards.
+  */
+  #weddingStoriesList > .weddingStoriesAmbient {
+    left: 50% !important;
+    right: auto !important;
+
+    width: 100vw !important;
+    max-width: none !important;
+
+    transform: translateX(-50%) !important;
+  }
+
+  /*
+     Prevent the full-bleed layer from creating horizontal
+     scrolling outside the browser viewport.
+  */
+  .weddingPage {
+    overflow-x: clip !important;
+  }
+}
+
+
+/* =========================================================
+   WEDDING FEATURED FILMS — REMOVE LEGACY AMBIENT SHADE
+   New ambient ::after veil handles the darkening.
+   ========================================================= */
+
+#weddingStoriesFinal .weddingStoriesAmbientShade,
+#weddingStoriesList .weddingStoriesAmbientShade {
+  display: none !important;
+}
+
+/* === WEDDING FEATURED FILMS EDGE + LABEL FIX START === */
+
+@media (min-width: 801px) {
+
+  /*
+     FULL-BLEED AMBIENT BACKGROUND
+
+     The Wedding Stories container is centered and narrower than
+     the viewport. Offset the ambience by HALF the difference
+     between its parent width and the viewport width.
+
+     This removes the left black strip without moving cards.
+  */
+  #weddingStoriesList > .weddingStoriesAmbient {
+    left: calc((100% - 100vw) / 2) !important;
+    right: auto !important;
+
+    width: 100vw !important;
+    max-width: none !important;
+
+    transform: none !important;
+  }
+
+
+  /*
+     FEATURED FILMS LABEL
+
+     Keep the label above the ambience and above the divider line.
+     Do not alter Wedding Story geometry.
+  */
+  #weddingStoriesList::before {
+    display: block !important;
+
+    width: max-content !important;
+    max-width: none !important;
+    height: auto !important;
+
+    top: -.48rem !important;
+
+    z-index: 5 !important;
+
+    line-height: 1.2 !important;
+
+    padding:
+      0
+      1.25rem
+      .18rem
+      0 !important;
+
+    background: #050505 !important;
+
+    white-space: nowrap !important;
+    overflow: visible !important;
+
+    pointer-events: none !important;
+  }
+
+}
+
+/* === WEDDING FEATURED FILMS EDGE + LABEL FIX END === */
+
+/* === WEDDING FEATURED AMBIENCE FINAL START === */
+
+/*
+   FEATURED FILMS AMBIENCE
+   Overscan the blurred reel so it reaches the real viewport edges
+   even though weddingStoriesList itself is asymmetrically positioned.
+*/
+@media (min-width: 801px) {
+
+  #weddingStoriesList {
+    overflow: visible !important;
+  }
+
+  #weddingStoriesList > .weddingStoriesAmbient {
+    position: absolute !important;
+
+    left: 50% !important;
+    right: auto !important;
+
+    width: 120vw !important;
+    max-width: none !important;
+
+    transform: translateX(-50%) !important;
+
+    overflow: hidden !important;
+
+    opacity: 1 !important;
+    filter: none !important;
+
+    pointer-events: none !important;
+  }
+
+  /*
+     The actual moving reel.
+     Slightly brighter than before, but still unmistakably background.
+  */
+  #weddingStoriesList .weddingStoriesBackgroundVideo {
+    position: absolute !important;
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+
+    object-fit: cover !important;
+
+    transform: scale(1.04) !important;
+    transform-origin: center center !important;
+
+    opacity: .52 !important;
+
+    filter:
+      blur(30px)
+      saturate(.78)
+      brightness(.62)
+      contrast(.94) !important;
+
+    pointer-events: none !important;
+  }
+
+  /*
+     Black atmospheric fade at BOTH edges.
+     Middle stays visible.
+  */
+  #weddingStoriesList > .weddingStoriesAmbient::after {
+    content: "" !important;
+
+    position: absolute !important;
+    inset: 0 !important;
+
+    z-index: 1 !important;
+
+    background:
+      linear-gradient(
+        to bottom,
+        #070707 0%,
+        rgba(7,7,7,.86) 5%,
+        rgba(7,7,7,.48) 11%,
+        rgba(7,7,7,0) 22%,
+        rgba(7,7,7,0) 78%,
+        rgba(7,7,7,.48) 89%,
+        rgba(7,7,7,.86) 95%,
+        #070707 100%
+      ) !important;
+
+    pointer-events: none !important;
+  }
+
+  /*
+     Stories remain above the ambience.
+  */
+  #weddingStoriesList > .weddingStoryRow {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+}
+
+/* === WEDDING FEATURED AMBIENCE FINAL END === */
+
+/* Local finishing: wide hero balance and editorial film corners. */
+@media (min-width: 1600px) {
+  html body .weddingPage .weddingIntro {
+    clip-path: inset(0 -100vw -100vh);
+    z-index: 1;
+  }
+
+  .weddingPage .weddingIntro > div:first-child {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 1rem;
+  }
+
+  .weddingPage .weddingIntro h1 {
+    font-size: clamp(3.2rem, 3.5vw, 4.4rem);
+    line-height: .96;
+    margin-block: 0;
+  }
+
+  .weddingPage .weddingIntro > div > p {
+    margin-block: 0;
+  }
+
+  .weddingPage .weddingIntro > div > p:not(.kicker) {
+    font-size: 1rem;
+    max-width: 34ch;
+  }
+
+  .weddingPage .weddingIntro .button {
+    align-self: flex-start;
+  }
+}
+
+html body .weddingPage #weddingStoriesList .weddingStoryFilm,
+html body .weddingPage #weddingStoriesList .publishedFilmStill {
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}

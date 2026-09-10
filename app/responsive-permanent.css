@@ -1,0 +1,234 @@
+/* Permanent widescreen composition. No route art direction lives in this file. */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+@media (min-width: 1600px){
+  .detailNav {
+    padding-inline: clamp(56px, 4.5vw, 120px);
+  }
+
+  .heroContent {
+    width: min(88vw, 2200px);
+    max-width: 2200px;
+  }
+
+  .homeStudioIntro > *,
+.homeBranches > *,
+.homeCapabilities > *,
+.homeFinishing > *,
+.homeProof > *,
+.homeFinalCta > * {
+    max-width: min(88vw, 2200px);
+  }
+
+  .homeStudioIntroGrid,
+.homeSectionHeading {
+    grid-template-columns: minmax(0, 1.45fr) minmax(340px, .55fr);
+  }
+
+  .homeBranchGrid {
+    gap: clamp(12px, .7vw, 20px);
+  }
+
+  .homeCapabilities {
+    grid-template-columns: minmax(0, .9fr) minmax(560px, 1.1fr);
+  }
+
+  .homeStudioStatement p,
+.homeSectionHeading > p,
+.homeCapabilitiesLead > p:last-child,
+.homeFinishingCopy > p,
+.homeFinalCta > p:not(.kicker):not(.homeStudioIndex) {
+    max-width: 54ch;
+  }
+
+  .mv-page .mv-hero-content,
+.mv-page .mv-row,
+.mv-page .mv-million,
+.mv-page .mv-library,
+.mv-page .mv-timeline-label,
+.mv-page .mv-collabs {
+    width: min(92vw, 2400px) !important;
+    max-width: 2400px !important;
+  }
+
+  .brandPage .brandCollection,
+.aboutStudioPage .studioHero,
+.aboutStudioPage .studioEvolution,
+.aboutStudioPage .studioFounder,
+.aboutStudioPage .studioApproach,
+.aboutStudioPage .studioBranches,
+.aboutStudioPage .studioNow,
+.aboutStudioPage .studioCollaborations,
+.aboutStudioPage .studioCta {
+    width: min(88vw, 2100px) !important;
+    max-width: 2100px !important;
+  }
+
+  .brandCommercialCapabilities > *,
+.brandPage .detailHero.toneBrand > div,
+.brandPage .documentaryCollection > * {
+    width: min(88vw, 2100px) !important;
+    max-width: 2100px !important;
+    margin-inline: auto;
+  }
+
+  .bookingV2 .bookingIntro,
+.bookingV2 .bookingProgressShell,
+.bookingV2 .bookingFormSection {
+    width: min(88vw, 1680px);
+    max-width: 1680px;
+  }
+
+  .bookingV2 .bookingIntroCopy {
+    max-width: 940px;
+  }
+
+  .bookingV2 .bookingBudgetChoices {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 2560px){
+  .homeStudioIntro > *,
+.homeBranches > *,
+.homeCapabilities > *,
+.homeFinishing > *,
+.homeProof > *,
+.homeFinalCta > * {
+    max-width: min(86vw, 2380px);
+  }
+
+  .brandPage .commercialCollection .brandGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aboutStudioPage .studioFounderGallery {
+    min-width: 0;
+  }
+}
+
+/* =========================================================
+   WEDDING — SAFE WIDESCREEN RESTORE
+   Preserve deployed composition; expand only on large displays.
+   ========================================================= */
+
+@media (min-width: 1600px) {
+  .weddingPage .weddingIntro,
+  .weddingPage .weddingFilms,
+  .weddingPage .weddingGallery,
+  .weddingPage .makeupArtists,
+  .weddingPage .weddingCta {
+    width: min(88vw, 2100px) !important;
+    max-width: 2100px !important;
+  }
+
+  .weddingPage .weddingIntro {
+    grid-template-columns: minmax(420px, .72fr) minmax(0, 1.28fr);
+  }
+
+  .weddingPage .weddingIntro > img {
+    width: 100%;
+    height: clamp(420px, 28vw, 660px);
+    object-fit: cover;
+  }
+
+  .weddingPage .weddingStoryRow {
+    grid-template-columns: minmax(0, 1.25fr) minmax(360px, .75fr) !important;
+  }
+
+  .weddingPage .weddingStoryRow:nth-child(even) {
+    grid-template-columns: minmax(360px, .75fr) minmax(0, 1.25fr) !important;
+  }
+}
+
+@media (min-width: 2560px) {
+  .weddingPage #weddingGalleryFinal .weddingGalleryGrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+
+/* === WEDDING ULTRAWIDE STORY FLOW FIX START ===
+   Preserve deployed alternating composition.
+   On large screens only:
+   - remove excessive vertical deadspace
+   - let films/copy grow with the wider container
+   - keep a controlled editorial project-to-project gap
+   ========================================================= */
+
+@media (min-width: 1600px) {
+
+  #weddingStoriesFinal .weddingStoryList,
+  #weddingStoriesList {
+    display: flex !important;
+    flex-direction: column !important;
+
+    width: min(1760px, 92vw) !important;
+    max-width: 1760px !important;
+    margin-inline: auto !important;
+
+    gap: clamp(2.5rem, 3.5vw, 4.5rem) !important;
+
+    padding-top: .5rem !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #weddingStoriesList .weddingStoryRow {
+    width: 100% !important;
+    max-width: none !important;
+
+    min-height: 0 !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    row-gap: 0 !important;
+    column-gap: clamp(2rem, 4vw, 5rem) !important;
+
+    align-items: center !important;
+
+    grid-template-columns:
+      minmax(0, 1.15fr)
+      minmax(360px, .85fr) !important;
+  }
+
+  #weddingStoriesList .weddingStoryRow:nth-child(even) {
+    grid-template-columns:
+      minmax(360px, .85fr)
+      minmax(0, 1.15fr) !important;
+  }
+
+  #weddingStoriesList .weddingStoryMedia,
+  #weddingStoriesList .weddingStoryFilm {
+    width: min(100%, 720px) !important;
+    max-width: 720px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #weddingStoriesList .publishedFilmStill,
+  #weddingStoriesList .publishedFilmStill img,
+  #weddingStoriesList .publishedFilmStill video {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+  }
+
+  #weddingStoriesList .weddingStoryCopy {
+    width: min(100%, 480px) !important;
+    max-width: 480px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* === WEDDING ULTRAWIDE STORY FLOW FIX END === */

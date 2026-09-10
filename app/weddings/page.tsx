@@ -6,7 +6,7 @@ import { KSPPlayerLink } from "../ksp-player";
 import { WeddingGallery } from "../wedding-gallery";
 import { weddingPhotos } from "../../data/wedding-gallery";
 import { Localized, SiteFooter, SiteHeader } from "../site-language";
-import { WeddingReel } from "../wedding-reel";
+import { WeddingReel, WeddingStoriesAmbient } from "../wedding-reel";
 
 const films = [
   { title: "Smith & Aureanne", youtubeId: "kCRAeRvvy4M" },
@@ -22,6 +22,7 @@ export default function WeddingsPage() {
       <article className="weddingReel"><WeddingReel /><div><p>WEDDING REEL</p><span><Localized en="KSP WEDDING FILMS" fr="Une sélection de moments" /></span></div></article>
 
 <div id="weddingStoriesList" className="weddingStoryList">
+  <div className="weddingStoriesAmbient" aria-hidden="true"><WeddingStoriesAmbient /></div>
   {films.map((film, index) => (
     <article
       className={`weddingStoryRow ${index === 1 ? "weddingStoryReverse" : ""}`}

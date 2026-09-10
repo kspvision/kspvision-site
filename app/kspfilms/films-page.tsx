@@ -295,7 +295,8 @@ export default function FilmsPage() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
+        poster="/music-1603.jpg"
         aria-hidden="true"
       >
         <source src="/music-hero-mobile.mp4" type="video/mp4" />
@@ -306,13 +307,14 @@ export default function FilmsPage() {
       <HeroReelToggle />
         <video
           className="mv-hero-video"
-            muted
+          muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
+          poster="/music-1603.jpg"
           aria-hidden="true"
         >
-          <source src="https://github.com/kspvision/kspvision-site/releases/download/hero-reel-2026-08-15/KSPVision.ca.REEL.Sequuence.mp4" />
+          <source src="/music-hero-mobile.mp4" type="video/mp4" />
         </video>
 
         <div className="mv-hero-overlay" />

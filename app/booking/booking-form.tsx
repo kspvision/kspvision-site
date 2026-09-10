@@ -19,6 +19,74 @@ type ProjectType =
 
 type StepNumber = 1 | 2 | 3 | 4;
 
+const budgetOptions = [
+  {
+    value: "under-1k",
+    label: "UNDER $1K",
+    position: { en: "Lean / focused production", fr: "Production légère et ciblée" },
+    details: [
+      { label: { en: "Typical setup", fr: "Configuration typique" }, value: { en: "Often a solo filmmaker using the KSP in-house kit at an existing or client location, with natural or compact lighting.", fr: "Souvent un cinéaste solo avec l’équipement interne KSP, dans un lieu existant ou chez le client, avec un éclairage naturel ou compact." } },
+      { label: { en: "Crew", fr: "Équipe" }, value: { en: "Usually a lean crew; no large crew or major rental package unless quoted separately.", fr: "Généralement une équipe légère; aucune grande équipe ni location majeure, sauf devis séparé." } },
+      { label: { en: "Production", fr: "Production" }, value: { en: "Suited for a short, focused shoot with limited production complexity and no major talent or production-design costs.", fr: "Adaptée à un tournage court et ciblé, avec une complexité limitée et sans coûts majeurs de talent ou de direction artistique." } },
+      { label: { en: "Deliverables", fr: "Livrables" }, value: { en: "Typically one focused main deliverable or a small social-first piece, with basic colour and sound finishing.", fr: "Généralement un livrable principal ciblé ou une courte pièce pensée pour les réseaux sociaux, avec finition couleur et sonore de base." } },
+      { label: { en: "Revisions", fr: "Révisions" }, value: { en: "Typically one revision round.", fr: "Généralement une ronde de révisions." } },
+      { label: { en: "Social formats", fr: "Formats sociaux" }, value: { en: "A 16:9 master for YouTube, websites or presentations may be possible. A 9:16 vertical version for Reels, TikTok, Stories or Shorts depends on scope.", fr: "Un master 16:9 pour YouTube, un site ou une présentation peut être possible. Une version verticale 9:16 pour Reels, TikTok, Stories ou Shorts dépend de la portée." } },
+      { label: { en: "Usually not included", fr: "Habituellement non inclus" }, value: { en: "Large crews, major rentals, extensive production design, paid talent or a large set of format exports.", fr: "Grandes équipes, locations majeures, direction artistique élaborée, talents rémunérés ou grand ensemble d’exports." } },
+    ],
+  },
+  {
+    value: "1k-2.5k",
+    label: "$1K–$2.5K",
+    position: { en: "Small polished production", fr: "Petite production soignée" },
+    details: [
+      { label: { en: "Typical setup", fr: "Configuration typique" }, value: { en: "A more developed shoot with stronger lighting and audio, with rental possibilities depending on the concept.", fr: "Un tournage plus développé avec un éclairage et un son renforcés, et des possibilités de location selon le concept." } },
+      { label: { en: "Crew", fr: "Équipe" }, value: { en: "A small crew may be added where the production needs it.", fr: "Une petite équipe peut être ajoutée lorsque la production le demande." } },
+      { label: { en: "Production", fr: "Production" }, value: { en: "Suited for a polished brand, artist or social production with more room for coverage and craft.", fr: "Adaptée à une production de marque, d’artiste ou sociale soignée, avec plus de latitude pour la couverture et la finition." } },
+      { label: { en: "Deliverables", fr: "Livrables" }, value: { en: "Typically a main or hero edit, with a possible vertical or social adaptation and potentially more than one deliverable depending on scope.", fr: "Généralement un montage principal, avec une possible adaptation verticale ou sociale et parfois plus d’un livrable selon la portée." } },
+      { label: { en: "Revisions", fr: "Révisions" }, value: { en: "Typically one to two revision rounds.", fr: "Généralement une à deux rondes de révisions." } },
+      { label: { en: "Social formats", fr: "Formats sociaux" }, value: { en: "16:9 supports YouTube, websites, Vimeo and presentations. A 9:16 cut may suit Reels, TikTok, Stories and Shorts when planned into the scope.", fr: "Le 16:9 convient à YouTube, aux sites, à Vimeo et aux présentations. Une version 9:16 peut convenir à Reels, TikTok, Stories et Shorts lorsqu’elle est prévue." } },
+      { label: { en: "Usually not included", fr: "Habituellement non inclus" }, value: { en: "Large crews, extensive sets, major talent costs or a full campaign asset suite unless separately scoped.", fr: "Grandes équipes, décors élaborés, coûts majeurs de talent ou ensemble complet de campagne, sauf portée séparée." } },
+    ],
+  },
+  {
+    value: "2.5k-5k",
+    label: "$2.5K–$5K",
+    position: { en: "Campaign-level small production", fr: "Petite production de niveau campagne" },
+    details: [
+      { label: { en: "Typical setup", fr: "Configuration typique" }, value: { en: "Creative development, advanced lighting and studio or location rental where the concept calls for it.", fr: "Développement créatif, éclairage avancé et location de studio ou de lieu lorsque le concept le demande." } },
+      { label: { en: "Crew", fr: "Équipe" }, value: { en: "Crew is shaped around the concept; talent and product work may be included depending on scope.", fr: "L’équipe est adaptée au concept; le talent et le travail produit peuvent être inclus selon la portée." } },
+      { label: { en: "Production", fr: "Production" }, value: { en: "Suited for a small campaign with stronger production design and more comprehensive post-production.", fr: "Adaptée à une petite campagne avec une direction artistique plus poussée et une postproduction plus complète." } },
+      { label: { en: "Deliverables", fr: "Livrables" }, value: { en: "Often a hero or master film, several social cutdowns and multiple campaign assets depending on scope.", fr: "Souvent un film principal, plusieurs formats courts sociaux et divers éléments de campagne selon la portée." } },
+      { label: { en: "Revisions", fr: "Révisions" }, value: { en: "Multiple review stages may be included according to the production plan.", fr: "Plusieurs étapes de révision peuvent être incluses selon le plan de production." } },
+      { label: { en: "Social formats", fr: "Formats sociaux" }, value: { en: "May include a 16:9 master, 9:16 vertical versions, 4:5 Instagram or Facebook feed edits, and 1:1 square versions for social or LinkedIn.", fr: "Peut inclure un master 16:9, des versions verticales 9:16, des montages 4:5 pour les fils Instagram ou Facebook et des formats carrés 1:1 pour les réseaux ou LinkedIn." } },
+      { label: { en: "Usually not included", fr: "Habituellement non inclus" }, value: { en: "Large-scale builds, extensive talent usage or highly specialized equipment unless specifically quoted.", fr: "Constructions à grande échelle, droits de talent étendus ou équipement hautement spécialisé, sauf devis précis." } },
+    ],
+  },
+  {
+    value: "5k-plus",
+    label: "$5K+",
+    position: { en: "Full / custom production", fr: "Production complète et sur mesure" },
+    details: [
+      { label: { en: "Typical setup", fr: "Configuration typique" }, value: { en: "Concept development, pre-production, locations or studio, production design and specialty equipment as needed.", fr: "Développement du concept, préproduction, lieux ou studio, direction artistique et équipement spécialisé au besoin." } },
+      { label: { en: "Crew", fr: "Équipe" }, value: { en: "A tailored crew with talent, advanced lighting and audio, and multiple shoot components where appropriate.", fr: "Une équipe sur mesure avec talent, éclairage et son avancés, et plusieurs composantes de tournage lorsque pertinent." } },
+      { label: { en: "Production", fr: "Production" }, value: { en: "Suited for complete campaigns and productions requiring a custom approach from idea through final delivery.", fr: "Adaptée aux campagnes complètes et aux productions nécessitant une approche sur mesure, de l’idée à la livraison." } },
+      { label: { en: "Deliverables", fr: "Livrables" }, value: { en: "May include a hero film, multiple campaign pieces, cutdowns, advanced post or VFX and a larger deliverable ecosystem.", fr: "Peut inclure un film principal, plusieurs pièces de campagne, des formats courts, une postproduction ou des VFX avancés et un ensemble élargi de livrables." } },
+      { label: { en: "Revisions", fr: "Révisions" }, value: { en: "Review stages are tailored to the approved production and post-production scope.", fr: "Les étapes de révision sont adaptées à la portée approuvée de production et de postproduction." } },
+      { label: { en: "Social formats", fr: "Formats sociaux" }, value: { en: "A delivery plan may combine 16:9 for YouTube, web and presentations; 9:16 for Reels, TikTok, Stories, Shorts and Snapchat; 4:5 for Instagram and Facebook feeds; and 1:1 for social or LinkedIn.", fr: "Le plan de livraison peut réunir le 16:9 pour YouTube, le web et les présentations; le 9:16 pour Reels, TikTok, Stories, Shorts et Snapchat; le 4:5 pour les fils Instagram et Facebook; et le 1:1 pour les réseaux ou LinkedIn." } },
+      { label: { en: "Usually not included", fr: "Habituellement non inclus" }, value: { en: "Every production is custom; usage, travel, talent, locations and specialty needs are confirmed in the proposal.", fr: "Chaque production est sur mesure; les droits, déplacements, talents, lieux et besoins spécialisés sont confirmés dans la proposition." } },
+    ],
+  },
+  {
+    value: "not-sure",
+    label: "NOT SURE YET",
+    position: { en: "We’ll help shape the right level", fr: "Nous vous aiderons à choisir le bon niveau" },
+    details: [
+      { label: { en: "What to share", fr: "Quoi partager" }, value: { en: "Describe the project, goal, timeline and intended platforms. KSP will recommend a production level suited to what you are building.", fr: "Décrivez le projet, l’objectif, l’échéancier et les plateformes visées. KSP recommandera un niveau de production adapté à votre projet." } },
+      { label: { en: "Social formats", fr: "Formats sociaux" }, value: { en: "Tell us whether the work is for YouTube or web (16:9), Reels, TikTok, Stories or Shorts (9:16), social feeds (4:5), or square placements (1:1). We can recommend what is useful.", fr: "Dites-nous si le contenu vise YouTube ou le web (16:9), Reels, TikTok, Stories ou Shorts (9:16), les fils sociaux (4:5) ou les placements carrés (1:1). Nous pourrons recommander les formats utiles." } },
+    ],
+  },
+] as const;
+
 function formatCalendarDate(value: string) {
   if (!value) return "";
 
@@ -381,6 +449,16 @@ export default function BookingForm() {
 
     4: Boolean(brief.trim()),
   };
+
+  const allStepsComplete =
+    stepComplete[1] &&
+    stepComplete[2] &&
+    stepComplete[3] &&
+    stepComplete[4];
+
+  const selectedBudget = budgetOptions.find(
+    (option) => option.value === budget
+  );
 
 
   function chooseProject(type: ProjectType) {
@@ -1258,13 +1336,7 @@ export default function BookingForm() {
 
             <div className="bookingChoices bookingBudgetChoices">
 
-              {[
-                ["under-1k", "UNDER $1K"],
-                ["1k-2.5k", "$1K–2.5K"],
-                ["2.5k-5k", "$2.5K–5K"],
-                ["5k-plus", "$5K+"],
-                ["not-sure", "NOT SURE YET"],
-              ].map(([value, label]) => (
+              {budgetOptions.map(({ value, label }) => (
                 <label key={value}>
                   <input
                     type="radio"
@@ -1274,13 +1346,47 @@ export default function BookingForm() {
                     onChange={() =>
                       setBudget(value)
                     }
+                    aria-describedby={budget === value ? "selected-budget-guidance" : undefined}
                   />
 
-                  <span>{label}</span>
+                  <span className="bookingBudgetCard">
+                    <strong>{label}</strong>
+                  </span>
                 </label>
               ))}
 
             </div>
+
+            {selectedBudget && (
+              <section
+                className="bookingBudgetDetail"
+                id="selected-budget-guidance"
+                aria-live="polite"
+              >
+                <header>
+                  <span>{selectedBudget.label}</span>
+                  <h3>
+                    <Localized
+                      en={selectedBudget.position.en}
+                      fr={selectedBudget.position.fr}
+                    />
+                  </h3>
+                </header>
+
+                <dl>
+                  {selectedBudget.details.map((detail) => (
+                    <div key={detail.label.en}>
+                      <dt>
+                        <Localized en={detail.label.en} fr={detail.label.fr} />
+                      </dt>
+                      <dd>
+                        <Localized en={detail.value.en} fr={detail.value.fr} />
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            )}
           </fieldset>
 
 
@@ -1399,8 +1505,10 @@ export default function BookingForm() {
             <button
               type="button"
               className="bookingSubmit"
-              title=""
-             onClick={openBookingEmail}>
+              disabled={!allStepsComplete}
+              aria-disabled={!allStepsComplete}
+              onClick={allStepsComplete ? openBookingEmail : undefined}
+            >
               <Localized
                 en="Request availability"
                 fr="Demander les disponibilités"
