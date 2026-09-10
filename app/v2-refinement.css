@@ -1394,3 +1394,28 @@ html body .weddingPage #weddingStoriesList .publishedFilmStill {
   border-radius: 6px !important;
   overflow: hidden !important;
 }
+
+
+/* =========================================================
+   WEDDING FEATURED FILMS — MEASURED FINAL VERTICAL RHYTHM
+   Based on actual browser geometry.
+   Do not alter card sizing or horizontal composition.
+   ========================================================= */
+
+@media (min-width: 801px) {
+
+  html body .weddingPage #weddingStoriesList.weddingStoryList {
+    row-gap: 14px !important;
+  }
+
+  html body .weddingPage #weddingStoriesList.weddingStoryList > .weddingStoryRow {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  html body .weddingPage #weddingStoriesList.weddingStoryList > .weddingStoryRow + .weddingStoryRow {
+    margin-top: 0 !important;
+  }
+}
+
+/* === WEDDING FEATURED FILMS MEASURED RHYTHM END === */
