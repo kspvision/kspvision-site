@@ -7,6 +7,7 @@ import { Localized, SiteFooter, SiteHeader } from "../site-language";
 
 import BusinessCapabilities from "./business-capabilities";
 import CollaborationRail from "./collaboration-rail";
+import { BrandTheme } from "./brand-theme";
 const commercial = [{ title: "Barbancourt", type: "Spirit film concept", youtubeId: "hNRG8NT3sRs" }, { title: "NOIR ÉCLAT ELIXIR", type: "Fragrance film concept", youtubeId: "FYL9RmYlZ6U" }];
 const documentaries = [
   { title: "Corneille présente ADVANCE Québec", src: "/corneille-web.mp4" },
@@ -17,7 +18,7 @@ const documentaries = [
   { title: "Kevin Shayne Story", src: "/kevin-shayne-web.mp4", preview: true },
 ];
 
-export default function Page() { return <main className="detailPage brandPage"><SiteHeader active="brand" />
+export default function Page() { return <BrandTheme><SiteHeader active="brand" />
   <section className="detailHero toneBrand"><div><p className="kicker">BRAND & DOCUMENTARY</p><h1 className="brandHeroTitle"><Localized en="Stories with purpose." fr="Des histoires qui comptent." /></h1><p><Localized en="Commercial films and documentary work with clarity, character and a human point of view." fr="Des films commerciaux et documentaires avec clarté, caractère et un regard humain." /></p><div className="brand-booking-wrap">
       <span className="brand-booking-label">
         <Localized en="START A PROJECT" fr="LANCER UN PROJET" />
@@ -1656,4 +1657,4 @@ export default function Page() { return <main className="detailPage brandPage"><
 
 `}</style>
 
-</main>; }
+</BrandTheme>; }

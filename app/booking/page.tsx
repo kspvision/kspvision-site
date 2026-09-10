@@ -4,15 +4,16 @@ export const metadata = pageMetadata("/booking", "Start a Project | KSP Vision",
 
 import { SiteFooter, SiteHeader } from "../site-language";
 import BookingForm from "./booking-form";
+import { BookingTheme } from "./booking-theme";
 import "./booking.css";
 import "./booking-form.css";
 
 export default function Page() {
   return (
-    <main className="bookingPage bookingV2">
+    <BookingTheme>
       <SiteHeader />
       <BookingForm />
       <SiteFooter />
-    </main>
+    </BookingTheme>
   );
 }

@@ -1038,3 +1038,159 @@
     font-size: .63rem;
   }
 }
+
+/* =========================================================
+   BOOKING — IVORY THEME
+   Scoped to Booking so the approved dark design remains intact.
+   ========================================================= */
+
+.bookingThemeToggle {
+  position: fixed;
+  right: clamp(18px, 3vw, 42px);
+  bottom: clamp(18px, 3vw, 34px);
+  z-index: 12;
+  display: flex;
+  padding: 3px;
+  border: 1px solid rgba(213, 170, 85, .52);
+  background: #080808;
+}
+
+.bookingThemeToggle button {
+  border: 0;
+  padding: 7px 9px;
+  background: transparent;
+  color: rgba(255, 255, 255, .58);
+  cursor: pointer;
+  font: 800 .52rem/1 inherit;
+  letter-spacing: .12em;
+}
+
+.bookingThemeToggle button[aria-pressed="true"] {
+  background: var(--gold);
+  color: #080808;
+}
+
+.bookingV2[data-booking-theme="light"] {
+  background: radial-gradient(circle at 82% 14%, rgba(213, 170, 85, .12), transparent 30%), #f1ede4;
+  color: #171511;
+}
+
+.bookingV2[data-booking-theme="light"] .bookingIntro,
+.bookingV2[data-booking-theme="light"] .bookingFieldset + .bookingFieldset,
+.bookingV2[data-booking-theme="light"] .bookingSubmitRow,
+.bookingV2[data-booking-theme="light"] .bookingNext {
+  border-color: rgba(38, 32, 23, .16);
+}
+
+.bookingV2[data-booking-theme="light"] .bookingIntro h1,
+.bookingV2[data-booking-theme="light"] .bookingFieldset legend,
+.bookingV2[data-booking-theme="light"] .bookingNextHead h2,
+.bookingV2[data-booking-theme="light"] .bookingBudgetDetail h3 {
+  color: #171511;
+}
+
+.bookingV2[data-booking-theme="light"] .bookingIntro h1 em { -webkit-text-stroke-color: rgba(23, 21, 17, .66); }
+.bookingV2[data-booking-theme="light"] .bookingLead,
+.bookingV2[data-booking-theme="light"] .bookingFieldHint,
+.bookingV2[data-booking-theme="light"] .bookingConditionalPrompt,
+.bookingV2[data-booking-theme="light"] .bookingField > span,
+.bookingV2[data-booking-theme="light"] .bookingUploadHeading { color: rgba(23, 21, 17, .63); }
+.bookingV2[data-booking-theme="light"] .bookingField > span small,
+.bookingV2[data-booking-theme="light"] .bookingUploadHeading small { color: rgba(23, 21, 17, .42); }
+
+.bookingV2[data-booking-theme="light"] .bookingProcess { border-color: rgba(38, 32, 23, .16); }
+.bookingV2[data-booking-theme="light"] .bookingStepButton { border-color: rgba(38, 32, 23, .13); color: rgba(23, 21, 17, .52); }
+.bookingV2[data-booking-theme="light"] .bookingStepButton:not(.isActive):not(.isComplete) { color: rgba(23, 21, 17, .45); }
+.bookingV2[data-booking-theme="light"] .bookingStepButton.isActive { background: rgba(213, 170, 85, .14); color: #171511; }
+.bookingV2[data-booking-theme="light"] .bookingStepButton.isComplete:not(.isActive) { background: rgba(23, 21, 17, .035); color: rgba(23, 21, 17, .72); }
+@media (hover:hover) and (pointer:fine) { .bookingV2[data-booking-theme="light"] .bookingStepButton:hover { background: rgba(23, 21, 17, .045); color: #171511; } }
+
+.bookingV2[data-booking-theme="light"] .bookingChoices label > span,
+.bookingV2[data-booking-theme="light"] .bookingUploadControl { border-color: rgba(38, 32, 23, .2); background: rgba(255, 253, 247, .5); color: rgba(23, 21, 17, .67); }
+.bookingV2[data-booking-theme="light"] .bookingChoices label:hover > span { border-color: rgba(38, 32, 23, .42); color: #171511; }
+.bookingV2[data-booking-theme="light"] .bookingChoices input:checked + span { border-color: var(--gold); background: rgba(213, 170, 85, .14); color: #171511; }
+.bookingV2[data-booking-theme="light"] .bookingUploadControl:hover,
+.bookingV2[data-booking-theme="light"] .bookingUploadControl:focus-within { background: rgba(213, 170, 85, .06); }
+.bookingV2[data-booking-theme="light"] .bookingUploadAction { color: rgba(23, 21, 17, .78); }
+.bookingV2[data-booking-theme="light"] .bookingUploadName { color: rgba(23, 21, 17, .46); }
+.bookingV2[data-booking-theme="light"] .bookingUploadControl.hasFile .bookingUploadName { color: rgba(23, 21, 17, .72); }
+
+.bookingV2[data-booking-theme="light"] .bookingField input,
+.bookingV2[data-booking-theme="light"] .bookingField textarea,
+.bookingV2[data-booking-theme="light"] .bookingDateControl { border-color: rgba(38, 32, 23, .3); color: #171511; }
+.bookingV2[data-booking-theme="light"] .bookingField textarea { background: rgba(255, 253, 247, .52); }
+.bookingV2[data-booking-theme="light"] .bookingField input::placeholder,
+.bookingV2[data-booking-theme="light"] .bookingField textarea::placeholder { color: rgba(23, 21, 17, .42); }
+.bookingV2[data-booking-theme="light"] .bookingDateControl { color: rgba(23, 21, 17, .48); }
+.bookingV2[data-booking-theme="light"] .bookingDateControl.hasDate { color: #171511; }
+.bookingV2[data-booking-theme="light"] .bookingCalendarIcon,
+.bookingV2[data-booking-theme="light"] .bookingCalendarIcon::before,
+.bookingV2[data-booking-theme="light"] .bookingCalendarIcon::after { border-color: rgba(23, 21, 17, .58); }
+.bookingV2[data-booking-theme="light"] input[type="date"],
+.bookingV2[data-booking-theme="light"] .bookingDateNative { color-scheme: light !important; }
+
+.bookingV2[data-booking-theme="light"] .bookingBudgetDetail { background: linear-gradient(135deg, rgba(213, 170, 85, .12), transparent 44%), rgba(255, 253, 247, .45); }
+.bookingV2[data-booking-theme="light"] .bookingBudgetDetail header,
+.bookingV2[data-booking-theme="light"] .bookingBudgetDetail dl > div { border-color: rgba(38, 32, 23, .13); }
+.bookingV2[data-booking-theme="light"] .bookingBudgetDetail dd { color: rgba(23, 21, 17, .64); }
+.bookingV2[data-booking-theme="light"] .bookingSubmitRow > div p { color: rgba(23, 21, 17, .78); }
+.bookingV2[data-booking-theme="light"] .bookingSubmitRow > div span,
+.bookingV2[data-booking-theme="light"] .bookingResponseNote { color: rgba(23, 21, 17, .47); }
+
+/* === KSP BOOKING LIGHT CONTRAST FINAL START === */
+
+/*
+   BOOKING — LIGHT MODE CONTRAST
+   Keep ivory canvas, but restore readable editorial hierarchy.
+*/
+
+/* Global KSP header/footer stay BLACK in light Booking mode. */
+html body .bookingV2[data-booking-theme="light"] > header,
+html body .bookingV2[data-booking-theme="light"] > footer {
+    background: #070707 !important;
+    color: #f1ede4 !important;
+    border-color: rgba(255,255,255,.10) !important;
+}
+
+html body .bookingV2[data-booking-theme="light"] > header a,
+html body .bookingV2[data-booking-theme="light"] > header button,
+html body .bookingV2[data-booking-theme="light"] > footer a,
+html body .bookingV2[data-booking-theme="light"] > footer p,
+html body .bookingV2[data-booking-theme="light"] > footer span {
+    color: #f1ede4 !important;
+}
+
+/* Top 01 / THE PROJECT / DETAILS / BUDGET / PROJECT BRIEF bar */
+html body .bookingV2[data-booking-theme="light"] .bookingStepIdentity,
+html body .bookingV2[data-booking-theme="light"] .bookingStepIdentity span,
+html body .bookingV2[data-booking-theme="light"] .bookingStepStatus {
+    color: rgba(23, 21, 17, .68) !important;
+}
+
+html body .bookingV2[data-booking-theme="light"] .bookingStepIdentity b {
+    color: var(--gold) !important;
+}
+
+html body .bookingV2[data-booking-theme="light"] .bookingStepButton.isActive .bookingStepIdentity,
+html body .bookingV2[data-booking-theme="light"] .bookingStepButton.isActive .bookingStepIdentity span {
+    color: #171511 !important;
+}
+
+/* Main supporting copy */
+html body .bookingV2[data-booking-theme="light"] .bookingLead,
+html body .bookingV2[data-booking-theme="light"] .bookingFieldHint,
+html body .bookingV2[data-booking-theme="light"] .bookingConditionalPrompt {
+    color: rgba(23, 21, 17, .68) !important;
+}
+
+/* What Happens Next */
+html body .bookingV2[data-booking-theme="light"] .bookingNext h2,
+html body .bookingV2[data-booking-theme="light"] .bookingNext h3 {
+    color: #171511 !important;
+}
+
+html body .bookingV2[data-booking-theme="light"] .bookingNext p {
+    color: rgba(23, 21, 17, .66) !important;
+}
+
+/* === KSP BOOKING LIGHT CONTRAST FINAL END === */

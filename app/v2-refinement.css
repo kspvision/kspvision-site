@@ -3079,3 +3079,1655 @@ html body .weddingPage[data-wedding-theme="ivory"] #weddingStoriesList .weddingS
 html body .weddingPage[data-wedding-theme="dark"] #weddingStoriesList .weddingStoriesBackgroundVideo {
   opacity: .47 !important;
 }
+
+/* === KSP BRAND LIGHT CLEANUP FINAL START === */
+
+/*
+   BRAND & DOCUMENTARY — LIGHT MODE
+   Target ONLY the structural dark surfaces still surviving.
+   Actual photography/video pixels remain untouched.
+*/
+
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities,
+html body .brandPage[data-brand-theme="light"] .brandCollection.commercialCollection {
+    background: #f1ede4 !important;
+    color: #191611 !important;
+}
+
+/* Capability cards */
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities article {
+    background: rgba(255, 253, 247, .62) !important;
+    border-color: rgba(42, 35, 26, .16) !important;
+    color: #191611 !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities h1,
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities h2,
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities h3 {
+    color: #191611 !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities p {
+    color: rgba(25, 22, 17, .66) !important;
+}
+
+/* Selected Work / Commercial Stories shell */
+html body .brandPage[data-brand-theme="light"] .brandCollection.commercialCollection .weddingSectionHead,
+html body .brandPage[data-brand-theme="light"] .brandCollection.commercialCollection .brandGrid,
+html body .brandPage[data-brand-theme="light"] .brandCollection.commercialCollection .brandFilm {
+    background: transparent !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .brandCollection.commercialCollection .weddingSectionHead h2,
+html body .brandPage[data-brand-theme="light"] .brandCollection.commercialCollection .commercialProjectInfo h3 {
+    color: #191611 !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .brandCollection.commercialCollection .commercialProjectInfo > p:not(.commercialProjectNote) {
+    color: rgba(25, 22, 17, .66) !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .brandCollection.commercialCollection .commercialProjectNote {
+    color: var(--gold) !important;
+}
+
+/*
+   WEDDING TOGGLE
+   Same fixed bottom-right position used by Booking / Brand.
+   Theme appearance itself is untouched.
+*/
+html body .weddingPage .weddingThemeToggle {
+    position: fixed !important;
+    right: clamp(18px, 3vw, 42px) !important;
+    bottom: clamp(18px, 3vw, 34px) !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: 50 !important;
+}
+
+/* === KSP BRAND LIGHT CLEANUP FINAL END === */
+
+/* === BRAND LIGHT FINAL POLISH START === */
+
+/* ==========================================================
+   BRAND & DOCUMENTARY — LIGHT FINAL POLISH
+   DARK MODE REMAINS UNTOUCHED.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. GLOBAL HEADER
+   Keep the KSP navigation BLACK in Brand LIGHT mode.
+   Inactive navigation = white.
+   Active page may remain gold.
+   ---------------------------------------------------------- */
+
+html body .brandPage[data-brand-theme="light"] header {
+    background: #070707 !important;
+    color: #f1ede4 !important;
+    border-color: rgba(255,255,255,.10) !important;
+}
+
+html body .brandPage[data-brand-theme="light"] header a,
+html body .brandPage[data-brand-theme="light"] header button,
+html body .brandPage[data-brand-theme="light"] header span {
+    color: #f1ede4 !important;
+}
+
+html body .brandPage[data-brand-theme="light"] header [aria-current="page"],
+html body .brandPage[data-brand-theme="light"] header .active,
+html body .brandPage[data-brand-theme="light"] header .isActive {
+    color: #d5aa55 !important;
+}
+
+
+/* ----------------------------------------------------------
+   2. LIGHT-MODE EDITORIAL TEXT
+   Kill the leftover white/very pale wording on ivory.
+   ---------------------------------------------------------- */
+
+html body .brandPage[data-brand-theme="light"] .documentaryInfo,
+html body .brandPage[data-brand-theme="light"] .documentaryInfo p,
+html body .brandPage[data-brand-theme="light"] .documentaryInfo span,
+html body .brandPage[data-brand-theme="light"] .documentaryInfo small,
+html body .brandPage[data-brand-theme="light"] .documentaryInfo em {
+    color: rgba(25,22,17,.68) !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .documentaryInfo h3,
+html body .brandPage[data-brand-theme="light"] .documentaryInfo strong {
+    color: #191611 !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .commercialProjectInfo,
+html body .brandPage[data-brand-theme="light"] .commercialProjectInfo p,
+html body .brandPage[data-brand-theme="light"] .commercialProjectInfo span {
+    color: rgba(25,22,17,.68) !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .commercialProjectInfo h3 {
+    color: #191611 !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .commercialProjectNote {
+    color: #c99c3f !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .commercialProjectDisclosure {
+    color: rgba(25,22,17,.64) !important;
+}
+
+
+/* Hero booking choices */
+html body .brandPage[data-brand-theme="light"] .brand-booking-label {
+    color: rgba(25,22,17,.62) !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .brand-booking-choice,
+html body .brandPage[data-brand-theme="light"] .brand-booking-choice span {
+    color: #191611 !important;
+}
+
+
+/* Capability / deliverable labels */
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities span,
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities small,
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities [class*="deliveryItems"] span {
+    color: rgba(25,22,17,.68) !important;
+}
+
+
+/* Editorial gold labels stay gold */
+html body .brandPage[data-brand-theme="light"] .kicker,
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities .kicker,
+html body .brandPage[data-brand-theme="light"] .brandCollection .kicker,
+html body .brandPage[data-brand-theme="light"] .documentaryCollection .kicker {
+    color: #c99c3f !important;
+}
+
+
+/* ----------------------------------------------------------
+   3. WATCH FILM OVERLAYS
+   These remain WHITE because they sit over actual media.
+   ---------------------------------------------------------- */
+
+html body .brandPage[data-brand-theme="light"] .publishedFilmStill > span,
+html body .brandPage[data-brand-theme="light"] .documentaryMedia span {
+    color: #ffffff !important;
+}
+
+
+/* ----------------------------------------------------------
+   4. COMMERCIAL VIDEO BLACK EMPTY STRIP
+   Fill the ACTUAL media wrapper.
+   Does NOT alter the surrounding card/grid geometry.
+   ---------------------------------------------------------- */
+
+html body .brandPage[data-brand-theme="light"]
+.brandCollection.commercialCollection .brandFilm {
+    background: transparent !important;
+}
+
+html body .brandPage[data-brand-theme="light"]
+.brandCollection.commercialCollection .publishedFilmStill {
+    background: transparent !important;
+    overflow: hidden !important;
+    aspect-ratio: 16 / 9 !important;
+}
+
+html body .brandPage[data-brand-theme="light"]
+.brandCollection.commercialCollection .publishedFilmStill video {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+    vertical-align: top !important;
+}
+
+html body .brandPage[data-brand-theme="light"]
+.brandCollection.commercialCollection .publishedFilmStill > span {
+    line-height: 1.1 !important;
+}
+
+
+/* ----------------------------------------------------------
+   5. COLLABORATOR PROOF STRIP
+   INTENTIONALLY BLACK EVEN IN LIGHT MODE.
+   ---------------------------------------------------------- */
+
+html body .brandPage[data-brand-theme="light"] .brandCollaborationRail,
+html body .brandPage[data-brand-theme="light"] .brandCollaborations {
+    background: #070707 !important;
+    border-color: rgba(255,255,255,.10) !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .brandCollaborationRail img,
+html body .brandPage[data-brand-theme="light"] .brandCollaborations img {
+    filter: none !important;
+}
+
+
+/* ----------------------------------------------------------
+   6. BRAND TOGGLE
+   LIGHT appearance now matches the Wedding toggle language:
+   ivory shell + black active LIGHT state.
+   DARK styling remains the existing Brand treatment.
+   ---------------------------------------------------------- */
+
+html body .brandPage[data-brand-theme="light"] .brandThemeToggle {
+    background: #f1ede4 !important;
+    border-color: rgba(213,170,85,.72) !important;
+    border-radius: 4px !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .brandThemeToggle button {
+    background: transparent !important;
+    color: #191611 !important;
+}
+
+html body .brandPage[data-brand-theme="light"]
+.brandThemeToggle button[aria-pressed="true"] {
+    background: #080808 !important;
+    color: #ffffff !important;
+}
+
+
+/* ----------------------------------------------------------
+   7. BRAND FOOTER
+   LIGHT = ivory footer, charcoal copy, BLACK KSP mark.
+   DARK footer remains exactly as it already is.
+   ---------------------------------------------------------- */
+
+html body .brandPage[data-brand-theme="light"] footer {
+    background: #f1ede4 !important;
+    color: rgba(25,22,17,.64) !important;
+    border-color: rgba(42,35,26,.15) !important;
+}
+
+html body .brandPage[data-brand-theme="light"] footer p,
+html body .brandPage[data-brand-theme="light"] footer span,
+html body .brandPage[data-brand-theme="light"] footer a {
+    color: rgba(25,22,17,.64) !important;
+}
+
+html body .brandPage[data-brand-theme="light"] footer img {
+    filter: brightness(0) saturate(100%) !important;
+    opacity: .78 !important;
+}
+
+html body .brandPage[data-brand-theme="light"] footer svg {
+    color: #191611 !important;
+    fill: #191611 !important;
+}
+
+
+/* === BRAND LIGHT FINAL POLISH END === */
+
+/* === BRAND LIGHT STRUCTURE POLISH START ===
+   LIGHT MODE ONLY.
+   Restore visible editorial borders/dividers.
+   Do not alter media, geometry, dark mode or collaborator rail.
+   ========================================================== */
+
+html body .brandPage[data-brand-theme="light"] {
+  --brand-light-ink: #191611;
+  --brand-light-muted: rgba(25,22,17,.64);
+  --brand-light-line: rgba(25,22,17,.20);
+  --brand-light-line-strong: rgba(25,22,17,.32);
+  --brand-light-gold: #c99c3f;
+}
+
+/* START A PROJECT boxes */
+html body .brandPage[data-brand-theme="light"] .brand-booking-choice {
+  border: 1px solid var(--brand-light-line-strong) !important;
+  background: rgba(255,255,255,.14) !important;
+  color: var(--brand-light-ink) !important;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  html body .brandPage[data-brand-theme="light"] .brand-booking-choice:hover {
+    border-color: var(--brand-light-gold) !important;
+    background: rgba(201,156,63,.055) !important;
+  }
+}
+
+/* WHAT WE BUILD capability boxes */
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities article {
+  border: 1px solid var(--brand-light-line) !important;
+}
+
+/* COMMON DELIVERABLES pills */
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities [class*="deliveryItems"] span {
+  border: 1px solid var(--brand-light-line) !important;
+  color: var(--brand-light-muted) !important;
+  background: rgba(255,255,255,.10) !important;
+}
+
+/* Structural separators */
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities,
+html body .brandPage[data-brand-theme="light"] .brandCollection,
+html body .brandPage[data-brand-theme="light"] .documentaryCollection {
+  border-color: var(--brand-light-line) !important;
+}
+
+html body .brandPage[data-brand-theme="light"] hr {
+  border-color: var(--brand-light-line) !important;
+}
+
+/* Preserve gold hierarchy */
+html body .brandPage[data-brand-theme="light"] .kicker {
+  color: var(--brand-light-gold) !important;
+}
+
+/* === BRAND LIGHT STRUCTURE POLISH END === */
+
+/* === KSP LIGHT MODE FINAL STRUCTURE VISIBILITY START === */
+
+/* ==========================================================
+   BRAND & DOCUMENTARY LIGHT
+   Make the editorial structure VISIBLY separated on ivory.
+   ========================================================== */
+
+html body .brandPage[data-brand-theme="light"] {
+  --brand-light-rule: rgba(25, 22, 17, .30);
+  --brand-light-rule-strong: rgba(25, 22, 17, .42);
+  --brand-light-paper: #f1ede4;
+  --brand-light-ink: #191611;
+  --brand-light-gold: #c99c3f;
+}
+
+/*
+   REAL section separators.
+   Use inset rules so they remain visible even where older
+   border declarations are being overridden.
+*/
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities {
+  box-shadow:
+    inset 0 1px 0 var(--brand-light-rule),
+    inset 0 -1px 0 var(--brand-light-rule) !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .brandCollection {
+  box-shadow:
+    inset 0 1px 0 var(--brand-light-rule) !important;
+}
+
+html body .brandPage[data-brand-theme="light"] .documentaryCollection {
+  box-shadow:
+    inset 0 1px 0 var(--brand-light-rule) !important;
+}
+
+/* START A PROJECT boxes near the top */
+html body .brandPage[data-brand-theme="light"] .brand-booking-choice {
+  border: 1px solid var(--brand-light-rule-strong) !important;
+}
+
+/* Capability cards */
+html body .brandPage[data-brand-theme="light"] .brandCommercialCapabilities article {
+  border: 1px solid rgba(25,22,17,.24) !important;
+}
+
+/* Common Deliverables */
+html body .brandPage[data-brand-theme="light"]
+.brandCommercialCapabilities [class*="deliveryItems"] span {
+  border: 1px solid rgba(25,22,17,.24) !important;
+}
+
+
+/* ==========================================================
+   BRAND BOTTOM "START A PROJECT"
+   Restore the visible rectangular outline in LIGHT.
+   Covers known CTA naming + final booking link location.
+   ========================================================== */
+
+html body .brandPage[data-brand-theme="light"] .brandCta a,
+html body .brandPage[data-brand-theme="light"] .brandFinalCta a,
+html body .brandPage[data-brand-theme="light"] .brandClosing a,
+html body .brandPage[data-brand-theme="light"] .brandOutro a,
+html body .brandPage[data-brand-theme="light"] main > section:last-of-type a[href^="/booking"] {
+  border: 1px solid var(--brand-light-rule-strong) !important;
+  color: var(--brand-light-ink) !important;
+  background: transparent !important;
+}
+
+
+/* ==========================================================
+   BRAND LIGHT FOOTER
+   Ivory footer + BLACK KSP mark.
+   Use body:has() because the global footer may live outside
+   the Brand theme wrapper.
+   ========================================================== */
+
+html body:has(.brandPage[data-brand-theme="light"]) footer {
+  background: var(--brand-light-paper) !important;
+  color: rgba(25,22,17,.62) !important;
+  border-color: rgba(25,22,17,.18) !important;
+}
+
+html body:has(.brandPage[data-brand-theme="light"]) footer p,
+html body:has(.brandPage[data-brand-theme="light"]) footer span,
+html body:has(.brandPage[data-brand-theme="light"]) footer a {
+  color: rgba(25,22,17,.62) !important;
+}
+
+html body:has(.brandPage[data-brand-theme="light"]) footer img {
+  filter: brightness(0) saturate(100%) !important;
+  opacity: .82 !important;
+}
+
+html body:has(.brandPage[data-brand-theme="light"]) footer svg {
+  color: #191611 !important;
+  fill: #191611 !important;
+}
+
+
+/* ==========================================================
+   WEDDING LIGHT CTA
+   CHECK AVAILABILITY needs a real visible square again.
+   Nothing else about the CTA changes.
+   ========================================================== */
+
+html body .weddingPage[data-wedding-theme="light"] .weddingCta a {
+  border: 1px solid rgba(25,22,17,.32) !important;
+  background: rgba(255,255,255,.10) !important;
+  color: #191611 !important;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  html body .weddingPage[data-wedding-theme="light"] .weddingCta a:hover {
+    border-color: rgba(201,156,63,.72) !important;
+  }
+}
+
+
+/* ==========================================================
+   WEDDING STORIES
+   REMOVE any spacing accidentally left by previous ornament.
+   We will OVERLAY the real tribal ornament after inspecting
+   the reel's safe internal wrapper.
+   ========================================================== */
+
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead::before,
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead::after {
+  content: none !important;
+  display: none !important;
+}
+
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead {
+  margin-bottom: inherit;
+}
+
+/* === KSP LIGHT MODE FINAL STRUCTURE VISIBILITY END === */
+
+/* === KSP WEDDING TRIBAL + LIGHT MICRO POLISH START === */
+
+/* ----------------------------------------------------------
+   WEDDING STORIES — ornament BETWEEN title and supporting copy.
+   Absolute overlay only. ZERO new spacing.
+   ---------------------------------------------------------- */
+
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead {
+  position: relative !important;
+}
+
+/*
+   Override the old neutralizer deliberately.
+   This decoration lives in existing whitespace.
+*/
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead::after {
+  content: "" !important;
+  display: block !important;
+
+  position: absolute !important;
+  left: 50% !important;
+  top: 61% !important;
+
+  width: clamp(118px, 14vw, 175px) !important;
+  height: 18px !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 36'%3E%3Cg fill='none' stroke='%23c99c3f' stroke-width='1.7' stroke-linecap='square' stroke-linejoin='miter'%3E%3Cpath d='M4 18h82l16-12 16 12-16 12-16-12h38'/%3E%3Cpath d='M356 18h-82l-16-12-16 12 16 12 16-12h-38'/%3E%3Cpath d='M142 18h26M192 18h26'/%3E%3C/g%3E%3Cg fill='%23c99c3f'%3E%3Cpath d='M180 4l10 14-10 14-10-14z'/%3E%3Cpath d='M180 10l5 8-5 8-5-8z' fill='%23f1ede4'/%3E%3C/g%3E%3C/svg%3E") !important;
+
+  pointer-events: none !important;
+  z-index: 4 !important;
+  opacity: .86 !important;
+}
+
+
+/* ----------------------------------------------------------
+   LARGE WEDDING REEL — REAL TRIBAL EDGE ORNAMENTS
+   Independent overlay elements.
+   NO margin. NO padding. NO height. NO layout displacement.
+   ---------------------------------------------------------- */
+
+html body .weddingPage #weddingStoriesFinal .weddingReel {
+  position: relative !important;
+}
+
+html body .weddingPage #weddingStoriesFinal .weddingReelTribal {
+  position: absolute !important;
+  left: 50% !important;
+
+  width: clamp(260px, 36vw, 520px) !important;
+  height: 34px !important;
+
+  transform: translateX(-50%) !important;
+
+  display: block !important;
+
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 100% 100% !important;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 620 48'%3E%3Cg fill='none' stroke='%23c99c3f' stroke-width='2' stroke-linecap='square' stroke-linejoin='miter'%3E%3Cpath d='M8 24h118l22-17 22 17-22 17-22-17h60'/%3E%3Cpath d='M612 24H494l-22-17-22 17 22 17 22-17h-60'/%3E%3Cpath d='M202 24h44l14-11 14 11-14 11-14-11h20'/%3E%3Cpath d='M418 24h-44l-14-11-14 11 14 11 14-11h-20'/%3E%3C/g%3E%3Cg fill='%23c99c3f'%3E%3Cpath d='M310 3l17 21-17 21-17-21z'/%3E%3Cpath d='M310 11l10 13-10 13-10-13z' fill='%23070707'/%3E%3Cpath d='M280 24l10-7 10 7-10 7z'/%3E%3Cpath d='M340 24l-10-7-10 7 10 7z'/%3E%3C/g%3E%3C/svg%3E") !important;
+
+  pointer-events: none !important;
+  z-index: 8 !important;
+
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,.24)) !important;
+}
+
+/* Lives INSIDE the video edge. */
+html body .weddingPage #weddingStoriesFinal .weddingReelTribalTop {
+  top: 8px !important;
+}
+
+/*
+   Bottom ornament sits above the WEDDING REEL /
+   KSP WEDDING FILMS information band.
+*/
+html body .weddingPage #weddingStoriesFinal .weddingReelTribalBottom {
+  bottom: 64px !important;
+  transform: translateX(-50%) rotate(180deg) !important;
+}
+
+
+/* Light version: slightly softer luxury treatment. */
+html body .weddingPage:where(
+  [data-wedding-theme="ivory"],
+  [data-wedding-theme="light"]
+) #weddingStoriesFinal .weddingReelTribal {
+  opacity: .88 !important;
+}
+
+/* Dark version: let the gold breathe against the film. */
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingReelTribal {
+  opacity: .82 !important;
+}
+
+
+/* ----------------------------------------------------------
+   WEDDING LIGHT — CHECK AVAILABILITY
+   Real visible outline, like Brand's START A PROJECT.
+   ---------------------------------------------------------- */
+
+html body .weddingPage:where(
+  [data-wedding-theme="ivory"],
+  [data-wedding-theme="light"]
+) .weddingCta a {
+  border: 1px solid rgba(25,22,17,.44) !important;
+  background: transparent !important;
+  color: #191611 !important;
+  box-shadow: none !important;
+}
+
+
+/* ----------------------------------------------------------
+   BRAND LIGHT FOOTER — ACTUAL .brand ELEMENT
+   The SiteFooter logo is not an <img>.
+   ---------------------------------------------------------- */
+
+html body:has(.brandPage[data-brand-theme="light"])
+footer .brand {
+  filter: brightness(0) saturate(100%) !important;
+  color: #191611 !important;
+  opacity: .88 !important;
+}
+
+html body:has(.brandPage[data-brand-theme="light"])
+footer .brand span {
+  color: #191611 !important;
+}
+
+
+/* ----------------------------------------------------------
+   Responsive restraint.
+   Same concept, smaller ornament.
+   ---------------------------------------------------------- */
+
+@media (max-width: 800px) {
+  html body .weddingPage #weddingStoriesFinal .weddingReelTribal {
+    width: min(62vw, 330px) !important;
+    height: 27px !important;
+  }
+
+  html body .weddingPage #weddingStoriesFinal .weddingReelTribalTop {
+    top: 6px !important;
+  }
+
+  html body .weddingPage #weddingStoriesFinal .weddingReelTribalBottom {
+    bottom: 48px !important;
+  }
+
+  html body .weddingPage #weddingStoriesFinal .weddingSectionHead::after {
+    width: 120px !important;
+    height: 14px !important;
+  }
+}
+
+/* === KSP WEDDING TRIBAL + LIGHT MICRO POLISH END === */
+
+/* ==========================================================
+   KSP WEDDINGS — FINAL EDITORIAL FILIGREE PASS
+   Luxury wedding flourish, NOT tribal tattoo geometry.
+   Absolute decoration only. ZERO layout height added.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. REMOVE THE OLD MISPLACED SECTION ORNAMENT
+   ---------------------------------------------------------- */
+
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* ----------------------------------------------------------
+   2. WEDDING STORIES
+   Small engraved flourish directly UNDER the title.
+   It occupies the existing title/copy gap.
+   ---------------------------------------------------------- */
+
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead h2 {
+  position: relative !important;
+}
+
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead h2::after {
+  content: "" !important;
+
+  position: absolute !important;
+  left: 50% !important;
+  bottom: -27px !important;
+
+  width: clamp(120px, 13vw, 165px) !important;
+  height: 19px !important;
+
+  transform: translateX(-50%) !important;
+
+  pointer-events: none !important;
+
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 38'%3E%3Cg fill='none' stroke='%23c79a45' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19h62c18 0 29-3 40-12'/%3E%3Cpath d='M296 19h-62c-18 0-29-3-40-12'/%3E%3Cpath d='M64 19c18 0 31 5 42 14'/%3E%3Cpath d='M236 19c-18 0-31 5-42 14'/%3E%3Cpath d='M106 7c10 1 18 5 26 12-8 7-16 11-26 12'/%3E%3Cpath d='M194 7c-10 1-18 5-26 12 8 7 16 11 26 12'/%3E%3Cpath d='M132 19h9'/%3E%3Cpath d='M159 19h9'/%3E%3Cpath d='M150 8c5 5 8 8 8 11s-3 6-8 11c-5-5-8-8-8-11s3-6 8-11Z'/%3E%3C/g%3E%3C/svg%3E") !important;
+
+  opacity: .92 !important;
+  z-index: 8 !important;
+}
+
+
+/* ----------------------------------------------------------
+   3. LARGE WEDDING REEL
+   Let ONLY the ornament visibly straddle the video boundary.
+   No margin/padding/height added.
+   ---------------------------------------------------------- */
+
+html body .weddingPage #weddingStoriesFinal .weddingReel {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+
+/* Replace previous angular tattoo-like motif completely. */
+html body .weddingPage #weddingStoriesFinal .weddingReelTribal {
+  left: 50% !important;
+
+  width: clamp(330px, 42vw, 600px) !important;
+  height: 42px !important;
+
+  display: block !important;
+  position: absolute !important;
+
+  pointer-events: none !important;
+  z-index: 20 !important;
+
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 100% 100% !important;
+
+  /*
+     Fine engraved filigree:
+     long horizontal sweep + inward botanical/scroll curves.
+     Restrained enough for KSP.
+  */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 58'%3E%3Cg fill='none' stroke='%23c79a45' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 29h135c33 0 57-7 80-26'/%3E%3Cpath d='M696 29H561c-33 0-57-7-80-26'/%3E%3Cpath d='M139 29c33 0 58 8 80 26'/%3E%3Cpath d='M561 29c-33 0-58 8-80 26'/%3E%3Cpath d='M218 3c23 2 42 11 60 26-18 15-37 24-60 26'/%3E%3Cpath d='M482 3c-23 2-42 11-60 26 18 15 37 24 60 26'/%3E%3Cpath d='M278 29c18-18 36-20 55-5'/%3E%3Cpath d='M422 29c-18-18-36-20-55-5'/%3E%3Cpath d='M278 29c18 18 36 20 55 5'/%3E%3Cpath d='M422 29c-18 18-36 20-55 5'/%3E%3Cpath d='M333 24h8'/%3E%3Cpath d='M359 24h8'/%3E%3Cpath d='M350 9c9 8 14 14 14 20s-5 12-14 20c-9-8-14-14-14-20s5-12 14-20Z'/%3E%3Cpath d='M350 17c5 5 8 8 8 12s-3 7-8 12c-5-5-8-8-8-12s3-7 8-12Z'/%3E%3C/g%3E%3C/svg%3E") !important;
+
+  filter:
+    drop-shadow(0 1px 1px rgba(0,0,0,.18))
+    drop-shadow(0 3px 9px rgba(0,0,0,.08)) !important;
+
+  opacity: .94 !important;
+}
+
+
+/*
+   TOP:
+   exactly on the video boundary.
+   Half ornament over ivory/deadspace,
+   half ornament over the moving image.
+*/
+html body .weddingPage #weddingStoriesFinal .weddingReelTribalTop {
+  top: 0 !important;
+
+  transform:
+    translate(-50%, -50%) !important;
+}
+
+
+/*
+   BOTTOM:
+   straddles the visual bottom edge of the actual film,
+   immediately before WEDDING REEL / KSP WEDDING FILMS.
+*/
+html body .weddingPage #weddingStoriesFinal .weddingReelTribalBottom {
+  bottom: 61px !important;
+
+  transform:
+    translate(-50%, 50%)
+    rotate(180deg) !important;
+}
+
+
+/* ----------------------------------------------------------
+   IVORY MODE
+   Elegant warm-gold engraving.
+   ---------------------------------------------------------- */
+
+html body .weddingPage:where(
+  [data-wedding-theme="ivory"],
+  [data-wedding-theme="light"]
+) #weddingStoriesFinal .weddingReelTribal {
+  opacity: .9 !important;
+}
+
+
+/* ----------------------------------------------------------
+   DARK MODE
+   Same geometry, slightly brighter against black/film.
+   NO dark gradients are modified.
+   ---------------------------------------------------------- */
+
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingReelTribal {
+  opacity: .96 !important;
+}
+
+
+/* ----------------------------------------------------------
+   MOBILE RESTRAINT
+   ---------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  html body .weddingPage #weddingStoriesFinal
+  .weddingSectionHead h2::after {
+    width: 112px !important;
+    height: 16px !important;
+    bottom: -23px !important;
+  }
+
+  html body .weddingPage #weddingStoriesFinal
+  .weddingReelTribal {
+    width: min(68vw, 350px) !important;
+    height: 32px !important;
+  }
+
+  html body .weddingPage #weddingStoriesFinal
+  .weddingReelTribalBottom {
+    bottom: 48px !important;
+  }
+}
+
+/* === KSP WEDDINGS FINAL EDITORIAL FILIGREE END === */
+
+
+/* ==========================================================
+   KSP WEDDINGS — BOLD ENGRAVED FILIGREE V2
+   Ornament-only correction.
+   ZERO layout spacing added.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   KILL ALL PREVIOUS STORY-HEADER ORNAMENT PSEUDOS
+   They are currently stacking / crossing the subtitle.
+   ---------------------------------------------------------- */
+
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead::before,
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead::after,
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead p::before,
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead p::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* ----------------------------------------------------------
+   SMALL TITLE FLOURISH
+   Bolder, cleaner, more engraved.
+   Lives ONLY in the existing gap.
+   ---------------------------------------------------------- */
+
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead h2 {
+  position: relative !important;
+}
+
+html body .weddingPage #weddingStoriesFinal .weddingSectionHead h2::after {
+  content: "" !important;
+
+  display: block !important;
+  position: absolute !important;
+
+  left: 50% !important;
+  bottom: -30px !important;
+
+  width: clamp(175px, 20vw, 230px) !important;
+  height: 24px !important;
+
+  transform: translateX(-50%) !important;
+
+  pointer-events: none !important;
+  z-index: 12 !important;
+
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 46'%3E%3Cg fill='none' stroke='%23c99b46' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 23h72c21 0 31-8 44-20'/%3E%3Cpath d='M317 23h-72c-21 0-31-8-44-20'/%3E%3Cpath d='M75 23c21 0 31 8 44 20'/%3E%3Cpath d='M245 23c-21 0-31 8-44 20'/%3E%3Cpath d='M118 3c17 2 28 9 41 20-13 11-24 18-41 20'/%3E%3Cpath d='M202 3c-17 2-28 9-41 20 13 11 24 18 41 20'/%3E%3Cpath d='M160 8l15 15-15 15-15-15z'/%3E%3Cpath d='M160 15l8 8-8 8-8-8z'/%3E%3C/g%3E%3C/svg%3E") !important;
+
+  opacity: .95 !important;
+}
+
+
+/* ----------------------------------------------------------
+   LARGE REEL FILIGREE
+   Almost full-width.
+   Bold central engraved detail + long elegant arms.
+   ---------------------------------------------------------- */
+
+html body .weddingPage #weddingStoriesFinal .weddingReelTribal {
+  position: absolute !important;
+
+  left: 50% !important;
+
+  width: calc(100% - 46px) !important;
+  max-width: none !important;
+
+  height: 58px !important;
+
+  display: block !important;
+
+  pointer-events: none !important;
+  z-index: 40 !important;
+
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 100% 100% !important;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 70'%3E%3Cg fill='none' stroke='%23c99b46' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 35h330'/%3E%3Cpath d='M1196 35H866'/%3E%3Cpath d='M334 35c35 0 55-8 80-29'/%3E%3Cpath d='M866 35c-35 0-55-8-80-29'/%3E%3Cpath d='M334 35c35 0 55 8 80 29'/%3E%3Cpath d='M866 35c-35 0-55 8-80 29'/%3E%3Cpath d='M414 6c30 2 51 13 74 29-23 16-44 27-74 29'/%3E%3Cpath d='M786 6c-30 2-51 13-74 29 23 16 44 27 74 29'/%3E%3Cpath d='M488 35c22-25 47-27 72-6'/%3E%3Cpath d='M712 35c-22-25-47-27-72-6'/%3E%3Cpath d='M488 35c22 25 47 27 72 6'/%3E%3Cpath d='M712 35c-22 25-47 27-72 6'/%3E%3Cpath d='M560 29c13-19 27-19 40 0'/%3E%3Cpath d='M640 29c-13-19-27-19-40 0'/%3E%3Cpath d='M560 41c13 19 27 19 40 0'/%3E%3Cpath d='M640 41c-13 19-27 19-40 0'/%3E%3Cpath d='M600 9l26 26-26 26-26-26z'/%3E%3Cpath d='M600 20l15 15-15 15-15-15z'/%3E%3C/g%3E%3C/svg%3E") !important;
+
+  opacity: .98 !important;
+
+  filter:
+    drop-shadow(0 1px 0 rgba(255,255,255,.15))
+    drop-shadow(0 2px 5px rgba(0,0,0,.18)) !important;
+}
+
+
+/* ----------------------------------------------------------
+   TOP EDGE
+   Half over ivory, half over moving image.
+   ---------------------------------------------------------- */
+
+html body .weddingPage #weddingStoriesFinal .weddingReelTribalTop {
+  top: 0 !important;
+
+  transform:
+    translate(-50%, -50%) !important;
+}
+
+
+/* ----------------------------------------------------------
+   BOTTOM EDGE
+   Same full-width treatment.
+   Straddles video → metadata boundary.
+   ---------------------------------------------------------- */
+
+html body .weddingPage #weddingStoriesFinal .weddingReelTribalBottom {
+  bottom: 61px !important;
+
+  transform:
+    translate(-50%, 50%)
+    rotate(180deg) !important;
+}
+
+
+/* Ivory treatment */
+html body .weddingPage:where(
+  [data-wedding-theme="ivory"],
+  [data-wedding-theme="light"]
+) #weddingStoriesFinal .weddingReelTribal {
+  opacity: .96 !important;
+}
+
+
+/* Dark treatment — same geometry, slightly brighter */
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingReelTribal {
+  opacity: 1 !important;
+}
+
+
+/* ----------------------------------------------------------
+   RESPONSIVE
+   Still intentionally wide on smaller screens.
+   ---------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  html body .weddingPage #weddingStoriesFinal
+  .weddingSectionHead h2::after {
+    width: 160px !important;
+    height: 21px !important;
+    bottom: -27px !important;
+  }
+
+  html body .weddingPage #weddingStoriesFinal
+  .weddingReelTribal {
+    width: calc(100% - 22px) !important;
+    height: 42px !important;
+  }
+
+  html body .weddingPage #weddingStoriesFinal
+  .weddingReelTribalBottom {
+    bottom: 48px !important;
+  }
+}
+
+/* === KSP WEDDINGS BOLD ENGRAVED FILIGREE V2 END === */
+
+
+/* ==========================================================
+   KSP WEDDINGS — FILIGREE POSITION TUNING
+   POSITION ONLY. No geometry / spacing / styling changes.
+   ========================================================== */
+
+/* 1. Small flourish below WEDDING STORIES: UP ~10px */
+html body .weddingPage #weddingStoriesFinal
+.weddingSectionHead h2::after {
+  bottom: -20px !important;
+}
+
+/* 2. TOP reel flourish: substantially DOWN into the reel edge */
+html body .weddingPage #weddingStoriesFinal
+.weddingReelTribalTop {
+  top: 48px !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* 3. BOTTOM reel flourish: slightly DOWN into ivory metadata */
+html body .weddingPage #weddingStoriesFinal
+.weddingReelTribalBottom {
+  bottom: 52px !important;
+  transform: translate(-50%, 50%) rotate(180deg) !important;
+}
+
+/* === KSP WEDDINGS FILIGREE POSITION TUNING END === */
+
+
+/* ==========================================================
+   KSP WEDDINGS — FILIGREE FINAL MICRO POSITION
+   Position only.
+   Bottom ornament intentionally untouched.
+   ========================================================== */
+
+/* Small flourish: 2px lower */
+html body .weddingPage #weddingStoriesFinal
+.weddingSectionHead h2::after {
+  bottom: -22px !important;
+}
+
+/* Large TOP reel flourish: 4px higher so it meets,
+   but does not intrude into, the video */
+html body .weddingPage #weddingStoriesFinal
+.weddingReelTribalTop {
+  top: 44px !important;
+}
+
+/* === FILIGREE FINAL MICRO POSITION END === */
+
+
+/* ==========================================================
+   KSP WEDDINGS — FILIGREE COMPOSITION POLISH
+   Small title ornament + TOP reel ornament only.
+   Bottom reel ornament is LOCKED / untouched.
+   ========================================================== */
+
+/* Small title flourish: 2px lower */
+html body .weddingPage #weddingStoriesFinal
+.weddingSectionHead h2::after {
+  bottom: -24px !important;
+}
+
+/*
+   TOP reel ornament:
+   - KEEP the long luxurious width
+   - flatten vertically so it reads as an engraved border
+   - stop it intruding into the film
+   - no section spacing added
+*/
+html body .weddingPage #weddingStoriesFinal
+.weddingReelTribalTop {
+  top: 44px !important;
+  transform: translate(-50%, -50%) scaleY(.82) !important;
+  transform-origin: center center !important;
+}
+
+/* === KSP WEDDINGS FILIGREE COMPOSITION POLISH END === */
+
+
+/* ==========================================================
+   KSP WEDDINGS — GENERATED ORNAMENT ARTWORK
+   LIGHT / IVORY ONLY.
+   Replaces handmade CSS/SVG ornament visuals with transparent
+   generated artwork. Existing geometry remains untouched.
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   SMALL ORNAMENT — beneath WEDDING STORIES
+   ---------------------------------------------------------- */
+
+html body .weddingPage:where([data-wedding-theme="ivory"])
+#weddingStoriesFinal .weddingSectionHead h2::after {
+  content: "" !important;
+
+  width: 190px !important;
+  height: 30px !important;
+
+  background:
+    url("/weddings/ksp-wedding-title-ornament.png")
+    center center / contain no-repeat !important;
+
+  border: 0 !important;
+  box-shadow: none !important;
+
+  /* engraved, understated instead of shiny */
+  opacity: .64 !important;
+  filter:
+    saturate(.68)
+    contrast(.92)
+    brightness(.96) !important;
+
+  /* retain the placement we just approved */
+  bottom: -24px !important;
+}
+
+
+/* ----------------------------------------------------------
+   LARGE ORNAMENT — TOP EDGE OF WEDDING REEL
+   Keep current position. Replace artwork only.
+   ---------------------------------------------------------- */
+
+html body .weddingPage:where([data-wedding-theme="ivory"])
+#weddingStoriesFinal .weddingReelTribalTop {
+  background:
+    url("/weddings/ksp-wedding-reel-top.png")
+    center center / contain no-repeat !important;
+
+  opacity: .68 !important;
+
+  filter:
+    saturate(.66)
+    contrast(.92)
+    brightness(.96) !important;
+
+  /* preserve current successful positioning */
+  top: 44px !important;
+
+  /* remove the old vertical squash because the PNG
+     already has the correct designed proportions */
+  transform: translate(-50%, -50%) !important;
+}
+
+
+/* Hide old handmade artwork INSIDE the top holder */
+html body .weddingPage:where([data-wedding-theme="ivory"])
+#weddingStoriesFinal .weddingReelTribalTop svg,
+html body .weddingPage:where([data-wedding-theme="ivory"])
+#weddingStoriesFinal .weddingReelTribalTop > * {
+  visibility: hidden !important;
+}
+
+
+/* ----------------------------------------------------------
+   LARGE ORNAMENT — BOTTOM EDGE OF WEDDING REEL
+   POSITION IS LOCKED. VISUAL REPLACEMENT ONLY.
+   ---------------------------------------------------------- */
+
+html body .weddingPage:where([data-wedding-theme="ivory"])
+#weddingStoriesFinal .weddingReelTribalBottom {
+  background:
+    url("/weddings/ksp-wedding-reel-bottom.png")
+    center center / contain no-repeat !important;
+
+  opacity: .68 !important;
+
+  filter:
+    saturate(.66)
+    contrast(.92)
+    brightness(.96) !important;
+
+  /* DO NOT change approved bottom position */
+  bottom: 52px !important;
+
+  transform: translate(-50%, 50%) !important;
+}
+
+
+/* Hide old handmade artwork INSIDE the bottom holder */
+html body .weddingPage:where([data-wedding-theme="ivory"])
+#weddingStoriesFinal .weddingReelTribalBottom svg,
+html body .weddingPage:where([data-wedding-theme="ivory"])
+#weddingStoriesFinal .weddingReelTribalBottom > * {
+  visibility: hidden !important;
+}
+
+/* === GENERATED ORNAMENT ARTWORK END === */
+
+
+/* ==========================================================
+   KSP WEDDINGS — ORNAMENT FINAL THEME POLISH
+   DARK = original approved design, ZERO ornaments.
+   IVORY = generated engraved ornament artwork only.
+   No reel geometry / spacing changes.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   DARK MODE — ABSOLUTELY NO ORNAMENTATION
+   Restore the clean approved dark Wedding presentation.
+   ---------------------------------------------------------- */
+
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingSectionHead h2::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingReelTribalTop,
+
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingReelTribalBottom {
+  display: none !important;
+}
+
+
+/* ----------------------------------------------------------
+   IVORY — SMALL EDITORIAL ORNAMENT
+   Beneath WEDDING STORIES.
+   ---------------------------------------------------------- */
+
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingSectionHead h2::after {
+  content: "" !important;
+  display: block !important;
+
+  width: 175px !important;
+  height: 30px !important;
+
+  background:
+    url("/weddings/ksp-wedding-title-ornament.png")
+    center / contain no-repeat !important;
+
+  border: 0 !important;
+  box-shadow: none !important;
+
+  opacity: .70 !important;
+  filter:
+    saturate(.82)
+    contrast(1.04)
+    brightness(.96) !important;
+
+  bottom: -24px !important;
+}
+
+
+/* ----------------------------------------------------------
+   IVORY — TOP REEL ENGRAVED BORDER
+   Make generated artwork span almost the complete reel width.
+   ---------------------------------------------------------- */
+
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalTop {
+  display: block !important;
+
+  left: 50% !important;
+
+  width: min(calc(100% - 60px), 1180px) !important;
+  height: clamp(72px, 8.5vw, 100px) !important;
+
+  background:
+    url("/weddings/ksp-wedding-reel-top.png")
+    center / 100% auto no-repeat !important;
+
+  opacity: .72 !important;
+
+  filter:
+    saturate(.82)
+    contrast(1.04)
+    brightness(.96) !important;
+
+  /* preserve the approved vertical placement */
+  top: 44px !important;
+  transform: translate(-50%, -50%) !important;
+
+  pointer-events: none !important;
+}
+
+
+/* The generated PNG replaces the old handmade SVG completely. */
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalTop svg,
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalTop > * {
+  display: none !important;
+}
+
+
+/* ----------------------------------------------------------
+   IVORY — BOTTOM REEL ENGRAVED BORDER
+   Same visual language and width.
+   Keep the previously approved vertical location.
+   ---------------------------------------------------------- */
+
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalBottom {
+  display: block !important;
+
+  left: 50% !important;
+
+  width: min(calc(100% - 60px), 1180px) !important;
+  height: clamp(72px, 8.5vw, 100px) !important;
+
+  background:
+    url("/weddings/ksp-wedding-reel-bottom.png")
+    center / 100% auto no-repeat !important;
+
+  opacity: .72 !important;
+
+  filter:
+    saturate(.82)
+    contrast(1.04)
+    brightness(.96) !important;
+
+  /* LOCKED approved bottom placement */
+  bottom: 52px !important;
+  transform: translate(-50%, 50%) !important;
+
+  pointer-events: none !important;
+}
+
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalBottom svg,
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalBottom > * {
+  display: none !important;
+}
+
+
+/* Responsive: retain the framing without touching the screen edges. */
+@media (max-width: 800px) {
+  html body .weddingPage[data-wedding-theme="ivory"]
+  #weddingStoriesFinal .weddingReelTribalTop,
+
+  html body .weddingPage[data-wedding-theme="ivory"]
+  #weddingStoriesFinal .weddingReelTribalBottom {
+    width: calc(100% - 28px) !important;
+    height: 72px !important;
+  }
+}
+
+/* === KSP WEDDINGS ORNAMENT FINAL THEME POLISH END === */
+
+/* === KSP WEDDINGS SLEEP SAFE FINAL START === */
+
+/*
+   FINAL SAFE ORNAMENT COMPOSITION
+
+   DARK:
+   - original approved dark design
+   - absolutely no ornaments
+
+   IVORY:
+   - generated PNG artwork
+   - NO z-index experiment
+   - NO clipping experiment
+   - NO video/gradient/metadata changes
+   - bottom ornament keeps approved position
+*/
+
+
+/* ------------------------------------------
+   DARK MODE — LOCKED / ZERO ORNAMENTS
+   ------------------------------------------ */
+
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingSectionHead h2::after,
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingReelTribalTop,
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingReelTribalBottom {
+  display: none !important;
+}
+
+
+/* ------------------------------------------
+   IVORY — SMALL TITLE ORNAMENT
+
+   Make it a subtle typographic separator,
+   not a third giant decorative element.
+   ------------------------------------------ */
+
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingSectionHead h2::after {
+  content: "" !important;
+  display: block !important;
+
+  width: 118px !important;
+  height: 18px !important;
+
+  background:
+    url("/weddings/ksp-wedding-title-ornament.png")
+    center / contain no-repeat !important;
+
+  bottom: -16px !important;
+
+  opacity: .48 !important;
+
+  filter:
+    saturate(.62)
+    contrast(.94)
+    brightness(.98) !important;
+
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+
+/* ------------------------------------------
+   IVORY — TOP REEL ORNAMENT
+
+   Same almost-perfect generated artwork.
+   Only move it FOUR PIXELS upward so it
+   meets the film instead of entering it.
+   ------------------------------------------ */
+
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalTop {
+  display: block !important;
+
+  left: 50% !important;
+
+  width: min(calc(100% - 60px), 1180px) !important;
+  height: clamp(72px, 8.5vw, 100px) !important;
+
+  background:
+    url("/weddings/ksp-wedding-reel-top.png")
+    center / 100% auto no-repeat !important;
+
+  top: 40px !important;
+  transform: translate(-50%, -50%) !important;
+
+  opacity: .64 !important;
+
+  filter:
+    saturate(.72)
+    contrast(.98)
+    brightness(.97) !important;
+
+  clip-path: none !important;
+  pointer-events: none !important;
+}
+
+
+/* ------------------------------------------
+   IVORY — BOTTOM REEL ORNAMENT
+
+   LOCKED because this was already approved.
+   ------------------------------------------ */
+
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalBottom {
+  display: block !important;
+
+  left: 50% !important;
+
+  width: min(calc(100% - 60px), 1180px) !important;
+  height: clamp(72px, 8.5vw, 100px) !important;
+
+  background:
+    url("/weddings/ksp-wedding-reel-bottom.png")
+    center / 100% auto no-repeat !important;
+
+  bottom: 52px !important;
+  transform: translate(-50%, 50%) !important;
+
+  opacity: .64 !important;
+
+  filter:
+    saturate(.72)
+    contrast(.98)
+    brightness(.97) !important;
+
+  clip-path: none !important;
+  pointer-events: none !important;
+}
+
+
+/* Kill handmade artwork inside the holders.
+   Generated PNG backgrounds remain visible. */
+
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalTop > *,
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalBottom > * {
+  display: none !important;
+}
+
+
+/* Responsive generated ornament width only. */
+
+@media (max-width: 800px) {
+  html body .weddingPage[data-wedding-theme="ivory"]
+  #weddingStoriesFinal .weddingReelTribalTop,
+  html body .weddingPage[data-wedding-theme="ivory"]
+  #weddingStoriesFinal .weddingReelTribalBottom {
+    width: calc(100% - 28px) !important;
+    height: 72px !important;
+  }
+}
+
+/* === KSP WEDDINGS SLEEP SAFE FINAL END === */
+
+/* === KSP WEDDINGS IVORY ORNAMENT NATURAL PROPORTIONS START === */
+
+/*
+   NO SQUEEZING.
+   Natural artwork proportions only.
+
+   TOP = smaller ornament fitting existing deadspace.
+   BOTTOM = larger ornament entirely BELOW moving video.
+   DARK = untouched / no ornaments.
+*/
+
+
+/* DARK LOCKED */
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingSectionHead h2::after,
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingReelTribalTop,
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingReelTribalBottom {
+  display: none !important;
+}
+
+
+/* TOP LARGE ORNAMENT
+   Natural ~12:1 proportions.
+   Fits only inside the existing space below the quote. */
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalTop {
+  display: block !important;
+
+  left: 50% !important;
+  top: 4px !important;
+
+  width: min(500px, calc(100% - 120px)) !important;
+  height: 42px !important;
+
+  background:
+    url("/weddings/ksp-wedding-reel-top.png")
+    center / contain no-repeat !important;
+
+  transform: translateX(-50%) !important;
+  transform-origin: center center !important;
+
+  opacity: .62 !important;
+  clip-path: none !important;
+  pointer-events: none !important;
+}
+
+
+/* BOTTOM ORNAMENT
+   Natural proportions.
+   Lives completely in the ivory strip UNDER the video. */
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalBottom {
+  display: block !important;
+
+  left: 50% !important;
+  bottom: 0 !important;
+
+  width: min(calc(100% - 60px), 960px) !important;
+  height: 81px !important;
+
+  background:
+    url("/weddings/ksp-wedding-reel-bottom.png")
+    center / contain no-repeat !important;
+
+  transform: translateX(-50%) !important;
+  transform-origin: center center !important;
+
+  opacity: .64 !important;
+  clip-path: none !important;
+  pointer-events: none !important;
+}
+
+
+/* Generated PNGs only */
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalTop > *,
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalBottom > * {
+  display: none !important;
+}
+
+/* === KSP WEDDINGS IVORY ORNAMENT NATURAL PROPORTIONS END === */
+
+/* === KSP WEDDINGS ORNAMENT FINAL POSITION NUDGE === */
+
+/* 1. Small ornament under WEDDING STORIES: 3px DOWN */
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingSectionHead h2::after {
+  bottom: -17px !important;
+}
+
+/* 2. Long ornament between quote + video: 6px DOWN */
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalTop {
+  top: 10px !important;
+}
+
+/* Bottom ornament intentionally untouched. */
+/* Dark mode intentionally untouched. */
+
+/* === END FINAL POSITION NUDGE === */
+
+
+/* === KSP WEDDINGS ORNAMENT POSITION NUDGE 2 === */
+
+/* Small ornament: further DOWN */
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingSectionHead h2::after {
+  bottom: -21px !important;
+}
+
+/* Long top ornament: further DOWN */
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalTop {
+  top: 18px !important;
+}
+
+/* Bottom ornament untouched. */
+/* Dark mode untouched. */
+
+/* === END ORNAMENT POSITION NUDGE 2 === */
+
+
+/* === KSP WEDDINGS TOP ORNAMENT FINAL MICRO NUDGE === */
+
+/* Long ornament only: 3px further DOWN */
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalTop {
+  top: 21px !important;
+}
+
+/* Small ornament locked. */
+/* Bottom ornament locked. */
+/* Dark mode untouched. */
+
+/* === END TOP ORNAMENT FINAL MICRO NUDGE === */
+
+
+/* === KSP WEDDINGS BOTTOM ORNAMENT FINAL SCALE === */
+
+/* Bottom ornament only: slightly smaller, same position */
+html body .weddingPage[data-wedding-theme="ivory"]
+#weddingStoriesFinal .weddingReelTribalBottom {
+  width: min(calc(100% - 60px), 900px) !important;
+  height: 76px !important;
+}
+
+/* Position untouched. */
+/* Top ornaments untouched. */
+/* Dark mode untouched. */
+
+/* === END BOTTOM ORNAMENT FINAL SCALE === */

@@ -131,7 +131,7 @@ export default function Home() {
           </a>
           <a className="homeBranch homeBranchBrand" href="/brand-documentary">
             <div className="homeBranchMedia" aria-hidden="true">
-              <BranchVideo src="/corneille-web.mp4" />
+              <BranchVideo src="/amplify-season-1-advance-toronto-web.mp4" />
             </div>
             <span className="homeBranchNumber">03</span>
             <div>
