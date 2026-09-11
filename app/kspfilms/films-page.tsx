@@ -275,11 +275,32 @@ export default function FilmsPage() {
   const copy = (en: string, french: string) => fr ? french : en;
   const [query, setQuery] = useState("");
   const [year, setYear] = useState("");
-  const [limit, setLimit] = useState(70);
+  const [limit, setLimit] = useState(100);
   const filtered = filterArchive(groups.archive, query, year);
   const active = Boolean(query.trim() || year);
   const shown = (active ? filtered : filtered.slice(0, limit)).map(asCard);
+  const archivePreview = (
+    !active && limit < filtered.length
+      ? filtered.slice(limit, Math.min(limit + 5, filtered.length)).map(asCard)
+      : []
+  );
   const years = [...new Set(groups.archive.map(v => v.publishedAt.slice(0, 4)))];
+
+  const historyYearStats = years.map((historicYear) => ({
+    year: historicYear,
+    count: groups.archive.filter(
+      (video) => video.publishedAt.slice(0, 4) === historicYear
+    ).length,
+  }));
+
+  const earliestArchiveYear = [...historyYearStats]
+    .sort((a, b) => a.year.localeCompare(b.year))[0];
+
+  const latestArchiveYear = [...historyYearStats]
+    .sort((a, b) => b.year.localeCompare(a.year))[0];
+
+  const busiestArchiveYear = [...historyYearStats]
+    .sort((a, b) => b.count - a.count)[0];
   const showArtistInArchive = (artist: string) => {
     setQuery(artist);
     setYear("");
@@ -325,9 +346,9 @@ export default function FilmsPage() {
           </p>
 
           <h1>
-            {copy("A DECADE", "UNE DÉCENNIE")}
+            {copy("MUSIC, MADE", "LA MUSIQUE,")}
             <br />
-            {copy("IN MUSIC.", "EN MUSIQUE.")}
+            {copy("VISUAL.", "EN IMAGES.")}
           </h1>
 
           <p className="mv-intro">
@@ -349,6 +370,99 @@ export default function FilmsPage() {
         </div>
       </section>
 
+
+
+      <section className="mv-history-archive">
+        <div className="mv-history-topline">
+          <p className="mv-history-kicker">
+            {copy("THE ARCHIVE", "LES ARCHIVES")}
+          </p>
+
+          <nav className="mv-history-nav" aria-label={copy("Archive navigation", "Navigation des archives")}>
+            <a href="#history-journey">
+              {copy("TIMELINE", "CHRONOLOGIE")}
+            </a>
+            <a href="#archive">
+              {copy("FULL INDEX", "INDEX COMPLET")}
+            </a>
+          </nav>
+        </div>
+
+        <div className="mv-history-intro-row">
+          <div className="mv-history-intro-copy">
+            <h2>
+              {copy(
+                "MORE THAN A DECADE IN MOTION.",
+                "PLUS D’UNE DÉCENNIE EN MOUVEMENT."
+              )}
+            </h2>
+
+            <p>
+              {copy(
+                "Music videos, artists and eras documented through KSP.",
+                "Vidéoclips, artistes et époques documentés par KSP."
+              )}
+            </p>
+          </div>
+
+          <div className="mv-history-stats">
+            <div>
+              <strong>{groups.archive.length}</strong>
+              <span>{copy("FILMS", "CLIPS")}</span>
+            </div>
+
+            <div>
+              <strong>{years.length}</strong>
+              <span>{copy("YEARS", "ANNÉES")}</span>
+            </div>
+
+            <div>
+              <strong>{artists.length}</strong>
+              <span>{copy("ARTISTS", "ARTISTES")}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mv-history-timeline">
+          <div className="mv-history-years">
+            {[...historyYearStats]
+              .sort((a, b) => a.year.localeCompare(b.year))
+              .map((item) => {
+                const edgeClass =
+                  item.year === earliestArchiveYear.year
+                    ? "is-start"
+                    : item.year === latestArchiveYear.year
+                      ? "is-end"
+                      : "";
+
+                return (
+                  <button
+                    type="button"
+                    key={`history-${item.year}`}
+                    className={`mv-history-year ${edgeClass}`}
+                    onClick={() => {
+                      setQuery("");
+                      setYear(item.year);
+                      setLimit(100);
+
+                      requestAnimationFrame(() => {
+                        document.getElementById("archive")?.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      });
+                    }}
+                  >
+                    <span>{item.year}</span>
+                    <small>
+                      {item.count} {copy("films", "clips")}
+                    </small>
+                  </button>
+                );
+              })}
+          </div>
+        </div>
+      </section>
 
       <Row
         eyebrow={copy("LATEST WORK", "LES DERNIÈRES SORTIES")}
@@ -394,7 +508,97 @@ export default function FilmsPage() {
         </ScrollRail>
       </section>
 
-      <div className="mv-timeline-label"><Localized en="BACK THROUGH THE YEARS" fr="AU FIL DES ANNÉES" /> ↓</div>
+      <section className="mv-present-day">
+        <div className="mv-present-day-label">
+          <span>{copy("PRESENT DAY", "AUJOURD’HUI")}</span>
+          <strong>2025–2026</strong>
+        </div>
+
+        <div className="mv-present-day-meta">
+          <span>
+            {groups.archive.filter(
+              (video) => Number(video.publishedAt.slice(0, 4)) >= 2025
+            ).length}
+            {" "}
+            {copy("films in the current period", "clips dans la période actuelle")}
+          </span>
+
+          <small>
+            {copy(
+              "THE STORY CONTINUES",
+              "L’HISTOIRE CONTINUE"
+            )}
+          </small>
+        </div>
+      </section>
+
+      <section className="mv-history-gateway" id="history-journey">
+        <div className="mv-history-gateway-copy">
+          <p>{copy("THE ARCHIVE", "LES ARCHIVES")}</p>
+
+          <h2>
+            <Localized
+              en="BACK THROUGH THE YEARS"
+              fr="AU FIL DES ANNÉES"
+            />
+          </h2>
+
+          <span>
+            {copy(
+              "Start with the present, then move backward through the catalogue.",
+              "On part du présent, puis on remonte le catalogue."
+            )}
+          </span>
+        </div>
+
+        <div className="mv-history-signals">
+          <div>
+            <small>{copy("FIRST YEAR", "PREMIÈRE ANNÉE")}</small>
+            <strong>{earliestArchiveYear.year}</strong>
+          </div>
+
+          <div>
+            <small>{copy("BUSIEST YEAR", "ANNÉE LA PLUS ACTIVE")}</small>
+            <strong>{busiestArchiveYear.year}</strong>
+            <span>{busiestArchiveYear.count} {copy("films", "clips")}</span>
+          </div>
+
+          <div>
+            <small>{copy("CURRENT EDGE", "JUSQU’À")}</small>
+            <strong>{latestArchiveYear.year}</strong>
+          </div>
+        </div>
+      </section>
+      <section className="mv-era-marker mv-era-marker-modern">
+        <div>
+          <span>{copy("CHAPTER 01", "CHAPITRE 01")}</span>
+          <strong>2020–2024</strong>
+        </div>
+
+        <p>
+          {groups.archive.filter((video) => {
+            const chapterYear = Number(video.publishedAt.slice(0, 4));
+            return chapterYear >= 2020 && chapterYear <= 2024 && video.youtubeId !== "gFhVhJHWgKA";
+          }).length}
+          {" "}
+          {copy("films in this chapter", "clips dans ce chapitre")}
+        </p>
+
+        <div className="mv-era-milestone">
+          <small>{copy("ARCHIVE MILESTONE", "REPÈRE D’ARCHIVE")}</small>
+
+          <strong>{busiestArchiveYear.year}</strong>
+
+          <span>
+            {busiestArchiveYear.count}{" "}
+            {copy(
+              "films · busiest year represented",
+              "clips · année la plus active représentée"
+            )}
+          </span>
+        </div>
+      </section>
+
       <Row
         eyebrow="2020 — 2024"
         title={copy("MODERN ERA", "ÈRE MODERNE")}
@@ -405,14 +609,60 @@ export default function FilmsPage() {
           })
           .map(asCard)}
       />
+      <section className="mv-era-marker mv-era-marker-early">
+        <div>
+          <span>{copy("CHAPTER 02", "CHAPITRE 02")}</span>
+          <strong>2014–2019</strong>
+        </div>
+
+        <p>
+          {groups.archive.filter(
+            (video) => Number(video.publishedAt.slice(0, 4)) <= 2019
+          ).length}
+          {" "}
+          {copy("films in this chapter", "clips dans ce chapitre")}
+        </p>
+
+        <div className="mv-era-milestone mv-era-origin">
+          <small>{copy("ARCHIVE ORIGIN", "ORIGINE DES ARCHIVES")}</small>
+
+          <strong>{earliestArchiveYear.year}</strong>
+
+          <span>
+            {copy(
+              "earliest year currently represented",
+              "première année actuellement représentée"
+            )}
+          </span>
+        </div>
+      </section>
+
       <Row
-        eyebrow={copy("2019 & EARLIER", "2019 ET AVANT")}
+        eyebrow="2014 – 2019"
         title={copy("EARLY CATALOGUE", "PREMIER CATALOGUE")}
         items={groups.archive
           .filter((v) => Number(v.publishedAt.slice(0, 4)) <= 2019)
           .map(asCard)}
       />
 
+
+      <section className="mv-people-history">
+        <p>{copy("PEOPLE ACROSS THE YEARS", "LES VISAGES À TRAVERS LES ANNÉES")}</p>
+
+        <div>
+          <h2>
+            {copy("ARTISTS / COLLABORATORS", "ARTISTES / COLLABORATIONS")}
+          </h2>
+
+          <span>
+            {artists.length}{" "}
+            {copy(
+              "names across the KSP Films archive",
+              "noms à travers les archives KSP Films"
+            )}
+          </span>
+        </div>
+      </section>
 
       <section className="mv-artists-feature mv-collabs">
         <p><span className="mv-artists-feature-label"><Localized en="ARTISTS / COLLABORATORS" fr="ARTISTES / COLLABORATIONS" /></span></p>
@@ -426,12 +676,15 @@ export default function FilmsPage() {
 
       <section id="archive" className="mv-library">
         <div className="mv-library-head">
-          <p className="mv-library-kicker mv-gold"><Localized en="THE LIBRARY" fr="LA COLLECTION" /></p>
+          <p className="mv-library-kicker mv-gold"><Localized en="THE COMPLETE INDEX" fr="L’INDEX COMPLET" /></p>
 
           <h2 className="mv-catalogue-section-title"><Localized en="ARCHIVE." fr="ARCHIVES." /></h2>
 
           <p>
-            <Localized en="The complete filmography. Newest to earliest." fr="La filmographie complète. Des plus récents aux premiers films." />
+            <Localized
+              en="The complete filmography. Search by artist or move year by year."
+              fr="La filmographie complète. Recherchez par artiste ou parcourez les années."
+            />
           </p>
         </div>
 
@@ -468,7 +721,7 @@ export default function FilmsPage() {
               onClick={() => {
                 setQuery("");
                 setYear("");
-                setLimit(70);
+                setLimit(100);
               }}
             >
               {copy("CLEAR", "RÉINITIALISER")}
@@ -487,7 +740,7 @@ export default function FilmsPage() {
               className={!year ? "is-active" : ""}
               onClick={() => {
                 setYear("");
-                setLimit(70);
+                setLimit(100);
               }}
             >
               {copy("ALL", "TOUS")}
@@ -500,7 +753,7 @@ export default function FilmsPage() {
                 className={year === y ? "is-active" : ""}
                 onClick={() => {
                   setYear(y);
-                  setLimit(70);
+                  setLimit(100);
                 }}
               >
                 {y}
@@ -511,11 +764,41 @@ export default function FilmsPage() {
 
         <p className="mv-result-count" role="status">{filtered.length} {filtered.length === 1 ? copy("video", "clip") : copy("videos", "clips")}{filtered.length === 0 && ` — ${copy("No matching videos.", "Aucun clip ne correspond à votre recherche.")}`}</p>
         <div className="mv-grid mv-archive-grid">
-          {shown.map((video) => (
+          {shown.map((video: Parameters<typeof Card>[0]["video"]) => (
             <Card key={`grid-${video[0]}`} video={video} />
           ))}
         </div>
-        {!active && limit < filtered.length && <button type="button" className="mv-expand" onClick={() => setLimit(n => n + 50)}>{copy("EXPLORE FULL ARCHIVE", "EXPLORER TOUTES LES ARCHIVES")} + <span>{shown.length} / {filtered.length}</span></button>}
+
+        {!active && limit < filtered.length && (
+          <div className="mv-archive-reveal">
+            <div
+              className="mv-grid mv-archive-grid mv-archive-preview-grid"
+              aria-hidden="true"
+            >
+              {archivePreview.map((video: Parameters<typeof Card>[0]["video"]) => (
+                <Card key={`preview-${video[0]}`} video={video} />
+              ))}
+            </div>
+
+            <div
+              className="mv-archive-reveal-fade"
+              aria-hidden="true"
+            />
+
+            <button
+              type="button"
+              className="mv-expand"
+              onClick={() =>
+                setLimit(n => Math.min(n + 50, filtered.length))
+              }
+            >
+              {copy(
+                "EXPLORE FULL ARCHIVE",
+                "EXPLORER TOUTES LES ARCHIVES"
+              )} + <span>{shown.length} / {filtered.length}</span>
+            </button>
+          </div>
+        )}
       </section>
 
     {/* KSP_FILMS_BOTTOM_CTA */}

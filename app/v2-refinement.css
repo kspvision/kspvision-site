@@ -5286,3 +5286,1863 @@ html body .weddingPage[data-wedding-theme="ivory"]
 .mv-page .mv-archive-tools select option {
   text-transform: uppercase !important;
 }
+
+
+/* ============================================================
+   KSP FILMS — HISTORICAL DIRECTION V2
+   The page behaves like a timeline, not a museum billboard.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   COMPACT ARCHIVE INTRO
+   ------------------------------------------------------------ */
+
+.mv-page .mv-history-archive {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  padding:
+    clamp(26px, 3.1vw, 44px)
+    var(--mv-gutter)
+    clamp(24px, 2.8vw, 38px);
+
+  background: rgba(3, 3, 3, .72);
+
+  -webkit-backdrop-filter: blur(12px) saturate(.82);
+  backdrop-filter: blur(12px) saturate(.82);
+
+  border-top: 1px solid rgba(214,173,69,.34);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+
+.mv-page .mv-history-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-bottom: clamp(17px, 2vw, 28px);
+}
+
+
+.mv-page .mv-history-kicker {
+  margin: 0;
+
+  color: #d6ad45;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+
+.mv-page .mv-history-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+
+.mv-page .mv-history-nav a {
+  color: rgba(255,255,255,.5);
+
+  font-size: 8px;
+  font-weight: 750;
+
+  letter-spacing: .14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+
+.mv-page .mv-history-nav a:hover {
+  color: #d6ad45;
+}
+
+
+/* ------------------------------------------------------------
+   TITLE + THIN STATS
+   ------------------------------------------------------------ */
+
+.mv-page .mv-history-intro-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+
+  gap: clamp(24px, 4vw, 72px);
+}
+
+
+.mv-page .mv-history-intro-copy h2 {
+  max-width: 720px;
+
+  margin: 0;
+
+  color: #f4f1ea;
+
+  font-size: clamp(1.9rem, 4vw, 4.4rem);
+  font-weight: 900;
+
+  letter-spacing: -.055em;
+  line-height: .9;
+}
+
+
+.mv-page .mv-history-intro-copy p {
+  margin: 13px 0 0;
+
+  color: rgba(255,255,255,.53);
+
+  font-size: clamp(11px, .92vw, 15px);
+  line-height: 1.45;
+}
+
+
+.mv-page .mv-history-stats {
+  display: flex;
+  align-items: stretch;
+
+  border-top: 1px solid rgba(255,255,255,.13);
+  border-bottom: 1px solid rgba(255,255,255,.13);
+}
+
+
+.mv-page .mv-history-stats > div {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+
+  padding: 12px 18px;
+
+  border-right: 1px solid rgba(255,255,255,.1);
+}
+
+
+.mv-page .mv-history-stats > div:last-child {
+  border-right: 0;
+}
+
+
+.mv-page .mv-history-stats strong {
+  color: #f4f1ea;
+
+  font-size: clamp(1.35rem, 2.4vw, 2.8rem);
+  font-weight: 900;
+
+  letter-spacing: -.045em;
+  line-height: 1;
+}
+
+
+.mv-page .mv-history-stats span {
+  color: rgba(255,255,255,.34);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+
+/* ------------------------------------------------------------
+   THE TIMELINE IS NOW THE MAIN VISUAL
+   ------------------------------------------------------------ */
+
+.mv-page .mv-history-timeline {
+  margin-top: clamp(22px, 3vw, 36px);
+}
+
+
+.mv-page .mv-history-years {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(13, minmax(0, 1fr));
+
+  align-items: start;
+
+  min-height: 76px;
+}
+
+
+.mv-page .mv-history-years::before {
+  content: "";
+
+  position: absolute;
+
+  top: 13px;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #d6ad45 0%,
+      rgba(255,255,255,.22) 11%,
+      rgba(255,255,255,.22) 89%,
+      #d6ad45 100%
+    );
+}
+
+
+.mv-page .mv-history-year {
+  position: relative;
+  z-index: 1;
+
+  appearance: none;
+
+  min-width: 0;
+
+  padding: 27px 2px 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: rgba(255,255,255,.58);
+
+  font: inherit;
+
+  cursor: pointer;
+}
+
+
+.mv-page .mv-history-year::before {
+  content: "";
+
+  position: absolute;
+
+  top: 9px;
+  left: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  border: 1px solid rgba(255,255,255,.48);
+  border-radius: 50%;
+
+  background: #090909;
+
+  transform: translateX(-50%);
+
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    transform 150ms ease;
+}
+
+
+.mv-page .mv-history-year span,
+.mv-page .mv-history-year small {
+  display: block;
+}
+
+
+.mv-page .mv-history-year span {
+  font-size: clamp(9px, .78vw, 13px);
+  font-weight: 800;
+}
+
+
+.mv-page .mv-history-year small {
+  margin-top: 4px;
+
+  color: rgba(255,255,255,.25);
+
+  font-size: 6.5px;
+  font-weight: 700;
+
+  letter-spacing: .04em;
+}
+
+
+/* 2014 / 2026 become the end titles of the line */
+.mv-page .mv-history-year.is-start {
+  text-align: left;
+}
+
+
+.mv-page .mv-history-year.is-end {
+  text-align: right;
+}
+
+
+.mv-page .mv-history-year.is-start::before {
+  left: 0;
+  transform: none;
+}
+
+
+.mv-page .mv-history-year.is-end::before {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+
+.mv-page .mv-history-year.is-start span,
+.mv-page .mv-history-year.is-end span {
+  margin-top: -12px;
+
+  color: #f4f1ea;
+
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  font-weight: 900;
+
+  letter-spacing: -.06em;
+  line-height: .9;
+}
+
+
+.mv-page .mv-history-year:hover,
+.mv-page .mv-history-year:focus-visible {
+  color: #d6ad45;
+}
+
+
+.mv-page .mv-history-year:hover::before,
+.mv-page .mv-history-year:focus-visible::before {
+  background: #d6ad45;
+  border-color: #d6ad45;
+
+  transform:
+    translateX(-50%)
+    scale(1.45);
+}
+
+
+.mv-page .mv-history-year.is-start:hover::before,
+.mv-page .mv-history-year.is-end:hover::before {
+  transform: scale(1.45);
+}
+
+
+/* ------------------------------------------------------------
+   HISTORY GATEWAY
+   ------------------------------------------------------------ */
+
+.mv-page .mv-history-gateway {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(340px, .8fr);
+  align-items: end;
+
+  gap: clamp(28px, 5vw, 80px);
+
+  padding:
+    clamp(28px, 3.5vw, 48px)
+    var(--mv-gutter);
+
+  background: rgba(0,0,0,.3);
+
+  border-top: 1px solid rgba(214,173,69,.32);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+
+.mv-page .mv-history-gateway-copy > p {
+  margin: 0 0 7px;
+
+  color: #d6ad45;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+
+.mv-page .mv-history-gateway-copy h2 {
+  margin: 0;
+
+  color: #f4f1ea;
+
+  font-size: clamp(2rem, 4.7vw, 5.4rem);
+  font-weight: 900;
+
+  letter-spacing: -.055em;
+  line-height: .88;
+}
+
+
+.mv-page .mv-history-gateway-copy > span {
+  display: block;
+
+  max-width: 620px;
+
+  margin-top: 12px;
+
+  color: rgba(255,255,255,.43);
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+
+/* real catalogue signals */
+.mv-page .mv-history-signals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+
+  border-top: 1px solid rgba(255,255,255,.14);
+  border-bottom: 1px solid rgba(255,255,255,.14);
+}
+
+
+.mv-page .mv-history-signals > div {
+  padding: 13px 12px;
+
+  border-right: 1px solid rgba(255,255,255,.1);
+}
+
+
+.mv-page .mv-history-signals > div:last-child {
+  border-right: 0;
+}
+
+
+.mv-page .mv-history-signals small,
+.mv-page .mv-history-signals strong,
+.mv-page .mv-history-signals span {
+  display: block;
+}
+
+
+.mv-page .mv-history-signals small {
+  min-height: 20px;
+
+  color: rgba(255,255,255,.3);
+
+  font-size: 6.5px;
+  font-weight: 800;
+
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+
+.mv-page .mv-history-signals strong {
+  margin-top: 6px;
+
+  color: #f4f1ea;
+
+  font-size: clamp(1.4rem, 2.6vw, 2.8rem);
+  font-weight: 900;
+
+  line-height: 1;
+}
+
+
+.mv-page .mv-history-signals span {
+  margin-top: 4px;
+
+  color: #d6ad45;
+
+  font-size: 7px;
+  font-weight: 700;
+}
+
+
+/* ------------------------------------------------------------
+   ERA CHAPTER MARKERS
+   These barely add height. The year becomes atmosphere.
+   ------------------------------------------------------------ */
+
+.mv-page .mv-era-marker {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  min-height: 78px;
+
+  padding:
+    13px
+    var(--mv-gutter);
+
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+
+.mv-page .mv-era-marker > div {
+  position: relative;
+  z-index: 2;
+}
+
+
+.mv-page .mv-era-marker > div > span {
+  color: #d6ad45;
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+
+.mv-page .mv-era-marker strong {
+  position: absolute;
+
+  right: var(--mv-gutter);
+  bottom: -13px;
+
+  color: rgba(255,255,255,.075);
+
+  font-size: clamp(3.8rem, 8.5vw, 9.5rem);
+  font-weight: 900;
+
+  letter-spacing: -.07em;
+  line-height: .8;
+
+  pointer-events: none;
+}
+
+
+.mv-page .mv-era-marker > p {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  color: rgba(255,255,255,.36);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+}
+
+
+.mv-page .mv-era-marker-modern {
+  background: rgba(255,255,255,.018);
+}
+
+
+.mv-page .mv-era-marker-early {
+  background: rgba(214,173,69,.018);
+}
+
+
+/* ------------------------------------------------------------
+   PEOPLE BECOME PART OF THE HISTORY
+   ------------------------------------------------------------ */
+
+.mv-page .mv-people-history {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  padding:
+    clamp(25px, 3vw, 40px)
+    var(--mv-gutter)
+    16px;
+
+  border-top: 1px solid rgba(214,173,69,.26);
+}
+
+
+.mv-page .mv-people-history > p {
+  margin: 0;
+
+  color: #d6ad45;
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: .2em;
+
+  text-transform: uppercase;
+}
+
+
+.mv-page .mv-people-history > div {
+  text-align: right;
+}
+
+
+.mv-page .mv-people-history h2 {
+  margin: 0;
+
+  color: #f4f1ea;
+
+  font-size: clamp(1.5rem, 3vw, 3.6rem);
+  font-weight: 900;
+
+  letter-spacing: -.045em;
+  line-height: .92;
+}
+
+
+.mv-page .mv-people-history span {
+  display: block;
+
+  margin-top: 7px;
+
+  color: rgba(255,255,255,.35);
+
+  font-size: 8px;
+  letter-spacing: .06em;
+}
+
+
+/* Existing duplicate label no longer needed visually */
+.mv-page .mv-people-history + .mv-artists-feature > p {
+  display: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   COMPLETE INDEX
+   ------------------------------------------------------------ */
+
+.mv-page #archive {
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+
+.mv-page #archive .mv-library-kicker {
+  letter-spacing: .2em;
+}
+
+
+/* ------------------------------------------------------------
+   RESPONSIVE
+   ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+
+  .mv-page .mv-history-intro-row {
+    grid-template-columns: 1fr;
+  }
+
+  .mv-page .mv-history-stats {
+    width: 100%;
+  }
+
+  .mv-page .mv-history-stats > div {
+    flex: 1;
+  }
+
+  .mv-page .mv-history-gateway {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .mv-page .mv-history-archive {
+    padding-top: 24px;
+  }
+
+  .mv-page .mv-history-topline {
+    align-items: flex-start;
+  }
+
+  .mv-page .mv-history-nav {
+    gap: 10px;
+  }
+
+  .mv-page .mv-history-intro-copy h2 {
+    font-size: clamp(2rem, 11vw, 3.8rem);
+  }
+
+  .mv-page .mv-history-stats > div {
+    padding: 10px 8px;
+  }
+
+  .mv-page .mv-history-years {
+    display: flex;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    min-height: 80px;
+
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mv-page .mv-history-years::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mv-page .mv-history-years::before {
+    width: calc(13 * 72px);
+    right: auto;
+  }
+
+  .mv-page .mv-history-year {
+    flex: 0 0 72px;
+  }
+
+  .mv-page .mv-history-year.is-start span,
+  .mv-page .mv-history-year.is-end span {
+    font-size: 2.15rem;
+  }
+
+  .mv-page .mv-history-signals {
+    grid-template-columns: repeat(3, minmax(0,1fr));
+  }
+
+  .mv-page .mv-era-marker {
+    min-height: 66px;
+  }
+
+  .mv-page .mv-era-marker strong {
+    font-size: clamp(3rem, 15vw, 5.5rem);
+  }
+
+  .mv-page .mv-people-history {
+    display: block;
+  }
+
+  .mv-page .mv-people-history > div {
+    margin-top: 10px;
+    text-align: left;
+  }
+
+}
+
+
+
+/* ============================================================
+   KSP FILMS — HISTORICAL REFINEMENT V3
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   PRESENT DAY
+   closes the logic between Recent/Most Watched and History
+   ------------------------------------------------------------ */
+
+.mv-page .mv-present-day {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding:
+    13px
+    var(--mv-gutter);
+
+  min-height: 52px;
+
+  background: rgba(8,8,8,.56);
+
+  border-top: 1px solid rgba(255,255,255,.09);
+  border-bottom: 1px solid rgba(214,173,69,.3);
+}
+
+
+.mv-page .mv-present-day-label {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+
+.mv-page .mv-present-day-label span {
+  color: #d6ad45;
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+
+.mv-page .mv-present-day-label strong {
+  color: rgba(255,255,255,.88);
+
+  font-size: clamp(1.3rem, 2.4vw, 2.5rem);
+  font-weight: 900;
+
+  letter-spacing: -.045em;
+}
+
+
+.mv-page .mv-present-day-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  text-align: right;
+}
+
+
+.mv-page .mv-present-day-meta span {
+  color: rgba(255,255,255,.4);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: .06em;
+}
+
+
+.mv-page .mv-present-day-meta small {
+  color: #d6ad45;
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: .15em;
+}
+
+
+/* ------------------------------------------------------------
+   CHAPTER BANDS — MUCH THINNER
+   ------------------------------------------------------------ */
+
+.mv-page .mv-era-marker {
+  min-height: 48px !important;
+
+  padding:
+    7px
+    var(--mv-gutter)
+  !important;
+}
+
+
+.mv-page .mv-era-marker > div:first-child > span {
+  position: relative;
+  z-index: 3;
+}
+
+
+.mv-page .mv-era-marker > p {
+  font-size: 7px !important;
+
+  opacity: .72;
+}
+
+
+/* Atmospheric date stays large but no longer creates space */
+.mv-page .mv-era-marker strong {
+  right: var(--mv-gutter) !important;
+  bottom: -16px !important;
+
+  font-size: clamp(3.4rem, 7.2vw, 8rem) !important;
+
+  color: rgba(255,255,255,.055) !important;
+}
+
+
+/* ------------------------------------------------------------
+   REAL DATA MILESTONES
+   ------------------------------------------------------------ */
+
+.mv-page .mv-era-milestone {
+  position: absolute;
+  z-index: 4;
+
+  left: clamp(180px, 23vw, 380px);
+  top: 50%;
+
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+
+  transform: translateY(-50%);
+}
+
+
+.mv-page .mv-era-milestone small {
+  color: rgba(255,255,255,.28);
+
+  font-size: 6px;
+  font-weight: 800;
+
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+
+.mv-page .mv-era-milestone strong {
+  position: static !important;
+
+  color: #d6ad45 !important;
+
+  font-size: 17px !important;
+  font-weight: 900 !important;
+
+  line-height: 1 !important;
+}
+
+
+.mv-page .mv-era-milestone span {
+  color: rgba(255,255,255,.38);
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: .04em;
+}
+
+
+/* slightly quieter origin treatment */
+.mv-page .mv-era-origin strong {
+  color: rgba(244,241,234,.84) !important;
+}
+
+
+/* ------------------------------------------------------------
+   MODERN / EARLY SECTION HEADS
+   Pull them slightly closer to their chapter bars
+   ------------------------------------------------------------ */
+
+.mv-page .mv-era-marker + .mv-row {
+  padding-top: clamp(13px, 1.6vw, 21px) !important;
+}
+
+
+/* ------------------------------------------------------------
+   ARTISTS / COLLABORATORS — TIGHTER
+   ------------------------------------------------------------ */
+
+.mv-page .mv-people-history {
+  padding:
+    20px
+    var(--mv-gutter)
+    10px
+  !important;
+}
+
+
+.mv-page .mv-people-history h2 {
+  font-size: clamp(1.35rem, 2.45vw, 2.9rem) !important;
+}
+
+
+.mv-page .mv-people-history span {
+  margin-top: 5px !important;
+}
+
+
+.mv-page .mv-people-history + .mv-artists-feature {
+  padding-top: 7px !important;
+  padding-bottom: 8px !important;
+}
+
+
+/* ------------------------------------------------------------
+   BACK THROUGH THE YEARS
+   Slightly denser now that Present Day exists
+   ------------------------------------------------------------ */
+
+.mv-page .mv-history-gateway {
+  padding-top: clamp(18px, 2.2vw, 30px) !important;
+  padding-bottom: clamp(18px, 2.2vw, 30px) !important;
+}
+
+
+.mv-page .mv-history-gateway-copy h2 {
+  font-size: clamp(1.85rem, 3.8vw, 4.35rem) !important;
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+
+  .mv-page .mv-present-day {
+    align-items: flex-start;
+  }
+
+  .mv-page .mv-present-day-meta {
+    display: block;
+  }
+
+  .mv-page .mv-present-day-meta small {
+    display: block;
+    margin-top: 4px;
+  }
+
+  .mv-page .mv-era-marker {
+    min-height: 58px !important;
+  }
+
+  .mv-page .mv-era-milestone {
+    left: 120px;
+
+    display: block;
+  }
+
+  .mv-page .mv-era-milestone small,
+  .mv-page .mv-era-milestone span {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .mv-page .mv-present-day-label {
+    display: block;
+  }
+
+  .mv-page .mv-present-day-label strong {
+    display: block;
+    margin-top: 3px;
+  }
+
+  .mv-page .mv-era-milestone {
+    left: auto;
+    right: var(--mv-gutter);
+  }
+
+}
+
+
+
+/* ============================================================
+   KSP FILMS — CHAPTER STRIP FINAL CLEANUP
+   ============================================================ */
+
+/*
+   CHAPTER 01 | chapter count | historical milestone
+   No oversized clipped year inside this narrow band.
+*/
+
+.mv-page .mv-era-marker {
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(120px, .65fr)
+    minmax(150px, .75fr)
+    minmax(300px, 1.6fr) !important;
+
+  align-items: center !important;
+
+  gap: clamp(14px, 2vw, 34px) !important;
+
+  min-height: 46px !important;
+
+  padding:
+    7px
+    var(--mv-gutter)
+  !important;
+
+  overflow: hidden !important;
+}
+
+
+/* ------------------------------------------------------------
+   LEFT — CHAPTER LABEL
+   ------------------------------------------------------------ */
+
+.mv-page .mv-era-marker > div:first-child {
+  position: static !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  min-width: 0;
+}
+
+
+.mv-page .mv-era-marker > div:first-child > span {
+  color: #d6ad45 !important;
+
+  font-size: 7px !important;
+  font-weight: 800 !important;
+
+  letter-spacing: .18em !important;
+  line-height: 1 !important;
+
+  white-space: nowrap;
+
+  text-transform: uppercase;
+}
+
+
+/*
+   The era date already appears directly underneath:
+   2020–2024 / MODERN ERA
+   2014–2019 / EARLY CATALOGUE
+
+   So don't repeat it as a giant clipped number here.
+*/
+.mv-page .mv-era-marker > div:first-child > strong {
+  display: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   MIDDLE — CHAPTER FILM COUNT
+   ------------------------------------------------------------ */
+
+.mv-page .mv-era-marker > p {
+  position: static !important;
+
+  justify-self: center !important;
+
+  margin: 0 !important;
+
+  color: rgba(255,255,255,.42) !important;
+
+  font-size: 6.5px !important;
+  font-weight: 750 !important;
+
+  letter-spacing: .08em !important;
+  line-height: 1.2 !important;
+
+  white-space: nowrap;
+
+  text-transform: uppercase;
+}
+
+
+/* ------------------------------------------------------------
+   RIGHT — REAL HISTORICAL FACT
+   ------------------------------------------------------------ */
+
+.mv-page .mv-era-milestone {
+  position: static !important;
+
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: flex-end !important;
+
+  gap: 8px !important;
+
+  min-width: 0 !important;
+
+  transform: none !important;
+
+  text-align: right !important;
+}
+
+
+.mv-page .mv-era-milestone small {
+  flex: 0 0 auto;
+
+  color: rgba(255,255,255,.28) !important;
+
+  font-size: 5.8px !important;
+  font-weight: 800 !important;
+
+  letter-spacing: .12em !important;
+
+  white-space: nowrap;
+
+  text-transform: uppercase;
+}
+
+
+.mv-page .mv-era-milestone strong {
+  position: static !important;
+
+  flex: 0 0 auto;
+
+  margin: 0 !important;
+
+  color: #d6ad45 !important;
+
+  font-size: 15px !important;
+  font-weight: 900 !important;
+
+  letter-spacing: -.025em !important;
+  line-height: 1 !important;
+
+  white-space: nowrap;
+}
+
+
+.mv-page .mv-era-origin strong {
+  color: rgba(244,241,234,.88) !important;
+}
+
+
+.mv-page .mv-era-milestone span {
+  min-width: 0;
+
+  color: rgba(255,255,255,.42) !important;
+
+  font-size: 6.4px !important;
+  font-weight: 700 !important;
+
+  letter-spacing: .035em !important;
+  line-height: 1.2 !important;
+
+  white-space: nowrap;
+}
+
+
+/* ------------------------------------------------------------
+   MEDIUM — preserve all 3 ideas without clipping
+   ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+
+  .mv-page .mv-era-marker {
+    grid-template-columns:
+      minmax(90px, .55fr)
+      minmax(120px, .7fr)
+      minmax(220px, 1.4fr) !important;
+
+    gap: 10px !important;
+  }
+
+  .mv-page .mv-era-milestone small {
+    display: none !important;
+  }
+
+}
+
+
+/* ------------------------------------------------------------
+   SMALL — still one thin editorial strip
+   ------------------------------------------------------------ */
+
+@media (max-width: 650px) {
+
+  .mv-page .mv-era-marker {
+    grid-template-columns:
+      auto
+      1fr
+      auto !important;
+
+    min-height: 48px !important;
+
+    gap: 8px !important;
+  }
+
+  .mv-page .mv-era-marker > p {
+    justify-self: start !important;
+
+    font-size: 5.8px !important;
+  }
+
+  .mv-page .mv-era-milestone {
+    display: block !important;
+  }
+
+  .mv-page .mv-era-milestone strong {
+    display: block;
+
+    font-size: 14px !important;
+  }
+
+  .mv-page .mv-era-milestone span {
+    display: none !important;
+  }
+
+}
+
+
+/* ============================================================
+   KSP FILMS — EXACT HERO + ARTIST POLISH
+   Confirmed against current markup.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   A DECADE IN MUSIC
+   Visibly smaller, but still the primary brand hero.
+   ------------------------------------------------------------ */
+
+
+
+
+/* tighten the hero itself slightly */
+
+
+/* ------------------------------------------------------------
+   VIDEO CARD ARTISTS
+   Champagne/beige for hierarchy.
+   Titles remain white.
+   ------------------------------------------------------------ */
+
+.mv-page .mv-card-artist {
+  color: #c8b68a !important;
+  opacity: .96 !important;
+
+  text-transform: uppercase !important;
+}
+
+
+/* same artist identity inside thumbnail hover */
+.mv-page .mv-hover-info em {
+  color: #c8b68a !important;
+}
+
+
+/* Mobile: don't over-shrink hero */
+
+
+/* ============================================================
+   KSP FILMS — ARTIST COLOR LOCK
+   Hero intentionally untouched.
+   ============================================================ */
+
+html body .mv-page .mv-card-artist,
+html body .mv-page .mv-card-details .mv-card-artist {
+  color: #d8bd72 !important;
+  -webkit-text-fill-color: #d8bd72 !important;
+  opacity: 1 !important;
+  filter: none !important;
+  font-weight: 650 !important;
+  text-transform: uppercase !important;
+}
+
+html body .mv-page .mv-hover-info em {
+  color: #d8bd72 !important;
+  -webkit-text-fill-color: #d8bd72 !important;
+  opacity: 1 !important;
+}
+
+/* ============================================================
+   KSP FILMS — HERO COMPACT PASS
+   Real box + real layout dimensions only.
+   No transform. No zoom. No width compensation.
+   ============================================================ */
+
+/*
+ * OUTER RECTANGLE
+ *
+ * Already content-driven in films-page.tsx.
+ * Keep that behavior explicitly so the bottom border physically
+ * follows the newly shortened content.
+ */
+html body .mv-page > .mv-hero {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+
+/*
+ * REAL INTERNAL HEIGHT
+ *
+ * Previous final values:
+ *   top    48px
+ *   bottom 20px
+ *
+ * New values physically shorten the rectangle.
+ */
+html body .mv-page > .mv-hero > .mv-hero-content {
+  padding-top: 28px !important;
+  padding-bottom: 9px !important;
+}
+
+
+/* KSP FILMS eyebrow */
+html body .mv-page > .mv-hero .mv-hero-content > .mv-gold {
+  font-size: 9px !important;
+}
+
+
+/*
+ * A DECADE IN MUSIC
+ *
+ * Actual font metrics, not visual scaling.
+ * Existing desktop max was 86px.
+ */
+html body .mv-page > .mv-hero .mv-hero-content > h1 {
+  margin-top: 8px !important;
+  margin-bottom: 0 !important;
+
+  font-size: clamp(32px, 4.55vw, 64px) !important;
+  line-height: .86 !important;
+}
+
+
+/* Description */
+html body .mv-page > .mv-hero .mv-intro {
+  margin-top: 10px !important;
+  margin-bottom: 12px !important;
+
+  font-size: clamp(13px, 1.05vw, 16px) !important;
+  line-height: 1.5 !important;
+}
+
+
+/* EXPLORE THE WORK */
+html body .mv-page > .mv-hero .mv-enter {
+  padding-top: 10px !important;
+  padding-bottom: 7px !important;
+
+  font-size: 9px !important;
+}
+
+
+/*
+ * START A PROJECT
+ *
+ * Keep its right-side placement and the existing flex layout.
+ * Only reduce its real dimensions.
+ */
+html body .mv-page > .mv-hero .mv-hero-project-cta {
+  min-width: 190px !important;
+  min-height: 40px !important;
+
+  padding-left: 18px !important;
+  padding-right: 18px !important;
+
+  font-size: 10px !important;
+}
+
+
+/*
+ * HeroReelToggle is the only component inserted as a direct child
+ * before the video/overlay/content in the real JSX.
+ *
+ * These selectors cover either:
+ *   - the component returning the button itself, or
+ *   - the component returning a wrapper containing the button.
+ *
+ * Positioning is intentionally untouched.
+ */
+html body .mv-page > .mv-hero > button:first-of-type,
+html body .mv-page > .mv-hero
+  > :not(.mv-hero-video):not(.mv-hero-overlay):not(.mv-hero-content)
+  button {
+  padding: 6px 8px !important;
+  font-size: 8px !important;
+}
+
+
+/* Mobile keeps the same composition, just proportionally tighter. */
+@media (max-width: 700px) {
+
+  html body .mv-page > .mv-hero > .mv-hero-content {
+    padding-top: 23px !important;
+    padding-bottom: 12px !important;
+  }
+
+  html body .mv-page > .mv-hero .mv-hero-content > h1 {
+    margin-top: 7px !important;
+
+    font-size: 9.5vw !important;
+    line-height: .88 !important;
+  }
+
+  html body .mv-page > .mv-hero .mv-intro {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+
+    font-size: 12px !important;
+  }
+
+  html body .mv-page > .mv-hero .mv-enter {
+    padding-top: 8px !important;
+    padding-bottom: 6px !important;
+
+    font-size: 8px !important;
+  }
+
+  html body .mv-page > .mv-hero .mv-hero-project-cta {
+    min-width: 170px !important;
+    min-height: 42px !important;
+
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+
+    font-size: 9px !important;
+  }
+}
+
+/* ============================================================
+   KSP FILMS — TIMELINE ENDPOINT FINAL ALIGNMENT
+   2014 / 2026 share the same optical center as their dots.
+   ============================================================ */
+
+/*
+ * Keep the first and last dots centered inside their grid cells.
+ */
+html body .mv-page .mv-history-year.is-start::before,
+html body .mv-page .mv-history-year.is-end::before {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+}
+
+
+/*
+ * The previous problem:
+ * the dots were centered, but the giant endpoint years retained
+ * their old edge-oriented alignment.
+ *
+ * Center the CONTENT of those two endpoint cells as well.
+ */
+html body .mv-page .mv-history-year.is-start,
+html body .mv-page .mv-history-year.is-end {
+  text-align: center !important;
+  justify-items: center !important;
+}
+
+
+/*
+ * Force the visible year/count contents onto that same center axis.
+ * Middle years remain completely untouched.
+ */
+html body .mv-page .mv-history-year.is-start > *,
+html body .mv-page .mv-history-year.is-end > * {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* Preserve the historical hover interaction. */
+html body .mv-page .mv-history-year.is-start:hover::before,
+html body .mv-page .mv-history-year.is-start:focus-visible::before,
+html body .mv-page .mv-history-year.is-end:hover::before,
+html body .mv-page .mv-history-year.is-end:focus-visible::before {
+  transform: translateX(-50%) scale(1.45) !important;
+}
+
+/* ============================================================
+   KSP FILMS — ARCHIVE 100 + NEXT ROW REVEAL
+
+   - First state shows exactly 100 real archive cards.
+   - Next five cards peek underneath as a visual continuation.
+   - Gradient obscures/fades the preview.
+   - Existing Explore Full Archive action stays centered.
+   ============================================================ */
+
+html body .mv-page #archive .mv-archive-reveal {
+  position: relative !important;
+
+  width: 100% !important;
+  height: clamp(78px, 8vw, 120px) !important;
+
+  margin:
+    10px
+    0
+    0
+  !important;
+
+  overflow: hidden !important;
+}
+
+
+/*
+ * Decorative glimpse of the NEXT archive row.
+ * It uses the real archive grid/card geometry so alignment
+ * remains identical to the visible 100 cards.
+ */
+html body .mv-page
+#archive .mv-archive-preview-grid {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  height: auto !important;
+
+  opacity: 1 !important;
+
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+
+/*
+ * Higgsfield-style continuation fade:
+ * transparent at the top so the next row is visible,
+ * increasingly dark toward the CTA.
+ */
+html body .mv-page
+#archive .mv-archive-reveal-fade {
+  position: absolute !important;
+  z-index: 2 !important;
+
+  inset: 0 !important;
+
+  pointer-events: none !important;
+
+  background: transparent !important;
+}
+
+
+/*
+ * Existing archive CTA, now floating over the reveal/fade.
+ */
+html body .mv-page
+#archive .mv-archive-reveal
+> .mv-expand {
+  position: absolute !important;
+  z-index: 3 !important;
+
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 9px !important;
+
+  width: max-content !important;
+
+  margin:
+    0
+    auto
+  !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* Slightly deeper peek on smaller screens. */
+@media (max-width: 700px) {
+
+  html body .mv-page #archive .mv-archive-reveal {
+    height: 92px !important;
+    margin-top: 8px !important;
+  }
+
+  html body .mv-page
+  #archive .mv-archive-reveal
+  > .mv-expand {
+    bottom: 8px !important;
+  }
+}
+
+/* ============================================================
+   KSP FILMS — INDIVIDUAL ARCHIVE CARD DISSOLVE
+   Cards disappear completely BEFORE reveal-window clipping.
+   ============================================================ */
+
+html body .mv-page
+#archive .mv-archive-preview-grid
+> .mv-card {
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 8%,
+      rgba(0,0,0,.96) 18%,
+      rgba(0,0,0,.78) 30%,
+      rgba(0,0,0,.46) 42%,
+      rgba(0,0,0,.16) 52%,
+      transparent 62%,
+      transparent 100%
+    ) !important;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 8%,
+      rgba(0,0,0,.96) 18%,
+      rgba(0,0,0,.78) 30%,
+      rgba(0,0,0,.46) 42%,
+      rgba(0,0,0,.16) 52%,
+      transparent 62%,
+      transparent 100%
+    ) !important;
+
+  -webkit-mask-size: 100% 100% !important;
+  mask-size: 100% 100% !important;
+
+  -webkit-mask-repeat: no-repeat !important;
+  mask-repeat: no-repeat !important;
+}
+
+
+/*
+ * Remove the divider directly beneath the disappearing archive
+ * preview. Otherwise the line itself recreates a hard cutoff.
+ */
+html body .mv-page .mv-final-cta {
+  border-top: 0 !important;
+}
+
+/* ============================================================
+   KSP FILMS — PORTALLED FLOATING REEL TOGGLE
+
+   Hero control remains unchanged.
+   Floating control lives directly under BODY so it cannot be
+   trapped underneath KSP Films section stacking contexts.
+   ============================================================ */
+
+html body > .mv-reel-toggle.mv-reel-toggle-floating {
+  position: fixed !important;
+
+  top: auto !important;
+  left: auto !important;
+
+  right: clamp(18px, 3vw, 42px) !important;
+  bottom: clamp(18px, 3vw, 34px) !important;
+
+  z-index: 9999 !important;
+
+  display: inline-flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+
+  min-height: 38px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border:
+    1px solid rgba(216, 189, 114, .72)
+    !important;
+
+  border-radius: 0 !important;
+
+  background: rgba(7, 7, 7, .90) !important;
+
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+
+  color: rgba(255,255,255,.72) !important;
+
+  font-family: inherit !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+
+  letter-spacing: .10em !important;
+  line-height: 1 !important;
+
+  text-transform: uppercase !important;
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.22)
+    !important;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(7px);
+
+  transition:
+    opacity .20s ease,
+    transform .20s ease,
+    visibility .20s ease
+    !important;
+}
+
+
+html body
+> .mv-reel-toggle.mv-reel-toggle-floating.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateY(0);
+}
+
+
+/* BACKGROUND REEL half */
+
+html body
+> .mv-reel-toggle.mv-reel-toggle-floating
+> span:first-child {
+  display: flex !important;
+  align-items: center !important;
+
+  padding: 0 13px !important;
+
+  color: rgba(255,255,255,.70) !important;
+
+  border-right:
+    1px solid rgba(216,189,114,.32)
+    !important;
+}
+
+
+/* ON / OFF half */
+
+html body
+> .mv-reel-toggle.mv-reel-toggle-floating
+> .mv-reel-toggle-state {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 0 !important;
+
+  min-width: 58px !important;
+  padding: 0 12px !important;
+
+  background: #d8bd72 !important;
+  color: #090909 !important;
+
+  font-size: 10px !important;
+  font-weight: 800 !important;
+
+  letter-spacing: .10em !important;
+}
+
+
+/* Hide the tiny hero-style dot only on floating version. */
+
+html body
+> .mv-reel-toggle.mv-reel-toggle-floating
+.mv-reel-toggle-state
+> span[aria-hidden="true"] {
+  display: none !important;
+}
+
+
+/* OFF visual state */
+
+html body
+> .mv-reel-toggle.mv-reel-toggle-floating[aria-pressed="false"]
+> .mv-reel-toggle-state {
+  background: rgba(245,242,234,.90) !important;
+  color: #111 !important;
+}
+
+
+html body
+> .mv-reel-toggle.mv-reel-toggle-floating:hover {
+  border-color: #d8bd72 !important;
+  background: rgba(10,10,10,.97) !important;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  html body
+  > .mv-reel-toggle.mv-reel-toggle-floating {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+
+@media (max-width: 700px) {
+  html body
+  > .mv-reel-toggle.mv-reel-toggle-floating {
+    min-height: 36px !important;
+    font-size: 8px !important;
+  }
+
+  html body
+  > .mv-reel-toggle.mv-reel-toggle-floating
+  > span:first-child {
+    padding: 0 10px !important;
+  }
+
+  html body
+  > .mv-reel-toggle.mv-reel-toggle-floating
+  > .mv-reel-toggle-state {
+    min-width: 50px !important;
+    padding: 0 10px !important;
+    font-size: 8px !important;
+  }
+}
