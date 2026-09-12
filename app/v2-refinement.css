@@ -7637,3 +7637,9 @@ html body .weddingPage[data-wedding-theme="dark"]
 }
 
 /* === KSP WEDDING DARK FEATURED FILMS LINE FINAL END === */
+
+/* === KSP WEDDINGS ACTIVE NAV FINAL START === */
+html body .weddingPage > .detailNav .mainNav a.activeNav[href="/weddings"] {
+  color: var(--gold, #d5aa55) !important;
+}
+/* === KSP WEDDINGS ACTIVE NAV FINAL END === */
