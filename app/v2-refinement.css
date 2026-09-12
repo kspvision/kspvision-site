@@ -7643,3 +7643,151 @@ html body .weddingPage > .detailNav .mainNav a.activeNav[href="/weddings"] {
   color: var(--gold, #d5aa55) !important;
 }
 /* === KSP WEDDINGS ACTIVE NAV FINAL END === */
+
+/* ==========================================================
+   KSP WEDDINGS — MOBILE REEL + LIGHT FEATURED FILMS FIX
+   2026-09-12
+
+   MOBILE ONLY:
+   1. Light/Ivory Featured Films gets NO ambient moving reel.
+   2. Dark mobile keeps its ambient reel.
+   3. Wedding Reel uses a stable cropped viewport so the
+      encoded/top black strip is outside the visible frame.
+   4. Gold corner frame locks to the actual mobile reel box.
+   ========================================================== */
+
+@media (max-width: 800px) {
+
+  /* ----------------------------------------------------------
+     LIGHT MOBILE ONLY
+     Remove the Featured Films ambient moving background.
+     Desktop Light and ALL Dark behavior remain untouched.
+     ---------------------------------------------------------- */
+
+  html body
+  .weddingPage:where(
+    [data-wedding-theme="ivory"],
+    [data-wedding-theme="light"]
+  )
+  #weddingStoriesList
+  > .weddingStoriesAmbient {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+
+  /* ----------------------------------------------------------
+     MAIN WEDDING REEL
+     Give mobile one definitive media rectangle.
+     Slightly wider-than-16:9 crop removes the encoded black
+     strip without changing the source video itself.
+     ---------------------------------------------------------- */
+
+  html body
+  .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia {
+    display: block !important;
+    position: relative !important;
+
+    width: 100% !important;
+    aspect-ratio: 16 / 8.6 !important;
+
+    background: transparent !important;
+  }
+
+
+  /* Remove legacy top mattes on MOBILE.
+     These were contributing extra top-band geometry. */
+
+  html body
+  .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia::before,
+
+  html body
+  .weddingPage
+  #weddingStoriesFinal
+  .weddingReel::before {
+    content: none !important;
+    display: none !important;
+
+    background: none !important;
+    background-image: none !important;
+  }
+
+
+  /* Actual reel.
+     Object-fit performs the crop INSIDE the box, so there is
+     no video bleed outside the decorative frame. */
+
+  html body
+  .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia
+  > video {
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    object-fit: cover !important;
+
+    /* bias crop toward the TOP so the encoded black strip
+       disappears before useful picture is lost */
+    object-position: 50% 76% !important;
+
+    transform: none !important;
+  }
+
+
+  /* ----------------------------------------------------------
+     MOBILE GOLD FRAME
+     Parent now IS the visible reel rectangle.
+     Stop using the desktop measured vertical compression.
+     ---------------------------------------------------------- */
+
+  html body
+  .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia
+  .weddingReelFrameOrnament {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    pointer-events: none !important;
+    z-index: 12 !important;
+  }
+
+
+  html body
+  .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia
+  .weddingReelFrameOrnament::before {
+    /* Keep the approved horizontal reach. */
+    left: -4.60% !important;
+    right: -4.60% !important;
+
+    /* MOBILE: frame follows the actual visible reel exactly. */
+    top: 0 !important;
+    bottom: 0 !important;
+
+    transform: none !important;
+    transform-origin: center center !important;
+
+    background-position: center center !important;
+    background-size: 100% 100% !important;
+  }
+
+}
+
+/* === /KSP WEDDINGS MOBILE REEL FIX === */
+
