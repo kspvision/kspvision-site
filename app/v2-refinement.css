@@ -7146,3 +7146,277 @@ html body
     font-size: 8px !important;
   }
 }
+
+/* === KSP WEDDING PNG REEL FRAME START === */
+
+/*
+   FINAL STRUCTURAL FIT
+
+   The frame now belongs to .weddingReelMedia,
+   which contains ONLY:
+     1. the Wedding Reel video
+     2. the transparent PNG frame
+
+   Therefore all percentages below are measured against
+   the actual displayed video rectangle, NOT the lower
+   WEDDING REEL / KSP WEDDING FILMS information band.
+
+   Source PNG: 1672 × 941
+
+   Measured straight-border positions:
+     left   = 74.5
+     right  = 1595.5
+     top    = 101
+     bottom = 840
+
+   Inner opening:
+     width  = 1521
+     height = 739
+
+   Required bleed relative to opening:
+     left   = 4.90%
+     right  = 5.03%
+     top    = 13.67%
+     bottom = 13.67%
+*/
+
+
+/* EXACT VIDEO CONTAINER — adds ZERO spacing to layout */
+html body .weddingPage
+#weddingStoriesFinal
+.weddingReelMedia {
+  position: relative !important;
+
+  display: block !important;
+
+  width: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  line-height: 0 !important;
+
+  overflow: visible !important;
+}
+
+
+/* Preserve the existing Wedding Reel geometry */
+html body .weddingPage
+#weddingStoriesFinal
+.weddingReelMedia > video {
+  display: block !important;
+
+  margin: 0 !important;
+
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+
+/*
+   Ornament wrapper is now EXACTLY the video rectangle.
+   No 64px / 48px compensation anymore.
+*/
+html body .weddingPage
+#weddingStoriesFinal
+.weddingReelMedia
+.weddingReelFrameOrnament {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  display: block !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  overflow: visible !important;
+
+  background: none !important;
+
+  pointer-events: none !important;
+  user-select: none !important;
+
+  z-index: 12 !important;
+
+  opacity: .90 !important;
+}
+
+
+/*
+   Expand ONLY the PNG.
+
+   Because its parent now equals the ACTUAL video rectangle,
+   these values put the four thin straight gold borders
+   onto the four video boundaries.
+*/
+html body .weddingPage
+#weddingStoriesFinal
+.weddingReelMedia
+.weddingReelFrameOrnament::before {
+  content: "" !important;
+
+  position: absolute !important;
+
+  /*
+     FINAL VISUAL FIT
+     ≈ 105% wide / 110% tall.
+
+     Slightly more extension below than above gives
+     the ornament the small downward bias requested.
+
+     VIDEO GEOMETRY IS NOT CHANGED.
+  */
+  /*
+     VERTICAL FIT TEST:
+     lock ornament box exactly to video height first.
+     Horizontal sizing stays untouched for now.
+  */
+  left: -4.60% !important;
+  right: -4.60% !important;
+
+  /*
+     MEASURED VERTICAL CORRECTION — 2026-09-11
+
+     Current screenshot:
+       video span      ≈ 801 physical px
+       gold-line span  ≈ 853 physical px
+
+       801 / 853 = 0.93904
+
+     Frame midpoint is ≈12.5 physical px too low.
+     Retina 2× => ≈6.25 CSS px.
+     Relative to ≈400.5 CSS px video height:
+       6.25 / 400.5 = 1.56%
+
+     Shift upward without changing the layout box,
+     then vertically compress artwork only.
+  */
+  top: -1.56% !important;
+  bottom: 1.56% !important;
+
+  transform: scaleY(0.93904) !important;
+  transform-origin: center center !important;
+
+  display: block !important;
+
+  background-image:
+    url("/weddings/ksp-wedding-video-frame.png")
+    !important;
+
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+
+  pointer-events: none !important;
+}
+
+
+/* Light */
+html body .weddingPage:where(
+  [data-wedding-theme="ivory"],
+  [data-wedding-theme="light"]
+)
+#weddingStoriesFinal
+.weddingReelFrameOrnament {
+  opacity: .82 !important;
+}
+
+
+/* Dark */
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal
+.weddingReelFrameOrnament {
+  opacity: .94 !important;
+}
+
+
+/*
+   IMPORTANT:
+   NO MOBILE bottom compensation anymore.
+
+   The wrapper follows the real video at every viewport,
+   so the frame follows it automatically.
+*/
+
+/* === KSP WEDDING PNG REEL FRAME END === */
+
+/* === KSP WEDDING DECOUPLED BORDER START === */
+
+/*
+   FINAL:
+   - preserve current four corner ornaments
+   - NO artificial CSS border
+   - expose only the ornamental corner artwork
+   - keep all current frame geometry untouched
+*/
+
+html body .weddingPage
+#weddingStoriesFinal
+.weddingReelMedia
+.weddingReelFrameOrnament {
+  box-sizing: border-box !important;
+  border: 0 !important;
+}
+
+
+/*
+   Keep the four ornate corners while cutting away
+   the long straight rails from the PNG.
+
+   IMPORTANT: this does NOT change the PNG's scale,
+   position, vertical correction or horizontal stretch.
+*/
+html body .weddingPage
+#weddingStoriesFinal
+.weddingReelMedia
+.weddingReelFrameOrnament::before {
+  -webkit-mask:
+    radial-gradient(ellipse at left top,
+      #000 0 71%,
+      transparent 73%
+    ) left top / 19% 34% no-repeat,
+
+    radial-gradient(ellipse at right top,
+      #000 0 71%,
+      transparent 73%
+    ) right top / 19% 34% no-repeat,
+
+    radial-gradient(ellipse at left bottom,
+      #000 0 71%,
+      transparent 73%
+    ) left bottom / 19% 34% no-repeat,
+
+    radial-gradient(ellipse at right bottom,
+      #000 0 71%,
+      transparent 73%
+    ) right bottom / 19% 34% no-repeat
+    !important;
+
+  mask:
+    radial-gradient(ellipse at left top,
+      #000 0 71%,
+      transparent 73%
+    ) left top / 19% 34% no-repeat,
+
+    radial-gradient(ellipse at right top,
+      #000 0 71%,
+      transparent 73%
+    ) right top / 19% 34% no-repeat,
+
+    radial-gradient(ellipse at left bottom,
+      #000 0 71%,
+      transparent 73%
+    ) left bottom / 19% 34% no-repeat,
+
+    radial-gradient(ellipse at right bottom,
+      #000 0 71%,
+      transparent 73%
+    ) right bottom / 19% 34% no-repeat
+    !important;
+}
+
+/* === KSP WEDDING DECOUPLED BORDER END === */
