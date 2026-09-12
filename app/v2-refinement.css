@@ -7894,3 +7894,18 @@ html body .weddingPage > .detailNav .mainNav a.activeNav[href="/weddings"] {
 
 /* === /KSP WEDDINGS MOBILE REEL MATTE + FRAME CORRECTION === */
 
+
+/* === KSP WEDDINGS MOBILE TOP FRAME ALIGNMENT FINAL === */
+
+@media (max-width: 800px) {
+  html body .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia
+  .weddingReelFrameOrnament::before {
+    top: 0 !important;
+    bottom: 48px !important;
+  }
+}
+
+/* === /KSP WEDDINGS MOBILE TOP FRAME ALIGNMENT FINAL === */
+
