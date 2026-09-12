@@ -7791,3 +7791,106 @@ html body .weddingPage > .detailNav .mainNav a.activeNav[href="/weddings"] {
 
 /* === /KSP WEDDINGS MOBILE REEL FIX === */
 
+
+/* === KSP WEDDINGS MOBILE REEL MATTE + FRAME CORRECTION === */
+
+@media (max-width: 800px) {
+
+  /* Restore normal reel geometry */
+  html body .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    background: transparent !important;
+  }
+
+  html body .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia > video {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: none !important;
+    margin: 0 !important;
+    z-index: 1 !important;
+  }
+
+  /* SOLID COVER over the black bar encoded in the reel */
+  html body .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    height: 36px !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
+    filter: none !important;
+    -webkit-mask: none !important;
+    mask: none !important;
+  }
+
+  /* LIGHT = ivory cover */
+  html body
+  .weddingPage:where(
+    [data-wedding-theme="ivory"],
+    [data-wedding-theme="light"]
+  )
+  #weddingStoriesFinal
+  .weddingReelMedia::before {
+    background: #f1eee8 !important;
+    background-image: none !important;
+  }
+
+  /* DARK = black cover */
+  html body
+  .weddingPage[data-wedding-theme="dark"]
+  #weddingStoriesFinal
+  .weddingReelMedia::before {
+    background: #050505 !important;
+    background-image: none !important;
+  }
+
+  /* Gold frame follows only the visible picture */
+  html body .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia
+  .weddingReelFrameOrnament {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 12 !important;
+    pointer-events: none !important;
+  }
+
+  html body .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia
+  .weddingReelFrameOrnament::before {
+    left: -4.60% !important;
+    right: -4.60% !important;
+
+    top: 36px !important;
+    bottom: 48px !important;
+
+    transform: none !important;
+    transform-origin: center center !important;
+
+    background-position: center center !important;
+    background-size: 100% 100% !important;
+  }
+}
+
+/* === /KSP WEDDINGS MOBILE REEL MATTE + FRAME CORRECTION === */
+
