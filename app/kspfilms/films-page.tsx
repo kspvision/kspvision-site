@@ -317,7 +317,6 @@ export default function FilmsPage() {
         loop
         playsInline
         preload="none"
-        poster="/music-1603.jpg"
         aria-hidden="true"
       >
       </video>
@@ -332,7 +331,6 @@ export default function FilmsPage() {
           loop
           playsInline
           preload="auto"
-          poster="/music-1603.jpg"
           aria-hidden="true"
         >
           <source src="/music-hero-mobile.mp4" type="video/mp4" />
