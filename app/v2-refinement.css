@@ -8059,3 +8059,38 @@ html body .weddingPage > .detailNav .mainNav a.activeNav[href="/weddings"] {
 
 /* === /KSP WEDDINGS MOBILE FRAME SPLIT FINAL === */
 
+
+/* === KSP WEDDINGS MOBILE FRAME +1PX FINAL === */
+
+@media (max-width: 800px) {
+
+  /* Bottom corners: +1px overall, same center/alignment */
+  html body .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia
+  .weddingReelFrameOrnament::before {
+    left: calc(-4.60% - .5px) !important;
+    right: calc(-4.60% - .5px) !important;
+
+    top: -.5px !important;
+    bottom: 47.5px !important;
+  }
+
+  /* Top corners: same +1px expansion, keep the 17px correction */
+  html body .weddingPage
+  #weddingStoriesFinal
+  .weddingReelMedia
+  .weddingReelFrameOrnament::after {
+    left: calc(-4.60% - .5px) !important;
+    right: calc(-4.60% - .5px) !important;
+
+    top: -.5px !important;
+    bottom: 47.5px !important;
+
+    transform: translateY(17px) !important;
+  }
+
+}
+
+/* === /KSP WEDDINGS MOBILE FRAME +1PX FINAL === */
+
