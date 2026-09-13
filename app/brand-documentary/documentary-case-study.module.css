@@ -393,3 +393,36 @@
 :global(.brandPage[data-brand-theme="light"]) .eventNote p * {
   color: inherit !important;
 }
+
+/* The parent collection's desktop width includes its inherited side padding. */
+@media (min-width: 901px) {
+  :global(.brandPage #realStoriesFinal) {
+    box-sizing: border-box;
+  }
+
+  .section {
+    width: 100%;
+    max-width: 960px;
+    margin-inline: auto;
+  }
+}
+
+/* Keep the archive out of the general 1600px+ documentary child expansion. */
+@media (min-width: 1600px) {
+  :global(.brandPage .documentaryCollection > .documentaryArchiveCases) {
+    width: 100% !important;
+    max-width: 960px !important;
+    margin-inline: auto !important;
+  }
+}
+
+@media (min-width: 1800px) {
+  :global(.brandPage .documentaryCollection > .documentaryArchiveCases) {
+    width: min(78vw, 2200px) !important;
+    max-width: none !important;
+    margin-inline: 0 !important;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

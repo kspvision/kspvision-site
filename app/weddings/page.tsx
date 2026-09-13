@@ -61,7 +61,7 @@ export default function WeddingsPage() {
             src={`https://img.youtube.com/vi/${film.youtubeId}/hqdefault.jpg`}
             alt={film.title}
           />
-          <span>
+          <span className="publishedFilmCta">
             <Localized en="Watch film" fr="Voir le film" /> ↗
           </span>
         </div>
@@ -1705,6 +1705,85 @@ html[lang="fr"] .weddingStoryList::before{content:"FILMS À L’HONNEUR";}
         #weddingStoriesFinal .publishedFilmStill img {
           width:100% !important;
           display:block !important;
+        }
+
+        /* Featured film media stays cropped to its 16:9 frame at every width. */
+        html body .weddingPage #weddingStoriesFinal .weddingStoryFilm,
+        html body .weddingPage #weddingStoriesFinal .weddingStoryFilm .publishedFilmStill {
+          position:relative !important;
+          aspect-ratio:16 / 9 !important;
+          overflow:hidden !important;
+          border-radius:6px !important;
+          background:#050505 !important;
+        }
+
+        html body .weddingPage #weddingStoriesFinal .weddingStoryFilm .publishedFilmStill img {
+          position:absolute !important;
+          inset:0 !important;
+          width:100% !important;
+          height:100% !important;
+          max-height:none !important;
+          object-fit:cover !important;
+          border-radius:0 !important;
+        }
+
+        html body .weddingPage #weddingStoriesFinal .weddingStoryFilm .publishedFilmCta {
+          position:absolute !important;
+          z-index:1 !important;
+          left:.75rem !important;
+          bottom:.65rem !important;
+          margin:0 !important;
+          padding:0 !important;
+          background:transparent !important;
+        }
+
+        /* Keep the gold frame above a rounded footage reveal.  The page
+           background becomes the theme-aware matte in its cut-away corners. */
+        html body .weddingPage #weddingStoriesFinal .weddingReel,
+        html body .weddingPage #weddingStoriesFinal .weddingReelMedia {
+          border-radius:0 !important;
+          overflow:visible !important;
+        }
+
+        html body .weddingPage #weddingStoriesFinal .weddingReelMedia > video {
+          display:block !important;
+          width:100% !important;
+          height:100% !important;
+          object-fit:cover !important;
+          border-radius:16px !important;
+          overflow:hidden !important;
+          clip-path:inset(0 round 16px) !important;
+        }
+
+        /* Four page-colour corner mattes make the 16px aperture visible above
+           the footage while leaving the existing gold ornament layer on top. */
+        html body .weddingPage #weddingStoriesFinal .weddingReelMedia::after {
+          content:"" !important;
+          position:absolute !important;
+          inset:0 !important;
+          z-index:8 !important;
+          pointer-events:none !important;
+          background:
+            radial-gradient(circle at 100% 100%, transparent 15px, var(--wedding-paper) 16px) top left / 16px 16px no-repeat,
+            radial-gradient(circle at 0 100%, transparent 15px, var(--wedding-paper) 16px) top right / 16px 16px no-repeat,
+            radial-gradient(circle at 100% 0, transparent 15px, var(--wedding-paper) 16px) bottom left / 16px 16px no-repeat,
+            radial-gradient(circle at 0 0, transparent 15px, var(--wedding-paper) 16px) bottom right / 16px 16px no-repeat !important;
+        }
+
+        html body .weddingPage:where([data-wedding-theme="ivory"], [data-wedding-theme="light"]) #weddingStoriesFinal .weddingReelMedia::after {
+          background:
+            radial-gradient(circle at 100% 100%, transparent 15px, #f1eee7 16px) top left / 16px 16px no-repeat,
+            radial-gradient(circle at 0 100%, transparent 15px, #f1eee7 16px) top right / 16px 16px no-repeat,
+            radial-gradient(circle at 100% 0, transparent 15px, #f1eee7 16px) bottom left / 16px 16px no-repeat,
+            radial-gradient(circle at 0 0, transparent 15px, #f1eee7 16px) bottom right / 16px 16px no-repeat !important;
+        }
+
+        html body .weddingPage[data-wedding-theme="dark"] #weddingStoriesFinal .weddingReelMedia::after {
+          background:
+            radial-gradient(circle at 100% 100%, transparent 15px, #080808 16px) top left / 16px 16px no-repeat,
+            radial-gradient(circle at 0 100%, transparent 15px, #080808 16px) top right / 16px 16px no-repeat,
+            radial-gradient(circle at 100% 0, transparent 15px, #080808 16px) bottom left / 16px 16px no-repeat,
+            radial-gradient(circle at 0 0, transparent 15px, #080808 16px) bottom right / 16px 16px no-repeat !important;
         }
 
 
