@@ -437,6 +437,24 @@
   font-size: .47rem;
 }
 
+.bookingResponseNote.isSuccess {
+  color: var(--gold);
+}
+
+.bookingResponseNote.isError {
+  color: #e6a09a;
+}
+
+.bookingTrap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 
 /* ---------------------------------------------------------
    MOBILE
@@ -1136,6 +1154,8 @@
 .bookingV2[data-booking-theme="light"] .bookingSubmitRow > div p { color: rgba(23, 21, 17, .78); }
 .bookingV2[data-booking-theme="light"] .bookingSubmitRow > div span,
 .bookingV2[data-booking-theme="light"] .bookingResponseNote { color: rgba(23, 21, 17, .47); }
+.bookingV2[data-booking-theme="light"] .bookingResponseNote.isSuccess { color: #7a5717; }
+.bookingV2[data-booking-theme="light"] .bookingResponseNote.isError { color: #9b2f2a; }
 
 /* === KSP BOOKING LIGHT CONTRAST FINAL START === */
 

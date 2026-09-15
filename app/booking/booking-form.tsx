@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 
-import { Localized } from "../site-language";
+import { Localized, useLanguage } from "../site-language";
 
 type ProjectType =
   | ""
@@ -109,235 +109,7 @@ function formatCalendarDate(value: string) {
 }
 
 export default function BookingForm() {
-
-  function openBookingEmail() {
-    const BOOKING_EMAIL = "bookings@kspvision.ca";
-    const root = document.querySelector(".bookingV2") ?? document;
-
-    const clean = (value: string | null | undefined) =>
-      (value ?? "").replace(/\s+/g, " ").trim();
-
-    const titleCase = (value: string) =>
-      value
-        .replace(/[-_]+/g, " ")
-        .replace(/\b\w/g, (char) => char.toUpperCase());
-
-    const humanDate = (value: string) => {
-      if (!value) return "";
-
-      const parts = value.split("-").map(Number);
-
-      if (parts.length !== 3 || parts.some(Number.isNaN)) {
-        return value;
-      }
-
-      const [year, month, day] = parts;
-
-      return new Intl.DateTimeFormat("en-CA", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }).format(new Date(year, month - 1, day));
-    };
-
-    const getFriendlyLabel = (
-      field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    ) => {
-      let label = "";
-
-      if (field.id) {
-        label =
-          clean(
-            root.querySelector(`label[for="${field.id}"]`)?.textContent
-          ) || "";
-      }
-
-      if (!label) {
-        label =
-          clean(field.getAttribute("aria-label")) ||
-          clean(field.getAttribute("name")) ||
-          clean(field.getAttribute("placeholder")) ||
-          "Field";
-      }
-
-      const value =
-        field instanceof HTMLInputElement && field.type === "date"
-          ? humanDate(field.value)
-          : clean(field.value);
-
-      if (value) {
-        label = clean(label.replace(value, ""));
-      }
-
-      label = clean(
-        label
-          .replace(/\bOPTIONAL\b/gi, "")
-          .replace(/\bFACULTATIF\b/gi, "")
-          .replace(/[·•]+$/g, "")
-      );
-
-      return label || "Field";
-    };
-
-    const lines: string[] = [];
-
-    let projectType = "";
-    let clientName = "";
-    let budget = "";
-
-    root
-      .querySelectorAll<
-        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-      >("input, textarea, select")
-      .forEach((field) => {
-        if (field instanceof HTMLInputElement) {
-          const type = field.type.toLowerCase();
-
-          if (
-            type === "hidden" ||
-            type === "button" ||
-            type === "submit"
-          ) {
-            return;
-          }
-
-          if (
-            (type === "radio" || type === "checkbox") &&
-            !field.checked
-          ) {
-            return;
-          }
-
-          if (type === "file") {
-            const files = Array.from(field.files ?? []);
-
-            if (!files.length) return;
-
-            const label = getFriendlyLabel(field);
-
-            lines.push(
-              `${label}: ${files.map((file) => file.name).join(", ")}`
-            );
-
-            return;
-          }
-
-          if (type === "radio" || type === "checkbox") {
-            const label = getFriendlyLabel(field);
-            const name = clean(field.name).toLowerCase();
-
-            if (name.includes("project")) {
-              projectType = label;
-              lines.push(`Project type: ${label}`);
-              return;
-            }
-
-            if (name.includes("budget")) {
-              budget = label;
-              lines.push(`Budget: ${label}`);
-              return;
-            }
-
-            lines.push(label);
-            return;
-          }
-
-          if (type === "date") {
-            if (!field.value) return;
-
-            lines.push(
-              `Preferred shoot date: ${humanDate(field.value)}`
-            );
-
-            return;
-          }
-        }
-
-        const value = clean(field.value);
-
-        if (!value) return;
-
-        const label = getFriendlyLabel(field);
-        const fieldName = clean(field.getAttribute("name")).toLowerCase();
-
-        if (
-          fieldName === "name" ||
-          fieldName.includes("yourname") ||
-          label.toLowerCase() === "your name"
-        ) {
-          clientName = value;
-        }
-
-        lines.push(`${label}: ${value}`);
-      });
-
-    // Custom pressed buttons, used by project / budget controls
-    root
-      .querySelectorAll<HTMLButtonElement>('button[aria-pressed="true"]')
-      .forEach((button) => {
-        if (button.classList.contains("bookingStepButton")) return;
-
-        const text = clean(button.textContent);
-
-        if (!text) return;
-
-        const sectionText = clean(
-          button.closest("fieldset, section")?.textContent
-        ).toLowerCase();
-
-        if (
-          sectionText.includes("what are we creating") ||
-          sectionText.includes("project type")
-        ) {
-          if (!projectType) {
-            projectType = text;
-            lines.unshift(`Project type: ${text}`);
-          }
-
-          return;
-        }
-
-        if (sectionText.includes("budget")) {
-          if (!budget) {
-            budget = text;
-            lines.push(`Budget: ${text}`);
-          }
-        }
-      });
-
-    // Remove duplicates while preserving order.
-    const cleanLines = Array.from(new Set(lines));
-
-    const subjectParts = [
-      projectType || "Project",
-      "inquiry",
-    ];
-
-    if (clientName) {
-      subjectParts.push(clientName);
-    }
-
-    subjectParts.push("KSP Vision");
-
-    const subject = subjectParts.join(" | ");
-
-    const body = [
-      "Hello KSP Vision,",
-      "",
-      "I would like to request availability for a project.",
-      "",
-      ...cleanLines,
-      "",
-      "Thank you.",
-    ].join("\n");
-
-    window.location.href =
-      `mailto:${BOOKING_EMAIL}` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
-  }
-
-
+  const [language] = useLanguage();
   const [activeStep, setActiveStep] =
     useState<StepNumber>(1);
 
@@ -347,48 +119,17 @@ export default function BookingForm() {
   // KSP_CONTEXTUAL_PROJECT_PREFILL
   useEffect(() => {
     const source = new URLSearchParams(window.location.search).get("project");
+    const contextualProjects = new Set<ProjectType>([
+      "wedding",
+      "music-video",
+      "brand-commercial",
+      "documentary",
+      "post-production-vfx",
+    ]);
 
-    const projectLabels: Record<string, string[]> = {
-      "wedding": ["WEDDING"],
-      "music-video": ["MUSIC VIDEO"],
-      "brand-commercial": ["BRAND / COMMERCIAL", "BRAND/COMMERCIAL"],
-      "documentary": ["DOCUMENTARY"],
-      "post-production-vfx": ["POST-PRODUCTION & VFX", "POSTPRODUCTION ET EFFETS VISUELS"],
-    };
-
-    const wanted = source ? projectLabels[source] : undefined;
-
-    if (!wanted) return;
-
-    const normalize = (value: string) =>
-      value.replace(/\s+/g, " ").trim().toUpperCase();
-
-    const selectExistingProjectCard = () => {
-      /*
-       * Important:
-       * Do NOT guess the form's internal project values.
-       * Trigger the existing project control so contextual entry behaves
-       * exactly like a visitor manually selecting the project.
-       */
-      const controls = Array.from(
-        document.querySelectorAll<HTMLElement>(
-          'button, label, [role="button"]'
-        )
-      );
-
-      const target = controls.find((control) => {
-        const text = normalize(control.textContent || "");
-        return wanted.some((label) => text === normalize(label));
-      });
-
-      if (target) {
-        target.click();
-      }
-    };
-
-    const frame = window.requestAnimationFrame(selectExistingProjectCard);
-
-    return () => window.cancelAnimationFrame(frame);
+    if (source && contextualProjects.has(source as ProjectType)) {
+      setProjectType(source as ProjectType);
+    }
   }, []);
 
 
@@ -405,6 +146,17 @@ export default function BookingForm() {
   const [projectTwo, setProjectTwo] = useState("");
   const [songFile, setSongFile] = useState<File | null>(null);
   const [moodboardFile, setMoodboardFile] = useState<File | null>(null);
+  const [submissionState, setSubmissionState] =
+    useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [submissionError, setSubmissionError] = useState<"generic" | "attachments" | null>(null);
+  const submissionIdRef = useRef<string | null>(null);
+  const attributionRef = useRef({
+    utmSource: "",
+    utmMedium: "",
+    utmCampaign: "",
+    referrer: "",
+    landingPage: "",
+  });
 
   const projectRef =
     useRef<HTMLFieldSetElement>(null);
@@ -460,6 +212,69 @@ export default function BookingForm() {
     stepComplete[2] &&
     stepComplete[3] &&
     stepComplete[4];
+
+  useEffect(() => {
+    const landing = new URL(window.location.href);
+    attributionRef.current = {
+      utmSource: landing.searchParams.get("utm_source") || "",
+      utmMedium: landing.searchParams.get("utm_medium") || "",
+      utmCampaign: landing.searchParams.get("utm_campaign") || "",
+      referrer: document.referrer,
+      landingPage: landing.href,
+    };
+  }, []);
+
+  async function submitBooking(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!allStepsComplete || submissionState === "submitting" || submissionState === "success") return;
+
+    if ((songFile?.size || 0) + (moodboardFile?.size || 0) > 18 * 1024 * 1024) {
+      setSubmissionError("attachments");
+      setSubmissionState("error");
+      return;
+    }
+
+    submissionIdRef.current ??= crypto.randomUUID();
+    const form = new FormData();
+    const values = {
+      submissionId: submissionIdRef.current,
+      projectType,
+      name,
+      email,
+      location,
+      shootDate,
+      budget,
+      brief,
+      projectOne,
+      projectTwo,
+      language,
+      ...attributionRef.current,
+    };
+
+    Object.entries(values).forEach(([key, value]) => form.append(key, value));
+    if (songFile) form.append("songFile", songFile);
+    if (moodboardFile) form.append("moodboardFile", moodboardFile);
+    form.append("companyWebsite", "");
+
+    setSubmissionError(null);
+    setSubmissionState("submitting");
+
+    try {
+      const response = await fetch("/api/booking", { method: "POST", body: form });
+      const result = await response.json().catch(() => null) as { ok?: boolean; error?: string } | null;
+
+      if (!response.ok || !result?.ok) {
+        setSubmissionError(result?.error === "attachments_too_large" ? "attachments" : "generic");
+        setSubmissionState("error");
+        return;
+      }
+
+      setSubmissionState("success");
+    } catch {
+      setSubmissionError("generic");
+      setSubmissionState("error");
+    }
+  }
 
   const selectedBudget = budgetOptions.find(
     (option) => option.value === budget
@@ -1038,8 +853,11 @@ export default function BookingForm() {
       <section className="bookingFormSection">
         <form
           className="bookingForm"
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={submitBooking}
         >
+          <div className="bookingTrap" aria-hidden="true">
+            <input name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
 
           <fieldset
             ref={projectRef}
@@ -1508,27 +1326,50 @@ export default function BookingForm() {
 
 
             <button
-              type="button"
+              type="submit"
               className="bookingSubmit"
-              disabled={!allStepsComplete}
-              aria-disabled={!allStepsComplete}
-              onClick={allStepsComplete ? openBookingEmail : undefined}
+              disabled={!allStepsComplete || submissionState === "submitting" || submissionState === "success"}
+              aria-disabled={!allStepsComplete || submissionState === "submitting" || submissionState === "success"}
             >
-              <Localized
-                en="Request availability"
-                fr="Demander les disponibilités"
-              />
+              {submissionState === "submitting" ? (
+                <Localized en="Sending inquiry…" fr="Envoi de la demande…" />
+              ) : submissionState === "success" ? (
+                <Localized en="Inquiry received" fr="Demande reçue" />
+              ) : (
+                <Localized en="Request availability" fr="Demander les disponibilités" />
+              )}
 
-              <b>↗</b>
+              <b>{submissionState === "success" ? "✓" : "↗"}</b>
             </button>
           </div>
 
 
-          <p className="bookingResponseNote">
-            <Localized
-              en="We typically reply within 1–2 business days."
-              fr="Nous répondons généralement dans un délai de 1 à 2 jours ouvrables."
-            />
+          <p
+            className={`bookingResponseNote ${submissionState === "success" ? "isSuccess" : ""} ${submissionState === "error" ? "isError" : ""}`}
+            role={submissionState === "error" ? "alert" : "status"}
+            aria-live="polite"
+          >
+            {submissionState === "success" ? (
+              <Localized
+                en="Your inquiry was received. A confirmation email is on its way."
+                fr="Votre demande a été reçue. Un courriel de confirmation est en route."
+              />
+            ) : submissionState === "error" && submissionError === "attachments" ? (
+              <Localized
+                en="The selected files exceed the 18 MB combined limit. Choose smaller files and try again."
+                fr="Les fichiers sélectionnés dépassent la limite combinée de 18 Mo. Choisissez des fichiers plus petits et réessayez."
+              />
+            ) : submissionState === "error" ? (
+              <Localized
+                en="We couldn’t send your inquiry. Please try again or email bookings@kspvision.ca."
+                fr="Nous n’avons pas pu envoyer votre demande. Réessayez ou écrivez à bookings@kspvision.ca."
+              />
+            ) : (
+              <Localized
+                en="We typically reply within 1–2 business days."
+                fr="Nous répondons généralement dans un délai de 1 à 2 jours ouvrables."
+              />
+            )}
           </p>
 
         </form>
