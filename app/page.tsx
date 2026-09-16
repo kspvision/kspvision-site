@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     locale: "en_CA",
     images: [
       {
-        url: "/og.png?v=20260916",
+        url: "/og-ksp-vision.png?v=20260916",
         width: 1200,
         height: 630,
         alt: "KSP Vision | Production, Cinematography, Post-production",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "KSP VISION — Production · Cinematography · Post-Production",
     description:
       "Cinematic films, music videos, documentaries and branded stories from Montréal.",
-    images: ["/og.png?v=20260916"],
+    images: ["/og-ksp-vision.png?v=20260916"],
   },
 };
 
