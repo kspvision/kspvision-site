@@ -4468,7 +4468,7 @@ html body .weddingPage[data-wedding-theme="ivory"]
     url("/weddings/ksp-wedding-title-ornament.png")
     center / contain no-repeat !important;
 
-  bottom: -16px !important;
+  bottom: -26px !important;
 
   opacity: .48 !important;
 
@@ -5056,7 +5056,7 @@ html body .weddingPage[data-wedding-theme="ivory"]
 
 /* MANUAL LOCK — LA VILLE final vertical position */
 #realStoriesFinal .laVilleStandalone .documentaryInfo > .docProjectTitle {
-  transform: translateY(28px) scale(1.62) !important;
+  transform: translateY(18px) scale(1.62) !important;
   transform-origin: center bottom !important;
 }
 
@@ -5324,7 +5324,7 @@ html body .weddingPage[data-wedding-theme="ivory"]
   justify-content: space-between;
   gap: 20px;
 
-  margin-bottom: clamp(17px, 2vw, 28px);
+  margin-bottom: clamp(17px, 2vw, 18px);
 }
 
 
@@ -5796,7 +5796,7 @@ html body .weddingPage[data-wedding-theme="ivory"]
   position: absolute;
 
   right: var(--mv-gutter);
-  bottom: -13px;
+  bottom: -26px;
 
   color: rgba(255,255,255,.075);
 
@@ -6140,7 +6140,7 @@ html body .weddingPage[data-wedding-theme="ivory"]
 /* Atmospheric date stays large but no longer creates space */
 .mv-page .mv-era-marker strong {
   right: var(--mv-gutter) !important;
-  bottom: -16px !important;
+  bottom: -26px !important;
 
   font-size: clamp(3.4rem, 7.2vw, 8rem) !important;
 
@@ -6644,7 +6644,7 @@ html body .mv-page > .mv-hero {
  * New values physically shorten the rectangle.
  */
 html body .mv-page > .mv-hero > .mv-hero-content {
-  padding-top: 28px !important;
+  padding-top: 18px !important;
   padding-bottom: 9px !important;
 }
 
@@ -8094,3 +8094,32 @@ html body .weddingPage > .detailNav .mainNav a.activeNav[href="/weddings"] {
 
 /* === /KSP WEDDINGS MOBILE FRAME +1PX FINAL === */
 
+/* Wedding Reel local experiment: four corners at 68% of deployed artwork size.
+   Original four-corner geometry above is preserved; remove this block to restore. */
+html body .weddingPage #weddingStoriesFinal .weddingReelMedia .weddingReelFrameOrnament::before {
+  left: -3.128% !important;
+  right: -3.128% !important;
+  background-image: url("/weddings/ksp-wedding-video-frame.png"), url("/weddings/ksp-wedding-video-frame.png"), url("/weddings/ksp-wedding-video-frame.png"), url("/weddings/ksp-wedding-video-frame.png") !important;
+  background-position: left top, right top, left bottom, right bottom !important;
+  background-size: 68% 68% !important;
+  background-repeat: no-repeat !important;
+  -webkit-mask: radial-gradient(ellipse at left top, #000 0 71%, transparent 73%) left top / 12.92% 23.12% no-repeat,
+    radial-gradient(ellipse at right top, #000 0 71%, transparent 73%) right top / 12.92% 23.12% no-repeat,
+    radial-gradient(ellipse at left bottom, #000 0 71%, transparent 73%) left bottom / 12.92% 23.12% no-repeat,
+    radial-gradient(ellipse at right bottom, #000 0 71%, transparent 73%) right bottom / 12.92% 23.12% no-repeat !important;
+  mask: radial-gradient(ellipse at left top, #000 0 71%, transparent 73%) left top / 12.92% 23.12% no-repeat,
+    radial-gradient(ellipse at right top, #000 0 71%, transparent 73%) right top / 12.92% 23.12% no-repeat,
+    radial-gradient(ellipse at left bottom, #000 0 71%, transparent 73%) left bottom / 12.92% 23.12% no-repeat,
+    radial-gradient(ellipse at right bottom, #000 0 71%, transparent 73%) right bottom / 12.92% 23.12% no-repeat !important;
+}
+html body .weddingPage #weddingStoriesFinal .weddingReelMedia .weddingReelFrameOrnament::after {
+  content: none !important;
+}
+/* Desktop stem adjustment: move artwork and matching masks together vertically. */
+@media (min-width:801px) {
+  html body .weddingPage #weddingStoriesFinal .weddingReelMedia .weddingReelFrameOrnament::before {
+    background-position: left 22px, right 22px, left calc(100% - 19px), right calc(100% - 19px) !important;
+    -webkit-mask-position: left 22px, right 22px, left calc(100% - 19px), right calc(100% - 19px) !important;
+    mask-position: left 22px, right 22px, left calc(100% - 19px), right calc(100% - 19px) !important;
+  }
+}

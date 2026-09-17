@@ -89,6 +89,19 @@ export default function WeddingsPage() {
 </section>
 
 
+    <section className="weddingExperience" aria-labelledby="wedding-experience-heading">
+      <div className="weddingExperienceIntro">
+        <div><p className="kicker"><Localized en="THE KSP WEDDING EXPERIENCE" fr="L’EXPÉRIENCE MARIAGE KSP" /></p><h2 id="wedding-experience-heading"><Localized en="From the first conversation" fr="De la première conversation" /><br/><Localized en="to the final film." fr="au film final." /></h2></div>
+        <p><Localized en="Every wedding is different. The process is built around your day, your people and what matters most to you." fr="Chaque mariage est différent. Le processus se construit autour de votre journée, de vos proches et de ce qui compte le plus pour vous." /></p>
+      </div>
+      <div className="weddingExperienceSteps">
+        <article><span>01</span><div><h3><Localized en="CONVERSATION" fr="CONVERSATION" /></h3><p><Localized en="We start with your story, your plans and what you want to remember most." fr="Nous commençons par votre histoire, vos projets et ce que vous voulez garder en mémoire." /></p></div></article>
+        <article><span>02</span><div><h3><Localized en="PLANNING" fr="PLANIFICATION" /></h3><p><Localized en="We go through the timeline, locations and key moments together so the day can unfold naturally." fr="Nous passons ensemble en revue le déroulement, les lieux et les moments clés pour que la journée se déroule naturellement." /></p></div></article>
+        <article><span>03</span><div><h3><Localized en="THE WEDDING DAY" fr="LE JOUR DU MARIAGE" /></h3><p><Localized en="Thoughtful, unobtrusive coverage focused on real moments, atmosphere and the people around you." fr="Une présence attentive et discrète, centrée sur les vrais moments, l’atmosphère et les personnes qui vous entourent." /></p></div></article>
+        <article><span>04</span><div><h3><Localized en="POST-PRODUCTION" fr="POST-PRODUCTION" /></h3><p><Localized en="Your story is carefully shaped through picture, sound and colour into a film made to bring you back." fr="Votre histoire est façonnée avec soin par l’image, le son et la couleur en un film conçu pour vous y ramener." /></p></div></article>
+      </div>
+    </section>
+
 <section id="weddingGalleryFinal" className="weddingGallery">
   <div className="weddingSectionHead">
     <div>
@@ -105,7 +118,7 @@ export default function WeddingsPage() {
 </section>
 
 <section className="makeupArtists" aria-labelledby="makeup-heading"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Wedding beauty" fr="Beauté mariage" /></p><h2 id="makeup-heading">MAKEUP ARTISTS</h2></div><p><Localized en="Discover trusted beauty artists for weddings, celebrations and on-camera work." fr="Découvrez des artistes beauté de confiance pour les mariages, célébrations et projets caméra." /></p></div><a className="makeupArtistCard" href="/mira"><img src="/mira/final/mira-working.jpg" alt="Mira applying bridal makeup"/><div><p>BRIDAL + EVENT MAKEUP · MONTRÉAL</p><h3>MIRA</h3><span><Localized en="View artist, transformation and gallery" fr="Voir l’artiste, les transformations et la galerie" /> ↗</span></div></a></section>
-    <section className="weddingCta"><p className="kicker"><Localized en="Now booking" fr="Réservations ouvertes" /></p><h2><Localized en="Your story deserves" fr="Votre histoire mérite" /><br/><em><Localized en="to feel like yours." fr="de vous ressembler." /></em></h2><a className="button gold" href="/booking?project=wedding"><Localized en="Check availability" fr="Vérifier les disponibilités" /> <b>↗</b></a></section>
+    <section className="weddingCta"><p className="kicker"><Localized en="Now booking" fr="Réservations ouvertes" /></p><h2><Localized en="Your story deserves" fr="Votre histoire mérite" /><br/><em><Localized en="to feel like yours." fr="de vous ressembler." /></em></h2><p className="weddingCtaSupport"><Localized en="Tell us about your wedding, your date and what you have in mind. We’ll take it from there." fr="Parlez-nous de votre mariage, de votre date et de ce que vous avez en tête. Nous nous occupons du reste." /></p><a className="button gold" href="/booking?project=wedding"><Localized en="Check availability" fr="Vérifier les disponibilités" /> <b>↗</b></a></section>
 
 <style>{`
 /* ========================================================
@@ -1926,6 +1939,102 @@ html[lang="fr"] .weddingStoryList::before{content:"FILMS À L’HONNEUR";}
             margin-top: 2.25rem !important;
             padding-top: 1.75rem !important;
           }
+        }
+      `}</style>
+
+      <style>{`
+        /* Wedding Experience: editorial process, shared structure in both themes. */
+        .weddingPage .weddingExperience {
+          --experience-ink:#f4f1eb;
+          --experience-muted:rgba(244,241,235,.72);
+          --experience-line:rgba(244,241,235,.16);
+          --experience-gold:#d5aa55;
+          width:calc(100% - 2.5rem);
+          max-width:1120px;
+          margin:0 auto;
+          padding:2.5rem 0;
+          color:var(--experience-ink);
+        }
+        .weddingPage[data-wedding-theme="ivory"] .weddingExperience {
+          --experience-ink:var(--wedding-ink);
+          --experience-muted:var(--wedding-muted);
+          --experience-line:var(--wedding-line);
+          --experience-gold:var(--wedding-gold);
+        }
+        .weddingExperienceIntro {
+          display:grid;
+          grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+          gap:clamp(2rem,4vw,4rem);
+          align-items:end;
+          margin-bottom:1.75rem;
+        }
+        .weddingExperienceIntro .kicker { color:var(--experience-gold); margin:0 0 .85rem; }
+        .weddingExperience h2 {
+          font-family:Georgia, "Times New Roman", serif;
+          font-style:normal;
+          font-weight:400;
+          text-transform:none;
+          font-size:clamp(1.85rem,2.65vw,2.5rem);
+          line-height:1.14;
+          letter-spacing:-.035em;
+          margin:0;
+          color:var(--experience-ink);
+        }
+        /* Existing page-wide important heading colours require a scoped colour declaration. */
+        html body .weddingPage .weddingExperience h2,
+        html body .weddingPage .weddingExperience h3 { color:var(--experience-ink) !important; }
+        html body .weddingPage .weddingExperience .kicker { color:var(--experience-gold) !important; }
+        .weddingExperienceIntro > p {
+          max-width:43ch;
+          margin:0;
+          color:var(--experience-muted);
+          font-size:.95rem;
+          line-height:1.65;
+        }
+        .weddingExperienceSteps {
+          display:grid;
+          grid-template-columns:repeat(4,minmax(0,1fr));
+          border-block:1px solid var(--experience-line);
+          padding:1.5rem 0;
+        }
+        .weddingExperienceSteps article { min-width:0; padding:0 1.5rem; }
+        .weddingExperienceSteps article:first-child { padding-left:0; }
+        .weddingExperienceSteps article:last-child { padding-right:0; }
+        .weddingExperienceSteps article + article { border-left:1px solid var(--experience-line); }
+        .weddingExperienceSteps article > span {
+          display:block;
+          color:var(--experience-gold);
+          font-size:.7rem;
+          font-weight:600;
+          letter-spacing:.15em;
+          margin-bottom:1rem;
+        }
+        .weddingExperienceSteps h3 {
+          margin:0 0 .65rem;
+          color:var(--experience-ink);
+          font-size:.75rem;
+          line-height:1.4;
+          letter-spacing:.1em;
+          font-weight:600;
+        }
+        .weddingExperienceSteps p {
+          margin:0;
+          color:var(--experience-muted);
+          font-size:.9rem;
+          line-height:1.6;
+        }
+        .weddingCtaSupport { max-width:34rem; margin:1rem auto 1.7rem; line-height:1.55; }
+        @media (max-width:800px) {
+          .weddingPage .weddingExperience { padding:2rem 0; }
+          .weddingExperienceIntro { grid-template-columns:1fr; gap:1rem; margin-bottom:1.5rem; }
+          .weddingExperience h2 { font-size:clamp(1.55rem,6.2vw,2rem); }
+          .weddingExperienceIntro > p { max-width:none; }
+          .weddingExperienceSteps { grid-template-columns:1fr; padding:0; }
+          .weddingExperienceSteps article,
+          .weddingExperienceSteps article:first-child,
+          .weddingExperienceSteps article:last-child { padding:1.15rem 0; }
+          .weddingExperienceSteps article + article { border-left:0; border-top:1px solid var(--experience-line); }
+          .weddingExperienceSteps article > span { margin-bottom:.55rem; }
         }
       `}</style>
 
