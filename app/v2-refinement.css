@@ -7148,278 +7148,118 @@ html body
 }
 
 /* === KSP WEDDING PNG REEL FRAME START === */
-
-/*
-   FINAL STRUCTURAL FIT
-
-   The frame now belongs to .weddingReelMedia,
-   which contains ONLY:
-     1. the Wedding Reel video
-     2. the transparent PNG frame
-
-   Therefore all percentages below are measured against
-   the actual displayed video rectangle, NOT the lower
-   WEDDING REEL / KSP WEDDING FILMS information band.
-
-   Source PNG: 1672 × 941
-
-   Measured straight-border positions:
-     left   = 74.5
-     right  = 1595.5
-     top    = 101
-     bottom = 840
-
-   Inner opening:
-     width  = 1521
-     height = 739
-
-   Required bleed relative to opening:
-     left   = 4.90%
-     right  = 5.03%
-     top    = 13.67%
-     bottom = 13.67%
-*/
-
-
-/* EXACT VIDEO CONTAINER — adds ZERO spacing to layout */
-html body .weddingPage
-#weddingStoriesFinal
-.weddingReelMedia {
+/* The media rectangle is the only coordinate system for the four corners. */
+html body .weddingPage #weddingStoriesFinal .weddingReelMedia {
   position: relative !important;
-
   display: block !important;
-
   width: 100% !important;
-
   margin: 0 !important;
   padding: 0 !important;
-
   line-height: 0 !important;
-
   overflow: visible !important;
+  container-type: inline-size;
 }
 
-
-/* Preserve the existing Wedding Reel geometry */
-html body .weddingPage
-#weddingStoriesFinal
-.weddingReelMedia > video {
+html body .weddingPage #weddingStoriesFinal .weddingReelMedia > video {
   display: block !important;
-
-  margin: 0 !important;
-
   position: relative !important;
   z-index: 1 !important;
+  margin: 0 !important;
 }
 
+html body .weddingPage #weddingStoriesFinal .weddingReelFrameOrnament,
+html body .weddingPage #weddingStoriesFinal .weddingReelMedia::before {
+  /* The rail is opaque through source pixel 319 of the 320px crop.
+     Its endpoint at 320/320, minus the crop's .23-width outward offset,
+     leaves .77 of the rendered corner inside the reel. */
+  --reel-corner: clamp(42px, 13cqw, 184px);
+  --reel-matte-inset: calc(var(--reel-corner) * .77);
+}
 
-/*
-   Ornament wrapper is now EXACTLY the video rectangle.
-   No 64px / 48px compensation anymore.
-*/
-html body .weddingPage
-#weddingStoriesFinal
-.weddingReelMedia
-.weddingReelFrameOrnament {
+html body .weddingPage #weddingStoriesFinal .weddingReelFrameOrnament {
   position: absolute !important;
-
   inset: 0 !important;
-
   display: block !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
-
   width: auto !important;
   height: auto !important;
-
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
   overflow: visible !important;
-
   background: none !important;
-
   pointer-events: none !important;
   user-select: none !important;
-
   z-index: 12 !important;
-
   opacity: .90 !important;
+  /* A 320px square from each corner of the 1672x941 source image. */
+  /* Source rails are centered at y=101 and y=840 (101px from the bottom). */
+  --reel-rail-y: calc(var(--reel-corner) * .315625);
 }
 
-
-/*
-   Expand ONLY the PNG.
-
-   Because its parent now equals the ACTUAL video rectangle,
-   these values put the four thin straight gold borders
-   onto the four video boundaries.
-*/
-html body .weddingPage
-#weddingStoriesFinal
-.weddingReelMedia
-.weddingReelFrameOrnament::before {
+html body .weddingPage #weddingStoriesFinal .weddingReelFrameOrnament::before,
+html body .weddingPage #weddingStoriesFinal .weddingReelFrameOrnament::after {
   content: "" !important;
-
-  position: absolute !important;
-
-  /*
-     FINAL VISUAL FIT
-     ≈ 105% wide / 110% tall.
-
-     Slightly more extension below than above gives
-     the ornament the small downward bias requested.
-
-     VIDEO GEOMETRY IS NOT CHANGED.
-  */
-  /*
-     VERTICAL FIT TEST:
-     lock ornament box exactly to video height first.
-     Horizontal sizing stays untouched for now.
-  */
-  left: -4.60% !important;
-  right: -4.60% !important;
-
-  /*
-     MEASURED VERTICAL CORRECTION — 2026-09-11
-
-     Current screenshot:
-       video span      ≈ 801 physical px
-       gold-line span  ≈ 853 physical px
-
-       801 / 853 = 0.93904
-
-     Frame midpoint is ≈12.5 physical px too low.
-     Retina 2× => ≈6.25 CSS px.
-     Relative to ≈400.5 CSS px video height:
-       6.25 / 400.5 = 1.56%
-
-     Shift upward without changing the layout box,
-     then vertically compress artwork only.
-  */
-  top: -1.56% !important;
-  bottom: 1.56% !important;
-
-  transform: scaleY(0.93904) !important;
-  transform-origin: center center !important;
-
   display: block !important;
-
-  background-image:
-    url("/weddings/ksp-wedding-video-frame.png")
-    !important;
-
+  position: absolute !important;
+  left: calc(var(--reel-corner) * -.23) !important;
+  right: calc(var(--reel-corner) * -.23) !important;
+  height: var(--reel-corner) !important;
+  transform: none !important;
+  /* Source width/height divided by the 320px crop: same scale on both axes. */
+  background-size:
+    calc(var(--reel-corner) * 5.225)
+    calc(var(--reel-corner) * 2.940625) !important;
   background-repeat: no-repeat !important;
-  background-position: center center !important;
-  background-size: 100% 100% !important;
-
   pointer-events: none !important;
 }
 
-
-/* Light */
-html body .weddingPage:where(
-  [data-wedding-theme="ivory"],
-  [data-wedding-theme="light"]
-)
-#weddingStoriesFinal
-.weddingReelFrameOrnament {
-  opacity: .82 !important;
-}
-
-
-/* Dark */
-html body .weddingPage[data-wedding-theme="dark"]
-#weddingStoriesFinal
-.weddingReelFrameOrnament {
-  opacity: .94 !important;
-}
-
-
-/*
-   IMPORTANT:
-   NO MOBILE bottom compensation anymore.
-
-   The wrapper follows the real video at every viewport,
-   so the frame follows it automatically.
-*/
-
-/* === KSP WEDDING PNG REEL FRAME END === */
-
-/* === KSP WEDDING DECOUPLED BORDER START === */
-
-/*
-   FINAL:
-   - preserve current four corner ornaments
-   - NO artificial CSS border
-   - expose only the ornamental corner artwork
-   - keep all current frame geometry untouched
-*/
-
-html body .weddingPage
-#weddingStoriesFinal
-.weddingReelMedia
-.weddingReelFrameOrnament {
-  box-sizing: border-box !important;
-  border: 0 !important;
-}
-
-
-/*
-   Keep the four ornate corners while cutting away
-   the long straight rails from the PNG.
-
-   IMPORTANT: this does NOT change the PNG's scale,
-   position, vertical correction or horizontal stretch.
-*/
-html body .weddingPage
-#weddingStoriesFinal
-.weddingReelMedia
-.weddingReelFrameOrnament::before {
+html body .weddingPage #weddingStoriesFinal .weddingReelFrameOrnament::before {
+  /* The top cover's existing 3px shadow is its painted bottom edge. */
+  top: calc(12% + 3px - var(--reel-rail-y)) !important;
+  bottom: auto !important;
+  background-image:
+    url("/weddings/ksp-wedding-video-frame.png"),
+    url("/weddings/ksp-wedding-video-frame.png") !important;
+  background-position: left top, right top !important;
   -webkit-mask:
-    radial-gradient(ellipse at left top,
-      #000 0 71%,
-      transparent 73%
-    ) left top / 19% 34% no-repeat,
-
-    radial-gradient(ellipse at right top,
-      #000 0 71%,
-      transparent 73%
-    ) right top / 19% 34% no-repeat,
-
-    radial-gradient(ellipse at left bottom,
-      #000 0 71%,
-      transparent 73%
-    ) left bottom / 19% 34% no-repeat,
-
-    radial-gradient(ellipse at right bottom,
-      #000 0 71%,
-      transparent 73%
-    ) right bottom / 19% 34% no-repeat
-    !important;
-
+    radial-gradient(ellipse at left top, #000 0 71%, transparent 73%) left top / var(--reel-corner) var(--reel-corner) no-repeat,
+    radial-gradient(ellipse at right top, #000 0 71%, transparent 73%) right top / var(--reel-corner) var(--reel-corner) no-repeat !important;
   mask:
-    radial-gradient(ellipse at left top,
-      #000 0 71%,
-      transparent 73%
-    ) left top / 19% 34% no-repeat,
-
-    radial-gradient(ellipse at right top,
-      #000 0 71%,
-      transparent 73%
-    ) right top / 19% 34% no-repeat,
-
-    radial-gradient(ellipse at left bottom,
-      #000 0 71%,
-      transparent 73%
-    ) left bottom / 19% 34% no-repeat,
-
-    radial-gradient(ellipse at right bottom,
-      #000 0 71%,
-      transparent 73%
-    ) right bottom / 19% 34% no-repeat
-    !important;
+    radial-gradient(ellipse at left top, #000 0 71%, transparent 73%) left top / var(--reel-corner) var(--reel-corner) no-repeat,
+    radial-gradient(ellipse at right top, #000 0 71%, transparent 73%) right top / var(--reel-corner) var(--reel-corner) no-repeat !important;
 }
 
-/* === KSP WEDDING DECOUPLED BORDER END === */
+html body .weddingPage #weddingStoriesFinal .weddingReelFrameOrnament::after {
+  top: auto !important;
+  /* The lower band's existing -3px shadow is its painted top edge. */
+  bottom: calc(var(--reel-bottom-band-h, 4.85rem) + 3px - var(--reel-rail-y)) !important;
+  background-image:
+    url("/weddings/ksp-wedding-video-frame.png"),
+    url("/weddings/ksp-wedding-video-frame.png") !important;
+  background-position: left bottom, right bottom !important;
+  -webkit-mask:
+    radial-gradient(ellipse at left bottom, #000 0 71%, transparent 73%) left bottom / var(--reel-corner) var(--reel-corner) no-repeat,
+    radial-gradient(ellipse at right bottom, #000 0 71%, transparent 73%) right bottom / var(--reel-corner) var(--reel-corner) no-repeat !important;
+  mask:
+    radial-gradient(ellipse at left bottom, #000 0 71%, transparent 73%) left bottom / var(--reel-corner) var(--reel-corner) no-repeat,
+    radial-gradient(ellipse at right bottom, #000 0 71%, transparent 73%) right bottom / var(--reel-corner) var(--reel-corner) no-repeat !important;
+}
+
+@media (max-width: 800px) {
+  html body .weddingPage #weddingStoriesFinal .weddingReelFrameOrnament::before {
+    top: calc(16.4% + 3px - var(--reel-rail-y)) !important;
+  }
+
+  html body .weddingPage #weddingStoriesFinal .weddingReelFrameOrnament::after {
+    bottom: calc(var(--reel-bottom-band-h, 4.85rem) + 3px - var(--reel-rail-y)) !important;
+  }
+}
+
+html body .weddingPage:where([data-wedding-theme="ivory"], [data-wedding-theme="light"])
+#weddingStoriesFinal .weddingReelFrameOrnament { opacity: .82 !important; }
+html body .weddingPage[data-wedding-theme="dark"]
+#weddingStoriesFinal .weddingReelFrameOrnament { opacity: .94 !important; }
+/* === KSP WEDDING PNG REEL FRAME END === */
 
 /* === KSP WEDDING DARK REEL CLEANUP START === */
 
@@ -7744,49 +7584,6 @@ html body .weddingPage > .detailNav .mainNav a.activeNav[href="/weddings"] {
   }
 
 
-  /* ----------------------------------------------------------
-     MOBILE GOLD FRAME
-     Parent now IS the visible reel rectangle.
-     Stop using the desktop measured vertical compression.
-     ---------------------------------------------------------- */
-
-  html body
-  .weddingPage
-  #weddingStoriesFinal
-  .weddingReelMedia
-  .weddingReelFrameOrnament {
-    position: absolute !important;
-
-    inset: 0 !important;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    pointer-events: none !important;
-    z-index: 12 !important;
-  }
-
-
-  html body
-  .weddingPage
-  #weddingStoriesFinal
-  .weddingReelMedia
-  .weddingReelFrameOrnament::before {
-    /* Keep the approved horizontal reach. */
-    left: -4.60% !important;
-    right: -4.60% !important;
-
-    /* MOBILE: frame follows the actual visible reel exactly. */
-    top: 0 !important;
-    bottom: 0 !important;
-
-    transform: none !important;
-    transform-origin: center center !important;
-
-    background-position: center center !important;
-    background-size: 100% 100% !important;
-  }
-
 }
 
 /* === /KSP WEDDINGS MOBILE REEL FIX === */
@@ -7861,265 +7658,56 @@ html body .weddingPage > .detailNav .mainNav a.activeNav[href="/weddings"] {
     background-image: none !important;
   }
 
-  /* Gold frame follows only the visible picture */
-  html body .weddingPage
-  #weddingStoriesFinal
-  .weddingReelMedia
-  .weddingReelFrameOrnament {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 12 !important;
-    pointer-events: none !important;
-  }
-
-  html body .weddingPage
-  #weddingStoriesFinal
-  .weddingReelMedia
-  .weddingReelFrameOrnament::before {
-    left: -4.60% !important;
-    right: -4.60% !important;
-
-    top: 36px !important;
-    bottom: 48px !important;
-
-    transform: none !important;
-    transform-origin: center center !important;
-
-    background-position: center center !important;
-    background-size: 100% 100% !important;
-  }
 }
 
 /* === /KSP WEDDINGS MOBILE REEL MATTE + FRAME CORRECTION === */
 
 
-/* === KSP WEDDINGS MOBILE TOP FRAME ALIGNMENT FINAL === */
-
-@media (max-width: 800px) {
-  html body .weddingPage
-  #weddingStoriesFinal
-  .weddingReelMedia
-  .weddingReelFrameOrnament::before {
-    top: 0 !important;
-    bottom: 48px !important;
-  }
-}
-
-/* === /KSP WEDDINGS MOBILE TOP FRAME ALIGNMENT FINAL === */
-
-
-/* ==========================================================
-   KSP WEDDINGS — MOBILE FRAME SPLIT FINAL
-   Bottom = locked approved reference
-   Top = independently aligned to mirror bottom
-   ========================================================== */
-
-@media (max-width: 800px) {
-
-  /* ----------------------------------------------------------
-     BOTTOM CORNERS
-     Preserve the currently approved bottom geometry exactly.
-     Remove the top corners from ::before.
-     ---------------------------------------------------------- */
-
-  html body .weddingPage
-  #weddingStoriesFinal
-  .weddingReelMedia
-  .weddingReelFrameOrnament::before {
-    content: "" !important;
-    display: block !important;
-
-    position: absolute !important;
-
-    left: -4.60% !important;
-    right: -4.60% !important;
-
-    top: 0 !important;
-    bottom: 48px !important;
-
-    transform: none !important;
-
-    background-image:
-      url("/weddings/ksp-wedding-video-frame.png")
-      !important;
-
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-size: 100% 100% !important;
-
-    /* BOTTOM CORNERS ONLY */
-    -webkit-mask:
-      radial-gradient(
-        ellipse at left bottom,
-        #000 0 71%,
-        transparent 73%
-      ) left bottom / 19% 34% no-repeat,
-
-      radial-gradient(
-        ellipse at right bottom,
-        #000 0 71%,
-        transparent 73%
-      ) right bottom / 19% 34% no-repeat
-      !important;
-
-    mask:
-      radial-gradient(
-        ellipse at left bottom,
-        #000 0 71%,
-        transparent 73%
-      ) left bottom / 19% 34% no-repeat,
-
-      radial-gradient(
-        ellipse at right bottom,
-        #000 0 71%,
-        transparent 73%
-      ) right bottom / 19% 34% no-repeat
-      !important;
-
-    pointer-events: none !important;
-    z-index: 12 !important;
-  }
-
-
-  /* ----------------------------------------------------------
-     TOP CORNERS
-     Independent copy of the SAME artwork.
-
-     Measured correction:
-     current top outside-video reach ≈44 screenshot px
-     approved bottom outside reach ≈16 screenshot px
-     difference ≈28 screenshot px
-     ≈17 CSS px at mirrored-phone scale
-
-     Therefore move ONLY the top artwork +17px.
-     ---------------------------------------------------------- */
-
-  html body .weddingPage
-  #weddingStoriesFinal
-  .weddingReelMedia
-  .weddingReelFrameOrnament::after {
-    content: "" !important;
-    display: block !important;
-
-    position: absolute !important;
-
-    left: -4.60% !important;
-    right: -4.60% !important;
-
-    top: 0 !important;
-    bottom: 48px !important;
-
-    transform: translateY(17px) !important;
-    transform-origin: center center !important;
-
-    background-image:
-      url("/weddings/ksp-wedding-video-frame.png")
-      !important;
-
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-size: 100% 100% !important;
-
-    /* TOP CORNERS ONLY */
-    -webkit-mask:
-      radial-gradient(
-        ellipse at left top,
-        #000 0 71%,
-        transparent 73%
-      ) left top / 19% 34% no-repeat,
-
-      radial-gradient(
-        ellipse at right top,
-        #000 0 71%,
-        transparent 73%
-      ) right top / 19% 34% no-repeat
-      !important;
-
-    mask:
-      radial-gradient(
-        ellipse at left top,
-        #000 0 71%,
-        transparent 73%
-      ) left top / 19% 34% no-repeat,
-
-      radial-gradient(
-        ellipse at right top,
-        #000 0 71%,
-        transparent 73%
-      ) right top / 19% 34% no-repeat
-      !important;
-
-    pointer-events: none !important;
-    z-index: 12 !important;
-  }
-
-}
-
-/* === /KSP WEDDINGS MOBILE FRAME SPLIT FINAL === */
-
-
-/* === KSP WEDDINGS MOBILE FRAME +1PX FINAL === */
-
-@media (max-width: 800px) {
-
-  /* Bottom corners: +1px overall, same center/alignment */
-  html body .weddingPage
-  #weddingStoriesFinal
-  .weddingReelMedia
-  .weddingReelFrameOrnament::before {
-    left: calc(-4.60% - .5px) !important;
-    right: calc(-4.60% - .5px) !important;
-
-    top: -.5px !important;
-    bottom: 47.5px !important;
-  }
-
-  /* Top corners: same +1px expansion, keep the 17px correction */
-  html body .weddingPage
-  #weddingStoriesFinal
-  .weddingReelMedia
-  .weddingReelFrameOrnament::after {
-    left: calc(-4.60% - .5px) !important;
-    right: calc(-4.60% - .5px) !important;
-
-    top: -.5px !important;
-    bottom: 47.5px !important;
-
-    transform: translateY(17px) !important;
-  }
-
-}
-
-/* === /KSP WEDDINGS MOBILE FRAME +1PX FINAL === */
-
-/* Wedding Reel local experiment: four corners at 68% of deployed artwork size.
-   Original four-corner geometry above is preserved; remove this block to restore. */
-html body .weddingPage #weddingStoriesFinal .weddingReelMedia .weddingReelFrameOrnament::before {
-  left: -3.128% !important;
-  right: -3.128% !important;
-  background-image: url("/weddings/ksp-wedding-video-frame.png"), url("/weddings/ksp-wedding-video-frame.png"), url("/weddings/ksp-wedding-video-frame.png"), url("/weddings/ksp-wedding-video-frame.png") !important;
-  background-position: left top, right top, left bottom, right bottom !important;
-  background-size: 68% 68% !important;
-  background-repeat: no-repeat !important;
-  -webkit-mask: radial-gradient(ellipse at left top, #000 0 71%, transparent 73%) left top / 12.92% 23.12% no-repeat,
-    radial-gradient(ellipse at right top, #000 0 71%, transparent 73%) right top / 12.92% 23.12% no-repeat,
-    radial-gradient(ellipse at left bottom, #000 0 71%, transparent 73%) left bottom / 12.92% 23.12% no-repeat,
-    radial-gradient(ellipse at right bottom, #000 0 71%, transparent 73%) right bottom / 12.92% 23.12% no-repeat !important;
-  mask: radial-gradient(ellipse at left top, #000 0 71%, transparent 73%) left top / 12.92% 23.12% no-repeat,
-    radial-gradient(ellipse at right top, #000 0 71%, transparent 73%) right top / 12.92% 23.12% no-repeat,
-    radial-gradient(ellipse at left bottom, #000 0 71%, transparent 73%) left bottom / 12.92% 23.12% no-repeat,
-    radial-gradient(ellipse at right bottom, #000 0 71%, transparent 73%) right bottom / 12.92% 23.12% no-repeat !important;
-}
-html body .weddingPage #weddingStoriesFinal .weddingReelMedia .weddingReelFrameOrnament::after {
+/* Match the bottom band's full-width solid cover and 3px inward overlap.
+   The central matte begins at the cropped rail endpoint on each side; its
+   side fills cover the remaining letterbox without shifting either corner. */
+html body .weddingPage #weddingStoriesFinal .weddingReel::before {
   content: none !important;
+  display: none !important;
 }
-/* Desktop stem adjustment: move artwork and matching masks together vertically. */
-@media (min-width:801px) {
-  html body .weddingPage #weddingStoriesFinal .weddingReelMedia .weddingReelFrameOrnament::before {
-    background-position: left 22px, right 22px, left calc(100% - 19px), right calc(100% - 19px) !important;
-    -webkit-mask-position: left 22px, right 22px, left calc(100% - 19px), right calc(100% - 19px) !important;
-    mask-position: left 22px, right 22px, left calc(100% - 19px), right calc(100% - 19px) !important;
+html body .weddingPage:is([data-wedding-theme="ivory"], [data-wedding-theme="light"], [data-wedding-theme="dark"])
+#weddingStoriesFinal .weddingReelMedia::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: auto !important;
+  height: 12% !important;
+  background-color: var(--reel-matte-color, var(--wedding-paper, #f1eee7)) !important;
+  background-image:
+    linear-gradient(var(--reel-matte-color, var(--wedding-paper, #f1eee7)), var(--reel-matte-color, var(--wedding-paper, #f1eee7))),
+    linear-gradient(var(--reel-matte-color, var(--wedding-paper, #f1eee7)), var(--reel-matte-color, var(--wedding-paper, #f1eee7))),
+    linear-gradient(var(--reel-matte-color, var(--wedding-paper, #f1eee7)), var(--reel-matte-color, var(--wedding-paper, #f1eee7))) !important;
+  background-position: center top, left top, right top !important;
+  background-size:
+    calc(100% - 2 * var(--reel-matte-inset)) 100%,
+    var(--reel-matte-inset) 100%,
+    var(--reel-matte-inset) 100% !important;
+  background-repeat: no-repeat !important;
+  box-shadow: 0 3px 0 0 var(--reel-matte-color, var(--wedding-paper, #f1eee7)) !important;
+  opacity: 1 !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+html body .weddingPage[data-wedding-theme="dark"] #weddingStoriesFinal .weddingReelMedia {
+  --reel-matte-color: #050505;
+}
+@media (max-width: 800px) {
+  html body .weddingPage:is([data-wedding-theme="ivory"], [data-wedding-theme="light"], [data-wedding-theme="dark"])
+  #weddingStoriesFinal .weddingReelMedia::before {
+    height: 16.4% !important;
+  }
+  html body .weddingPage:where([data-wedding-theme="ivory"], [data-wedding-theme="light"])
+  #weddingStoriesFinal .weddingReelMedia {
+    --reel-matte-color: #f1eee8;
   }
 }

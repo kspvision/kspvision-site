@@ -1,3 +1,4 @@
+import ReelBandSync from "./ReelBandSync";
 import { pageMetadata } from "../page-metadata";
 
 export const metadata = pageMetadata("/weddings", "KSP Weddings | Wedding Films & Photography", "Discover KSP Vision wedding films and photography: celebrations, personal stories and moments preserved. Tell us about your day.");
@@ -42,6 +43,7 @@ export default function WeddingsPage() {
     <section className="weddingIntro"><div><p className="kicker"><Localized en="WEDDING FILMS" fr="FILMS DE MARIAGE" /></p><h1><Localized en="More than a day." fr="Plus qu’une journée." /><br/><em><Localized en="A feeling, preserved." fr="Une émotion, préservée." /></em></h1><p><Localized en="Honest, elegant films for the moments you will want to return to." fr="Des films élégants et sincères, pour les moments auxquels vous voudrez revenir." /></p><a className="button gold" href="/booking?project=wedding"><Localized en="Tell us about your day" fr="Parlez-nous de votre journée" /> <b>↗</b></a></div><img src="/weddings/wedding-garden-wide.jpg" alt="Smith and Aureanne with their wedding party" /><WeddingThemeToggle /></section>
     <section className="weddingFilms" id="weddingStoriesFinal"><div className="weddingSectionHead"><div><p className="kicker"><Localized en="Selected celebrations" fr="Célébrations sélectionnées" /></p><h2 id="weddingStoriesTitle"><Localized en="Wedding stories" fr="Histoires de mariage" /></h2></div><p><Localized en="Honest moments. Lasting images. Films made to bring you back." fr="DES MOMENTS VRAIS. DES IMAGES QUI RESTENT. DES FILMS QUI VOUS Y RAMÈNENT." /></p></div>
       <article className="weddingReel">
+<ReelBandSync />
 <span className="weddingReelMedia">
 <WeddingReel />
 <span className="weddingReelFrameOrnament" aria-hidden="true" />
